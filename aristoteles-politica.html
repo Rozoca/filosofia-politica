@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo II — Aristóteles · Filosofía & Política</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant+SC:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --aegean:      #1a4a3a;
+      --aegean-mid:  #2d6b54;
+      --aegean-dim:  #4a9070;
+      --aegean-pale: #d4e8df;
+      --bronze:      #8b6914;
+      --bronze-mid:  #b58a1a;
+      --bronze-light:#d4a832;
+      --cream:       #f5f0e6;
+      --card-bg:     #ece6d4;
+      --card-border: #c0b48a;
+      --ink:         #141008;
+      --ink-muted:   #4a3e28;
+      --correct:     #1a5c30;
+      --correct-bg:  #e0f0e8;
+      --wrong:       #6e1a1a;
+      --wrong-bg:    #f0e0e0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content:'';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      background: var(--aegean);
+      padding: .85rem 2rem;
+      position: sticky; top: 0; z-index: 200;
+    }
+    .top-nav-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-back {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      color: var(--aegean-pale); text-decoration: none;
+      display: flex; align-items: center; gap: .4rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: #fff; }
+    .nav-title {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .25em;
+      color: rgba(255,255,255,.45);
+    }
+    .nav-badge {
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem; letter-spacing: .18em;
+      color: var(--bronze-light);
+      border: 1px solid var(--bronze);
+      padding: .18rem .5rem; border-radius: 1px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--aegean);
+      padding: 4rem 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -10%;
+      width: 55vw; height: 55vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,107,84,.5) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 900px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: 'Cormorant SC', serif;
+      font-size: .78rem; letter-spacing: .4em;
+      color: var(--bronze-light); display: block;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300; color: #fff;
+      line-height: 1; margin-bottom: 1rem;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--bronze-light);
+    }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-style: italic;
+      color: rgba(255,255,255,.65);
+      max-width: 560px; line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Impact counters */
+    .hero-stats {
+      display: flex; gap: 0;
+      border-top: 1px solid rgba(255,255,255,.12);
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      padding: 1.4rem 2.2rem 1.4rem 0;
+      margin-right: 2.2rem;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 300;
+      color: var(--bronze-light); display: block;
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem; letter-spacing: .2em;
+      color: rgba(255,255,255,.45);
+      display: block; margin-top: .3rem;
+    }
+
+    /* ── TAB NAV ── */
+    .tab-nav {
+      background: var(--aegean);
+      position: sticky; top: 44px; z-index: 150;
+      border-bottom: 2px solid rgba(255,255,255,.08);
+    }
+    .tab-nav-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tab-nav-inner::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      color: rgba(255,255,255,.45);
+      background: none; border: none;
+      padding: 1rem 1.5rem;
+      cursor: pointer; white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color .25s, border-color .25s;
+      flex-shrink: 0;
+    }
+    .tab-btn:hover { color: rgba(255,255,255,.75); }
+    .tab-btn.active {
+      color: var(--bronze-light);
+      border-bottom-color: var(--bronze-light);
+    }
+
+    /* ── CONTENT AREA ── */
+    .content-area {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: block;
+      animation: panelIn .4s ease both;
+    }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    .panel-header {
+      padding: 2.8rem 0 2rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 2.5rem;
+    }
+    .panel-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300; color: var(--ink);
+      line-height: 1.15;
+    }
+    .panel-header h2 em { color: var(--aegean-mid); font-style: italic; }
+    .panel-lead {
+      margin-top: .8rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.05rem;
+      color: var(--ink-muted); line-height: 1.7;
+    }
+
+    .section-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .75rem; letter-spacing: .3em;
+      color: var(--aegean-mid); text-transform: uppercase;
+      display: flex; align-items: center; gap: .8rem;
+      margin-bottom: 1.6rem;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--card-border);
+    }
+
+    /* ── CARDS ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: 1.6rem 1.8rem;
+    }
+    .card.full { grid-column: 1 / -1; }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 400;
+      color: var(--ink); margin-bottom: .6rem;
+    }
+    .card p, .card li {
+      font-size: .94rem; color: var(--ink-muted); line-height: 1.75;
+    }
+    .card ul { padding-left: 1.2rem; }
+    .card li { margin-bottom: .3rem; }
+    .card-icon { font-size: 1.4rem; display: block; margin-bottom: .6rem; }
+
+    /* ── HIGHLIGHT CARD ── */
+    .highlight-card {
+      background: var(--aegean);
+      border: none; border-radius: 2px;
+      padding: 2rem 2.4rem;
+      margin-bottom: 2rem;
+    }
+    .highlight-card .hc-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .25em;
+      color: var(--bronze-light); display: block;
+      margin-bottom: .7rem;
+    }
+    .highlight-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; color: #fff;
+      margin-bottom: .7rem;
+    }
+    .highlight-card p {
+      font-size: .96rem; color: rgba(255,255,255,.65);
+      line-height: 1.8; margin-bottom: .6rem;
+    }
+    .highlight-card p:last-child { margin-bottom: 0; }
+    .highlight-card strong { color: rgba(255,255,255,.9); font-weight: 400; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--aegean-mid);
+      padding: 1.8rem 2.2rem;
+      margin: 2rem 0;
+    }
+    .pull-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-style: italic;
+      color: var(--ink-muted); line-height: 1.6;
+    }
+    .pull-quote cite {
+      font-family: 'Cormorant SC', serif;
+      font-size: .7rem; letter-spacing: .2em;
+      color: var(--aegean-dim); display: block;
+      margin-top: .7rem;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2rem; margin-bottom: 2.5rem; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: .5rem; top: 0; bottom: 0;
+      width: 1px; background: var(--card-border);
+    }
+    .tl-item { position: relative; margin-bottom: 1.6rem; }
+    .tl-dot {
+      position: absolute; left: -1.65rem; top: .3rem;
+      width: 9px; height: 9px;
+      background: var(--aegean-mid); transform: rotate(45deg);
+    }
+    .tl-date {
+      font-family: 'Cormorant SC', serif;
+      font-size: .7rem; letter-spacing: .2em;
+      color: var(--aegean-dim); display: block; margin-bottom: .2rem;
+    }
+    .tl-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400; color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .tl-desc { font-size: .9rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ── KNOWLEDGE MAP ── */
+    .knowledge-map {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-bottom: 2.5rem;
+    }
+    .km-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 3px solid var(--aegean-mid);
+      padding: 1.3rem 1.4rem;
+      border-radius: 2px;
+      transition: border-top-color .25s, transform .2s, box-shadow .2s;
+    }
+    .km-item:hover {
+      border-top-color: var(--bronze-mid);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(26,74,58,.1);
+    }
+    .km-domain {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .18em;
+      color: var(--aegean-mid); display: block;
+      margin-bottom: .4rem;
+      transition: color .25s;
+    }
+    .km-item:hover .km-domain { color: var(--bronze-mid); }
+    .km-works {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem; color: var(--ink);
+      font-style: italic; margin-bottom: .4rem; display: block;
+    }
+    .km-desc { font-size: .84rem; color: var(--ink-muted); line-height: 1.6; }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-table { width: 100%; border-collapse: collapse; margin-bottom: 2.5rem; }
+    .compare-table th {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      padding: 1rem 1.2rem; text-align: left;
+      border-bottom: 2px solid var(--card-border);
+    }
+    .compare-table th.col-platon { color: #8c3a1e; background: #faf0e8; }
+    .compare-table th.col-aris   { color: var(--aegean-mid); background: #e8f0ec; }
+    .compare-table th.col-tema   { color: var(--ink-muted); background: var(--card-bg); }
+    .compare-table td {
+      padding: .9rem 1.2rem; font-size: .92rem;
+      line-height: 1.65; vertical-align: top;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table td.col-tema {
+      font-family: 'Cormorant SC', serif;
+      font-size: .7rem; letter-spacing: .15em;
+      color: var(--ink-muted); background: var(--card-bg);
+    }
+    .compare-table td.col-platon { color: var(--ink-muted); background: #faf8f4; }
+    .compare-table td.col-aris   { color: var(--ink-muted); background: #f4f8f5; }
+    .compare-table tr:hover td { filter: brightness(.97); }
+
+    /* ── CONCEPT ACCORDION ── */
+    .accordion { margin-bottom: 2.5rem; }
+    .acc-item {
+      border: 1px solid var(--card-border);
+      border-radius: 2px; margin-bottom: .6rem;
+      overflow: hidden;
+    }
+    .acc-trigger {
+      width: 100%; background: var(--card-bg);
+      border: none; padding: 1.1rem 1.4rem;
+      display: flex; justify-content: space-between;
+      align-items: center; cursor: pointer;
+      text-align: left; transition: background .2s;
+    }
+    .acc-trigger:hover { background: #e4d8c4; }
+    .acc-trigger.open { background: var(--aegean); }
+    .acc-term {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 400; color: var(--ink);
+      transition: color .2s;
+    }
+    .acc-trigger.open .acc-term { color: #fff; }
+    .acc-arrow {
+      font-size: .9rem; color: var(--aegean-dim);
+      transition: transform .3s, color .2s;
+      flex-shrink: 0; margin-left: 1rem;
+    }
+    .acc-trigger.open .acc-arrow {
+      transform: rotate(180deg);
+      color: var(--bronze-light);
+    }
+    .acc-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      padding: 0 1.4rem;
+      background: #f5f0e4;
+    }
+    .acc-body.open {
+      max-height: 400px;
+      padding: 1.2rem 1.4rem;
+    }
+    .acc-body p {
+      font-size: .94rem; color: var(--ink-muted);
+      line-height: 1.8; margin-bottom: .6rem;
+    }
+    .acc-body p:last-child { margin-bottom: 0; }
+    .acc-body strong { color: var(--ink); font-weight: 400; }
+
+    /* ── LEGACY GRID ── */
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .legacy-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-bottom: 3px solid var(--bronze-mid);
+      padding: 1.5rem 1.6rem;
+      border-radius: 2px;
+    }
+    .legacy-era {
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem; letter-spacing: .2em;
+      color: var(--bronze-mid); display: block; margin-bottom: .5rem;
+    }
+    .legacy-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400; color: var(--ink);
+      margin-bottom: .5rem;
+    }
+    .legacy-desc { font-size: .88rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ── TEST ── */
+    .test-wrap {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: 2.4rem 2.8rem;
+    }
+    .test-intro {
+      font-size: .96rem; color: var(--ink-muted);
+      margin-bottom: 2rem; line-height: 1.75;
+    }
+    .q-block { margin-bottom: 2.2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--card-border); }
+    .q-block:last-of-type { border-bottom: none; }
+    .q-number {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .2em;
+      color: var(--aegean-dim); display: block; margin-bottom: .5rem;
+    }
+    .q-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem; font-weight: 400;
+      color: var(--ink); margin-bottom: 1rem; line-height: 1.5;
+    }
+    .opts { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .opt-btn {
+      background: var(--cream);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: .75rem 1.1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .92rem; font-weight: 300;
+      color: var(--ink-muted); cursor: pointer;
+      text-align: left; width: 100%;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--aegean-mid);
+      color: var(--ink); background: #eef5f0;
+    }
+    .opt-btn.correct { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); }
+    .opt-btn.wrong   { background: var(--wrong-bg);   border-color: var(--wrong);   color: var(--wrong); }
+    .opt-btn.reveal  { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); opacity:.65; }
+    .opt-btn:disabled { cursor: default; }
+    .q-fb { margin-top: .8rem; font-size: .88rem; line-height: 1.65; display: none; }
+    .q-fb.show { display: block; }
+    .q-fb.ok   { color: var(--correct); }
+    .q-fb.fail { color: var(--wrong); }
+
+    .score-box {
+      background: var(--aegean);
+      border-radius: 2px; padding: 2.2rem 2.4rem;
+      text-align: center; margin-top: 2rem; display: none;
+    }
+    .score-box.show { display: block; animation: panelIn .4s ease both; }
+    .score-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.8rem; font-weight: 300;
+      color: var(--bronze-light); display: block; line-height: 1;
+    }
+    .score-lbl {
+      font-family: 'Cormorant SC', serif;
+      font-size: .75rem; letter-spacing: .25em;
+      color: rgba(255,255,255,.45); display: block; margin-top: .4rem; margin-bottom: 1rem;
+    }
+    .score-msg {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem;
+      color: rgba(255,255,255,.7);
+    }
+    .retry-btn {
+      margin-top: 1.4rem; background: none;
+      border: 1px solid var(--bronze-mid);
+      color: var(--bronze-light);
+      font-family: 'Cormorant SC', serif;
+      font-size: .75rem; letter-spacing: .2em;
+      padding: .6rem 1.4rem; cursor: pointer;
+      border-radius: 1px;
+      transition: background .2s, color .2s;
+    }
+    .retry-btn:hover { background: var(--bronze-mid); color: var(--aegean); }
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; background: var(--bronze-light);
+      z-index: 999; width: 0;
+      transition: width .1s linear;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--aegean);
+      padding: 1.8rem 2rem;
+    }
+    .footer-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem; color: rgba(255,255,255,.55);
+    }
+    .footer-brand strong { color: #fff; font-weight: 400; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-nav a {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .2em;
+      color: rgba(255,255,255,.45); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-nav a:hover { color: var(--bronze-light); }
+
+    /* ── MEANDER ── */
+    .meander { width: 100%; height: 14px; display: block; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .card-grid, .compare-table, .knowledge-map, .legacy-grid { grid-template-columns: 1fr; }
+      .card.full { grid-column: 1; }
+      .compare-table { font-size: .82rem; }
+      .compare-table td, .compare-table th { padding: .6rem .8rem; }
+      .test-wrap { padding: 1.5rem 1.2rem; }
+      .hero-stats { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 1rem 0; margin-right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- SVG DEFS -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <pattern id="mp" x="0" y="0" width="40" height="14" patternUnits="userSpaceOnUse">
+      <path d="M0,7 L4,7 L4,2 L12,2 L12,12 L8,12 L8,7 L16,7 L16,2 L20,2 L20,12 L24,12 L24,7 L28,7 L28,2 L36,2 L36,12 L32,12 L32,7 L40,7"
+            fill="none" stroke="#2d6b54" stroke-width="1"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal</a>
+    <span class="nav-title">Filosofía &amp; Política</span>
+    <span class="nav-badge">Módulo II</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo II · Grecia Clásica · 384–322 a.C.</span>
+    <h1 class="hero-title"><em>Aristóteles</em></h1>
+    <p class="hero-subtitle">El hombre que lo clasificó todo — y construyó los cimientos de la ciencia, la política y la ética occidental durante dos mil trescientos años</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-target="200">0</span>
+        <span class="stat-label">Obras atribuidas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="47">0</span>
+        <span class="stat-label">Obras conservadas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="2300">0</span>
+        <span class="stat-label">Años de influencia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="13">0</span>
+        <span class="stat-label">Disciplinas fundadas</span>
+      </div>
+    </div>
+  </div>
+  <svg class="meander" style="opacity:.25;margin-top:1.5rem;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <rect width="100%" height="100%" fill="url(#mp)"/>
+  </svg>
+</section>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="contexto">Contexto</button>
+    <button class="tab-btn" data-tab="vsplaton">Platón vs Aristóteles</button>
+    <button class="tab-btn" data-tab="ideas">Sus grandes ideas</button>
+    <button class="tab-btn" data-tab="politica">Política</button>
+    <button class="tab-btn" data-tab="legado">Legado</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-area">
+
+  <!-- ══ TAB: CONTEXTO ══ -->
+  <div class="tab-panel active" id="tab-contexto">
+    <div class="panel-header">
+      <h2>El hombre que <em>salió de la caverna</em> — y se quedó a estudiarla</h2>
+      <p class="panel-lead">Si Platón miraba hacia el mundo de las Ideas perfectas, Aristóteles miraba hacia abajo: a los peces, las plantas, las constituciones reales, los actos humanos concretos. Esa diferencia cambió todo.</p>
+    </div>
+
+    <p class="section-label">Quién fue</p>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-icon">🏛</span>
+        <h3>Origen y formación</h3>
+        <p>Nació en 384 a.C. en Estagira, en el norte de Grecia — de ahí su apodo "el Estagirita". Su padre era médico del rey de Macedonia, lo que explica su atracción por la biología y la observación empírica.</p>
+        <p style="margin-top:.6rem;">A los 17 años entró en la Academia de Platón en Atenas, donde estudió y enseñó durante 20 años. Era brillante, pero profundamente independiente.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">👑</span>
+        <h3>Tutor de Alejandro Magno</h3>
+        <p>En 343 a.C., el rey Filipo II de Macedonia le encargó la educación de su hijo Alejandro, entonces de 13 años. Durante tres años, Aristóteles enseñó al futuro conquistador del mundo conocido.</p>
+        <p style="margin-top:.6rem;">¿Qué transmitió? Curiosidad intelectual, amor por la medicina, respeto por la cultura griega. Alejandro llevaba siempre consigo una copia anotada de la <em>Ilíada</em> preparada por Aristóteles.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🌿</span>
+        <h3>El Liceo — La escuela que caminaba</h3>
+        <p>En 335 a.C. Aristóteles fundó su propia escuela en Atenas: el Liceo. Sus seguidores se llamaban <strong>peripatéticos</strong> — del griego <em>peripatein</em>, "pasear" — porque enseñaban mientras caminaban.</p>
+        <p style="margin-top:.6rem;">El Liceo era más que una escuela filosófica: tenía biblioteca, colecciones de especímenes naturales y se realizaba investigación sistemática en múltiples campos.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">⚡</span>
+        <h3>Un final político</h3>
+        <p>Cuando Alejandro Magno murió en 323 a.C., el sentimiento antimacedónico en Atenas se disparó. Aristóteles, asociado a Macedonia como tutor del conquistador, fue acusado de impiedad.</p>
+        <p style="margin-top:.6rem;">Recordando el destino de Sócrates, dejó Atenas con una frase memorable: <strong>"No permitiré que los atenienses pequen dos veces contra la filosofía."</strong> Murió en Calcis al año siguiente.</p>
+      </div>
+    </div>
+
+    <p class="section-label">Línea de tiempo</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">384 a.C.</span>
+        <p class="tl-title">Nace en Estagira, Macedonia</p>
+        <p class="tl-desc">Hijo del médico real Nicómaco. La medicina como práctica empírica marcaría toda su filosofía.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">367 a.C.</span>
+        <p class="tl-title">Ingresa en la Academia de Platón</p>
+        <p class="tl-desc">Pasa 20 años como estudiante y luego maestro. Platón le llama "el nous" — la inteligencia de la Academia.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">347 a.C.</span>
+        <p class="tl-title">Muere Platón. Aristóteles abandona Atenas</p>
+        <p class="tl-desc">No hereda la dirección de la Academia (la recibe el sobrino de Platón). Parte hacia Asia Menor, donde realiza investigaciones biológicas durante varios años.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">343 a.C.</span>
+        <p class="tl-title">Tutor de Alejandro Magno</p>
+        <p class="tl-desc">Tres años enseñando al príncipe macedonio. La relación entre el filósofo y el conquistador es uno de los grandes encuentros de la historia.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">335 a.C.</span>
+        <p class="tl-title">Funda el Liceo en Atenas</p>
+        <p class="tl-desc">12 años de enseñanza e investigación intensiva. La mayor parte de sus obras conocidas son apuntes de clase o resúmenes de sus lecciones.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">322 a.C.</span>
+        <p class="tl-title">Muerte en Calcis a los 62 años</p>
+        <p class="tl-desc">Huye de Atenas tras la muerte de Alejandro. Muere de enfermedad estomacal antes de que pueda ser juzgado.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB: PLATÓN VS ARISTÓTELES ══ -->
+  <div class="tab-panel" id="tab-vsplaton">
+    <div class="panel-header">
+      <h2>El gran <em>diálogo</em> — maestro contra discípulo</h2>
+      <p class="panel-lead">Aristóteles admiraba a Platón. Pero se atrevió a contradecirle en casi todo lo esencial. Esa tensión entre idealismo y empirismo es uno de los ejes de toda la historia del pensamiento occidental.</p>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Soy amigo de Platón, pero soy más amigo de la verdad."</blockquote>
+      <cite>— Atribuido a Aristóteles</cite>
+    </div>
+
+    <p class="section-label">Comparativa directa</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-tema">Tema</th>
+          <th class="col-platon">🔺 Platón</th>
+          <th class="col-aris">🌿 Aristóteles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-tema">La realidad</td>
+          <td class="col-platon">El mundo físico es una copia imperfecta del mundo de las Ideas eternas</td>
+          <td class="col-aris">No hay Ideas separadas. La realidad es el mundo físico concreto, observable</td>
+        </tr>
+        <tr>
+          <td class="col-tema">El conocimiento</td>
+          <td class="col-platon">Recuerdo de las Ideas que el alma conoció antes de nacer (reminiscencia)</td>
+          <td class="col-aris">Parte de la experiencia sensible y la observación. Primero percibir, luego abstraer</td>
+        </tr>
+        <tr>
+          <td class="col-tema">Método</td>
+          <td class="col-platon">Dialéctica: ascenso de lo concreto a las Ideas universales mediante el diálogo</td>
+          <td class="col-aris">Lógica y silogismo: razonamiento deductivo. Observación empírica sistemática</td>
+        </tr>
+        <tr>
+          <td class="col-tema">El alma</td>
+          <td class="col-platon">Inmortal, prisionera del cuerpo, aspira a reunirse con las Ideas</td>
+          <td class="col-aris">Forma del cuerpo. No existe sin él. La inmortalidad del alma es cuestionable</td>
+        </tr>
+        <tr>
+          <td class="col-tema">La política ideal</td>
+          <td class="col-platon">Ciudad gobernada por filósofos-reyes. Una, centralizada, jerarquizada</td>
+          <td class="col-aris">Varios regímenes pueden ser buenos. Estudia 158 constituciones reales. La clase media como estabilizadora</td>
+        </tr>
+        <tr>
+          <td class="col-tema">La democracia</td>
+          <td class="col-platon">Régimen peligroso: la libertad sin conocimiento lleva a la tiranía</td>
+          <td class="col-aris">Puede ser buena o mala según se ejerza. La "politeia" (gobierno constitucional) es preferible</td>
+        </tr>
+        <tr>
+          <td class="col-tema">La felicidad</td>
+          <td class="col-platon">Contemplación de las Ideas. Vida filosófica desligada del mundo</td>
+          <td class="col-aris">Eudaimonía: florecimiento en la vida activa, ejerciendo la virtud en comunidad</td>
+        </tr>
+        <tr>
+          <td class="col-tema">La ética</td>
+          <td class="col-platon">Basada en el conocimiento del Bien en sí. Absoluta y universal</td>
+          <td class="col-aris">Contextual. La virtud es el término medio entre dos extremos. Depende del carácter cultivado</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-card">
+      <span class="hc-label">La clave de la diferencia</span>
+      <h3>Arriba o abajo: la metáfora de Rafael</h3>
+      <p>En <em>La Escuela de Atenas</em> (Rafael, 1511), Platón señala hacia arriba — hacia las Ideas — y Aristóteles extiende la palma hacia abajo, hacia la tierra. Es la síntesis visual perfecta de su diferencia filosófica.</p>
+      <p>Platón pregunta: <strong>¿cómo debería ser el mundo?</strong> Aristóteles pregunta: <strong>¿cómo es el mundo?</strong> Ambas preguntas son legítimas. La tensión entre ellas genera toda la historia de la filosofía.</p>
+    </div>
+  </div>
+
+  <!-- ══ TAB: IDEAS ══ -->
+  <div class="tab-panel" id="tab-ideas">
+    <div class="panel-header">
+      <h2>Un hombre, <em>trece disciplinas</em></h2>
+      <p class="panel-lead">Aristóteles no era un filósofo especializado. Era un sistema de conocimiento completo. Fundó o sistematizó por primera vez disciplinas que antes no existían como campos separados.</p>
+    </div>
+
+    <p class="section-label">Mapa del conocimiento aristotélico</p>
+    <div class="knowledge-map">
+      <div class="km-item">
+        <span class="km-domain">Lógica</span>
+        <span class="km-works">Organon (6 tratados)</span>
+        <p class="km-desc">Inventó la lógica formal. El silogismo como herramienta de razonamiento. Base de todo el pensamiento científico.</p>
+      </div>
+      <div class="km-item">
+        <span class="km-domain">Biología</span>
+        <span class="km-works">Historia Animalium</span>
+        <p class="km-desc">Describió y clasificó más de 500 especies. Padre de la zoología. Descubrió que los delfines son mamíferos, no peces.</p>
+      </div>
+      <div class="km-item">
+        <span class="km-domain">Física</span>
+        <span class="km-works">Física · Del cielo</span>
+        <p class="km-desc">Teoría del movimiento, materia y forma, causas del cambio. Dominó la física hasta Galileo y Newton.</p>
+      </div>
+      <div class="km-item">
+        <span class="km-domain">Ética</span>
+        <span class="km-works">Ética a Nicómaco</span>
+        <p class="km-desc">La virtud como hábito. La eudaimonía (felicidad/florecimiento) como fin de la vida. El término medio.</p>
+      </div>
+      <div class="km-item">
+        <span class="km-domain">Política</span>
+        <span class="km-works">Política · Constituciones</span>
+        <p class="km-desc">Analizó 158 constituciones reales. Clasificó los regímenes políticos. Bases del pensamiento político moderno.</p>
+      </div>
+      <div class="km-item">
+        <span class="km-domain">Retórica</span>
+        <span class="km-works">Retórica</span>
+        <p class="km-desc">Arte de la persuasión: ethos (credibilidad), pathos (emoción), logos (razón). Sigue siendo el manual de comunicación más usado.</p>
+      </div>
+      <div class="km-item">
+        <span class="km-domain">Poética</span>
+        <span class="km-works">Poética</span>
+        <p class="km-desc">Teoría de la tragedia, la catarsis y la narrativa. Fundamento de toda la teoría literaria occidental.</p>
+      </div>
+      <div class="km-item">
+        <span class="km-domain">Metafísica</span>
+        <span class="km-works">Metafísica</span>
+        <p class="km-desc">Ser, sustancia, causa, forma y materia. El primer motor inmóvil. Influyó en Tomás de Aquino y la teología cristiana.</p>
+      </div>
+      <div class="km-item">
+        <span class="km-domain">Psicología</span>
+        <span class="km-works">Sobre el alma (De Anima)</span>
+        <p class="km-desc">Primera teoría sistemática sobre la mente, la percepción y la memoria. Precursor de la psicología moderna.</p>
+      </div>
+    </div>
+
+    <p class="section-label">Conceptos esenciales — profundiza</p>
+    <div class="accordion" id="accordion">
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Eudaimonía — La verdadera felicidad</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>No es placer ni riqueza. <strong>Eudaimonía</strong> se traduce habitualmente como "felicidad" pero significa más bien "florecimiento": vivir y actuar de acuerdo con la virtud, desplegando al máximo las capacidades propias.</p>
+          <p>Para Aristóteles la felicidad no es un estado interior — es una actividad. No puedes ser feliz en soledad o inactividad: la felicidad se realiza en relación con otros, en la polis, ejerciendo la virtud de forma continuada a lo largo de una vida completa.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">La virtud como término medio</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Aristóteles define la virtud como el <strong>término medio entre dos vicios extremos</strong>: uno por exceso y otro por defecto. La valentía es el término medio entre la cobardía (defecto) y la temeridad (exceso). La generosidad, entre la avaricia y el derroche.</p>
+          <p>Este "término medio" no es una media aritmética — es el punto adecuado según la persona, la situación y el momento. La ética aristotélica no da reglas fijas: exige criterio y buen juicio (<em>phronesis</em>). Eso la hace infinitamente más compleja —y más realista— que los sistemas de reglas absolutas.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Las cuatro causas — Por qué existe algo</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Aristóteles propone cuatro tipos de explicación causal para cualquier cosa que exista o suceda. Usando el ejemplo de una estatua: <strong>causa material</strong> (el mármol del que está hecha), <strong>causa formal</strong> (la forma que le da el escultor), <strong>causa eficiente</strong> (el escultor que la talla) y <strong>causa final</strong> (el propósito para el que se crea: decorar un templo, recordar a alguien).</p>
+          <p>La <strong>causa final</strong> — el propósito, el "para qué" — es la más importante para Aristóteles. Todo en la naturaleza tiene un fin. Esta visión teleológica dominó la ciencia occidental hasta la revolución científica del siglo XVII.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">La lógica — El motor del pensamiento científico</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Aristóteles inventó la lógica formal — el estudio de las reglas del razonamiento válido, independientemente del contenido. Su herramienta principal es el <strong>silogismo</strong>: "Todos los hombres son mortales / Sócrates es hombre / por tanto Sócrates es mortal."</p>
+          <p>Durante 2.000 años, la lógica aristotélica fue <em>la</em> lógica. Hasta que Frege y Russell desarrollaron la lógica simbólica moderna en el siglo XIX. Pero los principios básicos — no contradicción, tercero excluido — siguen siendo el esqueleto de todo razonamiento riguroso.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">El silogismo y la IA — Una conexión inesperada</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Los sistemas de <strong>lógica formal</strong> que Aristóteles desarrolló son el antepasado directo de la programación lógica, los sistemas expertos y parte de la inteligencia artificial. El lenguaje Prolog, usado en IA simbólica, es esencialmente silogismo computarizado.</p>
+          <p>Más profundamente: la pregunta aristotélica sobre qué <em>hace</em> que un razonamiento sea válido — independientemente de quién lo realice — es exactamente la pregunta que hoy hacemos sobre si un sistema de IA razona bien o simplemente produce resultados plausibles. Aristóteles preguntó primero.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB: POLÍTICA ══ -->
+  <div class="tab-panel" id="tab-politica">
+    <div class="panel-header">
+      <h2>Aristóteles <em>político</em> — El hombre que estudió la realidad</h2>
+      <p class="panel-lead">Mientras Platón diseñó la ciudad ideal, Aristóteles estudió las ciudades reales. Analizó 158 constituciones. Su conclusión: no hay un sistema perfecto — hay sistemas mejores y peores según las circunstancias.</p>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"El hombre es, por naturaleza, un animal político."</blockquote>
+      <cite>— Aristóteles, Política · Libro I</cite>
+    </div>
+
+    <p class="section-label">La frase más influyente de la filosofía política</p>
+    <div class="card-grid">
+      <div class="card full">
+        <h3>Zoon politikon — ¿Qué significa realmente?</h3>
+        <p>La traducción habitual es "animal político" pero <em>politikon</em> significa más precisamente "ser de la polis", es decir, un ser que solo puede desarrollarse plenamente en comunidad organizada. No es una opción: es una necesidad biológica y moral.</p>
+        <p style="margin-top:.7rem;">Aristóteles añade: "quien puede vivir fuera de la polis es o una bestia o un dios." No hay término medio humano. El aislamiento total destruye al ser humano. La política no es algo que elegimos — es algo que somos.</p>
+        <p style="margin-top:.7rem;"><strong>Implicación política directa:</strong> si el ser humano es por naturaleza un animal político, entonces la participación en la vida pública no es un derecho opcional — es una dimensión constitutiva de una vida plena. La apatía política es, para Aristóteles, una forma de amputación.</p>
+      </div>
+    </div>
+
+    <p class="section-label">Los regímenes políticos — La clasificación aristotélica</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>El criterio de clasificación</h3>
+        <p>Aristóteles clasifica los regímenes según dos variables: <strong>¿cuántos gobiernan?</strong> (uno, pocos, muchos) y <strong>¿para quién gobiernan?</strong> (para el bien común o para su propio interés).</p>
+        <p style="margin-top:.6rem;">Esto da seis formas: tres "rectas" (gobiernan para el bien común) y tres "desviadas" (gobiernan para su propio beneficio).</p>
+      </div>
+      <div class="card">
+        <h3>Los seis regímenes</h3>
+        <ul>
+          <li><strong>Monarquía</strong> → bien común / un solo gobernante</li>
+          <li><strong>Tiranía</strong> → beneficio propio / un solo gobernante</li>
+          <li><strong>Aristocracia</strong> → bien común / pocos gobernantes</li>
+          <li><strong>Oligarquía</strong> → beneficio propio / pocos gobernantes</li>
+          <li><strong>Politeia</strong> → bien común / muchos gobernantes</li>
+          <li><strong>Democracia</strong> → beneficio propio / muchos gobernantes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">La propuesta de Aristóteles</span>
+      <h3>La Politeia y el papel de la clase media</h3>
+      <p>Aristóteles prefiere la <strong>politeia</strong> — una constitución mixta que combina elementos de oligarquía y democracia. La clave estabilizadora es la <strong>clase media</strong>: ni tan rica que desprecie a los demás, ni tan pobre que sea fácilmente corrompida.</p>
+      <p>Esta idea — que la estabilidad política depende de una clase media amplia — ha tenido una vigencia extraordinaria. Está en la base de la economía política moderna, en los argumentos a favor del estado de bienestar y en el análisis de por qué las sociedades muy desiguales son políticamente inestables.</p>
+    </div>
+
+    <div class="highlight-card" style="background: linear-gradient(135deg, #1a3a2a 0%, #1a4a3a 100%);">
+      <span class="hc-label">🤖 Relevancia en la era de la IA</span>
+      <h3>Aristóteles y la crisis de la clase media digital</h3>
+      <p>La automatización está erosionando la clase media en las economías avanzadas. Si la estabilidad política depende de una clase media amplia, y si la IA destruye los empleos de clase media más rápido que crea nuevos, estamos ante un riesgo aristotélico de primer orden.</p>
+      <p>La pregunta no es solo económica: es <strong>quién tiene tiempo, educación y seguridad para participar activamente en la vida política</strong>. Aristóteles ya sabía que la pobreza extrema y la riqueza extrema producen ciudadanos que no deliberan — obedecen o mandan. Sin clase media deliberativa, la politeia colapsa.</p>
+    </div>
+  </div>
+
+  <!-- ══ TAB: LEGADO ══ -->
+  <div class="tab-panel" id="tab-legado">
+    <div class="panel-header">
+      <h2>El pensador que <em>nunca se fue</em></h2>
+      <p class="panel-lead">Aristóteles no es historia antigua. Está en la estructura lógica del derecho moderno, en la biología que aprendemos en la escuela, en la Tomás de Aquino y el derecho natural, en la retórica de cada campaña política. La pregunta no es si sigue influyendo — es si podemos pensar sin él.</p>
+    </div>
+
+    <p class="section-label">2.300 años de influencia — por épocas</p>
+    <div class="legacy-grid">
+      <div class="legacy-card">
+        <span class="legacy-era">S. I a.C. – V d.C.</span>
+        <p class="legacy-title">Roma y el mundo tardoantiguo</p>
+        <p class="legacy-desc">Cicerón y los estoicos incorporan su ética. Sus textos se copian y comentan en todo el Mediterráneo. La retórica aristotélica define la oratoria romana.</p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">S. IX – XII d.C.</span>
+        <p class="legacy-title">El islam preserva a Aristóteles</p>
+        <p class="legacy-desc">Mientras Europa los olvida, Al-Kindi, Al-Farabi, Averroes y Avicena traducen, comentan y desarrollan su obra. Sin el islam, Aristóteles se pierde para Occidente.</p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">S. XIII d.C.</span>
+        <p class="legacy-title">Tomás de Aquino — La síntesis cristiana</p>
+        <p class="legacy-desc">Aquino integra a Aristóteles con el cristianismo. "El Filósofo" (así, con mayúscula) se convierte en autoridad intelectual suprema de la Edad Media. Su influencia llega hasta hoy en el derecho natural católico.</p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">S. XVI – XVII</span>
+        <p class="legacy-title">La revolución científica — Contra Aristóteles</p>
+        <p class="legacy-desc">Galileo, Copérnico y Newton desmontan su física y su cosmología. Paradójicamente, lo hacen usando su método empírico. Le superan con sus propias herramientas.</p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">S. XVIII – XIX</span>
+        <p class="legacy-title">Política y ética modernas</p>
+        <p class="legacy-desc">Montesquieu retoma la clasificación de regímenes. Hamilton y Madison citan a Aristóteles en El Federalista. Marx critica su justificación de la esclavitud. Su sombra está en toda la teoría política.</p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">S. XX – hoy</span>
+        <p class="legacy-title">Renacimiento aristotélico</p>
+        <p class="legacy-desc">La ética de la virtud (MacIntyre, Nussbaum) revive frente al utilitarismo y el kantismo. La biología y la psicología redescubren su empirismo. El concepto de eudaimonía inspira la psicología positiva.</p>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">La pregunta final</span>
+      <h3>¿Qué nos falta hoy que Aristóteles tenía?</h3>
+      <p>Tres cosas que se pierden en el mundo digital y que Aristóteles consideraba esenciales para la vida política y ética:</p>
+      <p><strong>Phronesis</strong> — Sabiduría práctica: saber qué hacer en cada situación concreta, no solo aplicar reglas. Un algoritmo puede optimizar; no puede tener phronesis.</p>
+      <p><strong>Deliberación</strong> — El proceso de pensar colectivamente sobre lo que es bueno para la comunidad. La democracia no es votar: es deliberar. Las redes sociales maximizan la opinión; destruyen la deliberación.</p>
+      <p><strong>Telos</strong> — Propósito. Aristóteles preguntaba "¿para qué?" de todo. En la era de la IA, producimos capacidades extraordinarias sin preguntarnos para qué las queremos. La pregunta aristotélica por el fin sigue sin respuesta.</p>
+    </div>
+  </div>
+
+  <!-- ══ TAB: TEST ══ -->
+  <div class="tab-panel" id="tab-test">
+    <div class="panel-header">
+      <h2>Test — <em>15 preguntas</em> sobre Aristóteles</h2>
+      <p class="panel-lead">Consolida lo aprendido. Cada pregunta incluye explicación tras responder.</p>
+    </div>
+    <div class="test-wrap">
+      <p class="test-intro">Opción única por pregunta. Responde todas para ver tu puntuación final.</p>
+      <div id="quiz-container"></div>
+      <div class="score-box" id="score-box">
+        <span class="score-num" id="score-num"></span>
+        <span class="score-lbl">respuestas correctas de 15</span>
+        <p class="score-msg" id="score-msg"></p>
+        <button class="retry-btn" onclick="resetQuiz()">Reintentar el test</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content-area -->
+
+<svg class="meander" style="opacity:.2;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <rect width="100%" height="100%" fill="url(#mp)"/>
+</svg>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía &amp; Política</div>
+    <nav class="footer-nav">
+      <a href="index.html">← Portal</a>
+      <a href="grecia-socrates-platon.html">← Módulo I</a>
+      <a href="https://github.com/Rozoca" target="_blank" rel="noopener">github.com/Rozoca</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// ── PROGRESS BAR ──
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el, target, duration) {
+  let start = null;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    el.textContent = Math.floor(progress * target);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(step);
+}
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('[data-target]').forEach(el => {
+    animateCounter(el, parseInt(el.dataset.target), 1800);
+  });
+});
+
+// ── TABS ──
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + target).classList.add('active');
+    window.scrollTo({ top: document.querySelector('.tab-nav').offsetTop - 44, behavior: 'smooth' });
+    if (target === 'test' && document.getElementById('quiz-container').children.length === 0) buildQuiz();
+  });
+});
+
+// ── ACCORDION ──
+function toggleAcc(trigger) {
+  const body = trigger.nextElementSibling;
+  const isOpen = trigger.classList.contains('open');
+  document.querySelectorAll('.acc-trigger.open').forEach(t => {
+    t.classList.remove('open');
+    t.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    trigger.classList.add('open');
+    body.classList.add('open');
+  }
+}
+
+// ── QUIZ ──
+const questions = [
+  {
+    q: "¿En qué ciudad nació Aristóteles?",
+    opts: ["Atenas","Corinto","Estagira, Macedonia","Alejandría"],
+    correct: 2,
+    exp: "Aristóteles nació en Estagira, una ciudad del norte de Grecia (Macedonia). De ahí su apodo 'el Estagirita'. Su padre era médico del rey macedónico."
+  },
+  {
+    q: "¿Cuántos años pasó Aristóteles en la Academia de Platón?",
+    opts: ["5 años","10 años","20 años","30 años"],
+    correct: 2,
+    exp: "Aristóteles ingresó en la Academia a los 17 años y permaneció allí durante 20 años, primero como estudiante y luego como maestro, hasta la muerte de Platón en 347 a.C."
+  },
+  {
+    q: "¿A quién enseñó Aristóteles entre 343 y 340 a.C. aproximadamente?",
+    opts: ["Alejandro Magno","El rey Filipo II de Macedonia","Epicuro","Teofrasto"],
+    correct: 0,
+    exp: "Aristóteles fue contratado por el rey Filipo II para educar a su hijo, el príncipe Alejandro, quien después se convertiría en Alejandro Magno, conquistador de Persia, Egipto e India."
+  },
+  {
+    q: "¿Qué significa 'peripatéticos' como nombre de los seguidores de Aristóteles?",
+    opts: ["Los que meditan en silencio","Los que enseñan caminando","Los que estudian a los animales","Los que rechazan a Platón"],
+    correct: 1,
+    exp: "Del griego 'peripatein' que significa 'pasear'. Aristóteles enseñaba mientras caminaba por el Liceo. Sus seguidores tomaron este nombre por esa práctica característica."
+  },
+  {
+    q: "¿Cuál es la diferencia fundamental entre Platón y Aristóteles respecto al conocimiento?",
+    opts: ["Platón defiende la experiencia sensible; Aristóteles las Ideas eternas","Para Platón el conocimiento parte de la observación; para Aristóteles de la reminiscencia del alma","Para Platón el conocimiento verdadero es de las Ideas eternas; para Aristóteles parte de la experiencia sensible","No tienen diferencias significativas en epistemología"],
+    correct: 2,
+    exp: "Esta es la diferencia central. Platón cree que el conocimiento verdadero es reminiscencia de las Ideas que el alma conoció antes de nacer. Aristóteles invierte esto: el conocimiento comienza con los sentidos y la experiencia, de donde se abstraen los universales."
+  },
+  {
+    q: "¿Qué significa 'eudaimonía' en la ética aristotélica?",
+    opts: ["Placer sensorial máximo","Obediencia a las leyes divinas","Florecimiento o vida lograda ejerciendo la virtud","Tranquilidad interior y ausencia de perturbaciones"],
+    correct: 2,
+    exp: "Eudaimonía se traduce como 'felicidad' pero significa más precisamente 'florecimiento' o 'vida lograda'. Para Aristóteles es la actividad del alma conforme a la virtud a lo largo de una vida completa. No es un estado pasivo sino una actividad."
+  },
+  {
+    q: "Según Aristóteles, la virtud ética es:",
+    opts: ["Seguir las reglas divinas sin excepción","El término medio entre un exceso y un defecto","La capacidad de contemplar las Ideas perfectas","La obediencia al gobernante sabio"],
+    correct: 1,
+    exp: "Aristóteles define la virtud como el 'término medio' (mesotes) entre dos extremos viciosos. La valentía es el medio entre cobardía y temeridad; la generosidad entre avaricia y prodigalidad. Este medio no es fijo — depende de la persona y la situación."
+  },
+  {
+    q: "¿Cuántas constituciones reales estudió Aristóteles para elaborar su teoría política?",
+    opts: ["12","50","158","300"],
+    correct: 2,
+    exp: "Aristóteles y su escuela recopilaron y analizaron 158 constituciones de ciudades griegas. Solo se ha conservado la Constitución de los Atenienses. Este estudio empírico distingue radicalmente su política de la de Platón."
+  },
+  {
+    q: "¿Qué entiende Aristóteles por 'el hombre es un animal político' (zoon politikon)?",
+    opts: ["Que los hombres son naturalmente agresivos y combativos","Que el ser humano solo puede desarrollarse plenamente en comunidad organizada","Que todos los hombres aspiran naturalmente al poder","Que la política es el oficio más noble"],
+    correct: 1,
+    exp: "Aristóteles dice que el ser humano necesita la polis para realizarse plenamente. No es una elección: 'quien puede vivir fuera de la polis es o una bestia o un dios'. La comunidad política es una necesidad natural del ser humano."
+  },
+  {
+    q: "En la clasificación aristotélica de regímenes, ¿cuál es la diferencia entre 'politeia' y 'democracia'?",
+    opts: ["La politeia tiene más ciudadanos que la democracia","La politeia gobierna para el bien común; la democracia para el beneficio de los pobres (la mayoría)","La democracia es más justa que la politeia","No hay diferencia real entre ambos términos"],
+    correct: 1,
+    exp: "Para Aristóteles, la 'politeia' es el gobierno de los muchos para el bien común — un régimen recto. La 'democracia' es su versión desviada: los muchos gobiernan en su propio interés, a expensas de los ricos y del bien general. Hoy usamos 'democracia' en el sentido positivo que Aristóteles daba a 'politeia'."
+  },
+  {
+    q: "¿Qué papel le da Aristóteles a la clase media en la estabilidad política?",
+    opts: ["Ninguno — solo importan los filósofos y los militares","Es el elemento estabilizador: ni tan rica que desprecie a los demás, ni tan pobre que sea corruptible","La clase media debe ser eliminada para lograr la igualdad","Es una amenaza para el orden establecido"],
+    correct: 1,
+    exp: "Para Aristóteles la clase media amplia es el fundamento de la estabilidad política. Los ricos tienden a la oligarquía; los pobres, a la demagogia. La clase media puede obedecer y mandar moderadamente. Una sociedad polarizada sin clase media es políticamente inestable."
+  },
+  {
+    q: "¿Cuál fue la contribución de los filósofos islámicos medievales a la herencia aristotélica?",
+    opts: ["La rechazaron por incompatible con el islam","Tradujeron, comentaron y preservaron sus obras cuando Europa las había olvidado","La simplificaron eliminando las partes más complejas","La introdujeron por primera vez en Europa directamente desde Grecia"],
+    correct: 1,
+    exp: "Durante los siglos IX-XII, filósofos como Averroes (Ibn Rushd), Avicena (Ibn Sina) y Al-Farabi tradujeron al árabe y comentaron extensamente a Aristóteles. Sin esta preservación islámica, gran parte de la obra aristotélica se hubiera perdido para Occidente."
+  },
+  {
+    q: "¿Qué es la 'phronesis' aristotélica?",
+    opts: ["La capacidad de contemplar las verdades eternas","La sabiduría práctica: saber qué hacer en cada situación concreta según las circunstancias","El conocimiento teórico de la filosofía","La virtud de ser generoso con los demás"],
+    correct: 1,
+    exp: "Phronesis es la virtud intelectual práctica: el buen juicio para actuar correctamente en situaciones concretas. No es saber reglas generales — es saber aplicarlas bien según el contexto. Aristóteles la considera la virtud intelectual más importante para la vida política y ética."
+  },
+  {
+    q: "¿Cómo murió Aristóteles y por qué abandonó Atenas?",
+    opts: ["Fue ejecutado como Sócrates, acusado de impiedad","Huyó de Atenas tras ser acusado de impiedad después de la muerte de Alejandro Magno, y murió de enfermedad al poco tiempo","Fue asesinado por orden de los macedonios","Murió en el Liceo de vejez rodeado de sus discípulos"],
+    correct: 1,
+    exp: "Tras la muerte de Alejandro en 323 a.C., el sentimiento antimacedónico creció en Atenas. Aristóteles fue acusado de impiedad. Recordando el destino de Sócrates, huyó a Calcis diciendo que no permitiría a los atenienses 'pecar dos veces contra la filosofía'. Murió allí en 322 a.C."
+  },
+  {
+    q: "¿Qué tienen en común la pregunta aristotélica por el 'telos' (propósito) y los debates actuales sobre inteligencia artificial?",
+    opts: ["Nada; son temas completamente independientes","La IA ya ha respondido la pregunta aristotélica sobre el propósito","Desarrollamos capacidades tecnológicas extraordinarias sin preguntarnos para qué las queremos, exactamente la pregunta aristotélica que queda sin responder","Aristóteles rechazaría la IA por atentar contra la naturaleza humana"],
+    correct: 2,
+    exp: "Aristóteles insistía en que toda cosa tiene un fin (telos) y que entender ese fin es esencial para actuar bien. Hoy construimos sistemas de IA de capacidad creciente sin un consenso claro sobre para qué los queremos y qué tipo de sociedad queremos construir con ellos. La pregunta aristotélica 'para qué' sigue siendo la más urgente y la menos respondida."
+  }
+];
+
+let answered = [];
+
+function buildQuiz() {
+  const c = document.getElementById('quiz-container');
+  c.innerHTML = '';
+  answered = new Array(questions.length).fill(false);
+  document.getElementById('score-box').classList.remove('show');
+  questions.forEach((q, i) => {
+    const b = document.createElement('div');
+    b.className = 'q-block'; b.id = 'q-' + i;
+    b.innerHTML = `
+      <span class="q-number">Pregunta ${i+1} de ${questions.length}</span>
+      <p class="q-text">${q.q}</p>
+      <ul class="opts">
+        ${q.opts.map((o,j) => `<li><button class="opt-btn" onclick="answer(${i},${j})" id="opt-${i}-${j}">${String.fromCharCode(65+j)}. ${o}</button></li>`).join('')}
+      </ul>
+      <div class="q-fb" id="fb-${i}"></div>`;
+    c.appendChild(b);
+  });
+}
+
+function answer(qi, oi) {
+  if (answered[qi]) return;
+  answered[qi] = true;
+  const q = questions[qi];
+  const ok = oi === q.correct;
+  q.opts.forEach((_,j) => {
+    const b = document.getElementById(`opt-${qi}-${j}`);
+    b.disabled = true;
+    if (j === q.correct) b.classList.add(ok && j === oi ? 'correct' : 'reveal');
+  });
+  if (!ok) document.getElementById(`opt-${qi}-${oi}`).classList.add('wrong');
+  const fb = document.getElementById(`fb-${qi}`);
+  fb.textContent = (ok ? '✓ Correcto. ' : '✗ Incorrecto. ') + q.exp;
+  fb.className = `q-fb show ${ok ? 'ok' : 'fail'}`;
+  if (answered.every(Boolean)) showScore();
+}
+
+function showScore() {
+  const correct = questions.reduce((a,q,i) => {
+    const b = document.getElementById(`opt-${i}-${q.correct}`);
+    return a + (b && b.classList.contains('correct') ? 1 : 0);
+  }, 0);
+  document.getElementById('score-num').textContent = `${correct}/15`;
+  const msgs = [[0,5,"Repasa el módulo — hay mucho que aprovechar."],[6,9,"Buena base. Algunos conceptos merecen más atención."],[10,12,"Dominas bien a Aristóteles. Preparado para el siguiente módulo."],[13,15,"Excelente. Aristóteles estaría satisfecho con este nivel de phronesis."]];
+  const msg = msgs.find(([mn,mx]) => correct >= mn && correct <= mx);
+  document.getElementById('score-msg').textContent = msg ? msg[2] : '';
+  document.getElementById('score-box').classList.add('show');
+  document.getElementById('score-box').scrollIntoView({ behavior:'smooth', block:'center' });
+}
+
+function resetQuiz() {
+  buildQuiz();
+  document.querySelector('.test-wrap').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+</script>
+</body>
+</html>
