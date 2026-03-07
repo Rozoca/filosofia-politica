@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo I — Sócrates y Platón · Filosofía & Política</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --parchment:  #f4ead8;
+      --papyrus:    #ede0c4;
+      --card-bg:    #efe5ce;
+      --card-border:#c8b48a;
+      --terra:      #8c3a1e;
+      --terra-mid:  #b04d28;
+      --terra-dim:  #c47a50;
+      --ink:        #1e1408;
+      --ink-muted:  #5a4530;
+      --disabled-text:#9a8a6e;
+      --correct:    #2d6e3e;
+      --correct-bg: #e8f5ec;
+      --wrong:      #8c1e1e;
+      --wrong-bg:   #f5e8e8;
+      --neutral-bg: #e8e0cc;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--parchment);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--papyrus);
+      border-bottom: 1px solid var(--card-border);
+      padding: .9rem 2rem;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-inner {
+      max-width: 820px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-back {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      color: var(--terra-mid); text-decoration: none;
+      display: flex; align-items: center; gap: .4rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--terra); }
+    .nav-title {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .25em;
+      color: var(--ink-muted);
+    }
+    .nav-module-badge {
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem; letter-spacing: .18em;
+      color: var(--terra-mid);
+      border: 1px solid var(--terra-dim);
+      padding: .18rem .5rem; border-radius: 1px;
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      max-width: 820px; margin: 0 auto;
+      padding: 0 2rem 4rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .module-eyebrow {
+      font-family: 'Cormorant SC', serif;
+      font-size: .8rem; letter-spacing: .35em;
+      color: var(--terra-mid); display: block; margin-bottom: .8rem;
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300; color: var(--ink); line-height: 1.1;
+    }
+    .page-header h1 em { color: var(--terra); font-style: italic; }
+    .page-subtitle {
+      margin-top: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── MEANDER ── */
+    .meander { width: 100%; height: 16px; display: block; opacity: .5; margin: 1.5rem 0; }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .78rem; letter-spacing: .3em;
+      color: var(--terra-mid); text-transform: uppercase;
+      display: flex; align-items: center; gap: .8rem;
+      margin-bottom: 1.8rem;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--card-border); }
+
+    /* ── CONTEXT BLOCK ── */
+    .context-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .context-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: 1.6rem 1.8rem;
+    }
+    .context-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 400;
+      color: var(--ink); margin-bottom: .6rem;
+    }
+    .context-card p, .context-card li {
+      font-size: .95rem; color: var(--ink-muted); line-height: 1.75;
+    }
+    .context-card ul { padding-left: 1.2rem; }
+    .context-card li { margin-bottom: .3rem; }
+    .context-card.full { grid-column: 1 / -1; }
+    .context-card .card-icon {
+      font-size: 1.5rem; margin-bottom: .7rem; display: block;
+      color: var(--terra-dim);
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute; left: .5rem; top: 0; bottom: 0;
+      width: 1px; background: var(--card-border);
+    }
+    .tl-item {
+      position: relative; margin-bottom: 1.6rem;
+    }
+    .tl-dot {
+      position: absolute; left: -1.65rem; top: .35rem;
+      width: 9px; height: 9px;
+      background: var(--terra-mid); transform: rotate(45deg);
+    }
+    .tl-date {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      color: var(--terra-dim); display: block; margin-bottom: .2rem;
+    }
+    .tl-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400; color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .tl-desc { font-size: .9rem; color: var(--ink-muted); }
+
+    /* ── CONCEPT CARDS ── */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .concept-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--terra-mid);
+      border-radius: 2px;
+      padding: 1.5rem 1.6rem;
+    }
+    .concept-term {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 400; color: var(--terra);
+      margin-bottom: .4rem; display: block;
+    }
+    .concept-def { font-size: .92rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: 2rem 2.4rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .pull-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-style: italic;
+      color: var(--ink-muted); line-height: 1.6;
+    }
+    .pull-quote cite {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      color: var(--terra-dim); display: block; margin-top: .8rem;
+    }
+
+    /* ── PROSE SECTIONS ── */
+    .prose-section {
+      margin-bottom: 3rem;
+    }
+    .prose-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem; font-weight: 400; color: var(--ink);
+      margin-bottom: .8rem;
+    }
+    .prose-section p {
+      font-size: 1rem; color: var(--ink-muted);
+      line-height: 1.85; margin-bottom: 1rem;
+    }
+    .prose-section p strong {
+      color: var(--ink); font-weight: 500;
+    }
+
+    /* ── POLITICAL CONNECTION BOX ── */
+    .politics-box {
+      background: linear-gradient(135deg, #ede0c4 0%, #e8d8b8 100%);
+      border: 1px solid var(--terra-dim);
+      border-radius: 2px;
+      padding: 2rem 2.4rem;
+      margin: 2rem 0 3rem;
+    }
+    .politics-box .box-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .25em;
+      color: var(--terra); display: block; margin-bottom: .8rem;
+    }
+    .politics-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; color: var(--ink);
+      margin-bottom: .8rem;
+    }
+    .politics-box p {
+      font-size: .96rem; color: var(--ink-muted); line-height: 1.8;
+      margin-bottom: .7rem;
+    }
+    .politics-box p:last-child { margin-bottom: 0; }
+
+    /* ── TEST SECTION ── */
+    .test-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: 2.5rem 2.8rem;
+      margin-top: 1rem;
+    }
+    .test-intro {
+      font-size: .96rem; color: var(--ink-muted);
+      margin-bottom: 2rem; line-height: 1.75;
+    }
+
+    .question-block {
+      margin-bottom: 2.2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .question-block:last-of-type { border-bottom: none; }
+
+    .q-number {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .2em;
+      color: var(--terra-dim); display: block; margin-bottom: .5rem;
+    }
+    .q-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem; font-weight: 400; color: var(--ink);
+      margin-bottom: 1rem; line-height: 1.5;
+    }
+    .options-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: .5rem;
+    }
+    .option-btn {
+      background: var(--parchment);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: .75rem 1.1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .92rem; font-weight: 300;
+      color: var(--ink-muted);
+      cursor: pointer; text-align: left;
+      transition: border-color .2s, color .2s, background .2s;
+      width: 100%;
+    }
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--terra-mid);
+      color: var(--ink);
+      background: #f0e8d8;
+    }
+    .option-btn.correct {
+      background: var(--correct-bg);
+      border-color: var(--correct);
+      color: var(--correct);
+    }
+    .option-btn.wrong {
+      background: var(--wrong-bg);
+      border-color: var(--wrong);
+      color: var(--wrong);
+    }
+    .option-btn.reveal-correct {
+      background: var(--correct-bg);
+      border-color: var(--correct);
+      color: var(--correct);
+      opacity: .7;
+    }
+    .option-btn:disabled { cursor: default; }
+
+    .q-feedback {
+      margin-top: .8rem;
+      font-size: .88rem; line-height: 1.65;
+      display: none;
+    }
+    .q-feedback.show { display: block; }
+    .q-feedback.ok { color: var(--correct); }
+    .q-feedback.fail { color: var(--wrong); }
+
+    /* ── SCORE ── */
+    .score-box {
+      background: var(--papyrus);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: 2rem 2.4rem;
+      text-align: center;
+      margin-top: 2rem;
+      display: none;
+    }
+    .score-box.show { display: block; }
+    .score-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem; font-weight: 300; color: var(--terra);
+      display: block; line-height: 1;
+    }
+    .score-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .78rem; letter-spacing: .25em;
+      color: var(--ink-muted); display: block;
+      margin-top: .4rem; margin-bottom: 1rem;
+    }
+    .score-msg {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.15rem;
+      color: var(--ink-muted);
+    }
+    .retry-btn {
+      margin-top: 1.4rem;
+      background: none;
+      border: 1px solid var(--terra-mid);
+      color: var(--terra-mid);
+      font-family: 'Cormorant SC', serif;
+      font-size: .75rem; letter-spacing: .2em;
+      padding: .6rem 1.4rem; cursor: pointer;
+      border-radius: 1px;
+      transition: background .2s, color .2s;
+    }
+    .retry-btn:hover { background: var(--terra-mid); color: var(--parchment); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 0 2.5rem;
+      margin-top: 2rem;
+    }
+    .footer-inner {
+      max-width: 820px; margin: 0 auto; padding: 0 2rem;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem; color: var(--ink-muted);
+    }
+    .footer-brand strong { color: var(--ink); font-weight: 400; }
+    .footer-nav {
+      display: flex; gap: 1.5rem;
+    }
+    .footer-nav a {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .2em;
+      color: var(--ink-muted); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-nav a:hover { color: var(--terra); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { animation: fadeUp .6s ease both; }
+    .prose-section, .context-grid, .concept-grid, .test-section { animation: fadeUp .6s .1s ease both; }
+
+    @media (max-width: 600px) {
+      .context-grid, .concept-grid { grid-template-columns: 1fr; }
+      .context-card.full { grid-column: 1; }
+      .test-section { padding: 1.5rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG MEANDER DEF -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <pattern id="meander-pat" x="0" y="0" width="40" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0,8 L4,8 L4,3 L12,3 L12,13 L8,13 L8,8 L16,8 L16,3 L20,3 L20,13 L24,13 L24,8 L28,8 L28,3 L36,3 L36,13 L32,13 L32,8 L40,8"
+            fill="none" stroke="#8c3a1e" stroke-width="1.1"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">← Volver al portal</a>
+    <span class="nav-title">Filosofía &amp; Política</span>
+    <span class="nav-module-badge">Módulo I</span>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <!-- ── PAGE HEADER ── -->
+  <header class="page-header">
+    <span class="module-eyebrow">Módulo I · Grecia Clásica · s. V–IV a.C.</span>
+    <h1><em>Sócrates</em> y <em>Platón</em></h1>
+    <p class="page-subtitle">El origen del pensamiento político occidental — y por qué sigue importando hoy</p>
+    <svg class="meander" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <rect width="100%" height="100%" fill="url(#meander-pat)"/>
+    </svg>
+  </header>
+
+  <!-- ══════════════════════════════════
+       BLOQUE 1: CONTEXTO HISTÓRICO
+  ══════════════════════════════════ -->
+  <section class="prose-section">
+    <p class="section-label">Contexto histórico</p>
+
+    <div class="context-grid">
+      <div class="context-card">
+        <span class="card-icon">🏛</span>
+        <h3>Atenas en el siglo V a.C.</h3>
+        <p>La Atenas de Sócrates y Platón no era un remanso de paz. Era una ciudad que acababa de inventar la democracia, ganado dos guerras contra Persia y perdido una guerra larga y devastadora contra Esparta (la Guerra del Peloponeso, 431–404 a.C.).</p>
+        <p>Esta derrota provocó una crisis política profunda: ¿era la democracia el mejor sistema? ¿Podía sobrevivir a sus propios errores? Esas preguntas están en el origen de toda la filosofía política griega.</p>
+      </div>
+      <div class="context-card">
+        <span class="card-icon">⚖️</span>
+        <h3>La democracia ateniense</h3>
+        <p>No era como la actual. Participaban directamente los ciudadanos varones libres (unos 30.000 sobre una población de ~300.000). Las decisiones se tomaban en la Asamblea por votación.</p>
+        <ul>
+          <li>No había representantes — votaban todos</li>
+          <li>Los cargos se elegían por sorteo</li>
+          <li>Cualquier ciudadano podía hablar y proponer leyes</li>
+          <li>El exilio y la condena a muerte eran herramientas políticas</li>
+        </ul>
+      </div>
+      <div class="context-card full">
+        <span class="card-icon">🔗</span>
+        <h3>Por qué nació la filosofía política aquí</h3>
+        <p>Cuando el poder está en manos de muchos, surge la pregunta inevitable: <strong>¿quién sabe realmente cómo gobernar?</strong> Un carpintero no decide por votación cómo construir un barco. ¿Por qué decidimos por votación cómo organizar una ciudad? Esta pregunta, que Sócrates hacía incómodamente en las plazas de Atenas, es el punto de partida de toda la filosofía política occidental.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BLOQUE 2: LÍNEA DE TIEMPO
+  ══════════════════════════════════ -->
+  <section class="prose-section">
+    <p class="section-label">Línea de tiempo</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">470 a.C.</span>
+        <p class="tl-title">Nace Sócrates en Atenas</p>
+        <p class="tl-desc">Hijo de un escultor. No dejó nada escrito. Todo lo que sabemos de él viene de sus discípulos, especialmente Platón y Jenofonte.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">431–404 a.C.</span>
+        <p class="tl-title">Guerra del Peloponeso</p>
+        <p class="tl-desc">Atenas contra Esparta. La derrota ateniense desacreditó la democracia a los ojos de muchos intelectuales, incluyendo al joven Platón.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">399 a.C.</span>
+        <p class="tl-title">Juicio y muerte de Sócrates</p>
+        <p class="tl-desc">Acusado de "corromper a la juventud" y no reconocer a los dioses de la ciudad. Condenado a muerte por una asamblea democrática. Murió bebiendo cicuta. Este hecho marcó a Platón de por vida.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">387 a.C.</span>
+        <p class="tl-title">Platón funda la Academia</p>
+        <p class="tl-desc">La primera institución de educación superior de Occidente. Funcionó durante ~900 años, hasta que el emperador Justiniano la clausuró en 529 d.C.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">c. 380 a.C.</span>
+        <p class="tl-title">Platón escribe La República</p>
+        <p class="tl-desc">El tratado político más influyente de la historia occidental. Propone un Estado ideal gobernado por filósofos. Sus preguntas siguen vigentes: ¿qué es la justicia? ¿quién debe gobernar? ¿puede la democracia equivocarse?</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">347 a.C.</span>
+        <p class="tl-title">Muere Platón</p>
+        <p class="tl-desc">A los 80 años. Su legado incluye ~30 diálogos conservados íntegramente — una rareza única en la historia del pensamiento antiguo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BLOQUE 3: SÓCRATES
+  ══════════════════════════════════ -->
+  <section class="prose-section">
+    <p class="section-label">Sócrates — El filósofo que incomodaba</p>
+
+    <p>Sócrates no tenía escuela ni doctrina formal. Caminaba por el Ágora —la plaza pública— y hacía preguntas. Preguntas que empezaban aparentemente simples: <strong>"¿qué es la valentía?"</strong>, <strong>"¿qué es la justicia?"</strong>, <strong>"¿cómo sé que algo es bueno?"</strong> Y siempre terminaban demostrando que su interlocutor no sabía lo que creía saber.</p>
+
+    <div class="pull-quote">
+      <blockquote>"Solo sé que no sé nada."</blockquote>
+      <cite>— Sócrates (según Platón, Apología)</cite>
+    </div>
+
+    <p>Esta frase —probablemente la más citada de la filosofía— no es una declaración de ignorancia. Es una posición intelectual radical: <strong>el primer paso del conocimiento es reconocer los límites del propio saber.</strong> En un mundo en el que los políticos afirmaban saber cómo gobernar y los poetas reclamaban autoridad moral, Sócrates era el único que decía: examinemos eso con rigor.</p>
+
+    <p>Su método —el <strong>diálogo socrático</strong> o mayéutica— consistía en hacer preguntas sucesivas para que el propio interlocutor llegara a contradicirse, descubriera sus supuestos ocultos y, a veces, accediera a una comprensión más profunda. No enseñaba: acompañaba al pensamiento.</p>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BLOQUE 4: PLATÓN Y LA REPÚBLICA
+  ══════════════════════════════════ -->
+  <section class="prose-section">
+    <p class="section-label">Platón — El arquitecto de la ciudad ideal</p>
+
+    <p>Platón vio morir a Sócrates a manos de una asamblea democrática. Esa experiencia le marcó profundamente: si la mayoría puede condenar al hombre más sabio de Atenas, <strong>¿qué garantías ofrece la democracia?</strong> Su respuesta fue construir un modelo alternativo.</p>
+
+    <p>En <em>La República</em> propone una ciudad justa organizada en tres clases según sus capacidades naturales:</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <span class="concept-term">Los Filósofos-Reyes</span>
+        <p class="concept-def">Gobiernan porque son los únicos capaces de conocer el Bien verdadero. Han pasado años estudiando matemáticas, dialéctica y filosofía. No desean el poder — lo ejercen como deber.</p>
+      </div>
+      <div class="concept-card">
+        <span class="concept-term">Los Guardianes</span>
+        <p class="concept-def">Militares y ejecutores. Defienden la ciudad y hacen cumplir las leyes. Son valientes y disciplinados, pero no gobiernan: obedecen a los filósofos.</p>
+      </div>
+      <div class="concept-card">
+        <span class="concept-term">Los Productores</span>
+        <p class="concept-def">Agricultores, artesanos, comerciantes. La mayoría de la ciudad. Producen los bienes materiales y tienen libertad económica, pero no participan en el gobierno.</p>
+      </div>
+      <div class="concept-card">
+        <span class="concept-term">La Justicia según Platón</span>
+        <p class="concept-def">La ciudad es justa cuando cada clase cumple su función y no interfiere en la de las otras. No es igualdad: es armonía de las diferencias. Una idea radicalmente opuesta a la democracia.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Hasta que los filósofos sean reyes, o los reyes tengan el espíritu de la filosofía, no habrá descanso de los males para las ciudades."</blockquote>
+      <cite>— Platón, La República · Libro V</cite>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BLOQUE 5: CONCEPTOS CLAVE
+  ══════════════════════════════════ -->
+  <section class="prose-section">
+    <p class="section-label">Conceptos clave para no filósofos</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <span class="concept-term">El Mundo de las Ideas</span>
+        <p class="concept-def">Platón distingue entre las cosas físicas (imperfectas, cambiantes) y las Ideas (perfectas, eternas). Una mesa concreta es imperfecta; la Idea de Mesa es perfecta. Lo mismo con la Justicia, el Bien, la Belleza. Solo el filósofo puede acceder a ese mundo.</p>
+      </div>
+      <div class="concept-card">
+        <span class="concept-term">El Mito de la Caverna</span>
+        <p class="concept-def">Personas encadenadas en una cueva ven solo sombras en la pared. Creen que esas sombras son la realidad. El filósofo es quien logra salir, ver el sol (la verdad) y vuelve para liberar a los demás — aunque estos no quieran escucharle.</p>
+      </div>
+      <div class="concept-card">
+        <span class="concept-term">La Mayéutica</span>
+        <p class="concept-def">Del griego "arte de la partera". Sócrates decía que no enseñaba: "asistía al parto" de ideas que el interlocutor ya llevaba dentro. El conocimiento no se transmite — se descubre mediante preguntas.</p>
+      </div>
+      <div class="concept-card">
+        <span class="concept-term">La Virtud como Conocimiento</span>
+        <p class="concept-def">Para Sócrates, nadie actúa mal voluntariamente: el que hace el mal es porque no sabe qué es el bien. La maldad es ignorancia. Conclusión: la educación es la base de la ética y la política.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BLOQUE 6: CONEXIÓN CON LA POLÍTICA
+  ══════════════════════════════════ -->
+  <section class="prose-section">
+    <p class="section-label">Conexión con la política — ayer y hoy</p>
+
+    <div class="politics-box">
+      <span class="box-label">🏛 Relevancia política</span>
+      <h3>¿Quién tiene derecho a gobernar?</h3>
+      <p>La pregunta central de Platón —¿debe gobernar quien sabe más o quien cuenta con más apoyo popular?— no ha perdido vigencia. Cuando vemos a expertos desplazados por políticos populistas, o cuando una mayoría vota por algo técnicamente ruinoso, estamos en pleno debate platónico.</p>
+      <p>La tensión entre <strong>epistemocracia</strong> (gobierno de los que saben) y <strong>democracia</strong> (gobierno de todos) atraviesa todos los debates contemporáneos sobre tecnocracia, meritocracia y representación.</p>
+    </div>
+
+    <div class="politics-box">
+      <span class="box-label">🤖 En la era de la IA</span>
+      <h3>Cuando las máquinas "saben" más</h3>
+      <p>Hoy esta tensión adquiere una dimensión nueva. Si un algoritmo predice mejor que un comité humano qué políticas reducen la criminalidad, ¿debería tener peso en la decisión? ¿O hay algo en el acto de deliberar colectivamente que no puede delegarse en una máquina, por muy precisa que sea?</p>
+      <p>Platón prefería al sabio. Sócrates prefería la pregunta. En un mundo donde la IA provee respuestas cada vez más sofisticadas, <strong>preservar la capacidad de seguir formulando las preguntas correctas</strong> es quizás el acto más político que podemos hacer.</p>
+    </div>
+
+    <div class="politics-box">
+      <span class="box-label">⚡ La muerte de Sócrates como lección política</span>
+      <h3>La democracia puede condenar a los mejores</h3>
+      <p>El juicio de Sócrates en 399 a.C. fue perfectamente legal y democrático. 501 ciudadanos votaron. La mayoría decidió que era culpable. Y ejecutaron al hombre que más seriamente había pensado sobre la justicia.</p>
+      <p>Este hecho incómodo está en el origen de toda la reflexión sobre los <strong>límites de la democracia</strong>: los derechos individuales, la independencia judicial, la protección de las minorías. No para eliminar la democracia — sino para hacerla más sabia.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       TEST
+  ══════════════════════════════════ -->
+  <section class="prose-section">
+    <p class="section-label">Test — Aterriza lo aprendido</p>
+    <div class="test-section">
+      <p class="test-intro">15 preguntas para consolidar los conceptos de este módulo. Cada pregunta es de opción única. Al responder verás la explicación correspondiente.</p>
+
+      <div id="quiz-container"></div>
+
+      <div class="score-box" id="score-box">
+        <span class="score-num" id="score-num"></span>
+        <span class="score-label">respuestas correctas de 15</span>
+        <p class="score-msg" id="score-msg"></p>
+        <button class="retry-btn" onclick="resetQuiz()">Reintentar el test</button>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /wrapper -->
+
+<svg class="meander" style="display:block;opacity:.4;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <rect width="100%" height="100%" fill="url(#meander-pat)"/>
+</svg>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía &amp; Política</div>
+    <nav class="footer-nav">
+      <a href="index.html">← Portal</a>
+      <a href="https://github.com/Rozoca" target="_blank" rel="noopener">github.com/Rozoca</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const questions = [
+  {
+    q: "¿En qué período histórico vivió Sócrates?",
+    opts: ["Siglo VIII a.C., época de Homero", "Siglo V a.C., Atenas clásica", "Siglo III a.C., época helenística", "Siglo I d.C., época romana"],
+    correct: 1,
+    exp: "Sócrates nació en torno al 470 a.C. y murió en 399 a.C., en plena Atenas clásica, durante el siglo V a.C."
+  },
+  {
+    q: "¿Por qué fue condenado a muerte Sócrates?",
+    opts: ["Por liderar una rebelión militar contra Atenas", "Por escribir libros contra la democracia", "Por corromper a la juventud y no reconocer los dioses de la ciudad", "Por haber colaborado con los espartanos"],
+    correct: 2,
+    exp: "Las acusaciones formales fueron impiedad (no reconocer los dioses de la ciudad) y corrupción de la juventud. Fue condenado por votación democrática y murió bebiendo cicuta."
+  },
+  {
+    q: "¿Qué es la mayéutica socrática?",
+    opts: ["Un método de oración religiosa griega", "La técnica de hacer preguntas para que el interlocutor llegue al conocimiento por sí mismo", "Un sistema de gobierno propuesto por Sócrates", "Un tipo de poesía filosófica"],
+    correct: 1,
+    exp: "Del griego 'arte de la partera'. Sócrates usaba preguntas sucesivas para que el interlocutor descubriera contradicciones en su propio pensamiento y accediera a la verdad."
+  },
+  {
+    q: "Sócrates no dejó ningún escrito. ¿Cómo conocemos su pensamiento?",
+    opts: ["A través de inscripciones en templos atenienses", "A través de los escritos de sus discípulos, especialmente Platón", "A través de documentos del gobierno ateniense", "Sus escritos se perdieron en el incendio de Alejandría"],
+    correct: 1,
+    exp: "Sócrates enseñaba oralmente. Todo lo que sabemos de él proviene de sus discípulos, principalmente los diálogos de Platón y las memorias de Jenofonte."
+  },
+  {
+    q: "¿Qué evento histórico marcó profundamente a Platón y explica su desconfianza en la democracia?",
+    opts: ["La invasión persa de Atenas en 480 a.C.", "La derrota de Atenas en la Guerra del Peloponeso y el juicio de Sócrates", "La muerte de Alejandro Magno", "La caída de la República romana"],
+    correct: 1,
+    exp: "La derrota de Atenas frente a Esparta (404 a.C.) y, sobre todo, ver cómo la democracia ateniense condenó a muerte a Sócrates (399 a.C.) llevaron a Platón a cuestionar radicalmente ese sistema."
+  },
+  {
+    q: "Según Platón en La República, ¿quiénes deben gobernar la ciudad ideal?",
+    opts: ["Los más ricos, porque pueden dedicarse a gobernar sin necesidad de trabajar", "Los militares, porque son los más disciplinados", "Los filósofos, porque son los únicos capaces de conocer el Bien verdadero", "El conjunto de los ciudadanos mediante votación"],
+    correct: 2,
+    exp: "Para Platón solo el filósofo puede conocer el Bien en sí. Precisamente por eso —y no por ambición— debe gobernar. Es un deber, no un privilegio."
+  },
+  {
+    q: "En el esquema de La República, ¿qué función tienen los 'guardianes'?",
+    opts: ["Gobernar la ciudad mediante la sabiduría", "Defender la ciudad y ejecutar las decisiones de los filósofos", "Producir los bienes materiales necesarios", "Administrar la justicia en los tribunales"],
+    correct: 1,
+    exp: "Los guardianes son la clase militar. Su virtud es el valor. Defienden la ciudad pero no gobiernan — esa tarea corresponde a los filósofos."
+  },
+  {
+    q: "¿Qué representa el 'sol' en el Mito de la Caverna de Platón?",
+    opts: ["El dios Apolo, protector de Atenas", "La vida cómoda que los filósofos deben abandonar", "El Bien en sí mismo, la verdad última", "El poder político de los gobernantes"],
+    correct: 2,
+    exp: "El sol simboliza la Idea del Bien, la verdad máxima a la que el filósofo accede tras años de estudio y reflexión. Ver el sol es conocer el fundamento de toda realidad."
+  },
+  {
+    q: "¿Qué distingue el 'mundo de las Ideas' de Platón del mundo físico?",
+    opts: ["El mundo de las Ideas es más antiguo y está bajo tierra", "Las Ideas son perfectas, eternas e inmutables; el mundo físico es imperfecto y cambiante", "El mundo físico es irreal y solo existe en nuestra mente", "Las Ideas son las leyes escritas por los filósofos"],
+    correct: 1,
+    exp: "Para Platón, el mundo sensible es una copia imperfecta del mundo inteligible (de las Ideas). La mesa que vemos es imperfecta y perecedera; la Idea de Mesa es perfecta y eterna."
+  },
+  {
+    q: "¿Qué entendía Sócrates por 'virtud como conocimiento'?",
+    opts: ["Que los virtuosos son más inteligentes que el resto", "Que nadie actúa mal voluntariamente — el mal proviene de la ignorancia", "Que solo los filósofos pueden ser virtuosos", "Que la virtud se hereda de los padres"],
+    correct: 1,
+    exp: "Sócrates sostenía que nadie elige conscientemente el mal. Quien actúa mal lo hace porque no conoce verdaderamente el bien. Por eso la educación es el fundamento de la ética."
+  },
+  {
+    q: "¿Cuándo fundó Platón la Academia y qué importancia tuvo?",
+    opts: ["En 399 a.C., justo tras la muerte de Sócrates, como memorial personal", "En 387 a.C.; fue la primera institución de educación superior de Occidente", "En 347 a.C., al final de su vida, para transmitir su filosofía", "En 431 a.C., al inicio de la Guerra del Peloponeso"],
+    correct: 1,
+    exp: "Platón fundó la Academia en 387 a.C. en Atenas. Funcionó durante aproximadamente 900 años y es considerada la primera universidad de Occidente. Aristóteles fue su alumno más famoso."
+  },
+  {
+    q: "La democracia ateniense del siglo V a.C. se diferencia de la democracia moderna principalmente en que:",
+    opts: ["Era exclusivamente para los más ricos", "Era directa — los ciudadanos votaban personalmente las leyes, sin representantes", "Solo participaban los filósofos y los militares", "Las decisiones las tomaba el rey con consejo de la asamblea"],
+    correct: 1,
+    exp: "En Atenas no había representantes. Los ciudadanos (varones, libres y adultos) participaban directamente en la Asamblea, votando leyes y tomando decisiones políticas. Los cargos se sorteaban, no se elegían."
+  },
+  {
+    q: "¿Cómo define Platón la justicia en La República?",
+    opts: ["Igualdad de derechos para todos los ciudadanos", "Que cada clase social cumple su función sin interferir en las demás", "La capacidad de los más fuertes de imponer su voluntad", "Un conjunto de leyes escritas aprobadas por la asamblea"],
+    correct: 1,
+    exp: "Para Platón, la justicia es armonía: cada parte del todo (filósofos, guardianes, productores) cumple su función específica. No es igualdad — es cada uno en su lugar natural."
+  },
+  {
+    q: "¿Qué relevancia tiene el pensamiento de Platón en los debates políticos actuales?",
+    opts: ["Ninguna; sus ideas pertenecen a un contexto completamente diferente", "La tensión entre gobernar con criterio experto (epistemocracia) versus gobierno popular (democracia) sigue siendo central", "Solo es relevante en el ámbito académico universitario", "Su influencia se limita a los sistemas autoritarios modernos"],
+    correct: 1,
+    exp: "El debate entre expertise y voluntad popular es permanente. Cuando hablamos de tecnocracia, independencia de bancos centrales, o decisiones de salud pública, estamos discutiendo exactamente lo que Platón planteó."
+  },
+  {
+    q: "¿Cuál es la conexión más directa entre la filosofía socrático-platónica y la era de la Inteligencia Artificial?",
+    opts: ["Los griegos ya habían previsto la existencia de máquinas pensantes", "La pregunta de si quien 'sabe más' debe tener autoridad adquiere nueva dimensión cuando las máquinas superan al humano en cálculo y predicción", "La IA ha demostrado definitivamente que Platón tenía razón sobre el filósofo-rey", "No hay conexión relevante entre filosofía antigua e IA"],
+    correct: 1,
+    exp: "Si las máquinas pueden 'saber más' en ciertos dominios, ¿deben tener autoridad política? Esta es la pregunta platónica en clave contemporánea. La filosofía griega nos da herramientas para pensar qué tipo de saber es relevante para gobernar."
+  }
+];
+
+let answered = [];
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  answered = new Array(questions.length).fill(false);
+  document.getElementById('score-box').classList.remove('show');
+
+  questions.forEach((q, i) => {
+    const block = document.createElement('div');
+    block.className = 'question-block';
+    block.id = `q-${i}`;
+
+    const optionsHTML = q.opts.map((opt, j) => `
+      <li>
+        <button class="option-btn" onclick="answer(${i}, ${j})" id="opt-${i}-${j}">
+          ${String.fromCharCode(65+j)}. ${opt}
+        </button>
+      </li>
+    `).join('');
+
+    block.innerHTML = `
+      <span class="q-number">Pregunta ${i+1} de ${questions.length}</span>
+      <p class="q-text">${q.q}</p>
+      <ul class="options-list">${optionsHTML}</ul>
+      <div class="q-feedback" id="fb-${i}"></div>
+    `;
+    container.appendChild(block);
+  });
+}
+
+function answer(qIndex, optIndex) {
+  if (answered[qIndex]) return;
+  answered[qIndex] = true;
+
+  const q = questions[qIndex];
+  const isCorrect = optIndex === q.correct;
+
+  // Disable all options
+  q.opts.forEach((_, j) => {
+    const btn = document.getElementById(`opt-${qIndex}-${j}`);
+    btn.disabled = true;
+    if (j === q.correct) btn.classList.add(isCorrect && j === optIndex ? 'correct' : 'reveal-correct');
+  });
+
+  if (!isCorrect) {
+    document.getElementById(`opt-${qIndex}-${optIndex}`).classList.add('wrong');
+  }
+
+  // Show feedback
+  const fb = document.getElementById(`fb-${qIndex}`);
+  fb.textContent = (isCorrect ? '✓ Correcto. ' : '✗ Incorrecto. ') + q.exp;
+  fb.className = `q-feedback show ${isCorrect ? 'ok' : 'fail'}`;
+
+  // Check if all answered
+  if (answered.every(Boolean)) showScore();
+}
+
+function showScore() {
+  const correct = questions.reduce((acc, q, i) => {
+    const btn = document.getElementById(`opt-${i}-${q.correct}`);
+    return acc + (btn && btn.classList.contains('correct') ? 1 : 0);
+  }, 0);
+
+  document.getElementById('score-num').textContent = `${correct}/15`;
+  const msgs = [
+    [0,  5,  "Buen punto de partida. Releer el módulo antes de seguir."],
+    [6,  9,  "Bases sólidas. Algunos conceptos merecen repaso."],
+    [10, 12, "Buen dominio del módulo. Listo para avanzar."],
+    [13, 15, "Excelente. Dominas los fundamentos de la filosofía política griega."]
+  ];
+  const msg = msgs.find(([min, max]) => correct >= min && correct <= max);
+  document.getElementById('score-msg').textContent = msg ? msg[2] : '';
+  document.getElementById('score-box').classList.add('show');
+  document.getElementById('score-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetQuiz() {
+  buildQuiz();
+  window.scrollTo({ top: document.querySelector('.test-section').offsetTop - 80, behavior: 'smooth' });
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
