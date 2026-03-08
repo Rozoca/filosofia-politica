@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo VII — Rousseau · Filosofía & Política</title>
+  <meta name="description" content="Jean-Jacques Rousseau: el contrato social, la voluntad general, la soberanía popular y la revolución que cambió el mundo."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#101814;--bg-mid:#162018;--bg-card:#1c2820;--surface:#243028;--border:#364a3a;--border-light:#486048;--forest:#2a6e3a;--forest-mid:#38884a;--forest-light:#50a860;--forest-pale:#80c890;--gold:#c4a040;--gold-light:#d8b850;--gold-dim:#8a7030;--ivory:#e8f0e0;--ivory-mid:#b0c0a0;--ivory-dim:#708860;--text:#d8e0d0;--text-muted:#90a080;--correct:#3a8a4a;--correct-bg:#1a2e1e;--wrong:#b04040;--wrong-bg:#2e1a1a}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-weight:400;font-size:17px;line-height:1.75;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    .top-nav{background:rgba(16,24,20,.95);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:940px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ivory-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--forest-light)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;font-weight:500;color:var(--ivory-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.18em;color:var(--forest-light);border:1px solid var(--forest);padding:.2rem .6rem;border-radius:2px}
+    .hero{background:linear-gradient(180deg,var(--bg),var(--bg-mid));padding:4.5rem 2rem 0;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(42,110,58,.12) 0%,transparent 55%);pointer-events:none}
+    .hero-inner{max-width:940px;margin:0 auto;position:relative;z-index:1}
+    .hero-eyebrow{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--forest-mid);display:block;margin-bottom:1.2rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:400;color:var(--ivory);line-height:1.05;margin-bottom:1.2rem}.hero-title em{font-style:italic;color:var(--forest-light)}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.15rem;font-style:italic;color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:2.5rem}
+    .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-item{padding:1.4rem 2.4rem 1.4rem 0;margin-right:2.4rem;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:400;color:var(--forest-light);display:block;line-height:1}
+    .stat-label{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.15em;color:var(--ivory-dim);display:block;margin-top:.35rem}
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:940px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.08em;color:var(--ivory-dim);background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ivory-mid);background:var(--border);border-color:var(--border-light)}
+    .tab-btn.active{color:#fff;background:var(--forest);border-color:var(--forest-mid)}
+    .content-area{max-width:940px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:var(--ivory);line-height:1.2}.panel-header h2 em{color:var(--forest-mid);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.05rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--forest-mid);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:1.8rem 2rem}.card.full{grid-column:1/-1}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--ivory);margin-bottom:.7rem}
+    .card p,.card li{font-size:1rem;color:var(--text-muted);line-height:1.8}.card ul{padding-left:1.3rem}.card li{margin-bottom:.35rem}
+    .card-icon{font-size:1.5rem;display:block;margin-bottom:.7rem}
+    .highlight-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--forest);border-radius:3px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .highlight-card .hc-label{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--forest-mid);display:block;margin-bottom:.8rem}
+    .highlight-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:500;color:var(--ivory);margin-bottom:.8rem}
+    .highlight-card p{font-size:1rem;color:var(--text-muted);line-height:1.85;margin-bottom:.7rem}.highlight-card p:last-child{margin-bottom:0}.highlight-card strong{color:var(--ivory);font-weight:500}
+    .pull-quote{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--gold);padding:2rem 2.4rem;margin:2.5rem 0;border-radius:3px}
+    .pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.35rem;font-style:italic;color:var(--ivory-mid);line-height:1.6}
+    .pull-quote cite{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;color:var(--gold-dim);display:block;margin-top:.8rem}
+    .timeline{position:relative;padding-left:2.2rem;margin-bottom:2.5rem}.timeline::before{content:'';position:absolute;left:.55rem;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:1.8rem}.tl-dot{position:absolute;left:-1.8rem;top:.35rem;width:10px;height:10px;background:var(--forest);transform:rotate(45deg)}
+    .tl-date{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;color:var(--forest-mid);display:block;margin-bottom:.25rem}
+    .tl-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ivory);margin-bottom:.25rem}
+    .tl-desc{font-size:.95rem;color:var(--text-muted);line-height:1.75}
+    .accordion{margin-bottom:2.5rem}.acc-item{border:1px solid var(--border);border-radius:3px;margin-bottom:.6rem;overflow:hidden}
+    .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:background .2s}.acc-trigger:hover{background:var(--surface)}.acc-trigger.open{background:var(--forest)}
+    .acc-term{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ivory);transition:color .2s}.acc-trigger.open .acc-term{color:#fff}
+    .acc-arrow{font-size:.9rem;color:var(--ivory-dim);transition:transform .3s,color .2s;flex-shrink:0;margin-left:1rem}.acc-trigger.open .acc-arrow{transform:rotate(180deg);color:var(--gold-light)}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 1.5rem;background:var(--bg-mid)}.acc-body.open{max-height:600px;padding:1.4rem 1.5rem}
+    .acc-body p{font-size:1rem;color:var(--text-muted);line-height:1.85;margin-bottom:.7rem}.acc-body p:last-child{margin-bottom:0}.acc-body strong{color:var(--ivory);font-weight:500}
+    .legacy-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .legacy-card{background:var(--bg-card);border:1px solid var(--border);border-bottom:3px solid var(--forest);padding:1.6rem;border-radius:3px}
+    .legacy-era{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--forest-mid);display:block;margin-bottom:.5rem}
+    .legacy-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ivory);margin-bottom:.5rem}
+    .legacy-desc{font-size:.92rem;color:var(--text-muted);line-height:1.75}
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:1rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.4rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.2em;color:var(--forest-mid);display:block;margin-bottom:.5rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ivory);margin-bottom:1rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.85rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:400;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--forest);color:var(--ivory);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}.opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:var(--wrong)}.opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}.opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.8rem;font-size:.92rem;line-height:1.7;display:none}.q-fb.show{display:block}.q-fb.ok{color:var(--correct)}.q-fb.fail{color:var(--wrong)}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}.score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--forest-light);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.25em;color:var(--ivory-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.05rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--forest);color:var(--forest-light);font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:2px;transition:background .2s,color .2s}.retry-btn:hover{background:var(--forest);color:#fff}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--forest-mid);z-index:999;width:0;transition:width .1s linear}
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}.footer-inner{max-width:940px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ivory);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.15em;color:var(--ivory-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--forest-light)}
+    @media(max-width:640px){.card-grid,.legacy-grid{grid-template-columns:1fr}.card.full{grid-column:1}.test-wrap{padding:1.6rem 1.3rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.75rem;padding:.5rem 1rem}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav"><div class="top-nav-inner"><a href="fase2.html" class="nav-back">← Fase II</a><span class="nav-title">Filosofía & Política</span><span class="nav-badge">Módulo VII</span></div></nav>
+
+<section class="hero"><div class="hero-inner">
+  <span class="hero-eyebrow">Módulo VII · Contractualismo</span>
+  <h1 class="hero-title">Rousseau y la <em>voluntad general</em></h1>
+  <p class="hero-subtitle">El hombre que dijo que la civilización nos corrompe, que la soberanía pertenece al pueblo, y que la libertad consiste en obedecer la ley que tú mismo te has dado. Inspiró una revolución.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">1712–1778</span><span class="stat-label">Ginebra / Francia</span></div>
+    <div class="stat-item"><span class="stat-num">1762</span><span class="stat-label">El contrato social</span></div>
+    <div class="stat-item"><span class="stat-num">1789</span><span class="stat-label">Su eco: la Revolución</span></div>
+    <div class="stat-item"><span class="stat-num">1</span><span class="stat-label">Frase que encendió todo</span></div>
+  </div>
+</div></section>
+
+<nav class="tab-nav"><div class="tab-nav-inner">
+  <button class="tab-btn active" data-tab="quien">Quién fue</button>
+  <button class="tab-btn" data-tab="ideas">Ideas clave</button>
+  <button class="tab-btn" data-tab="obra">El Contrato Social</button>
+  <button class="tab-btn" data-tab="legado">Legado</button>
+  <button class="tab-btn" data-tab="test">Test</button>
+</div></nav>
+
+<main class="content-area">
+
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header"><h2>Jean-Jacques Rousseau: <em>el rebelde sentimental</em></h2>
+  <p class="panel-lead">Huérfano, vagabundo, autodidacta, genio incómodo. El hombre que incomodó a toda la Ilustración diciendo que el progreso nos hace peores, no mejores.</p></div>
+  <p class="section-label">Contexto</p>
+  <div class="card-grid">
+    <div class="card full"><span class="card-icon">🌍</span><h3>La Ilustración y su disidente</h3>
+    <p>En pleno siglo XVIII, cuando los philosophes celebran la razón, la ciencia y el progreso, Rousseau lanza una bomba: la civilización nos ha corrompido. El ser humano nació libre y bueno; la sociedad lo encadenó y pervirtió. No es un reaccionario — es un radical que exige repensar todo desde la base.</p></div>
+    <div class="card"><span class="card-icon">🎭</span><h3>El outsider</h3><p>A diferencia de Hobbes o Locke (académicos respetados), Rousseau era hijo de un relojero ginebrino. Fue aprendiz, vagabundo, copista de música, secretario. Nunca perteneció a la élite intelectual, aunque escribió con más fuerza que cualquiera de ellos. Esa marginalidad marca toda su obra.</p></div>
+    <div class="card"><span class="card-icon">💔</span><h3>El perseguido</h3><p>Sus ideas le costaron la condena de París y Ginebra. El Contrato Social y el Emilio fueron quemados públicamente. Huyó por Europa, paranoico y brillante. Murió en 1778; once años después, la Revolución Francesa lo convirtió en profeta nacional.</p></div>
+  </div>
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1712</span><span class="tl-title">Nace en Ginebra</span><span class="tl-desc">Su madre muere en el parto. Criado por su padre, un relojero errático. A los 16 años abandona Ginebra y comienza una vida nómada.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1750</span><span class="tl-title">Discurso sobre las ciencias y las artes</span><span class="tl-desc">Gana el premio de la Academia de Dijon con una tesis provocadora: las ciencias y las artes no mejoran al ser humano, lo corrompen. Se hace famoso de la noche a la mañana.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1755</span><span class="tl-title">Discurso sobre la desigualdad</span><span class="tl-desc">Traza el origen de la desigualdad: la propiedad privada. «El primer hombre que cercó un terreno y dijo: esto es mío, fue el verdadero fundador de la sociedad civil.»</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1762</span><span class="tl-title">El Contrato Social y Emilio</span><span class="tl-desc">Ambos publicados el mismo año. Ambos condenados. El Contrato propone una república de ciudadanos iguales; el Emilio una educación natural. Francia y Ginebra ordenan su arresto.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1778</span><span class="tl-title">Muerte en Ermenonville</span><span class="tl-desc">Muere pobre y perseguido. En 1794, la Revolución traslada sus restos al Panteón de París. El marginado se convierte en héroe nacional.</span></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-ideas">
+  <div class="panel-header"><h2>El sistema rousseauniano: <em>libertad, igualdad, voluntad general</em></h2>
+  <p class="panel-lead">Rousseau radicaliza el contrato social. No crea un soberano externo (Hobbes) ni un gobierno limitado (Locke): crea una comunidad donde cada ciudadano es a la vez gobernante y gobernado.</p></div>
+  <div class="highlight-card"><span class="hc-label">La frase que abre el contrato</span><h3>«El hombre nace libre, y en todas partes está encadenado»</h3>
+  <p>Esta frase no es un lamento — es un programa. Si la sociedad nos ha encadenado, <strong>podemos construir otra sociedad que nos libere</strong>. El Contrato Social no describe el mundo como es, sino como podría ser si aplicáramos la razón al problema de la convivencia.</p></div>
+  <p class="section-label">Conceptos fundamentales</p>
+  <div class="accordion">
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El buen salvaje y la corrupción social</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Rousseau no idealiza al «buen salvaje» como se le suele atribuir. Su tesis es más precisa: el ser humano en estado natural no es ni bueno ni malo — es <strong>autopreservado y compasivo</strong>. Es la sociedad — la propiedad, la comparación, la vanidad — la que introduce la desigualdad y la corrupción moral.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La voluntad general</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>El concepto más importante y más malinterpretado de Rousseau. La <strong>voluntad general</strong> no es la voluntad de la mayoría ni la suma de voluntades individuales. Es lo que el pueblo quiere <em>en cuanto pueblo</em> — el interés común que trasciende los intereses particulares. Una ley es legítima cuando expresa la voluntad general, no cuando gana una votación.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La soberanía es del pueblo — y es inalienable</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Hobbes transfiere la soberanía a un rey. Locke la delega en un gobierno. Rousseau dice que <strong>la soberanía no se puede transferir ni delegar</strong>. El pueblo es soberano y lo será siempre. Los gobernantes son agentes del pueblo, no sus representantes. Si traicionan la voluntad general, el pueblo los destituye.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Libertad como obediencia a la ley que uno se da</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Rousseau redefine la libertad. No es hacer lo que quieras (eso es capricho). La <strong>libertad civil</strong> consiste en obedecer una ley que tú mismo has contribuido a crear. Participar en la legislación es el acto supremo de libertad. Esta idea influirá directamente en Kant.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La propiedad como origen de la desigualdad</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>El primer hombre que cercó un terreno y dijo «esto es mío» — y encontró gente lo suficientemente ingenua para creerle — fue el fundador de la sociedad civil. Con la propiedad llegaron la desigualdad, la competencia, la dominación. Rousseau no pide abolir la propiedad, pero sí que el contrato social la regule para que <strong>nadie tenga tanto como para comprar a otro, ni tan poco como para verse obligado a venderse</strong>.</p></div></div>
+  </div>
+  <div class="pull-quote"><blockquote>"El hombre nace libre, y en todas partes está encadenado. Quien se cree amo de los demás no deja de ser más esclavo que ellos."</blockquote><cite>— Rousseau, El Contrato Social, Libro I, cap. 1</cite></div>
+</div>
+
+<div class="tab-panel" id="tab-obra">
+  <div class="panel-header"><h2><em>El Contrato Social</em>: el manifiesto de la soberanía popular</h2>
+  <p class="panel-lead">Publicado en 1762. Cuatro libros breves que redefinieron quién tiene el poder legítimo: no el rey, no el parlamento — el pueblo.</p></div>
+  <p class="section-label">Estructura</p>
+  <div class="card-grid">
+    <div class="card"><h3>Libro I: El pacto fundamental</h3><p>Destruye la idea de que la fuerza crea derecho. Ningún hombre tiene autoridad natural sobre otro. Solo el pacto libre puede fundar un gobierno legítimo. Ese pacto es el contrato social: cada uno se entrega a la comunidad y, al hacerlo, no pierde su libertad — la transforma.</p></div>
+    <div class="card"><h3>Libro II: La soberanía</h3><p>La soberanía es indivisible e inalienable. La voluntad general es siempre recta — pero puede ser engañada. Las leyes deben ser generales (para todos) y creadas por la asamblea del pueblo. Distingue entre soberano (pueblo legislador) y gobierno (agente ejecutor).</p></div>
+    <div class="card"><h3>Libro III: El gobierno</h3><p>El gobierno no es el soberano sino su instrumento. Analiza monarquía, aristocracia y democracia como formas de gobierno (no de soberanía, que siempre es del pueblo). Ninguna forma es ideal para todos: depende del tamaño, clima y costumbres del pueblo.</p></div>
+    <div class="card"><h3>Libro IV: Instituciones</h3><p>Cómo se expresa la voluntad general en la práctica: asambleas, votaciones, la dictadura como recurso extremo temporal. Discute la religión civil: el Estado necesita un mínimo de valores compartidos para cohesionarse.</p></div>
+  </div>
+  <div class="highlight-card"><span class="hc-label">La cadena contractualista</span><h3>De Hobbes a Locke a Rousseau: tres contratos</h3>
+  <p><strong>Hobbes</strong>: el contrato crea un soberano absoluto al que los individuos ceden todo. <strong>Locke</strong>: el contrato crea un gobierno limitado que protege derechos preexistentes. <strong>Rousseau</strong>: el contrato no crea ningún poder externo — crea una comunidad donde cada uno es simultáneamente <strong>soberano y súbdito</strong>. La soberanía nunca sale del pueblo.</p></div>
+</div>
+
+<div class="tab-panel" id="tab-legado">
+  <div class="panel-header"><h2>El incendiario póstumo: <em>de Ginebra a la Revolución y más allá</em></h2>
+  <p class="panel-lead">Rousseau no vivió para ver su influencia. Pero sus ideas encendieron la Revolución Francesa, transformaron la educación, e inspiraron a Kant, Marx y todo el pensamiento democrático radical.</p></div>
+  <p class="section-label">Línea de influencia</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1789</span><span class="tl-title">Revolución Francesa</span><span class="tl-desc">Robespierre llevaba el Contrato Social en el bolsillo. La soberanía popular, la voluntad general y la república de ciudadanos iguales se convierten en programa político.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1780s</span><span class="tl-title">Kant reconoce su deuda</span><span class="tl-desc">Kant dijo que Rousseau le enseñó a respetar al hombre común. La idea de autonomía moral kantiana — darte la ley a ti mismo — es rousseauniana en su origen.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Siglo XIX</span><span class="tl-title">Romanticismo y socialismo</span><span class="tl-desc">La crítica a la propiedad y la desigualdad influye en Marx. El sentimiento como fuente de verdad influye en todo el Romanticismo. Rousseau es el padre de ambas corrientes.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Siglo XX–XXI</span><span class="tl-title">Democracia participativa</span><span class="tl-desc">La idea de que la democracia representativa no basta — que los ciudadanos deben participar directamente — es profundamente rousseauniana.</span></div>
+  </div>
+  <p class="section-label">Dónde sigue vivo</p>
+  <div class="legacy-grid">
+    <div class="legacy-card"><span class="legacy-era">Política</span><span class="legacy-title">Soberanía popular</span><p class="legacy-desc">Toda constitución que dice «la soberanía reside en el pueblo» es rousseauniana. La idea de que el poder legítimo emana de abajo, no de arriba.</p></div>
+    <div class="legacy-card"><span class="legacy-era">Educación</span><span class="legacy-title">El Emilio</span><p class="legacy-desc">El niño no es un adulto en miniatura. La educación debe respetar la naturaleza del desarrollo. Toda la pedagogía moderna parte de Rousseau.</p></div>
+    <div class="legacy-card"><span class="legacy-era">Ecología</span><span class="legacy-title">La crítica al progreso</span><p class="legacy-desc">La idea de que el progreso tecnológico no equivale a progreso moral, que la naturaleza tiene valor intrínseco: Rousseau fue el primer ecologista filosófico.</p></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header"><h2>Pon a prueba <em>tu comprensión</em></h2><p class="panel-lead">Diez preguntas sobre Rousseau.</p></div>
+  <div class="test-wrap" id="quiz"><p class="test-intro">Selecciona la respuesta correcta.</p>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta I</span><p class="q-text">¿Con qué frase abre Rousseau El Contrato Social?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">«El hombre nace libre, y en todas partes está encadenado»</button></li><li><button class="opt-btn" data-idx="1">«El hombre es un lobo para el hombre»</button></li><li><button class="opt-btn" data-idx="2">«La propiedad es un robo»</button></li><li><button class="opt-btn" data-idx="3">«Pienso, luego existo»</button></li></ul><p class="q-fb ok">Correcto. La frase más célebre de la filosofía política moderna, que anuncia todo su programa.</p><p class="q-fb fail">La apertura es «El hombre nace libre, y en todas partes está encadenado» — el diagnóstico que exige una solución nueva.</p></div>
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta II</span><p class="q-text">¿Qué es la voluntad general según Rousseau?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La voluntad del gobernante</button></li><li><button class="opt-btn" data-idx="1">La suma de voluntades individuales</button></li><li><button class="opt-btn" data-idx="2">El interés común del pueblo en cuanto pueblo</button></li><li><button class="opt-btn" data-idx="3">La opinión de la mayoría en una votación</button></li></ul><p class="q-fb ok">Correcto. No es mayoría ni suma: es lo que el pueblo quiere como cuerpo colectivo, orientado al bien común.</p><p class="q-fb fail">La voluntad general no es la suma de voluntades ni la mayoría. Es el interés común del pueblo como cuerpo político colectivo.</p></div>
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta III</span><p class="q-text">¿Qué identifica Rousseau como origen de la desigualdad?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La naturaleza humana</button></li><li><button class="opt-btn" data-idx="1">La propiedad privada</button></li><li><button class="opt-btn" data-idx="2">La religión organizada</button></li><li><button class="opt-btn" data-idx="3">La monarquía hereditaria</button></li></ul><p class="q-fb ok">Correcto. El primer hombre que cercó un terreno y dijo «esto es mío» fue el fundador de la desigualdad social.</p><p class="q-fb fail">La propiedad privada: el acto de cercar y reclamar como propio lo que antes era de todos es el origen de la desigualdad.</p></div>
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta IV</span><p class="q-text">Para Rousseau, ¿qué es la libertad civil?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Hacer lo que quieras sin restricciones</button></li><li><button class="opt-btn" data-idx="1">Tener derechos de propiedad protegidos</button></li><li><button class="opt-btn" data-idx="2">Poder votar cada cuatro años</button></li><li><button class="opt-btn" data-idx="3">Obedecer la ley que uno mismo se ha dado</button></li></ul><p class="q-fb ok">Correcto. La libertad no es capricho sino autonomía: participar en la creación de las leyes que te gobiernan.</p><p class="q-fb fail">La libertad civil es autonomía legislativa: obedecer la ley que tú mismo has contribuido a crear. Esa idea pasará directamente a Kant.</p></div>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta V</span><p class="q-text">¿Qué le pasó a El Contrato Social cuando se publicó?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Fue condenado y quemado públicamente en París y Ginebra</button></li><li><button class="opt-btn" data-idx="1">Fue adoptado como texto oficial de la monarquía francesa</button></li><li><button class="opt-btn" data-idx="2">Pasó desapercibido durante décadas</button></li><li><button class="opt-btn" data-idx="3">Fue traducido y celebrado inmediatamente en toda Europa</button></li></ul><p class="q-fb ok">Correcto. Tanto Francia como Ginebra condenaron la obra y ordenaron el arresto de Rousseau. El libro que fundaría la Revolución fue primero perseguido por el poder.</p><p class="q-fb fail">El Contrato Social fue condenado y quemado en París y Ginebra. Rousseau tuvo que huir. Solo después de su muerte fue reivindicado por los revolucionarios.</p></div>
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta VI</span><p class="q-text">¿En qué se diferencia el contrato de Rousseau del de Hobbes?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Rousseau crea un soberano absoluto; Hobbes un gobierno limitado</button></li><li><button class="opt-btn" data-idx="1">No hay diferencia, ambos llegan al mismo resultado</button></li><li><button class="opt-btn" data-idx="2">En Rousseau la soberanía permanece en el pueblo; en Hobbes se transfiere al soberano</button></li><li><button class="opt-btn" data-idx="3">Hobbes defiende la igualdad radical; Rousseau acepta la desigualdad natural</button></li></ul><p class="q-fb ok">Correcto. Para Hobbes el pueblo cede el poder. Para Rousseau, la soberanía es inalienable: nunca sale del pueblo.</p><p class="q-fb fail">La diferencia clave: en Hobbes la soberanía se transfiere; en Rousseau es inalienable e intransferible. El pueblo es siempre el soberano.</p></div>
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta VII</span><p class="q-text">¿Qué filósofo reconoció que Rousseau le enseñó a respetar al hombre común?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Voltaire</button></li><li><button class="opt-btn" data-idx="1">Kant</button></li><li><button class="opt-btn" data-idx="2">Hegel</button></li><li><button class="opt-btn" data-idx="3">Marx</button></li></ul><p class="q-fb ok">Correcto. Kant dijo que Rousseau le corrigió: antes despreciaba al ignorante, después aprendió a respetar la dignidad de toda persona.</p><p class="q-fb fail">Fue Kant. Reconoció que Rousseau le enseñó que la dignidad humana no depende de la educación ni del conocimiento.</p></div>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VIII</span><p class="q-text">¿Quién llevaba El Contrato Social en el bolsillo durante la Revolución?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Robespierre</button></li><li><button class="opt-btn" data-idx="1">Napoleón</button></li><li><button class="opt-btn" data-idx="2">Voltaire</button></li><li><button class="opt-btn" data-idx="3">Lafayette</button></li></ul><p class="q-fb ok">Correcto. Robespierre se consideraba discípulo directo de Rousseau y aplicó (o intentó aplicar) la voluntad general como programa revolucionario.</p><p class="q-fb fail">Robespierre, el líder jacobino, se consideraba heredero directo de Rousseau y llevaba El Contrato Social como guía práctica de la Revolución.</p></div>
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta IX</span><p class="q-text">¿Qué papel tiene el gobierno en el sistema de Rousseau?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Es el soberano legítimo del Estado</button></li><li><button class="opt-btn" data-idx="1">Es un poder independiente con autoridad propia</button></li><li><button class="opt-btn" data-idx="2">Es una ficción innecesaria — el pueblo se gobierna solo</button></li><li><button class="opt-btn" data-idx="3">Es un agente ejecutor subordinado al pueblo soberano</button></li></ul><p class="q-fb ok">Correcto. El gobierno ejecuta, pero no legisla ni decide. Es el brazo, no la cabeza. La cabeza siempre es el pueblo.</p><p class="q-fb fail">El gobierno no es el soberano sino su instrumento. Ejecuta la voluntad general pero no la crea. El pueblo es siempre la autoridad última.</p></div>
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta X</span><p class="q-text">¿Qué tesis provocadora ganó a Rousseau fama instantánea en 1750?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que la monarquía es ilegítima por naturaleza</button></li><li><button class="opt-btn" data-idx="1">Que Dios no existe</button></li><li><button class="opt-btn" data-idx="2">Que las ciencias y las artes corrompen las costumbres</button></li><li><button class="opt-btn" data-idx="3">Que la propiedad privada debe ser abolida</button></li></ul><p class="q-fb ok">Correcto. Su Discurso sobre las ciencias y las artes argumentó que el progreso intelectual no mejora moralmente al ser humano. Ganó el premio de Dijon y se hizo célebre.</p><p class="q-fb fail">Fue el Discurso sobre las ciencias y las artes (1750): la tesis de que el progreso cultural y científico corrompe las costumbres en vez de mejorarlas.</p></div>
+    <div class="score-box" id="score-box"><span class="score-num" id="score-num"></span><span class="score-lbl">Respuestas correctas de 10</span><p class="score-msg" id="score-msg"></p><button class="retry-btn" onclick="resetQuiz()">Reintentar</button></div>
+  </div>
+</div>
+</main>
+
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Fase I</a><a href="fase2.html">Fase II</a><a href="locke.html">Locke</a></nav></div></footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active')})});
+function toggleAcc(t){const b=t.nextElementSibling,o=t.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.acc-body').forEach(x=>x.classList.remove('open'));if(!o){t.classList.add('open');b.classList.add('open')}}
+let answered=0,score=0;const total=10;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,3,'Rousseau diría: el primer paso de la libertad es reconocer lo que no sabes. Revisa el módulo.'],[4,6,'Buen comienzo. Ya comprendes que la soberanía reside en el pueblo.'],[7,8,'Sólido. Tu comprensión de la voluntad general es clara y operativa.'],[9,10,'Excelente. Robespierre te habría invitado al Club de los Jacobinos.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>
