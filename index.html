@@ -42,7 +42,6 @@
       position: relative;
     }
 
-    /* ── Subtle parchment texture ── */
     body::before {
       content: '';
       position: fixed;
@@ -52,7 +51,6 @@
       z-index: 0;
     }
 
-    /* ── Warm vignette ── */
     body::after {
       content: '';
       position: fixed;
@@ -62,9 +60,6 @@
       z-index: 0;
     }
 
-    /* ══════════════════════════════
-       SVG DEFS
-    ══════════════════════════════ */
     .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 
     .meander {
@@ -80,9 +75,6 @@
       flex-shrink: 0;
     }
 
-    /* ══════════════════════════════
-       LAYOUT
-    ══════════════════════════════ */
     .wrapper {
       max-width: 860px;
       margin: 0 auto;
@@ -91,9 +83,6 @@
       z-index: 1;
     }
 
-    /* ══════════════════════════════
-       HEADER
-    ══════════════════════════════ */
     header {
       padding: 5rem 0 3.5rem;
       text-align: center;
@@ -210,9 +199,6 @@
       font-weight: 300;
     }
 
-    /* ══════════════════════════════
-       SECTION TITLE
-    ══════════════════════════════ */
     .section-label {
       font-family: 'Cormorant SC', serif;
       font-size: .82rem;
@@ -231,9 +217,6 @@
       background: var(--card-border);
     }
 
-    /* ══════════════════════════════
-       MODULE CARD — ACTIVE
-    ══════════════════════════════ */
     .modules-section { padding: 1rem 0 3rem; }
 
     .card-active {
@@ -250,6 +233,7 @@
       position: relative;
       overflow: hidden;
       transition: border-color .35s ease, box-shadow .35s ease, transform .25s ease;
+      margin-bottom: 1rem;
     }
 
     .card-active::before {
@@ -280,8 +264,6 @@
       transition: color .3s;
     }
     .card-active:hover .card-num { color: var(--terra); }
-
-    .card-body {}
 
     .card-module-tag {
       font-family: 'Cormorant SC', serif;
@@ -355,9 +337,6 @@
       border-radius: 1px;
     }
 
-    /* ══════════════════════════════
-       PRÓXIMAMENTE
-    ══════════════════════════════ */
     .coming-section { padding: 0 0 4rem; }
 
     .card-disabled {
@@ -409,9 +388,6 @@
       border-radius: 1px;
     }
 
-    /* ══════════════════════════════
-       FOOTER
-    ══════════════════════════════ */
     footer {
       border-top: 1px solid var(--card-border);
       padding: 2.5rem 0 3rem;
@@ -456,9 +432,6 @@
 
     .gh-icon { width: 14px; height: 14px; fill: currentColor; }
 
-    /* ══════════════════════════════
-       ANIMATIONS
-    ══════════════════════════════ */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -470,10 +443,8 @@
     .anim-4 { animation: fadeUp .7s .32s ease both; }
     .anim-5 { animation: fadeUp .7s .44s ease both; }
     .anim-6 { animation: fadeUp .7s .56s ease both; }
+    .anim-7 { animation: fadeUp .7s .68s ease both; }
 
-    /* ══════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════ */
     @media (max-width: 600px) {
       .column-svg { display: none; }
       .header-columns { gap: 0; }
@@ -493,7 +464,6 @@
 <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <pattern id="meander-pat" x="0" y="0" width="40" height="18" patternUnits="userSpaceOnUse">
-      <!-- Greek meander unit (key pattern) -->
       <path d="M0,9 L4,9 L4,4 L12,4 L12,14 L8,14 L8,9 L16,9 L16,4 L20,4 L20,14 L24,14 L24,9 L28,9 L28,4 L36,4 L36,14 L32,14 L32,9 L40,9"
             fill="none" stroke="%238c3a1e" stroke-width="1.2"/>
     </pattern>
@@ -506,7 +476,6 @@
   <header>
     <div class="header-columns">
 
-      <!-- Left column -->
       <svg class="column-svg anim-1" viewBox="0 0 38 160" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="0" width="28" height="8" fill="#8c3a1e"/>
         <rect x="8" y="8" width="22" height="5" fill="#b04d28"/>
@@ -552,7 +521,6 @@
         </p>
       </div>
 
-      <!-- Right column -->
       <svg class="column-svg anim-1" viewBox="0 0 38 160" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="0" width="28" height="8" fill="#8c3a1e"/>
         <rect x="8" y="8" width="22" height="5" fill="#b04d28"/>
@@ -567,7 +535,6 @@
 
     </div>
 
-    <!-- Meander bottom border -->
     <svg class="meander anim-5" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <rect width="100%" height="100%" fill="url(#meander-pat)"/>
     </svg>
@@ -579,9 +546,7 @@
 
     <a href="grecia-socrates-platon.html" class="card-active" aria-label="Ir al Módulo 1: Sócrates y Platón">
       <span class="card-badge-active">Disponible</span>
-
       <span class="card-num">01</span>
-
       <div class="card-body">
         <span class="card-module-tag">Módulo I · Grecia Clásica</span>
         <h2 class="card-title">Sócrates y Platón</h2>
@@ -597,16 +562,10 @@
           <span class="topic-pill">Justicia & alma</span>
         </div>
       </div>
-
       <span class="card-arrow" aria-hidden="true">→</span>
     </a>
-  </section>
 
-  <!-- ══════════ PRÓXIMAMENTE ══════════ -->
-  <section class="coming-section anim-6">
-    <p class="section-label">Disponible</p>
-
-    <a href="aristoteles-politica.html" class="card-active" aria-label="Ir al Módulo 2: Aristóteles y la Política" style="margin-bottom:1rem;">
+    <a href="aristoteles-politica.html" class="card-active" aria-label="Ir al Módulo 2: Aristóteles y la Política">
       <span class="card-badge-active">Disponible</span>
       <span class="card-num">02</span>
       <div class="card-body">
@@ -626,27 +585,49 @@
       </div>
       <span class="card-arrow" aria-hidden="true">→</span>
     </a>
+
+    <a href="estoicismo.html" class="card-active" aria-label="Ir al Módulo 3: El Estoicismo">
+      <span class="card-badge-active">Nuevo</span>
+      <span class="card-num">03</span>
+      <div class="card-body">
+        <span class="card-module-tag">Módulo III · Roma & Helenismo</span>
+        <h2 class="card-title">El Estoicismo</h2>
+        <p class="card-desc">
+          La filosofía que bajó del cielo a la calle. Epicteto, Séneca y Marco Aurelio:
+          tres vidas radicalmente distintas, una misma disciplina — distinguir lo que depende
+          de ti de lo que no, y actuar en consecuencia. Resiliencia, ética y conducta
+          para la vida práctica, desde Roma hasta hoy.
+        </p>
+        <div class="card-topics">
+          <span class="topic-pill">Dicotomía del control</span>
+          <span class="topic-pill">Virtud (areté)</span>
+          <span class="topic-pill">Resiliencia</span>
+          <span class="topic-pill">Legado en la TCC</span>
+        </div>
+      </div>
+      <span class="card-arrow" aria-hidden="true">→</span>
+    </a>
   </section>
 
-  <section class="coming-section">
+  <!-- ══════════ PRÓXIMAMENTE ══════════ -->
+  <section class="coming-section anim-7">
     <p class="section-label">Próximamente</p>
 
     <div class="card-disabled" aria-disabled="true">
-      <span class="card-num">03</span>
+      <span class="card-num">04</span>
       <div class="card-body">
-        <span class="card-module-tag">Módulo III · Roma & Estoicismo</span>
-        <p class="card-title">Cicerón, el estoicismo y la República romana</p>
+        <span class="card-module-tag">Módulo IV · Roma & Cristianismo</span>
+        <p class="card-title">Cicerón, Agustín y el poder entre dos mundos</p>
       </div>
       <span class="badge-soon">En preparación</span>
     </div>
   </section>
 
-</div><!-- /wrapper -->
+</div>
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
   <div class="wrapper">
-    <!-- Meander top border -->
     <svg class="meander" style="margin-bottom:2rem;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <rect width="100%" height="100%" fill="url(#meander-pat)"/>
     </svg>
@@ -657,10 +638,10 @@
       </div>
       <nav class="footer-links" aria-label="Enlaces externos">
         <a href="https://github.com/Rozoca" target="_blank" rel="noopener noreferrer">
-          <svg class="gh-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.31 3.435 9.818 8.205 11.408.6.113.82-.26.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.419-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.382 1.235-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.046.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.243 2.873.12 3.176.77.84 1.233 1.91 1.233 3.221 0 4.61-2.807 5.625-5.479 5.921.43.372.814 1.103.814 2.222v3.293c0 .32.216.694.825.576C20.565 22.315 24 17.808 24 12.5 24 5.87 18.627.5 12 .5z"/>
+          <svg class="gh-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
           </svg>
-          github.com/Rozoca
+          GitHub
         </a>
       </nav>
     </div>
