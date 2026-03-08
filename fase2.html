@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fase II — Renacimiento & Modernidad · Filosofía & Política</title>
+  <meta name="description" content="Del Renacimiento a la Ilustración: Maquiavelo, Hobbes, Locke, Rousseau y el nacimiento de la ciencia política moderna."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:          #1a1612;
+      --bg-mid:      #241e18;
+      --bg-card:     #2a231c;
+      --surface:     #352d24;
+      --border:      #4a3e30;
+      --border-light:#5a4e3e;
+      --crimson:     #a03030;
+      --crimson-mid: #c04040;
+      --crimson-light:#d06060;
+      --gold:        #c4a040;
+      --gold-light:  #d8b850;
+      --gold-dim:    #8a7030;
+      --ivory:       #f0e8d8;
+      --ivory-mid:   #c8bea8;
+      --ivory-dim:   #8a8070;
+      --text:        #e8e0d0;
+      --text-muted:  #a09888;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      background: rgba(26,22,18,.95);
+      backdrop-filter: blur(12px);
+      padding: 1rem 2rem;
+      position: sticky; top: 0; z-index: 200;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-nav-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-back {
+      font-family: 'Manrope', sans-serif;
+      font-size: .85rem; font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--ivory-mid); text-decoration: none;
+      display: flex; align-items: center; gap: .5rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--gold-light); }
+    .nav-phase {
+      font-family: 'Playfair Display', serif;
+      font-size: .9rem; font-weight: 500;
+      color: var(--gold);
+      letter-spacing: .05em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; left: 50%; transform: translateX(-50%);
+      width: 80vw; height: 80vw; max-width: 700px; max-height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(160,48,48,.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 720px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .hero-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .35em; text-transform: uppercase;
+      color: var(--crimson-mid);
+      margin-bottom: 1.5rem; display: block;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 400; color: var(--ivory);
+      line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--gold);
+    }
+    .hero-subtitle {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.15rem; font-style: italic;
+      color: var(--text-muted);
+      max-width: 560px; margin: 0 auto 2rem;
+      line-height: 1.75;
+    }
+
+    .hero-divider {
+      display: flex; align-items: center; gap: 1.2rem;
+      max-width: 200px; margin: 0 auto 2.5rem;
+    }
+    .hero-divider::before, .hero-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-light));
+    }
+    .hero-divider::after {
+      background: linear-gradient(to left, transparent, var(--border-light));
+    }
+    .hero-divider span {
+      width: 8px; height: 8px;
+      background: var(--crimson); transform: rotate(45deg);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px; margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    /* ── MODULES SECTION ── */
+    .content {
+      max-width: 960px; margin: 0 auto;
+      padding: 0 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .section-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .75rem; font-weight: 600;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: var(--gold-dim);
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--border);
+    }
+
+    /* ── MODULE CARD ── */
+    .mod-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.5rem 3rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0 2rem;
+      align-items: start;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s, box-shadow .3s, transform .2s;
+      margin-bottom: 1.2rem;
+    }
+    .mod-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(192,64,64,.04) 0%, transparent 50%);
+      opacity: 0; transition: opacity .3s;
+      pointer-events: none;
+    }
+    .mod-card:hover {
+      border-color: var(--crimson);
+      box-shadow: 0 8px 32px rgba(160,48,48,.12), 0 2px 8px rgba(0,0,0,.2);
+      transform: translateY(-2px);
+    }
+    .mod-card:hover::before { opacity: 1; }
+
+    .mod-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem; font-weight: 400;
+      color: var(--border-light);
+      line-height: 1;
+      transition: color .3s;
+    }
+    .mod-card:hover .mod-num { color: var(--crimson-mid); }
+
+    .mod-tag {
+      font-family: 'Manrope', sans-serif;
+      font-size: .7rem; font-weight: 600;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: .5rem; display: block;
+      transition: color .3s;
+    }
+    .mod-card:hover .mod-tag { color: var(--gold); }
+
+    .mod-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 500;
+      color: var(--ivory);
+      line-height: 1.2; margin-bottom: .7rem;
+    }
+
+    .mod-desc {
+      font-size: 1rem; color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .mod-topics {
+      margin-top: 1rem;
+      display: flex; flex-wrap: wrap; gap: .45rem;
+    }
+    .mod-pill {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .1em;
+      color: var(--ivory-dim);
+      border: 1px solid var(--border);
+      padding: .3rem .7rem;
+      border-radius: 2px;
+      transition: border-color .3s, color .3s;
+    }
+    .mod-card:hover .mod-pill {
+      border-color: var(--border-light);
+      color: var(--ivory-mid);
+    }
+
+    .mod-arrow {
+      align-self: center;
+      font-size: 1.4rem; color: var(--border-light);
+      transition: transform .3s, color .3s;
+    }
+    .mod-card:hover .mod-arrow {
+      transform: translateX(6px);
+      color: var(--crimson-mid);
+    }
+
+    .mod-badge {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      font-family: 'Manrope', sans-serif;
+      font-size: .6rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      padding: .25rem .6rem;
+      border-radius: 2px;
+    }
+    .mod-badge.available {
+      color: var(--gold); border: 1px solid var(--gold-dim);
+    }
+    .mod-badge.new {
+      color: var(--crimson-light); border: 1px solid var(--crimson);
+    }
+
+    /* ── DISABLED CARD ── */
+    .mod-card-disabled {
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.8rem 3rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0 2rem;
+      align-items: center;
+      opacity: .4;
+      cursor: default;
+      margin-bottom: 1.2rem;
+    }
+    .mod-card-disabled .mod-num {
+      color: var(--border);
+    }
+    .mod-card-disabled .mod-tag {
+      font-family: 'Manrope', sans-serif;
+      font-size: .7rem; font-weight: 600;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--border-light);
+      margin-bottom: .3rem; display: block;
+    }
+    .mod-card-disabled .mod-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 400;
+      color: var(--border-light);
+    }
+    .badge-soon {
+      font-family: 'Manrope', sans-serif;
+      font-size: .6rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--border-light);
+      border: 1px solid var(--border);
+      padding: .25rem .6rem;
+      border-radius: 2px;
+    }
+
+    /* ── BACK TO PORTAL LINK ── */
+    .back-section {
+      padding: 0 0 4rem;
+      text-align: center;
+    }
+    .back-link {
+      font-family: 'Manrope', sans-serif;
+      font-size: .85rem; font-weight: 500;
+      letter-spacing: .1em;
+      color: var(--ivory-dim);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: .7rem 1.8rem;
+      border-radius: 2px;
+      transition: all .2s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .back-link:hover {
+      border-color: var(--gold-dim);
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Libre Baskerville', serif;
+      font-size: .9rem; color: var(--text-muted);
+    }
+    .footer-brand strong { color: var(--ivory); font-weight: 400; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-nav a {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .15em;
+      color: var(--ivory-dim); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-1 { animation: fadeUp .6s ease both; }
+    .anim-2 { animation: fadeUp .6s .1s ease both; }
+    .anim-3 { animation: fadeUp .6s .2s ease both; }
+    .anim-4 { animation: fadeUp .6s .3s ease both; }
+    .anim-5 { animation: fadeUp .6s .4s ease both; }
+    .anim-6 { animation: fadeUp .6s .5s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .mod-card, .mod-card-disabled {
+        grid-template-columns: auto 1fr;
+        padding: 1.8rem 1.4rem;
+      }
+      .mod-arrow { display: none; }
+      .mod-badge { position: static; margin-bottom: .5rem; display: inline-block; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal principal</a>
+    <span class="nav-phase">Fase II</span>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-label anim-1">Fase II · Filosofía & Política</span>
+    <h1 class="hero-title anim-2">Renacimiento <em>&</em> Modernidad</h1>
+    <p class="hero-subtitle anim-3">
+      El poder deja de justificarse por Dios y empieza a explicarse por la naturaleza humana.
+      Nace la ciencia política.
+    </p>
+    <div class="hero-divider anim-3"><span></span></div>
+    <p class="hero-desc anim-4">
+      De Maquiavelo a Rousseau, pasando por Hobbes y Locke: los pensadores que
+      separaron la política de la teología, inventaron el contrato social y sentaron
+      las bases del Estado moderno.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ MODULES ══════════ -->
+<div class="content">
+
+  <p class="section-label anim-5">Módulos de la Fase II</p>
+
+  <a href="maquiavelo.html" class="mod-card anim-5" aria-label="Ir al módulo sobre Maquiavelo">
+    <span class="mod-badge new">Nuevo</span>
+    <span class="mod-num">01</span>
+    <div>
+      <span class="mod-tag">Módulo IV · Renacimiento</span>
+      <h2 class="mod-title">Maquiavelo</h2>
+      <p class="mod-desc">
+        El padre de la ciencia política. El hombre que separó la moral de la política
+        y escribió el manual más honesto — y más temido — sobre cómo funciona
+        realmente el poder.
+      </p>
+      <div class="mod-topics">
+        <span class="mod-pill">El Príncipe</span>
+        <span class="mod-pill">Virtù & Fortuna</span>
+        <span class="mod-pill">Razón de Estado</span>
+        <span class="mod-pill">Realismo político</span>
+      </div>
+    </div>
+    <span class="mod-arrow" aria-hidden="true">→</span>
+  </a>
+
+  <p class="section-label anim-6" style="margin-top:2rem;">Próximamente</p>
+
+  <div class="mod-card-disabled anim-6">
+    <span class="mod-num">02</span>
+    <div>
+      <span class="mod-tag">Módulo V · Contractualismo</span>
+      <p class="mod-title">Hobbes y el Leviatán</p>
+    </div>
+    <span class="badge-soon">En preparación</span>
+  </div>
+
+  <div class="back-section anim-6" style="margin-top:3rem;">
+    <a href="index.html" class="back-link">← Volver a la Fase I · Antigüedad</a>
+  </div>
+
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
+    <nav class="footer-nav">
+      <a href="index.html">Fase I</a>
+      <a href="https://github.com/Rozoca" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
