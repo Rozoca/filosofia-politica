@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo IV — Maquiavelo · Filosofía & Política</title>
+  <meta name="description" content="Maquiavelo: el padre de la ciencia política. El Príncipe, la virtù, la fortuna y el realismo político que cambió la historia."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:           #1a1612;
+      --bg-mid:       #241e18;
+      --bg-card:      #2a231c;
+      --surface:      #352d24;
+      --border:       #4a3e30;
+      --border-light: #5a4e3e;
+      --crimson:      #a03030;
+      --crimson-mid:  #c04040;
+      --crimson-light:#d06060;
+      --crimson-pale: #e08888;
+      --gold:         #c4a040;
+      --gold-light:   #d8b850;
+      --gold-dim:     #8a7030;
+      --ivory:        #f0e8d8;
+      --ivory-mid:    #c8bea8;
+      --ivory-dim:    #8a8070;
+      --text:         #e8e0d0;
+      --text-muted:   #a09888;
+      --correct:      #3a8a4a;
+      --correct-bg:   #1a2e1e;
+      --wrong:        #b04040;
+      --wrong-bg:     #2e1a1a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      background: rgba(26,22,18,.95);
+      backdrop-filter: blur(12px);
+      padding: .9rem 2rem;
+      position: sticky; top: 0; z-index: 200;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-nav-inner {
+      max-width: 940px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-back {
+      font-family: 'Manrope', sans-serif;
+      font-size: .85rem; font-weight: 500;
+      color: var(--ivory-mid); text-decoration: none;
+      display: flex; align-items: center; gap: .5rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--gold-light); }
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: .85rem; font-weight: 500;
+      color: var(--ivory-dim);
+    }
+    .nav-badge {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .18em;
+      color: var(--crimson-light);
+      border: 1px solid var(--crimson);
+      padding: .2rem .6rem; border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-mid) 100%);
+      padding: 4.5rem 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -15%;
+      width: 55vw; height: 55vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(160,48,48,.1) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%; left: -10%;
+      width: 40vw; height: 40vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,160,64,.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 940px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: 'Manrope', sans-serif;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .4em; text-transform: uppercase;
+      color: var(--crimson-mid); display: block;
+      margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400; color: var(--ivory);
+      line-height: 1.05; margin-bottom: 1.2rem;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--gold);
+    }
+    .hero-subtitle {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.15rem; font-style: italic;
+      color: var(--text-muted);
+      max-width: 600px; line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-stats {
+      display: flex; gap: 0;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      padding: 1.4rem 2.4rem 1.4rem 0;
+      margin-right: 2.4rem;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 400;
+      color: var(--gold); display: block; line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .15em;
+      color: var(--ivory-dim);
+      display: block; margin-top: .35rem;
+    }
+
+    /* ── TAB NAV — MUCH MORE VISIBLE ── */
+    .tab-nav {
+      background: var(--bg-mid);
+      position: sticky; top: 48px; z-index: 150;
+      border-bottom: 1px solid var(--border);
+      padding: .6rem 0;
+    }
+    .tab-nav-inner {
+      max-width: 940px; margin: 0 auto;
+      display: flex; gap: .5rem;
+      overflow-x: auto; scrollbar-width: none;
+      padding: 0 2rem;
+    }
+    .tab-nav-inner::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      font-family: 'Manrope', sans-serif;
+      font-size: .82rem; font-weight: 600;
+      letter-spacing: .08em;
+      color: var(--ivory-dim);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: .6rem 1.3rem;
+      cursor: pointer; white-space: nowrap;
+      transition: all .25s;
+      flex-shrink: 0;
+    }
+    .tab-btn:hover {
+      color: var(--ivory-mid);
+      background: var(--border);
+      border-color: var(--border-light);
+    }
+    .tab-btn.active {
+      color: var(--ivory);
+      background: var(--crimson);
+      border-color: var(--crimson-mid);
+    }
+
+    /* ── CONTENT AREA ── */
+    .content-area {
+      max-width: 940px; margin: 0 auto;
+      padding: 0 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: block;
+      animation: panelIn .4s ease both;
+    }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── PANEL HEADER ── */
+    .panel-header {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .panel-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400; color: var(--ivory);
+      line-height: 1.2;
+    }
+    .panel-header h2 em { color: var(--crimson-mid); font-style: italic; }
+    .panel-lead {
+      margin-top: .8rem;
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic; font-size: 1.05rem;
+      color: var(--text-muted); line-height: 1.8;
+    }
+
+    .section-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: var(--crimson-mid);
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--border);
+    }
+
+    /* ── CARDS ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1.8rem 2rem;
+    }
+    .card.full { grid-column: 1 / -1; }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 500;
+      color: var(--ivory); margin-bottom: .7rem;
+    }
+    .card p, .card li {
+      font-size: 1rem; color: var(--text-muted); line-height: 1.8;
+    }
+    .card ul { padding-left: 1.3rem; }
+    .card li { margin-bottom: .35rem; }
+    .card-icon { font-size: 1.5rem; display: block; margin-bottom: .7rem; }
+
+    /* ── HIGHLIGHT CARD ── */
+    .highlight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--crimson);
+      border-radius: 3px;
+      padding: 2rem 2.4rem;
+      margin-bottom: 2.5rem;
+    }
+    .highlight-card .hc-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--crimson-mid); display: block;
+      margin-bottom: .8rem;
+    }
+    .highlight-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 500; color: var(--ivory);
+      margin-bottom: .8rem;
+    }
+    .highlight-card p {
+      font-size: 1rem; color: var(--text-muted);
+      line-height: 1.85; margin-bottom: .7rem;
+    }
+    .highlight-card p:last-child { margin-bottom: 0; }
+    .highlight-card strong { color: var(--ivory); font-weight: 500; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      padding: 2rem 2.4rem;
+      margin: 2.5rem 0;
+      border-radius: 3px;
+    }
+    .pull-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic;
+      color: var(--ivory-mid); line-height: 1.6;
+    }
+    .pull-quote cite {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .15em;
+      color: var(--gold-dim); display: block;
+      margin-top: .8rem;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2.2rem; margin-bottom: 2.5rem; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: .55rem; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .tl-item { position: relative; margin-bottom: 1.8rem; }
+    .tl-dot {
+      position: absolute; left: -1.8rem; top: .35rem;
+      width: 10px; height: 10px;
+      background: var(--crimson); transform: rotate(45deg);
+    }
+    .tl-date {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .15em;
+      color: var(--crimson-mid); display: block; margin-bottom: .25rem;
+    }
+    .tl-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 500; color: var(--ivory);
+      margin-bottom: .25rem;
+    }
+    .tl-desc { font-size: .95rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ── CONCEPT ACCORDION ── */
+    .accordion { margin-bottom: 2.5rem; }
+    .acc-item {
+      border: 1px solid var(--border);
+      border-radius: 3px; margin-bottom: .6rem;
+      overflow: hidden;
+    }
+    .acc-trigger {
+      width: 100%; background: var(--bg-card);
+      border: none; padding: 1.2rem 1.5rem;
+      display: flex; justify-content: space-between;
+      align-items: center; cursor: pointer;
+      text-align: left; transition: background .2s;
+    }
+    .acc-trigger:hover { background: var(--surface); }
+    .acc-trigger.open { background: var(--crimson); }
+    .acc-term {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 500; color: var(--ivory);
+      transition: color .2s;
+    }
+    .acc-trigger.open .acc-term { color: #fff; }
+    .acc-arrow {
+      font-size: .9rem; color: var(--ivory-dim);
+      transition: transform .3s, color .2s;
+      flex-shrink: 0; margin-left: 1rem;
+    }
+    .acc-trigger.open .acc-arrow {
+      transform: rotate(180deg);
+      color: var(--gold-light);
+    }
+    .acc-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      padding: 0 1.5rem;
+      background: var(--bg-mid);
+    }
+    .acc-body.open {
+      max-height: 600px;
+      padding: 1.4rem 1.5rem;
+    }
+    .acc-body p {
+      font-size: 1rem; color: var(--text-muted);
+      line-height: 1.85; margin-bottom: .7rem;
+    }
+    .acc-body p:last-child { margin-bottom: 0; }
+    .acc-body strong { color: var(--ivory); font-weight: 500; }
+
+    /* ── LEGACY GRID ── */
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .legacy-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-bottom: 3px solid var(--crimson);
+      padding: 1.6rem 1.6rem;
+      border-radius: 3px;
+    }
+    .legacy-era {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--crimson-mid); display: block; margin-bottom: .5rem;
+    }
+    .legacy-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 500; color: var(--ivory);
+      margin-bottom: .5rem;
+    }
+    .legacy-desc { font-size: .92rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ── TEST ── */
+    .test-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 2.5rem 2.8rem;
+    }
+    .test-intro {
+      font-size: 1rem; color: var(--text-muted);
+      margin-bottom: 2rem; line-height: 1.8;
+    }
+    .q-block { margin-bottom: 2.4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .q-block:last-of-type { border-bottom: none; }
+    .q-number {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .2em;
+      color: var(--crimson-mid); display: block; margin-bottom: .5rem;
+    }
+    .q-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 500;
+      color: var(--ivory); margin-bottom: 1rem; line-height: 1.5;
+    }
+    .opts { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .opt-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: .85rem 1.2rem;
+      font-family: 'Manrope', sans-serif;
+      font-size: .95rem; font-weight: 400;
+      color: var(--text-muted); cursor: pointer;
+      text-align: left; width: 100%;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--crimson);
+      color: var(--ivory); background: var(--bg-mid);
+    }
+    .opt-btn.correct { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); }
+    .opt-btn.wrong   { background: var(--wrong-bg);   border-color: var(--wrong);   color: var(--wrong); }
+    .opt-btn.reveal  { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); opacity:.6; }
+    .opt-btn:disabled { cursor: default; }
+    .q-fb { margin-top: .8rem; font-size: .92rem; line-height: 1.7; display: none; }
+    .q-fb.show { display: block; }
+    .q-fb.ok   { color: var(--correct); }
+    .q-fb.fail { color: var(--wrong); }
+
+    .score-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px; padding: 2.4rem;
+      text-align: center; margin-top: 2rem; display: none;
+    }
+    .score-box.show { display: block; animation: panelIn .4s ease both; }
+    .score-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; font-weight: 400;
+      color: var(--gold); display: block; line-height: 1;
+    }
+    .score-lbl {
+      font-family: 'Manrope', sans-serif;
+      font-size: .75rem; font-weight: 500;
+      letter-spacing: .25em;
+      color: var(--ivory-dim); display: block;
+      margin-top: .4rem; margin-bottom: 1rem;
+    }
+    .score-msg {
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic; font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+    .retry-btn {
+      margin-top: 1.4rem; background: none;
+      border: 1px solid var(--crimson);
+      color: var(--crimson-light);
+      font-family: 'Manrope', sans-serif;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .15em;
+      padding: .65rem 1.5rem; cursor: pointer;
+      border-radius: 2px;
+      transition: background .2s, color .2s;
+    }
+    .retry-btn:hover { background: var(--crimson); color: #fff; }
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 3px; background: var(--crimson-mid);
+      z-index: 999; width: 0;
+      transition: width .1s linear;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2rem;
+      background: var(--bg);
+    }
+    .footer-inner {
+      max-width: 940px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Libre Baskerville', serif;
+      font-size: .9rem; color: var(--text-muted);
+    }
+    .footer-brand strong { color: var(--ivory); font-weight: 400; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-nav a {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 500;
+      letter-spacing: .15em;
+      color: var(--ivory-dim); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .card-grid, .legacy-grid { grid-template-columns: 1fr; }
+      .card.full { grid-column: 1; }
+      .test-wrap { padding: 1.6rem 1.3rem; }
+      .hero-stats { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; margin-right: 0; }
+      .tab-btn { font-size: .75rem; padding: .5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- ══════════ TOP NAV ══════════ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="fase2.html" class="nav-back">← Fase II</a>
+    <span class="nav-title">Filosofía & Política</span>
+    <span class="nav-badge">Módulo IV</span>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo IV · Renacimiento</span>
+    <h1 class="hero-title"><em>Maquiavelo</em></h1>
+    <p class="hero-subtitle">
+      El hombre que miró al poder a la cara y lo describió tal como es — no como debería ser.
+      El padre de la ciencia política. El autor del libro más temido de la historia.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">1469–1527</span>
+        <span class="stat-label">Florencia, Italia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">1513</span>
+        <span class="stat-label">El Príncipe</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">26</span>
+        <span class="stat-label">Capítulos del manual</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">510+</span>
+        <span class="stat-label">Años de influencia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TAB NAV ══════════ -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="quien">Quién fue</button>
+    <button class="tab-btn" data-tab="ideas">Ideas clave</button>
+    <button class="tab-btn" data-tab="principe">El Príncipe</button>
+    <button class="tab-btn" data-tab="legado">Legado</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<!-- ══════════ CONTENT ══════════ -->
+<main class="content-area">
+
+  <!-- ─── TAB: QUIÉN FUE ─── -->
+  <div class="tab-panel active" id="tab-quien">
+    <div class="panel-header">
+      <h2>Nicolás Maquiavelo: <em>el funcionario que cambió la política para siempre</em></h2>
+      <p class="panel-lead">
+        No fue rey, ni general, ni filósofo de academia. Fue un funcionario público de Florencia
+        que observó el poder desde dentro, lo perdió todo, y escribió en el exilio el libro
+        que fundó la ciencia política moderna.
+      </p>
+    </div>
+
+    <p class="section-label">Contexto histórico</p>
+
+    <div class="card-grid">
+      <div class="card full">
+        <span class="card-icon">🏛️</span>
+        <h3>La Italia del Renacimiento: belleza y caos</h3>
+        <p>
+          La Italia de Maquiavelo no era un país unificado sino un mosaico de ciudades-estado
+          en guerra permanente: Florencia, Milán, Venecia, los Estados Pontificios, Nápoles.
+          Las grandes potencias europeas — Francia y España — la invadían a voluntad.
+          En este contexto de fragmentación, invasiones y traiciones, Maquiavelo aprendió
+          que la política no se rige por ideales sino por la correlación de fuerzas.
+        </p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📋</span>
+        <h3>El funcionario</h3>
+        <p>
+          Entre 1498 y 1512, Maquiavelo fue Secretario de la Segunda Cancillería de Florencia.
+          No era un cargo decorativo: negociaba con reyes, papas y condottieri. Viajó a Francia,
+          al Vaticano, a la corte de César Borgia. Vio de primera mano cómo se tomaban
+          las decisiones reales — y a qué precio.
+        </p>
+      </div>
+      <div class="card">
+        <span class="card-icon">⛓️</span>
+        <h3>La caída</h3>
+        <p>
+          En 1512, los Médici recuperaron el poder en Florencia. Maquiavelo fue destituido,
+          encarcelado y torturado bajo acusación de conspiración. Al ser liberado, se retiró
+          a una pequeña finca en las afueras. Ahí, en el exilio, escribió <em>El Príncipe</em>:
+          un intento de demostrar su valía a los nuevos gobernantes y, a la vez,
+          condensar todo lo que había aprendido sobre el poder.
+        </p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Al anochecer, regreso a casa y entro en mi escritorio; y en la puerta me quito la ropa cotidiana, llena de barro y lodo, y me visto con ropas reales y cortesanas; y revestido dignamente, entro en las cortes antiguas de los hombres antiguos."</blockquote>
+      <cite>— Maquiavelo, carta a Francesco Vettori, 10 de diciembre de 1513</cite>
+    </div>
+
+    <p class="section-label">Cronología esencial</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1469</span>
+        <span class="tl-title">Nace en Florencia</span>
+        <span class="tl-desc">En una familia de clase media letrada, sin fortuna ni título nobiliario.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1498</span>
+        <span class="tl-title">Secretario de la Segunda Cancillería</span>
+        <span class="tl-desc">Comienza 14 años de servicio público: misiones diplomáticas, organización militar, inteligencia política.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1502</span>
+        <span class="tl-title">Observa a César Borgia</span>
+        <span class="tl-desc">Enviado como diplomático ante Borgia, queda fascinado por su eficacia brutal. Será uno de los modelos de El Príncipe.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1512</span>
+        <span class="tl-title">Caída de la República, retorno de los Médici</span>
+        <span class="tl-desc">Maquiavelo pierde su cargo. Es encarcelado y torturado. Comienza el exilio forzoso.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1513</span>
+        <span class="tl-title">Escribe El Príncipe</span>
+        <span class="tl-desc">En su pequeña finca de Sant'Andrea in Percussina. Lo dedica a Lorenzo de Médici, buscando recuperar su posición. Nunca lo logra.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1527</span>
+        <span class="tl-title">Muerte en Florencia</span>
+        <span class="tl-desc">Muere sin haber recuperado un cargo relevante. El Príncipe se publica póstumamente en 1532.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TAB: IDEAS CLAVE ─── -->
+  <div class="tab-panel" id="tab-ideas">
+    <div class="panel-header">
+      <h2>El giro maquiaveliano: <em>la política tal como es</em></h2>
+      <p class="panel-lead">
+        Antes de Maquiavelo, la filosofía política decía cómo debería ser el gobernante.
+        Maquiavelo hizo algo nuevo: describir cómo los gobernantes realmente actúan
+        — y qué funciona.
+      </p>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">La ruptura fundacional</span>
+      <h3>Separar la moral de la política</h3>
+      <p>
+        Platón, Aristóteles, Tomás de Aquino — todos vinculaban la política a la virtud moral.
+        El buen gobernante era el gobernante virtuoso. Maquiavelo rompe con esto de raíz:
+        <strong>un gobernante que actúe siempre de forma virtuosa perderá el poder</strong>, porque
+        está rodeado de quienes no lo hacen.
+      </p>
+      <p>
+        Esta no es una defensa de la inmoralidad. Es un diagnóstico: la política tiene
+        reglas propias, distintas de la ética personal. Reconocerlo es el primer paso para
+        entenderla. Esa separación analítica es lo que convierte a Maquiavelo
+        en el <strong>fundador de la ciencia política</strong>.
+      </p>
+    </div>
+
+    <p class="section-label">Conceptos fundamentales</p>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Virtù — la habilidad del gobernante</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>No es la virtud moral cristiana. La <strong>virtù</strong> maquiaveliana es energía, audacia,
+             capacidad de decisión, inteligencia táctica: todo lo que un gobernante necesita
+             para conquistar y mantener el poder. Incluye saber cuándo ser generoso y cuándo
+             ser cruel, cuándo cumplir la palabra y cuándo romperla.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Fortuna — lo que no controlas</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Maquiavelo estima que la <strong>fortuna</strong> gobierna la mitad de nuestras acciones,
+             pero nos deja gobernar la otra mitad. La fortuna es como un río que cuando
+             se desborda destruye todo — pero puedes construir diques y canales antes de que crezca.
+             La virtù del gobernante consiste precisamente en <strong>prepararse para lo imprevisto</strong>.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">El fin justifica los medios — lo que realmente dijo</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>La frase literal de Maquiavelo es distinta: <strong>«se mire al fin»</strong> — juzga al gobernante
+             por los resultados. Si un acto cruel estabiliza el Estado y evita años de guerra civil,
+             ¿fue realmente cruel? Maquiavelo no dice que todo vale: dice que en política,
+             las acciones se juzgan por sus consecuencias, no por su pureza moral.</p>
+          <p>Esto es lo que hoy llamamos <strong>consecuencialismo político</strong> — y sigue siendo
+             el marco con el que se evalúan las decisiones de Estado.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">El zorro y el león</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>El gobernante necesita dos naturalezas: <strong>la fuerza del león</strong> para disuadir
+             y la <strong>astucia del zorro</strong> para detectar las trampas. Quien solo es león,
+             no ve las trampas. Quien solo es zorro, no puede defenderse de los lobos.
+             El príncipe eficaz combina ambas según las circunstancias.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Razón de Estado</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Aunque Maquiavelo no usa exactamente este término, su obra lo funda.
+             La <strong>razón de Estado</strong> es la lógica según la cual la supervivencia y estabilidad
+             del Estado puede justificar acciones que serían inmorales en la vida privada.
+             Esta idea domina toda la política moderna: de la diplomacia a la inteligencia,
+             de las sanciones económicas a las intervenciones militares.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Porque de los hombres se puede decir en general que son ingratos, volubles, simuladores, cobardes ante el peligro, ávidos de ganancia."</blockquote>
+      <cite>— Maquiavelo, El Príncipe, cap. XVII</cite>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>¿Amado o temido?</h3>
+        <p>
+          Maquiavelo responde con pragmatismo: lo ideal sería ambos, pero como es difícil serlo
+          a la vez, es más seguro ser temido que amado. El amor depende del pueblo — que lo retira
+          cuando le conviene. El temor depende de ti — y se mantiene por miedo al castigo.
+          Pero nunca, jamás, ser odiado.
+        </p>
+      </div>
+      <div class="card">
+        <h3>La verdad efectiva (verità effettuale)</h3>
+        <p>
+          No le interesa la política imaginaria sino la real. Maquiavelo declara que prefiere
+          «ir a la verdad efectiva de la cosa que a su imaginación». Este giro empirista — observar
+          lo que ocurre, no lo que debería ocurrir — es lo que hace de su método una ciencia.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TAB: EL PRÍNCIPE ─── -->
+  <div class="tab-panel" id="tab-principe">
+    <div class="panel-header">
+      <h2><em>El Príncipe</em>: el manual que nadie debía leer</h2>
+      <p class="panel-lead">
+        Un libro de 26 capítulos, escrito en 1513, publicado póstumamente en 1532.
+        Dedicado a Lorenzo de Médici. Diseñado como un manual práctico para
+        príncipes y gobernantes — pero leído por todos.
+      </p>
+    </div>
+
+    <p class="section-label">Estructura del libro</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Caps. I–XI: Tipos de principados</h3>
+        <p>
+          Hereditarios, nuevos, mixtos, eclesiásticos. Cómo se conquistan, cómo se pierden.
+          Maquiavelo clasifica los Estados como un naturalista clasifica especies:
+          sin juicio moral, solo eficacia.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Caps. XII–XIV: La fuerza militar</h3>
+        <p>
+          Un príncipe que depende de mercenarios está perdido. Las armas propias son la base
+          de todo Estado. Maquiavelo insiste: sin ejército propio no hay independencia real.
+          Lo aplicó él mismo creando la milicia ciudadana de Florencia.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Caps. XV–XXIII: La conducta del príncipe</h3>
+        <p>
+          El corazón del libro. Generosidad vs. parsimonia, crueldad vs. clemencia,
+          la relación con los consejeros, cómo evitar el odio. Cada capítulo es una lección
+          compacta de liderazgo bajo incertidumbre.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Caps. XXIV–XXVI: Italia y el llamamiento</h3>
+        <p>
+          Por qué los príncipes italianos han perdido sus Estados. La relación entre virtù
+          y fortuna. Y el capítulo final: una exhortación apasionada a liberar Italia
+          de los invasores extranjeros. El funcionario exiliado pide una revolución.
+        </p>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">Para quién fue escrito</span>
+      <h3>Un libro de aplicación, no de teoría</h3>
+      <p>
+        El Príncipe no es un tratado filosófico al uso. Es un <strong>manual operativo</strong>.
+        Maquiavelo escribe para un público concreto: el gobernante que necesita tomar decisiones
+        inmediatas, con información incompleta, rodeado de enemigos. Cada consejo está respaldado
+        por ejemplos históricos reales — de César Borgia a Fernando de Aragón, de Moisés a Rómulo.
+      </p>
+      <p>
+        Por eso ha sido el libro de cabecera de reyes, presidentes, generales y directivos
+        durante cinco siglos: porque <strong>no moraliza, resuelve</strong>.
+      </p>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Muchos se han imaginado repúblicas y principados que nunca se han visto ni se ha sabido que existieran. Porque hay tanta distancia de cómo se vive a cómo se debería vivir, que quien deja lo que se hace por lo que se debería hacer aprende antes su ruina que su preservación."</blockquote>
+      <cite>— Maquiavelo, El Príncipe, cap. XV</cite>
+    </div>
+  </div>
+
+  <!-- ─── TAB: LEGADO ─── -->
+  <div class="tab-panel" id="tab-legado">
+    <div class="panel-header">
+      <h2>510 años después: <em>Maquiavelo sigue gobernando</em></h2>
+      <p class="panel-lead">
+        Prohibido por la Iglesia, admirado por Napoleón, estudiado en todas las escuelas
+        de ciencia política del mundo. El legado de Maquiavelo es inseparable
+        de la política moderna.
+      </p>
+    </div>
+
+    <p class="section-label">Transmisión e impacto</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1559</span>
+        <span class="tl-title">Incluido en el Index de libros prohibidos</span>
+        <span class="tl-desc">La Iglesia Católica prohíbe El Príncipe. Paradójicamente, la prohibición lo hace más leído. Se convierte en texto clandestino de la élite política europea.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Siglos XVI–XVII</span>
+        <span class="tl-title">Nace el «maquiavelismo»</span>
+        <span class="tl-desc">El término se usa como insulto: sinónimo de cinismo y manipulación. Pero los gobernantes que lo critican en público lo practican en privado.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Siglos XVIII–XIX</span>
+        <span class="tl-title">Reivindicación republicana</span>
+        <span class="tl-desc">Rousseau, Spinoza y los republicanos releen a Maquiavelo no como defensor de tiranos, sino como analista realista que también escribió los Discursos — una obra profundamente republicana.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Siglo XX</span>
+        <span class="tl-title">Ciencia política moderna</span>
+        <span class="tl-desc">Max Weber, Raymond Aron y la tradición realista de las relaciones internacionales reconocen a Maquiavelo como fundador. Su método — observar los hechos, no los ideales — se convierte en estándar académico.</span>
+      </div>
+    </div>
+
+    <p class="section-label">Dónde sigue vivo</p>
+
+    <div class="legacy-grid">
+      <div class="legacy-card">
+        <span class="legacy-era">Geopolítica</span>
+        <span class="legacy-title">Realismo político</span>
+        <p class="legacy-desc">
+          La escuela realista de relaciones internacionales (Morgenthau, Kissinger, Mearsheimer)
+          es heredera directa de Maquiavelo: los Estados actúan por interés, no por ideales.
+        </p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">Management</span>
+        <span class="legacy-title">Liderazgo estratégico</span>
+        <p class="legacy-desc">
+          El Príncipe se estudia en escuelas de negocios. La tensión entre ser amado o temido,
+          la gestión de la incertidumbre, la importancia de las alianzas: lecciones
+          que no han caducado.
+        </p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">Filosofía</span>
+        <span class="legacy-title">La autonomía de la política</span>
+        <p class="legacy-desc">
+          La idea de que la política tiene una lógica propia, irreducible a la moral o la religión,
+          es el legado más profundo de Maquiavelo. Sin esa autonomía no existirían
+          la ciencia política, la sociología ni la teoría del Estado.
+        </p>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">Reflexión</span>
+      <h3>No era un monstruo — era un espejo</h3>
+      <p>
+        Maquiavelo no inventó la crueldad política. La describió. Lo que incomoda de
+        El Príncipe no es lo que dice Maquiavelo — es lo que revela sobre cómo funciona
+        realmente el poder. Quien lo lee con honestidad reconoce dinámicas que ve
+        a diario: en la política, en las empresas, en cualquier organización donde
+        hay poder en juego.
+      </p>
+      <p>
+        Esa honestidad radical es lo que lo hace <strong>inmortal</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ─── TAB: TEST ─── -->
+  <div class="tab-panel" id="tab-test">
+    <div class="panel-header">
+      <h2>Pon a prueba <em>tu comprensión</em></h2>
+      <p class="panel-lead">
+        Diez preguntas sobre Maquiavelo: su vida, sus ideas y su legado.
+      </p>
+    </div>
+
+    <div class="test-wrap" id="quiz">
+      <p class="test-intro">
+        Selecciona la respuesta que consideres correcta. Recibirás retroalimentación inmediata.
+      </p>
+
+      <!-- Q1 -->
+      <div class="q-block" data-correct="2">
+        <span class="q-number">Pregunta I</span>
+        <p class="q-text">¿Por qué Maquiavelo es considerado el padre de la ciencia política?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Porque defendió la democracia como mejor régimen</button></li>
+          <li><button class="opt-btn" data-idx="1">Porque justificó moralmente el uso de la fuerza</button></li>
+          <li><button class="opt-btn" data-idx="2">Porque separó el análisis político de la moral y la teología</button></li>
+          <li><button class="opt-btn" data-idx="3">Porque escribió la primera constitución moderna</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La ruptura fundacional de Maquiavelo fue analizar la política como un campo autónomo con reglas propias, no subordinado a la moral o la religión.</p>
+        <p class="q-fb fail">Lo que funda la ciencia política es la separación analítica: observar la política como un campo con lógica propia, distinta de la moral y la teología.</p>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta II</span>
+        <p class="q-text">¿Qué cargo ocupó Maquiavelo en Florencia?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Embajador ante el Papa</button></li>
+          <li><button class="opt-btn" data-idx="1">Secretario de la Segunda Cancillería</button></li>
+          <li><button class="opt-btn" data-idx="2">Consejero personal de los Médici</button></li>
+          <li><button class="opt-btn" data-idx="3">Capitán de la guardia republicana</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Durante 14 años (1498–1512), Maquiavelo sirvió como Secretario de la Segunda Cancillería: un puesto clave de diplomacia e inteligencia.</p>
+        <p class="q-fb fail">Maquiavelo fue Secretario de la Segunda Cancillería de Florencia, un cargo que le dio acceso directo a negociaciones diplomáticas y decisiones de Estado.</p>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-block" data-correct="0">
+        <span class="q-number">Pregunta III</span>
+        <p class="q-text">¿Qué es la «virtù» para Maquiavelo?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Energía, audacia y capacidad táctica del gobernante</button></li>
+          <li><button class="opt-btn" data-idx="1">La virtud moral cristiana aplicada al gobierno</button></li>
+          <li><button class="opt-btn" data-idx="2">El conocimiento filosófico necesario para gobernar</button></li>
+          <li><button class="opt-btn" data-idx="3">La legitimidad otorgada por el pueblo</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La virtù maquiaveliana es capacidad de acción, no bondad moral: energía, audacia, inteligencia y voluntad de decisión.</p>
+        <p class="q-fb fail">La virtù en Maquiavelo no es virtud moral sino habilidad política: energía, audacia, capacidad táctica y voluntad de actuar con determinación.</p>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-block" data-correct="3">
+        <span class="q-number">Pregunta IV</span>
+        <p class="q-text">Según Maquiavelo, ¿qué controla la fortuna?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Todo lo que sucede en política</button></li>
+          <li><button class="opt-btn" data-idx="1">Solo los eventos naturales</button></li>
+          <li><button class="opt-btn" data-idx="2">Nada, porque el gobernante hábil controla todo</button></li>
+          <li><button class="opt-btn" data-idx="3">Aproximadamente la mitad de nuestras acciones</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Maquiavelo dice que la fortuna gobierna la mitad de las acciones, pero nos deja gobernar la otra mitad — si nos preparamos con virtù.</p>
+        <p class="q-fb fail">Maquiavelo estima que la fortuna domina aproximadamente la mitad de los acontecimientos, pero la otra mitad queda en manos de nuestra preparación y capacidad de acción.</p>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-block" data-correct="2">
+        <span class="q-number">Pregunta V</span>
+        <p class="q-text">¿Qué significa realmente «el fin justifica los medios» en Maquiavelo?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Que todo vale si el gobernante lo decide</button></li>
+          <li><button class="opt-btn" data-idx="1">Que la moral no existe en política</button></li>
+          <li><button class="opt-btn" data-idx="2">Que las acciones políticas se juzgan por sus resultados</button></li>
+          <li><button class="opt-btn" data-idx="3">Que los buenos fines son más importantes que los medios pacíficos</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Lo que Maquiavelo realmente dice es «se mire al fin»: el juicio sobre una acción política debe considerar sus consecuencias, no solo su pureza moral.</p>
+        <p class="q-fb fail">Maquiavelo no dice que todo vale. Dice que en política las acciones se evalúan por sus resultados — un principio que hoy llamamos consecuencialismo político.</p>
+      </div>
+
+      <!-- Q6 -->
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta VI</span>
+        <p class="q-text">¿En qué circunstancias escribió Maquiavelo El Príncipe?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Como consejero en activo de los Médici</button></li>
+          <li><button class="opt-btn" data-idx="1">En el exilio, tras ser destituido y torturado</button></li>
+          <li><button class="opt-btn" data-idx="2">Como profesor de la Universidad de Florencia</button></li>
+          <li><button class="opt-btn" data-idx="3">Como embajador en la corte de Francia</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Maquiavelo escribió El Príncipe en 1513, en el exilio, tras perder su cargo, ser encarcelado y torturado por los Médici.</p>
+        <p class="q-fb fail">El Príncipe fue escrito en 1513, en el exilio forzoso. Maquiavelo había sido destituido, encarcelado y torturado tras la caída de la República florentina.</p>
+      </div>
+
+      <!-- Q7 -->
+      <div class="q-block" data-correct="0">
+        <span class="q-number">Pregunta VII</span>
+        <p class="q-text">¿Qué simbolizan el zorro y el león en El Príncipe?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Astucia y fuerza, que el gobernante debe combinar</button></li>
+          <li><button class="opt-btn" data-idx="1">Nobleza y fiereza, las dos virtudes del príncipe</button></li>
+          <li><button class="opt-btn" data-idx="2">Los dos tipos de enemigos que enfrenta el Estado</button></li>
+          <li><button class="opt-btn" data-idx="3">Las facciones rivales dentro de la ciudad</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. El león tiene fuerza para disuadir, el zorro tiene astucia para detectar las trampas. El príncipe eficaz necesita ambas naturalezas.</p>
+        <p class="q-fb fail">El zorro representa la astucia (detectar trampas) y el león la fuerza (disuadir enemigos). Maquiavelo dice que el gobernante eficaz necesita dominar ambas.</p>
+      </div>
+
+      <!-- Q8 -->
+      <div class="q-block" data-correct="3">
+        <span class="q-number">Pregunta VIII</span>
+        <p class="q-text">Según Maquiavelo, ¿es mejor ser amado o temido?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Siempre amado, porque el pueblo es la base del poder</button></li>
+          <li><button class="opt-btn" data-idx="1">Siempre temido, porque el miedo garantiza obediencia absoluta</button></li>
+          <li><button class="opt-btn" data-idx="2">Ni uno ni otro: lo importante es ser justo</button></li>
+          <li><button class="opt-btn" data-idx="3">Idealmente ambos, pero si hay que elegir, temido — sin ser odiado</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Maquiavelo dice que lo ideal es ambas cosas a la vez, pero como es difícil, es más seguro ser temido. Eso sí: nunca odiado.</p>
+        <p class="q-fb fail">Maquiavelo responde: lo ideal sería ambos, pero si hay que elegir, es más seguro ser temido que amado. Con una condición: nunca ser odiado, porque el odio destruye todo poder.</p>
+      </div>
+
+      <!-- Q9 -->
+      <div class="q-block" data-correct="2">
+        <span class="q-number">Pregunta IX</span>
+        <p class="q-text">¿Qué hizo la Iglesia Católica con El Príncipe en 1559?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Lo adoptó como texto de formación para obispos</button></li>
+          <li><button class="opt-btn" data-idx="1">Lo declaró compatible con la doctrina social</button></li>
+          <li><button class="opt-btn" data-idx="2">Lo incluyó en el Index de libros prohibidos</button></li>
+          <li><button class="opt-btn" data-idx="3">Lo ignoró por considerarlo irrelevante</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La Iglesia lo prohibió, lo cual paradójicamente lo hizo más leído entre la élite política europea.</p>
+        <p class="q-fb fail">La Iglesia incluyó El Príncipe en el Index de libros prohibidos. La prohibición tuvo el efecto contrario: lo convirtió en lectura obligada clandestina de la élite.</p>
+      </div>
+
+      <!-- Q10 -->
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta X</span>
+        <p class="q-text">¿Qué es la «verità effettuale» de Maquiavelo?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">La verdad revelada por Dios al gobernante</button></li>
+          <li><button class="opt-btn" data-idx="1">La verdad efectiva de las cosas: lo que realmente ocurre, no lo que debería ocurrir</button></li>
+          <li><button class="opt-btn" data-idx="2">La verdad consensuada entre el pueblo y el príncipe</button></li>
+          <li><button class="opt-btn" data-idx="3">La verdad jurídica que fundamenta el derecho</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Maquiavelo declara que prefiere ir a la «verdad efectiva de la cosa» — observar lo que ocurre, no imaginar mundos ideales. Ese giro empirista funda su ciencia.</p>
+        <p class="q-fb fail">La verità effettuale es la verdad de los hechos reales: Maquiavelo rechaza las repúblicas imaginarias y prefiere analizar lo que realmente sucede en política.</p>
+      </div>
+
+      <div class="score-box" id="score-box">
+        <span class="score-num" id="score-num"></span>
+        <span class="score-lbl">Respuestas correctas de 10</span>
+        <p class="score-msg" id="score-msg"></p>
+        <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
+    <nav class="footer-nav">
+      <a href="index.html">Fase I</a>
+      <a href="fase2.html">Fase II</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* ── TABS ── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ── ACCORDION ── */
+function toggleAcc(trigger) {
+  const body = trigger.nextElementSibling;
+  const isOpen = trigger.classList.contains('open');
+  document.querySelectorAll('.acc-trigger').forEach(t => t.classList.remove('open'));
+  document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    trigger.classList.add('open');
+    body.classList.add('open');
+  }
+}
+
+/* ── QUIZ ── */
+let answered = 0, score = 0;
+const total = 10;
+
+document.querySelectorAll('.q-block').forEach(block => {
+  const correct = parseInt(block.dataset.correct);
+  const btns = block.querySelectorAll('.opt-btn');
+  const fbOk = block.querySelector('.q-fb.ok');
+  const fbFail = block.querySelector('.q-fb.fail');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.disabled) return;
+      btns.forEach(b => b.disabled = true);
+      const idx = parseInt(btn.dataset.idx);
+      if (idx === correct) {
+        btn.classList.add('correct');
+        fbOk.classList.add('show');
+        score++;
+      } else {
+        btn.classList.add('wrong');
+        btns[correct].classList.add('reveal');
+        fbFail.classList.add('show');
+      }
+      answered++;
+      if (answered === total) showScore();
+    });
+  });
+});
+
+function showScore() {
+  const box = document.getElementById('score-box');
+  document.getElementById('score-num').textContent = score;
+  const msgs = [
+    [0, 3, 'Maquiavelo diría: «quien no conoce la historia está condenado a repetir sus errores.» Revisa el módulo.'],
+    [4, 6, 'Buen comienzo. Ya ves la política como es, no como debería ser. Sigue profundizando.'],
+    [7, 8, 'Sólido. Tu comprensión del realismo político es práctica y clara.'],
+    [9, 10, 'Excelente. Maquiavelo te habría contratado para la Cancillería.']
+  ];
+  const msg = msgs.find(m => score >= m[0] && score <= m[1]);
+  document.getElementById('score-msg').textContent = msg[2];
+  box.classList.add('show');
+}
+
+function resetQuiz() {
+  answered = 0; score = 0;
+  document.querySelectorAll('.opt-btn').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct','wrong','reveal');
+  });
+  document.querySelectorAll('.q-fb').forEach(f => f.classList.remove('show'));
+  document.getElementById('score-box').classList.remove('show');
+}
+
+/* ── PROGRESS BAR ── */
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+</script>
+
+</body>
+</html>
