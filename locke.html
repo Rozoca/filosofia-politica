@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo VI — Locke · Filosofía & Política</title>
+  <meta name="description" content="John Locke: derechos naturales, gobierno limitado, derecho a la revolución. El filósofo que fundó el liberalismo político."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#16140e;--bg-mid:#1e1c14;--bg-card:#26231a;--surface:#302c20;--border:#44402e;--border-light:#5a5440;--amber:#a07020;--amber-mid:#c08830;--amber-light:#d8a848;--amber-pale:#e8c878;--gold:#c4a040;--gold-light:#d8b850;--gold-dim:#8a7030;--ivory:#f0e8d0;--ivory-mid:#c8be98;--ivory-dim:#888068;--text:#e0d8c0;--text-muted:#a09878;--correct:#3a8a4a;--correct-bg:#1a2e1e;--wrong:#b04040;--wrong-bg:#2e1a1a}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-weight:400;font-size:17px;line-height:1.75;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    .top-nav{background:rgba(22,20,14,.95);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:940px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ivory-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--amber-light)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;font-weight:500;color:var(--ivory-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.18em;color:var(--amber-light);border:1px solid var(--amber);padding:.2rem .6rem;border-radius:2px}
+    .hero{background:linear-gradient(180deg,var(--bg),var(--bg-mid));padding:4.5rem 2rem 0;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(160,112,32,.1) 0%,transparent 55%);pointer-events:none}
+    .hero-inner{max-width:940px;margin:0 auto;position:relative;z-index:1}
+    .hero-eyebrow{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--amber-mid);display:block;margin-bottom:1.2rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:400;color:var(--ivory);line-height:1.05;margin-bottom:1.2rem}.hero-title em{font-style:italic;color:var(--amber-light)}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.15rem;font-style:italic;color:var(--text-muted);max-width:600px;line-height:1.75;margin-bottom:2.5rem}
+    .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-item{padding:1.4rem 2.4rem 1.4rem 0;margin-right:2.4rem;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:400;color:var(--amber-light);display:block;line-height:1}
+    .stat-label{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.15em;color:var(--ivory-dim);display:block;margin-top:.35rem}
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:940px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.08em;color:var(--ivory-dim);background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ivory-mid);background:var(--border);border-color:var(--border-light)}
+    .tab-btn.active{color:#fff;background:var(--amber);border-color:var(--amber-mid)}
+    .content-area{max-width:940px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:var(--ivory);line-height:1.2}
+    .panel-header h2 em{color:var(--amber-mid);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.05rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--amber-mid);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:1.8rem 2rem}.card.full{grid-column:1/-1}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--ivory);margin-bottom:.7rem}
+    .card p,.card li{font-size:1rem;color:var(--text-muted);line-height:1.8}.card ul{padding-left:1.3rem}.card li{margin-bottom:.35rem}
+    .card-icon{font-size:1.5rem;display:block;margin-bottom:.7rem}
+    .highlight-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--amber);border-radius:3px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .highlight-card .hc-label{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--amber-mid);display:block;margin-bottom:.8rem}
+    .highlight-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:500;color:var(--ivory);margin-bottom:.8rem}
+    .highlight-card p{font-size:1rem;color:var(--text-muted);line-height:1.85;margin-bottom:.7rem}.highlight-card p:last-child{margin-bottom:0}.highlight-card strong{color:var(--ivory);font-weight:500}
+    .pull-quote{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--gold);padding:2rem 2.4rem;margin:2.5rem 0;border-radius:3px}
+    .pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.35rem;font-style:italic;color:var(--ivory-mid);line-height:1.6}
+    .pull-quote cite{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;color:var(--gold-dim);display:block;margin-top:.8rem}
+    .timeline{position:relative;padding-left:2.2rem;margin-bottom:2.5rem}.timeline::before{content:'';position:absolute;left:.55rem;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:1.8rem}.tl-dot{position:absolute;left:-1.8rem;top:.35rem;width:10px;height:10px;background:var(--amber);transform:rotate(45deg)}
+    .tl-date{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;color:var(--amber-mid);display:block;margin-bottom:.25rem}
+    .tl-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ivory);margin-bottom:.25rem}
+    .tl-desc{font-size:.95rem;color:var(--text-muted);line-height:1.75}
+    .accordion{margin-bottom:2.5rem}.acc-item{border:1px solid var(--border);border-radius:3px;margin-bottom:.6rem;overflow:hidden}
+    .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:background .2s}.acc-trigger:hover{background:var(--surface)}.acc-trigger.open{background:var(--amber)}
+    .acc-term{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ivory);transition:color .2s}.acc-trigger.open .acc-term{color:#fff}
+    .acc-arrow{font-size:.9rem;color:var(--ivory-dim);transition:transform .3s,color .2s;flex-shrink:0;margin-left:1rem}.acc-trigger.open .acc-arrow{transform:rotate(180deg);color:var(--gold-light)}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 1.5rem;background:var(--bg-mid)}.acc-body.open{max-height:600px;padding:1.4rem 1.5rem}
+    .acc-body p{font-size:1rem;color:var(--text-muted);line-height:1.85;margin-bottom:.7rem}.acc-body p:last-child{margin-bottom:0}.acc-body strong{color:var(--ivory);font-weight:500}
+    .legacy-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .legacy-card{background:var(--bg-card);border:1px solid var(--border);border-bottom:3px solid var(--amber);padding:1.6rem;border-radius:3px}
+    .legacy-era{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-mid);display:block;margin-bottom:.5rem}
+    .legacy-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ivory);margin-bottom:.5rem}
+    .legacy-desc{font-size:.92rem;color:var(--text-muted);line-height:1.75}
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:1rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.4rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.2em;color:var(--amber-mid);display:block;margin-bottom:.5rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ivory);margin-bottom:1rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.85rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:400;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--amber);color:var(--ivory);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}.opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:var(--wrong)}.opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}.opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.8rem;font-size:.92rem;line-height:1.7;display:none}.q-fb.show{display:block}.q-fb.ok{color:var(--correct)}.q-fb.fail{color:var(--wrong)}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}.score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--amber-light);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.25em;color:var(--ivory-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.05rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--amber);color:var(--amber-light);font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:2px;transition:background .2s,color .2s}.retry-btn:hover{background:var(--amber);color:#fff}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--amber-mid);z-index:999;width:0;transition:width .1s linear}
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}.footer-inner{max-width:940px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ivory);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.15em;color:var(--ivory-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--amber-light)}
+    @media(max-width:640px){.card-grid,.legacy-grid{grid-template-columns:1fr}.card.full{grid-column:1}.test-wrap{padding:1.6rem 1.3rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.75rem;padding:.5rem 1rem}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav"><div class="top-nav-inner"><a href="fase2.html" class="nav-back">← Fase II</a><span class="nav-title">Filosofía & Política</span><span class="nav-badge">Módulo VI</span></div></nav>
+
+<section class="hero"><div class="hero-inner">
+  <span class="hero-eyebrow">Módulo VI · Contractualismo</span>
+  <h1 class="hero-title">Locke y los <em>derechos naturales</em></h1>
+  <p class="hero-subtitle">Tomó la arquitectura de Hobbes y la invirtió: el Estado no existe para dominar sino para proteger derechos que le preceden. Si no los protege, el pueblo tiene derecho a derrocarlo.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">1632–1704</span><span class="stat-label">Inglaterra</span></div>
+    <div class="stat-item"><span class="stat-num">1689</span><span class="stat-label">Dos tratados sobre el gobierno</span></div>
+    <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Derechos inalienables</span></div>
+    <div class="stat-item"><span class="stat-num">1776</span><span class="stat-label">Eco en la independencia americana</span></div>
+  </div>
+</div></section>
+
+<nav class="tab-nav"><div class="tab-nav-inner">
+  <button class="tab-btn active" data-tab="quien">Quién fue</button>
+  <button class="tab-btn" data-tab="ideas">Ideas clave</button>
+  <button class="tab-btn" data-tab="obra">Los Dos Tratados</button>
+  <button class="tab-btn" data-tab="legado">Legado</button>
+  <button class="tab-btn" data-tab="test">Test</button>
+</div></nav>
+
+<main class="content-area">
+
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header"><h2>John Locke: <em>el arquitecto de la libertad</em></h2>
+  <p class="panel-lead">Médico, filósofo, conspirador político, exiliado. El hombre que le dijo al poder: tienes límites. Y si los cruzas, el pueblo tiene derecho a resistir.</p></div>
+  <p class="section-label">Contexto</p>
+  <div class="card-grid">
+    <div class="card full"><span class="card-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><h3>La Inglaterra post-guerra civil</h3>
+    <p>Locke nace en plena guerra civil (1632) y crece en la Inglaterra de la Restauración. La gran pregunta de su tiempo: ¿puede el rey gobernar sin límites? La respuesta de Hobbes era sí. La de Locke será un no rotundo que cambiará la historia.</p></div>
+    <div class="card"><span class="card-icon">🔬</span><h3>El empirista</h3><p>Locke es también el padre del empirismo moderno: todo conocimiento viene de la experiencia. No hay ideas innatas. Esa misma mentalidad — observar antes de teorizar — la aplica a la política: los derechos no se deducen de Dios sino de la razón natural.</p></div>
+    <div class="card"><span class="card-icon">🏃</span><h3>El conspirador exiliado</h3><p>Vinculado a Lord Shaftesbury, conspiró contra los Estuardo. Huyó a Holanda en 1683. Regresó triunfante con la Revolución Gloriosa de 1688, que depuso a Jacobo II sin derramar sangre. Sus Dos Tratados fueron la justificación filosófica de esa revolución.</p></div>
+  </div>
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1632</span><span class="tl-title">Nace en Wrington, Somerset</span><span class="tl-desc">Hijo de un abogado puritano que luchó en la guerra civil del lado parlamentario.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1667</span><span class="tl-title">Entra al servicio de Lord Shaftesbury</span><span class="tl-desc">Médico personal y asesor político del líder de la oposición whig. Comienza a formular sus ideas sobre el gobierno limitado.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1683</span><span class="tl-title">Exilio en Holanda</span><span class="tl-desc">Tras la caída de Shaftesbury, huye para evitar el arresto. Pasa cinco años escribiendo y conspirando.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1688</span><span class="tl-title">Revolución Gloriosa</span><span class="tl-desc">Guillermo de Orange depone a Jacobo II. Locke regresa a Inglaterra en el barco de la futura reina María.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1689</span><span class="tl-title">Publica los Dos Tratados y el Ensayo</span><span class="tl-desc">Su año más productivo: la teoría del gobierno limitado y la teoría del conocimiento, publicadas casi simultáneamente.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1704</span><span class="tl-title">Muerte en Essex</span><span class="tl-desc">Muere como el filósofo más influyente de Inglaterra. Su obra ya ha cruzado el Atlántico.</span></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-ideas">
+  <div class="panel-header"><h2>El sistema lockeano: <em>derechos antes que Estado</em></h2>
+  <p class="panel-lead">Locke acepta el esquema de Hobbes — estado de naturaleza, contrato, gobierno — pero invierte cada conclusión. El resultado es el fundamento del liberalismo político.</p></div>
+  <div class="highlight-card"><span class="hc-label">La inversión clave</span><h3>Un estado de naturaleza muy distinto</h3>
+  <p>Para Hobbes, el estado de naturaleza es guerra. Para Locke, es <strong>libertad regulada por la razón</strong>. Los seres humanos en estado natural tienen derechos: vida, libertad y propiedad. No son bestias en combate — son personas racionales que a veces necesitan un árbitro imparcial.</p>
+  <p>El problema no es la violencia generalizada sino la <strong>falta de un juez imparcial</strong>. Cuando cada uno es juez de su propia causa, los conflictos escalan. El Estado nace para resolver eso — no para dominar.</p></div>
+  <p class="section-label">Conceptos fundamentales</p>
+  <div class="accordion">
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Los tres derechos naturales: vida, libertad, propiedad</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Estos derechos existen <strong>antes</strong> del Estado y son inalienables. Ningún gobierno puede quitártelos legítimamente. La propiedad nace del trabajo: cuando mezclas tu esfuerzo con un recurso natural, se convierte en tuyo. El Estado existe para proteger estos derechos, no para concederlos.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El gobierno como fideicomiso</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>El gobierno no es un amo sino un <strong>administrador fiduciario</strong> (trust). El pueblo le confía el poder para un fin concreto: proteger derechos. Si el gobierno traiciona esa confianza, el pueblo tiene derecho a revocarlo. Es un mandato condicional, no una cesión absoluta.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Separación de poderes</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Locke distingue entre poder <strong>legislativo</strong> (hacer las leyes), <strong>ejecutivo</strong> (aplicarlas) y <strong>federativo</strong> (relaciones exteriores). El legislativo es supremo pero limitado: no puede violar los derechos naturales. Montesquieu perfeccionará esta idea añadiendo el judicial.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El derecho a la revolución</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Si el gobierno se convierte en tiranía — si usa el poder para destruir los derechos que debería proteger — el pueblo tiene el <strong>derecho legítimo de resistir y derrocarlo</strong>. No es rebelión: es el gobernante quien se ha rebelado contra el pacto. Esta idea justificó la Revolución Gloriosa de 1688 y, un siglo después, la independencia americana.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Tolerancia religiosa</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>En su <strong>Carta sobre la tolerancia</strong>, Locke argumenta que el Estado no tiene competencia sobre las creencias religiosas. La fe es asunto de la conciencia individual, no del poder civil. Separar Iglesia y Estado no es hostilidad hacia la religión — es proteger la libertad de conciencia de todos.</p></div></div>
+  </div>
+  <div class="pull-quote"><blockquote>"Donde termina la ley, comienza la tiranía."</blockquote><cite>— Locke, Segundo Tratado, §202</cite></div>
+</div>
+
+<div class="tab-panel" id="tab-obra">
+  <div class="panel-header"><h2><em>Dos Tratados sobre el Gobierno Civil</em></h2>
+  <p class="panel-lead">Publicados anónimamente en 1689. El Primer Tratado destruye la teoría del derecho divino. El Segundo construye la alternativa: un gobierno fundado en el consentimiento y limitado por derechos.</p></div>
+  <p class="section-label">Estructura</p>
+  <div class="card-grid">
+    <div class="card"><h3>Primer Tratado: la demolición</h3><p>Refuta a Robert Filmer, quien defendía que los reyes gobiernan por derecho divino heredado de Adán. Locke destruye cada argumento con lógica implacable: si el poder viene de Adán, ¿quién es su heredero legítimo? Nadie puede probarlo. El derecho divino es una ficción insostenible.</p></div>
+    <div class="card"><h3>Segundo Tratado: la construcción</h3><p>El texto fundacional del liberalismo. Estado de naturaleza → derechos naturales → contrato social → gobierno limitado → derecho a la revolución. Cada paso es un argumento racional contra el absolutismo y a favor de un poder condicional y revocable.</p></div>
+  </div>
+  <div class="highlight-card"><span class="hc-label">Hobbes vs. Locke</span><h3>El mismo esquema, conclusiones opuestas</h3>
+  <p>Ambos parten del estado de naturaleza y llegan al contrato social. Pero Hobbes ve el estado de naturaleza como guerra y concluye que necesitamos un soberano absoluto. Locke ve un estado de libertad con derechos preexistentes y concluye que el gobierno debe ser <strong>limitado, condicional y revocable</strong>.</p>
+  <p>La diferencia no es técnica — es antropológica: <strong>¿confías en la humanidad o no?</strong> De esa respuesta se derivan el absolutismo y el liberalismo.</p></div>
+  <div class="pull-quote"><blockquote>"El fin del gobierno es el bien de la humanidad. ¿Y qué es mejor para la humanidad: que el pueblo esté siempre expuesto a la voluntad ilimitada de la tiranía, o que los gobernantes estén a veces expuestos a la oposición?"</blockquote><cite>— Locke, Segundo Tratado, §229</cite></div>
+</div>
+
+<div class="tab-panel" id="tab-legado">
+  <div class="panel-header"><h2>El filósofo que escribió el futuro: <em>de 1689 a hoy</em></h2>
+  <p class="panel-lead">La Declaración de Independencia americana, la Declaración de los Derechos del Hombre, el constitucionalismo moderno — todo tiene ADN lockeano.</p></div>
+  <p class="section-label">Línea de influencia</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1689</span><span class="tl-title">Bill of Rights inglés</span><span class="tl-desc">La Revolución Gloriosa materializa las ideas de Locke: monarquía limitada, derechos parlamentarios, fin del absolutismo.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1748</span><span class="tl-title">Montesquieu perfecciona la separación de poderes</span><span class="tl-desc">Toma la división legislativo-ejecutivo de Locke y añade el poder judicial. La arquitectura institucional de las democracias modernas.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1776</span><span class="tl-title">Declaración de Independencia americana</span><span class="tl-desc">Jefferson casi parafrasea a Locke: «vida, libertad y búsqueda de la felicidad» como derechos inalienables. El derecho a derrocar un gobierno tiránico, directamente del Segundo Tratado.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1789</span><span class="tl-title">Declaración de los Derechos del Hombre</span><span class="tl-desc">La Revolución Francesa traduce a Locke al idioma universal: derechos naturales, soberanía popular, gobierno por consentimiento.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1948</span><span class="tl-title">Declaración Universal de Derechos Humanos</span><span class="tl-desc">El marco lockeano se globaliza: derechos inherentes a toda persona, anteriores a cualquier Estado, que ningún gobierno puede violar legítimamente.</span></div>
+  </div>
+  <p class="section-label">Dónde sigue vivo</p>
+  <div class="legacy-grid">
+    <div class="legacy-card"><span class="legacy-era">Derecho constitucional</span><span class="legacy-title">Gobierno limitado</span><p class="legacy-desc">Toda constitución moderna que establece derechos fundamentales inviolables por el Estado es lockeana en su estructura.</p></div>
+    <div class="legacy-card"><span class="legacy-era">Economía</span><span class="legacy-title">Propiedad y trabajo</span><p class="legacy-desc">La teoría laboral de la propiedad de Locke influyó en Adam Smith y en toda la tradición liberal: el trabajo crea valor y derecho.</p></div>
+    <div class="legacy-card"><span class="legacy-era">Democracia</span><span class="legacy-title">Consentimiento de los gobernados</span><p class="legacy-desc">La idea de que ningún gobierno es legítimo sin el consentimiento de quienes lo obedecen. El fundamento de toda elección democrática.</p></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header"><h2>Pon a prueba <em>tu comprensión</em></h2><p class="panel-lead">Diez preguntas sobre Locke.</p></div>
+  <div class="test-wrap" id="quiz"><p class="test-intro">Selecciona la respuesta correcta.</p>
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta I</span><p class="q-text">¿Cuáles son los tres derechos naturales según Locke?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Libertad, igualdad y fraternidad</button></li><li><button class="opt-btn" data-idx="1">Seguridad, orden y prosperidad</button></li><li><button class="opt-btn" data-idx="2">Vida, libertad y propiedad</button></li><li><button class="opt-btn" data-idx="3">Razón, voluntad y justicia</button></li></ul><p class="q-fb ok">Correcto. Vida, libertad y propiedad: derechos que preceden al Estado y que ningún gobierno puede violar legítimamente.</p><p class="q-fb fail">Son vida, libertad y propiedad. Jefferson los adaptó como «vida, libertad y búsqueda de la felicidad» en la Declaración de Independencia.</p></div>
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta II</span><p class="q-text">¿Cómo es el estado de naturaleza para Locke?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Guerra de todos contra todos</button></li><li><button class="opt-btn" data-idx="1">Libertad regulada por la razón, con derechos preexistentes</button></li><li><button class="opt-btn" data-idx="2">Armonía perfecta sin conflictos</button></li><li><button class="opt-btn" data-idx="3">Caos total sin ninguna norma</button></li></ul><p class="q-fb ok">Correcto. A diferencia de Hobbes, Locke ve el estado de naturaleza como libertad con derechos, que solo necesita un árbitro imparcial.</p><p class="q-fb fail">Para Locke el estado de naturaleza no es guerra sino libertad racional. El problema es la falta de un juez imparcial, no la violencia generalizada.</p></div>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta III</span><p class="q-text">¿Qué evento político justificaron los Dos Tratados de Locke?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La Revolución Gloriosa de 1688</button></li><li><button class="opt-btn" data-idx="1">La ejecución de Carlos I</button></li><li><button class="opt-btn" data-idx="2">La independencia americana</button></li><li><button class="opt-btn" data-idx="3">La Revolución Francesa</button></li></ul><p class="q-fb ok">Correcto. Los Dos Tratados fueron la justificación filosófica de la deposición de Jacobo II y la instauración de una monarquía limitada.</p><p class="q-fb fail">Los Dos Tratados justificaron la Revolución Gloriosa de 1688, que depuso a Jacobo II e instauró un gobierno con límites constitucionales.</p></div>
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta IV</span><p class="q-text">¿Qué es el gobierno para Locke?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Un poder absoluto creado por el contrato</button></li><li><button class="opt-btn" data-idx="1">Una institución divina</button></li><li><button class="opt-btn" data-idx="2">Un mal necesario que debe minimizarse</button></li><li><button class="opt-btn" data-idx="3">Un fideicomiso: administrador condicional del poder del pueblo</button></li></ul><p class="q-fb ok">Correcto. El gobierno es un trust — un mandato condicional. Si traiciona su finalidad, el pueblo puede revocarlo.</p><p class="q-fb fail">Para Locke, el gobierno es un fideicomiso (trust): el pueblo le confía el poder para un fin concreto y puede retirarlo si incumple.</p></div>
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta V</span><p class="q-text">¿Cómo justifica Locke la propiedad privada?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Por herencia familiar</button></li><li><button class="opt-btn" data-idx="1">Por el trabajo: mezclar tu esfuerzo con un recurso lo convierte en tuyo</button></li><li><button class="opt-btn" data-idx="2">Por concesión del soberano</button></li><li><button class="opt-btn" data-idx="3">Por conquista militar legítima</button></li></ul><p class="q-fb ok">Correcto. La teoría laboral de la propiedad: cuando aplicas tu trabajo a un recurso natural, adquieres derecho sobre él.</p><p class="q-fb fail">Locke funda la propiedad en el trabajo: cuando mezclas tu esfuerzo con un recurso natural, se convierte en tuyo por derecho natural.</p></div>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VI</span><p class="q-text">¿Cuándo tiene el pueblo derecho a la revolución?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Cuando el gobierno viola sistemáticamente los derechos naturales</button></li><li><button class="opt-btn" data-idx="1">Nunca, el contrato es irrevocable</button></li><li><button class="opt-btn" data-idx="2">Solo si un filósofo lo justifica racionalmente</button></li><li><button class="opt-btn" data-idx="3">Solo con aprobación de la Iglesia</button></li></ul><p class="q-fb ok">Correcto. Si el gobierno se convierte en tiranía, es él quien rompe el pacto. El pueblo ejerce entonces su derecho legítimo a resistir.</p><p class="q-fb fail">El pueblo tiene derecho a derrocar al gobierno cuando este traiciona su función: proteger vida, libertad y propiedad.</p></div>
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta VII</span><p class="q-text">¿Qué poderes distingue Locke dentro del gobierno?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Militar, religioso y económico</button></li><li><button class="opt-btn" data-idx="1">Ejecutivo, judicial y municipal</button></li><li><button class="opt-btn" data-idx="2">Legislativo, ejecutivo y federativo</button></li><li><button class="opt-btn" data-idx="3">Monárquico, aristocrático y democrático</button></li></ul><p class="q-fb ok">Correcto. Legislativo (hacer leyes), ejecutivo (aplicarlas) y federativo (relaciones exteriores). Montesquieu añadirá después el judicial.</p><p class="q-fb fail">Locke distingue legislativo, ejecutivo y federativo. La separación de poderes que perfeccionará Montesquieu parte de aquí.</p></div>
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta VIII</span><p class="q-text">¿Qué documento americano es casi una paráfrasis de Locke?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La Constitución de 1787</button></li><li><button class="opt-btn" data-idx="1">El Federalista nº 10</button></li><li><button class="opt-btn" data-idx="2">La Carta de Derechos (Bill of Rights)</button></li><li><button class="opt-btn" data-idx="3">La Declaración de Independencia de 1776</button></li></ul><p class="q-fb ok">Correcto. Jefferson tomó directamente de Locke los derechos inalienables y el derecho del pueblo a derrocar un gobierno tiránico.</p><p class="q-fb fail">La Declaración de Independencia de Jefferson parafrasea a Locke: derechos inalienables, consentimiento de los gobernados, derecho a la revolución.</p></div>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta IX</span><p class="q-text">¿Qué defiende Locke en su Carta sobre la Tolerancia?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La separación entre Iglesia y Estado</button></li><li><button class="opt-btn" data-idx="1">La supremacía de la Iglesia anglicana</button></li><li><button class="opt-btn" data-idx="2">La abolición de toda religión organizada</button></li><li><button class="opt-btn" data-idx="3">La tolerancia solo entre confesiones protestantes</button></li></ul><p class="q-fb ok">Correcto. El Estado no tiene competencia sobre las creencias. La fe es asunto de la conciencia individual.</p><p class="q-fb fail">Locke argumenta que el Estado no debe inmiscuirse en las creencias religiosas. La fe pertenece a la conciencia, no al poder civil.</p></div>
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta X</span><p class="q-text">¿Cuál es la diferencia clave entre Hobbes y Locke sobre el estado de naturaleza?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Hobbes cree que hay derechos naturales y Locke no</button></li><li><button class="opt-btn" data-idx="1">Hobbes lo ve como guerra total; Locke como libertad con derechos que necesita un árbitro</button></li><li><button class="opt-btn" data-idx="2">Locke cree en un soberano absoluto y Hobbes en gobierno limitado</button></li><li><button class="opt-btn" data-idx="3">No hay diferencia: ambos llegan a las mismas conclusiones</button></li></ul><p class="q-fb ok">Correcto. Hobbes ve guerra y concluye soberanía absoluta. Locke ve libertad con derechos y concluye gobierno limitado y revocable.</p><p class="q-fb fail">La diferencia es radical: Hobbes ve guerra → soberanía absoluta. Locke ve libertad con derechos → gobierno limitado, condicional y revocable.</p></div>
+    <div class="score-box" id="score-box"><span class="score-num" id="score-num"></span><span class="score-lbl">Respuestas correctas de 10</span><p class="score-msg" id="score-msg"></p><button class="retry-btn" onclick="resetQuiz()">Reintentar</button></div>
+  </div>
+</div>
+</main>
+
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Fase I</a><a href="fase2.html">Fase II</a><a href="hobbes.html">Hobbes</a></nav></div></footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active')})});
+function toggleAcc(t){const b=t.nextElementSibling,o=t.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.acc-body').forEach(x=>x.classList.remove('open'));if(!o){t.classList.add('open');b.classList.add('open')}}
+let answered=0,score=0;const total=10;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,3,'Locke diría: sin conocimiento, no hay libertad. Revisa el módulo.'],[4,6,'Buen comienzo. Ya entiendes que los derechos preceden al Estado.'],[7,8,'Sólido. Tu comprensión del liberalismo político es clara.'],[9,10,'Excelente. Jefferson te habría invitado a redactar la Declaración.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>
