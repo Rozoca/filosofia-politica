@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo VIII — Kant · Filosofía & Política</title>
+  <meta name="description" content="Immanuel Kant: el imperativo categórico, la autonomía moral, la paz perpetua y la Ilustración como proyecto de emancipación racional."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#10101a;--bg-mid:#141420;--bg-card:#1a1a28;--surface:#222232;--border:#343450;--border-light:#464668;--indigo:#3a3a8a;--indigo-mid:#4a4aaa;--indigo-light:#6a6acc;--indigo-pale:#9090e0;--silver:#a0a8b8;--silver-light:#c0c8d8;--gold:#c4a040;--gold-light:#d8b850;--gold-dim:#8a7030;--ivory:#e0e0f0;--ivory-mid:#a0a0c0;--ivory-dim:#686888;--text:#d0d0e0;--text-muted:#9090a8;--correct:#3a8a4a;--correct-bg:#1a2e1e;--wrong:#b04040;--wrong-bg:#2e1a1a}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-weight:400;font-size:17px;line-height:1.75;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    .top-nav{background:rgba(16,16,26,.95);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:940px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ivory-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--indigo-light)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;font-weight:500;color:var(--ivory-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.18em;color:var(--indigo-light);border:1px solid var(--indigo);padding:.2rem .6rem;border-radius:2px}
+    .hero{background:linear-gradient(180deg,var(--bg),var(--bg-mid));padding:4.5rem 2rem 0;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-30%;right:-15%;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(58,58,138,.12) 0%,transparent 55%);pointer-events:none}
+    .hero-inner{max-width:940px;margin:0 auto;position:relative;z-index:1}
+    .hero-eyebrow{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--indigo-mid);display:block;margin-bottom:1.2rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:400;color:var(--ivory);line-height:1.05;margin-bottom:1.2rem}.hero-title em{font-style:italic;color:var(--indigo-light)}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.15rem;font-style:italic;color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:2.5rem}
+    .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-item{padding:1.4rem 2.4rem 1.4rem 0;margin-right:2.4rem;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:400;color:var(--indigo-light);display:block;line-height:1}
+    .stat-label{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.15em;color:var(--ivory-dim);display:block;margin-top:.35rem}
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:940px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.08em;color:var(--ivory-dim);background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ivory-mid);background:var(--border);border-color:var(--border-light)}
+    .tab-btn.active{color:#fff;background:var(--indigo);border-color:var(--indigo-mid)}
+    .content-area{max-width:940px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:var(--ivory);line-height:1.2}.panel-header h2 em{color:var(--indigo-mid);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.05rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--indigo-mid);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:1.8rem 2rem}.card.full{grid-column:1/-1}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--ivory);margin-bottom:.7rem}
+    .card p,.card li{font-size:1rem;color:var(--text-muted);line-height:1.8}.card ul{padding-left:1.3rem}.card li{margin-bottom:.35rem}
+    .card-icon{font-size:1.5rem;display:block;margin-bottom:.7rem}
+    .highlight-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--indigo);border-radius:3px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .highlight-card .hc-label{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--indigo-mid);display:block;margin-bottom:.8rem}
+    .highlight-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:500;color:var(--ivory);margin-bottom:.8rem}
+    .highlight-card p{font-size:1rem;color:var(--text-muted);line-height:1.85;margin-bottom:.7rem}.highlight-card p:last-child{margin-bottom:0}.highlight-card strong{color:var(--ivory);font-weight:500}
+    .pull-quote{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--gold);padding:2rem 2.4rem;margin:2.5rem 0;border-radius:3px}
+    .pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.35rem;font-style:italic;color:var(--ivory-mid);line-height:1.6}
+    .pull-quote cite{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;color:var(--gold-dim);display:block;margin-top:.8rem}
+    .timeline{position:relative;padding-left:2.2rem;margin-bottom:2.5rem}.timeline::before{content:'';position:absolute;left:.55rem;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:1.8rem}.tl-dot{position:absolute;left:-1.8rem;top:.35rem;width:10px;height:10px;background:var(--indigo);transform:rotate(45deg)}
+    .tl-date{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;color:var(--indigo-mid);display:block;margin-bottom:.25rem}
+    .tl-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ivory);margin-bottom:.25rem}
+    .tl-desc{font-size:.95rem;color:var(--text-muted);line-height:1.75}
+    .accordion{margin-bottom:2.5rem}.acc-item{border:1px solid var(--border);border-radius:3px;margin-bottom:.6rem;overflow:hidden}
+    .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:background .2s}.acc-trigger:hover{background:var(--surface)}.acc-trigger.open{background:var(--indigo)}
+    .acc-term{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ivory);transition:color .2s}.acc-trigger.open .acc-term{color:#fff}
+    .acc-arrow{font-size:.9rem;color:var(--ivory-dim);transition:transform .3s,color .2s;flex-shrink:0;margin-left:1rem}.acc-trigger.open .acc-arrow{transform:rotate(180deg);color:var(--gold-light)}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 1.5rem;background:var(--bg-mid)}.acc-body.open{max-height:600px;padding:1.4rem 1.5rem}
+    .acc-body p{font-size:1rem;color:var(--text-muted);line-height:1.85;margin-bottom:.7rem}.acc-body p:last-child{margin-bottom:0}.acc-body strong{color:var(--ivory);font-weight:500}
+    .legacy-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .legacy-card{background:var(--bg-card);border:1px solid var(--border);border-bottom:3px solid var(--indigo);padding:1.6rem;border-radius:3px}
+    .legacy-era{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--indigo-mid);display:block;margin-bottom:.5rem}
+    .legacy-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ivory);margin-bottom:.5rem}
+    .legacy-desc{font-size:.92rem;color:var(--text-muted);line-height:1.75}
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:3px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:1rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.4rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.2em;color:var(--indigo-mid);display:block;margin-bottom:.5rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ivory);margin-bottom:1rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.85rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:400;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--indigo);color:var(--ivory);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}.opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:var(--wrong)}.opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}.opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.8rem;font-size:.92rem;line-height:1.7;display:none}.q-fb.show{display:block}.q-fb.ok{color:var(--correct)}.q-fb.fail{color:var(--wrong)}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}.score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--indigo-light);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.25em;color:var(--ivory-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.05rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--indigo);color:var(--indigo-light);font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:2px;transition:background .2s,color .2s}.retry-btn:hover{background:var(--indigo);color:#fff}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--indigo-mid);z-index:999;width:0;transition:width .1s linear}
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}.footer-inner{max-width:940px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ivory);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.15em;color:var(--ivory-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--indigo-light)}
+    @media(max-width:640px){.card-grid,.legacy-grid{grid-template-columns:1fr}.card.full{grid-column:1}.test-wrap{padding:1.6rem 1.3rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.75rem;padding:.5rem 1rem}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav"><div class="top-nav-inner"><a href="fase2.html" class="nav-back">← Fase II</a><span class="nav-title">Filosofía & Política</span><span class="nav-badge">Módulo VIII</span></div></nav>
+
+<section class="hero"><div class="hero-inner">
+  <span class="hero-eyebrow">Módulo VIII · La Ilustración</span>
+  <h1 class="hero-title">Kant y la <em>razón universal</em></h1>
+  <p class="hero-subtitle">El filósofo que nunca salió de Königsberg pero redefinió todo: la moral, el conocimiento, la política y el significado de ser libre. La cumbre del pensamiento moderno.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">1724–1804</span><span class="stat-label">Königsberg, Prusia</span></div>
+    <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Críticas</span></div>
+    <div class="stat-item"><span class="stat-num">1795</span><span class="stat-label">La paz perpetua</span></div>
+    <div class="stat-item"><span class="stat-num">1</span><span class="stat-label">Imperativo categórico</span></div>
+  </div>
+</div></section>
+
+<nav class="tab-nav"><div class="tab-nav-inner">
+  <button class="tab-btn active" data-tab="quien">Quién fue</button>
+  <button class="tab-btn" data-tab="ideas">Ideas clave</button>
+  <button class="tab-btn" data-tab="politica">Filosofía política</button>
+  <button class="tab-btn" data-tab="legado">Legado</button>
+  <button class="tab-btn" data-tab="test">Test</button>
+</div></nav>
+
+<main class="content-area">
+
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header"><h2>Immanuel Kant: <em>el relojero del pensamiento</em></h2>
+  <p class="panel-lead">Nunca viajó más allá de 80 km de su ciudad natal. Su vida fue de una regularidad tan absoluta que los vecinos ajustaban sus relojes por su paseo diario. Pero su mente recorrió todo el universo del conocimiento humano.</p></div>
+  <p class="section-label">Contexto</p>
+  <div class="card-grid">
+    <div class="card full"><span class="card-icon">💡</span><h3>La Ilustración como proyecto</h3>
+    <p>Kant definió la Ilustración con una frase que es en sí misma un programa: «la salida del hombre de su minoría de edad autoculpable.» La minoría de edad no es falta de inteligencia sino falta de coraje para pensar por uno mismo. <em>Sapere aude</em> — atrévete a saber — es su lema y el de toda una era.</p></div>
+    <div class="card"><span class="card-icon">📚</span><h3>El profesor</h3><p>Kant fue profesor universitario en Königsberg durante más de 40 años. Enseñó lógica, metafísica, ética, geografía, física. Su método: rigor absoluto, distinción implacable entre conceptos. Su estilo de escritura: denso, arquitectónico, difícil — pero con una coherencia interna sin precedentes.</p></div>
+    <div class="card"><span class="card-icon">🔄</span><h3>La revolución copernicana de la filosofía</h3><p>Hasta Kant, la pregunta era: ¿cómo se adapta nuestra mente al mundo? Kant la invirtió: ¿cómo estructura nuestra mente el mundo que percibimos? No conocemos las cosas «en sí mismas» sino como nuestra razón las organiza. Este giro cambió toda la filosofía posterior.</p></div>
+  </div>
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1724</span><span class="tl-title">Nace en Königsberg, Prusia</span><span class="tl-desc">Hijo de un guarnicionero. Familia pietista, modesta, disciplinada. La ética del deber que marca toda su filosofía tiene raíces en esa infancia.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1770</span><span class="tl-title">Catedrático de lógica y metafísica</span><span class="tl-desc">Tras años como profesor no titular, obtiene la cátedra. Comienza su «década silenciosa»: diez años sin publicar, pensando.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1781</span><span class="tl-title">Crítica de la razón pura</span><span class="tl-desc">La primera Crítica. Pregunta: ¿qué podemos conocer? Respuesta: solo lo que la experiencia y nuestras estructuras mentales nos permiten. La metafísica tradicional queda demolida.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1788</span><span class="tl-title">Crítica de la razón práctica</span><span class="tl-desc">La segunda Crítica. Pregunta: ¿qué debemos hacer? Respuesta: actuar según el imperativo categórico — la ley moral universal que la razón descubre en sí misma.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1795</span><span class="tl-title">La paz perpetua</span><span class="tl-desc">Su obra política más influyente. Propone una federación de repúblicas libres como camino hacia la paz mundial. Antecedente directo de la Liga de Naciones y la ONU.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1804</span><span class="tl-title">Muerte en Königsberg</span><span class="tl-desc">Sus últimas palabras registradas: «Es suficiente.» Muere como el filósofo más importante desde Aristóteles.</span></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-ideas">
+  <div class="panel-header"><h2>El sistema kantiano: <em>razón, deber y dignidad</em></h2>
+  <p class="panel-lead">Kant sintetiza a Hobbes, Locke y Rousseau, pero va más allá de todos ellos. Donde ellos buscaban el mejor Estado, Kant busca el fundamento racional de toda moral y toda política.</p></div>
+  <div class="highlight-card"><span class="hc-label">El concepto nuclear</span><h3>El imperativo categórico</h3>
+  <p>El fundamento de toda la ética kantiana. No es un mandamiento religioso sino una ley que la razón se da a sí misma. Su formulación más conocida: <strong>«Actúa solo según aquella máxima que puedas querer que se convierta en ley universal.»</strong></p>
+  <p>Es decir: antes de actuar, pregúntate si estarías dispuesto a que <em>todo el mundo</em> actuara así. Si la respuesta es no, tu acción no es moral. Es un test de universalizabilidad: la moral no depende de las consecuencias sino de la coherencia del principio.</p></div>
+  <p class="section-label">Conceptos fundamentales</p>
+  <div class="accordion">
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Autonomía: darte la ley a ti mismo</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Aquí se ve la huella de Rousseau. Para Kant, ser libre no es hacer lo que quieras. Es <strong>obedecer la ley moral que tu propia razón descubre</strong>. Autonomía viene del griego: auto (uno mismo) + nomos (ley). Eres autónomo cuando actúas por deber racional, no por inclinación, miedo o conveniencia.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La dignidad humana como fin en sí mismo</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Segunda formulación del imperativo: <strong>«Trata a la humanidad, tanto en tu persona como en la de cualquier otro, siempre como un fin y nunca solo como un medio.»</strong> Las personas no son instrumentos. Tienen dignidad, no precio. Esta idea es el fundamento filosófico de los derechos humanos modernos.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Deber vs. inclinación</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Una acción tiene valor moral solo cuando se hace <strong>por deber</strong>, no por inclinación. Si ayudas a alguien porque te cae bien, la acción es buena pero no tiene mérito moral. Si lo ayudas porque es tu deber, aunque no te apetezca, actúas moralmente. Kant no pide que no sientas: pide que el deber tenga la última palabra.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El reino de los fines</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Kant imagina una comunidad ideal donde todos los seres racionales se tratan mutuamente como fines en sí mismos. Esa comunidad es el <strong>reino de los fines</strong>: no una utopía inalcanzable sino un ideal regulador que debe guiar nuestras instituciones políticas y morales.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Sapere aude: la Ilustración como actitud</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>En <em>¿Qué es la Ilustración?</em> (1784), Kant define: es la salida del hombre de su minoría de edad <strong>autoculpable</strong>. No es que no puedas pensar — es que no te atreves. El lema: <strong>Sapere aude</strong> — atrévete a saber. Usa tu propia razón. No delegues tu juicio ni a la autoridad, ni a la tradición, ni al miedo.</p></div></div>
+  </div>
+  <div class="pull-quote"><blockquote>"Dos cosas llenan el ánimo de admiración y respeto siempre nuevos y crecientes: el cielo estrellado sobre mí y la ley moral dentro de mí."</blockquote><cite>— Kant, Crítica de la razón práctica, Conclusión</cite></div>
+</div>
+
+<div class="tab-panel" id="tab-politica">
+  <div class="panel-header"><h2>Política kantiana: <em>república, derecho y paz perpetua</em></h2>
+  <p class="panel-lead">Kant no solo fue un filósofo moral: diseñó un sistema político completo basado en la razón, el derecho y la cooperación internacional. Su obra política anticipa instituciones que tardaron dos siglos en existir.</p></div>
+  <p class="section-label">Ideas políticas centrales</p>
+  <div class="card-grid">
+    <div class="card"><h3>El Estado republicano</h3><p>Kant defiende la república — no la democracia directa. La república se basa en tres principios: libertad de cada miembro como persona, dependencia de todos a una legislación común, e igualdad como ciudadanos. La separación de poderes es esencial.</p></div>
+    <div class="card"><h3>El derecho como coexistencia de libertades</h3><p>El derecho no nace de la moral sino de la necesidad de que las libertades individuales coexistan. Una acción es justa si permite que la libertad de cada uno sea compatible con la libertad de todos, según una ley universal.</p></div>
+    <div class="card full"><h3>La paz perpetua (1795)</h3><p>El texto más visionario de Kant. Propone: que todos los Estados sean repúblicas (las repúblicas no hacen guerras frívolas porque los ciudadanos pagan el coste), una federación de Estados libres (no un gobierno mundial sino una alianza voluntaria), y un derecho cosmopolita de hospitalidad universal. Es el antecedente directo de la Liga de Naciones, la ONU, la Unión Europea y el derecho internacional humanitario.</p></div>
+  </div>
+  <div class="highlight-card"><span class="hc-label">La síntesis final</span><h3>De Maquiavelo a Kant: el arco completo</h3>
+  <p><strong>Maquiavelo</strong> separó la política de la moral. <strong>Hobbes</strong> fundó el Estado en el miedo. <strong>Locke</strong> lo limitó con derechos. <strong>Rousseau</strong> devolvió la soberanía al pueblo. <strong>Kant</strong> cierra el arco: la política debe estar subordinada al derecho, y el derecho debe ser compatible con la dignidad de toda persona. No es idealismo ingenuo — es el <strong>proyecto racional más ambicioso</strong> de la historia para organizar la convivencia humana.</p></div>
+  <div class="pull-quote"><blockquote>"El derecho de los hombres debe considerarse como sagrado, por grandes que sean los sacrificios que le cueste al poder dominante."</blockquote><cite>— Kant, La paz perpetua, Apéndice I</cite></div>
+</div>
+
+<div class="tab-panel" id="tab-legado">
+  <div class="panel-header"><h2>El arquitecto invisible: <em>Kant está en todas partes</em></h2>
+  <p class="panel-lead">Los derechos humanos, las Naciones Unidas, la ética profesional, el derecho internacional — todo tiene ADN kantiano. Incluso si no lo sabes, piensas con categorías que él inventó.</p></div>
+  <p class="section-label">Línea de influencia</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Siglo XIX</span><span class="tl-title">Hegel, Marx y los idealistas</span><span class="tl-desc">Hegel toma a Kant y lo historifica. Marx hereda la crítica. Toda la filosofía del XIX es una respuesta a Kant — a favor o en contra.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1920</span><span class="tl-title">Liga de Naciones</span><span class="tl-desc">Woodrow Wilson se inspira directamente en La paz perpetua para proponer una federación de naciones tras la Primera Guerra Mundial.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1945</span><span class="tl-title">Naciones Unidas</span><span class="tl-desc">La ONU materializa el sueño kantiano: una organización de Estados soberanos comprometidos con la paz, el derecho internacional y los derechos humanos.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1948</span><span class="tl-title">Declaración Universal de Derechos Humanos</span><span class="tl-desc">«Todos los seres humanos nacen libres e iguales en dignidad» — la formulación es kantiana pura. La dignidad como valor incondicional.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1971</span><span class="tl-title">Rawls y la justicia como equidad</span><span class="tl-desc">John Rawls construye su Teoría de la Justicia sobre cimientos kantianos: el velo de ignorancia es una versión del imperativo categórico aplicado a las instituciones.</span></div>
+  </div>
+  <p class="section-label">Dónde sigue vivo</p>
+  <div class="legacy-grid">
+    <div class="legacy-card"><span class="legacy-era">Ética</span><span class="legacy-title">Deontología</span><p class="legacy-desc">Toda ética basada en principios y deberes (no en consecuencias) es kantiana: códigos deontológicos médicos, jurídicos, profesionales.</p></div>
+    <div class="legacy-card"><span class="legacy-era">Derecho internacional</span><span class="legacy-title">Cosmopolitismo jurídico</span><p class="legacy-desc">La idea de que hay derechos que trascienden las fronteras nacionales y obligan a todos los Estados. De la Corte Penal Internacional al derecho humanitario.</p></div>
+    <div class="legacy-card"><span class="legacy-era">Inteligencia artificial</span><span class="legacy-title">Ética algorítmica</span><p class="legacy-desc">El imperativo categórico es el marco más citado en debates sobre ética de la IA: ¿universalizarías la regla que programa este algoritmo? Kant sigue siendo operativo en el siglo XXI.</p></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header"><h2>Pon a prueba <em>tu comprensión</em></h2><p class="panel-lead">Diez preguntas sobre Kant.</p></div>
+  <div class="test-wrap" id="quiz"><p class="test-intro">Selecciona la respuesta correcta.</p>
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta I</span><p class="q-text">¿Cuál es el imperativo categórico de Kant?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Busca la mayor felicidad para el mayor número</button></li><li><button class="opt-btn" data-idx="1">Actúa según la máxima que puedas querer como ley universal</button></li><li><button class="opt-btn" data-idx="2">Obedece siempre a la autoridad legítima</button></li><li><button class="opt-btn" data-idx="3">Haz a los demás lo que quieras que te hagan a ti</button></li></ul><p class="q-fb ok">Correcto. El test de universalizabilidad: si no puedes querer que tu máxima sea ley para todos, tu acción no es moral.</p><p class="q-fb fail">El imperativo categórico dice: actúa solo según la máxima que puedas querer que se convierta en ley universal.</p></div>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta II</span><p class="q-text">¿Qué significa Sapere aude?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Atrévete a saber — usa tu propia razón</button></li><li><button class="opt-btn" data-idx="1">Conoce tus límites — acepta la fe</button></li><li><button class="opt-btn" data-idx="2">Obedece al maestro — sigue la tradición</button></li><li><button class="opt-btn" data-idx="3">Sé prudente — actúa con cautela</button></li></ul><p class="q-fb ok">Correcto. El lema de la Ilustración según Kant: atrévete a pensar por ti mismo, sin tutores ni autoridades que piensen por ti.</p><p class="q-fb fail">Sapere aude es el lema de la Ilustración: atrévete a saber, usa tu propia razón sin depender de otros para pensar.</p></div>
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta III</span><p class="q-text">¿Qué dice la segunda formulación del imperativo categórico?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Busca el bien común sobre el individual</button></li><li><button class="opt-btn" data-idx="1">El fin justifica los medios</button></li><li><button class="opt-btn" data-idx="2">Obedece la ley del más fuerte</button></li><li><button class="opt-btn" data-idx="3">Trata a la humanidad siempre como fin, nunca solo como medio</button></li></ul><p class="q-fb ok">Correcto. Las personas tienen dignidad, no precio. Usarlas como instrumentos viola su condición de seres racionales.</p><p class="q-fb fail">La segunda formulación dice: trata a la humanidad, en tu persona y en la de cualquier otro, siempre como fin y nunca solo como medio.</p></div>
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta IV</span><p class="q-text">¿Qué propone Kant en La paz perpetua?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Un gobierno mundial con ejército propio</button></li><li><button class="opt-btn" data-idx="1">La abolición de todos los ejércitos nacionales</button></li><li><button class="opt-btn" data-idx="2">Una federación de repúblicas libres y derecho cosmopolita</button></li><li><button class="opt-btn" data-idx="3">La sumisión de todos los Estados a un filósofo-rey</button></li></ul><p class="q-fb ok">Correcto. No un gobierno mundial sino una alianza voluntaria de repúblicas, con derecho cosmopolita de hospitalidad universal.</p><p class="q-fb fail">Kant propone una federación voluntaria de repúblicas (no un gobierno mundial) y un derecho cosmopolita — antecedente directo de la ONU.</p></div>
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta V</span><p class="q-text">¿Qué filósofo influyó decisivamente en la ética de Kant?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Hobbes</button></li><li><button class="opt-btn" data-idx="1">Rousseau</button></li><li><button class="opt-btn" data-idx="2">Maquiavelo</button></li><li><button class="opt-btn" data-idx="3">Aristóteles</button></li></ul><p class="q-fb ok">Correcto. Kant reconoció que Rousseau le enseñó a respetar al ser humano común. La autonomía moral kantiana tiene raíces rousseaunianas.</p><p class="q-fb fail">Fue Rousseau. Kant confesó que Rousseau le corrigió y le enseñó a respetar la dignidad de toda persona, independientemente de su educación.</p></div>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VI</span><p class="q-text">¿Cuándo tiene valor moral una acción para Kant?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Cuando se hace por deber, no por inclinación</button></li><li><button class="opt-btn" data-idx="1">Cuando produce el mayor bien para el mayor número</button></li><li><button class="opt-btn" data-idx="2">Cuando es aprobada por la comunidad</button></li><li><button class="opt-btn" data-idx="3">Cuando se basa en la tradición cultural</button></li></ul><p class="q-fb ok">Correcto. El valor moral reside en la motivación: actuar por deber racional, no por conveniencia ni sentimiento.</p><p class="q-fb fail">Para Kant, solo las acciones hechas por deber (no por inclinación, miedo o conveniencia) tienen valor moral auténtico.</p></div>
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta VII</span><p class="q-text">¿Qué institución internacional materializa la idea kantiana de paz perpetua?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La OTAN</button></li><li><button class="opt-btn" data-idx="1">El Banco Mundial</button></li><li><button class="opt-btn" data-idx="2">La OMC</button></li><li><button class="opt-btn" data-idx="3">Las Naciones Unidas</button></li></ul><p class="q-fb ok">Correcto. La ONU es la materialización más directa del proyecto kantiano: cooperación entre Estados soberanos para garantizar la paz y los derechos humanos.</p><p class="q-fb fail">Las Naciones Unidas. La idea de una federación de Estados soberanos comprometidos con la paz y el derecho internacional viene directamente de Kant.</p></div>
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta VIII</span><p class="q-text">¿Qué es la «revolución copernicana» de Kant?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La demostración de que la Tierra gira alrededor del Sol</button></li><li><button class="opt-btn" data-idx="1">La idea de que Dios no interviene en el mundo</button></li><li><button class="opt-btn" data-idx="2">El giro de preguntar cómo la mente estructura lo que conocemos</button></li><li><button class="opt-btn" data-idx="3">La sustitución de la religión por la ciencia</button></li></ul><p class="q-fb ok">Correcto. En vez de preguntar cómo la mente se adapta al mundo, Kant pregunta cómo la mente estructura lo que percibimos. Un giro que cambió toda la filosofía.</p><p class="q-fb fail">La revolución copernicana de Kant consiste en invertir la pregunta: no cómo nos adaptamos al mundo, sino cómo nuestra mente estructura lo que conocemos.</p></div>
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta IX</span><p class="q-text">¿Por qué Kant prefiere las repúblicas a las autocracias?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Porque los ciudadanos que pagan el coste de la guerra no la inician frívolamente</button></li><li><button class="opt-btn" data-idx="1">Porque las repúblicas son más ricas económicamente</button></li><li><button class="opt-btn" data-idx="2">Porque la democracia directa es la forma más justa</button></li><li><button class="opt-btn" data-idx="3">Porque los filósofos deben gobernar</button></li></ul><p class="q-fb ok">Correcto. En una república, quienes deciden la guerra también sufren sus consecuencias. Eso crea un freno natural contra la violencia innecesaria.</p><p class="q-fb fail">Kant argumenta que en una república los ciudadanos, al pagar el coste de la guerra, no la declaran frívolamente. El autogobierno frena la violencia.</p></div>
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta X</span><p class="q-text">¿Qué filósofo del siglo XX construyó su Teoría de la Justicia sobre bases kantianas?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Michel Foucault</button></li><li><button class="opt-btn" data-idx="1">John Rawls</button></li><li><button class="opt-btn" data-idx="2">Carl Schmitt</button></li><li><button class="opt-btn" data-idx="3">Hannah Arendt</button></li></ul><p class="q-fb ok">Correcto. El «velo de ignorancia» de Rawls es una aplicación del imperativo categórico: diseña las instituciones como si no supieras qué posición ocuparás en ellas.</p><p class="q-fb fail">John Rawls. Su Teoría de la Justicia (1971) aplica el método kantiano: el velo de ignorancia obliga a pensar las instituciones como si no supieras tu posición social.</p></div>
+    <div class="score-box" id="score-box"><span class="score-num" id="score-num"></span><span class="score-lbl">Respuestas correctas de 10</span><p class="score-msg" id="score-msg"></p><button class="retry-btn" onclick="resetQuiz()">Reintentar</button></div>
+  </div>
+</div>
+</main>
+
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Fase I</a><a href="fase2.html">Fase II</a><a href="rousseau.html">Rousseau</a></nav></div></footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active')})});
+function toggleAcc(t){const b=t.nextElementSibling,o=t.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.acc-body').forEach(x=>x.classList.remove('open'));if(!o){t.classList.add('open');b.classList.add('open')}}
+let answered=0,score=0;const total=10;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,3,'Kant diría: sal de tu minoría de edad autoculpable. Revisa el módulo.'],[4,6,'Buen comienzo. Sapere aude — sigue atreviéndote a saber.'],[7,8,'Sólido. Tu comprensión de la razón práctica es clara.'],[9,10,'Excelente. La ley moral dentro de ti brilla con fuerza.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>
