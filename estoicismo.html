@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo III — El Estoicismo · Filosofía & Política</title>
+  <meta name="description" content="Epicteto, Séneca y Marco Aurelio: la filosofía que enseña a distinguir lo que depende de ti de lo que no. Resiliencia, ética y conducta para la vida práctica."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant+SC:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --stone:       #3a3530;
+      --stone-mid:   #5a524a;
+      --stone-dim:   #7a706a;
+      --stone-pale:  #d8d0c8;
+      --wine:        #6e1e2e;
+      --wine-mid:    #8a2a3a;
+      --wine-light:  #b84a5a;
+      --gold:        #b8941e;
+      --gold-light:  #d4b040;
+      --gold-pale:   #e8d898;
+      --cream:       #f2ede4;
+      --card-bg:     #eae4d6;
+      --card-border: #c4b898;
+      --ink:         #1a1410;
+      --ink-muted:   #4a4038;
+      --correct:     #1a5c30;
+      --correct-bg:  #e0f0e8;
+      --wrong:       #6e1a1a;
+      --wrong-bg:    #f0e0e0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content:'';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      background: var(--stone);
+      padding: .85rem 2rem;
+      position: sticky; top: 0; z-index: 200;
+    }
+    .top-nav-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-back {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      color: var(--stone-pale); text-decoration: none;
+      display: flex; align-items: center; gap: .4rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: #fff; }
+    .nav-title {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .25em;
+      color: rgba(255,255,255,.4);
+    }
+    .nav-badge {
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem; letter-spacing: .18em;
+      color: var(--gold-light);
+      border: 1px solid var(--gold);
+      padding: .18rem .5rem; border-radius: 1px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--stone);
+      padding: 4rem 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -15%;
+      width: 60vw; height: 60vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(110,30,46,.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%; left: -10%;
+      width: 40vw; height: 40vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,148,30,.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 900px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: 'Cormorant SC', serif;
+      font-size: .78rem; letter-spacing: .4em;
+      color: var(--gold-light); display: block;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 300; color: #fff;
+      line-height: 1.05; margin-bottom: 1.2rem;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--gold-light);
+    }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-style: italic;
+      color: rgba(255,255,255,.6);
+      max-width: 580px; line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex; gap: 0;
+      border-top: 1px solid rgba(255,255,255,.1);
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      padding: 1.4rem 2.2rem 1.4rem 0;
+      margin-right: 2.2rem;
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 300;
+      color: var(--gold-light); display: block; line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem; letter-spacing: .2em;
+      color: rgba(255,255,255,.4);
+      display: block; margin-top: .3rem;
+    }
+
+    /* ── TAB NAV ── */
+    .tab-nav {
+      background: var(--stone);
+      position: sticky; top: 44px; z-index: 150;
+      border-bottom: 2px solid rgba(255,255,255,.06);
+    }
+    .tab-nav-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tab-nav-inner::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      color: rgba(255,255,255,.4);
+      background: none; border: none;
+      padding: 1rem 1.5rem;
+      cursor: pointer; white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color .25s, border-color .25s;
+      flex-shrink: 0;
+    }
+    .tab-btn:hover { color: rgba(255,255,255,.7); }
+    .tab-btn.active {
+      color: var(--gold-light);
+      border-bottom-color: var(--gold-light);
+    }
+
+    /* ── CONTENT AREA ── */
+    .content-area {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: block;
+      animation: panelIn .4s ease both;
+    }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── PANEL HEADER ── */
+    .panel-header {
+      padding: 2.8rem 0 2rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 2.5rem;
+    }
+    .panel-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300; color: var(--ink);
+      line-height: 1.15;
+    }
+    .panel-header h2 em { color: var(--wine-mid); font-style: italic; }
+    .panel-lead {
+      margin-top: .8rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.05rem;
+      color: var(--ink-muted); line-height: 1.7;
+    }
+
+    .section-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .75rem; letter-spacing: .3em;
+      color: var(--wine-mid); text-transform: uppercase;
+      display: flex; align-items: center; gap: .8rem;
+      margin-bottom: 1.6rem;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--card-border);
+    }
+
+    /* ── CARDS ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: 1.6rem 1.8rem;
+    }
+    .card.full { grid-column: 1 / -1; }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 400;
+      color: var(--ink); margin-bottom: .6rem;
+    }
+    .card p, .card li {
+      font-size: .94rem; color: var(--ink-muted); line-height: 1.75;
+    }
+    .card ul { padding-left: 1.2rem; }
+    .card li { margin-bottom: .3rem; }
+    .card-icon { font-size: 1.5rem; display: block; margin-bottom: .6rem; }
+
+    /* ── HIGHLIGHT CARD ── */
+    .highlight-card {
+      background: var(--stone);
+      border: none; border-radius: 2px;
+      padding: 2rem 2.4rem;
+      margin-bottom: 2rem;
+    }
+    .highlight-card .hc-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .25em;
+      color: var(--gold-light); display: block;
+      margin-bottom: .7rem;
+    }
+    .highlight-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; color: #fff;
+      margin-bottom: .7rem;
+    }
+    .highlight-card p {
+      font-size: .96rem; color: rgba(255,255,255,.6);
+      line-height: 1.8; margin-bottom: .6rem;
+    }
+    .highlight-card p:last-child { margin-bottom: 0; }
+    .highlight-card strong { color: rgba(255,255,255,.9); font-weight: 400; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--wine-mid);
+      padding: 1.8rem 2.2rem;
+      margin: 2rem 0;
+    }
+    .pull-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-style: italic;
+      color: var(--ink-muted); line-height: 1.6;
+    }
+    .pull-quote cite {
+      font-family: 'Cormorant SC', serif;
+      font-size: .7rem; letter-spacing: .2em;
+      color: var(--wine-mid); display: block;
+      margin-top: .7rem;
+    }
+
+    /* ── MASTER PROFILES ── */
+    .masters-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .master-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 3px solid var(--wine-mid);
+      padding: 1.8rem 1.6rem;
+      border-radius: 2px;
+      transition: border-top-color .3s, transform .2s, box-shadow .2s;
+    }
+    .master-card:hover {
+      border-top-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(58,53,48,.12);
+    }
+    .master-role {
+      font-family: 'Cormorant SC', serif;
+      font-size: .62rem; letter-spacing: .25em;
+      color: var(--wine-mid); display: block;
+      margin-bottom: .5rem;
+      transition: color .3s;
+    }
+    .master-card:hover .master-role { color: var(--gold); }
+    .master-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--ink); display: block;
+      margin-bottom: .15rem;
+    }
+    .master-dates {
+      font-family: 'Cormorant SC', serif;
+      font-size: .62rem; letter-spacing: .15em;
+      color: var(--stone-dim); display: block;
+      margin-bottom: .8rem;
+    }
+    .master-work {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .92rem; font-style: italic;
+      color: var(--wine-mid); display: block;
+      margin-bottom: .6rem;
+    }
+    .master-desc {
+      font-size: .88rem; color: var(--ink-muted); line-height: 1.7;
+    }
+
+    /* ── DICHOTOMY VISUAL ── */
+    .dichotomy {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0; margin-bottom: 2.5rem;
+      align-items: stretch;
+    }
+    .dich-col {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.8rem 1.6rem;
+      border-radius: 2px;
+    }
+    .dich-col.depends {
+      border-top: 3px solid var(--correct);
+    }
+    .dich-col.not-depends {
+      border-top: 3px solid var(--wine-mid);
+    }
+    .dich-divider {
+      display: flex; align-items: center;
+      padding: 0 1rem;
+    }
+    .dich-divider-line {
+      width: 2px; height: 100%;
+      background: var(--card-border);
+      position: relative;
+    }
+    .dich-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: .72rem; letter-spacing: .2em;
+      display: block; margin-bottom: .8rem;
+    }
+    .dich-col.depends .dich-label { color: var(--correct); }
+    .dich-col.not-depends .dich-label { color: var(--wine-mid); }
+    .dich-col h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 400;
+      color: var(--ink); margin-bottom: .6rem;
+    }
+    .dich-col p, .dich-col li {
+      font-size: .9rem; color: var(--ink-muted); line-height: 1.7;
+    }
+    .dich-col ul { padding-left: 1.1rem; margin-top: .4rem; }
+    .dich-col li { margin-bottom: .3rem; }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2rem; margin-bottom: 2.5rem; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: .5rem; top: 0; bottom: 0;
+      width: 1px; background: var(--card-border);
+    }
+    .tl-item { position: relative; margin-bottom: 1.6rem; }
+    .tl-dot {
+      position: absolute; left: -1.65rem; top: .3rem;
+      width: 9px; height: 9px;
+      background: var(--wine-mid); transform: rotate(45deg);
+    }
+    .tl-date {
+      font-family: 'Cormorant SC', serif;
+      font-size: .7rem; letter-spacing: .2em;
+      color: var(--wine-mid); display: block; margin-bottom: .2rem;
+    }
+    .tl-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400; color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .tl-desc { font-size: .9rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ── TOOLS GRID ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .tool-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem 1.6rem;
+      border-radius: 2px;
+      transition: border-left-color .2s, transform .2s;
+    }
+    .tool-card:hover {
+      border-left-color: var(--wine-mid);
+      transform: translateY(-2px);
+    }
+    .tool-latin {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-style: italic;
+      color: var(--gold); display: block; margin-bottom: .3rem;
+    }
+    .tool-name {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .2em;
+      color: var(--stone-dim); display: block; margin-bottom: .5rem;
+    }
+    .tool-desc { font-size: .9rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ── LEGACY GRID ── */
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .legacy-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-bottom: 3px solid var(--gold);
+      padding: 1.5rem 1.6rem;
+      border-radius: 2px;
+    }
+    .legacy-era {
+      font-family: 'Cormorant SC', serif;
+      font-size: .65rem; letter-spacing: .2em;
+      color: var(--gold); display: block; margin-bottom: .5rem;
+    }
+    .legacy-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400; color: var(--ink);
+      margin-bottom: .5rem;
+    }
+    .legacy-desc { font-size: .88rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ── CONCEPT ACCORDION ── */
+    .accordion { margin-bottom: 2.5rem; }
+    .acc-item {
+      border: 1px solid var(--card-border);
+      border-radius: 2px; margin-bottom: .6rem;
+      overflow: hidden;
+    }
+    .acc-trigger {
+      width: 100%; background: var(--card-bg);
+      border: none; padding: 1.1rem 1.4rem;
+      display: flex; justify-content: space-between;
+      align-items: center; cursor: pointer;
+      text-align: left; transition: background .2s;
+    }
+    .acc-trigger:hover { background: #ddd6c4; }
+    .acc-trigger.open { background: var(--stone); }
+    .acc-term {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 400; color: var(--ink);
+      transition: color .2s;
+    }
+    .acc-trigger.open .acc-term { color: #fff; }
+    .acc-arrow {
+      font-size: .9rem; color: var(--stone-dim);
+      transition: transform .3s, color .2s;
+      flex-shrink: 0; margin-left: 1rem;
+    }
+    .acc-trigger.open .acc-arrow {
+      transform: rotate(180deg);
+      color: var(--gold-light);
+    }
+    .acc-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      padding: 0 1.4rem;
+      background: #f0ebe0;
+    }
+    .acc-body.open {
+      max-height: 500px;
+      padding: 1.2rem 1.4rem;
+    }
+    .acc-body p {
+      font-size: .94rem; color: var(--ink-muted);
+      line-height: 1.8; margin-bottom: .6rem;
+    }
+    .acc-body p:last-child { margin-bottom: 0; }
+    .acc-body strong { color: var(--ink); font-weight: 400; }
+
+    /* ── TEST ── */
+    .test-wrap {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: 2.4rem 2.8rem;
+    }
+    .test-intro {
+      font-size: .96rem; color: var(--ink-muted);
+      margin-bottom: 2rem; line-height: 1.75;
+    }
+    .q-block { margin-bottom: 2.2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--card-border); }
+    .q-block:last-of-type { border-bottom: none; }
+    .q-number {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .2em;
+      color: var(--wine-mid); display: block; margin-bottom: .5rem;
+    }
+    .q-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem; font-weight: 400;
+      color: var(--ink); margin-bottom: 1rem; line-height: 1.5;
+    }
+    .opts { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .opt-btn {
+      background: var(--cream);
+      border: 1px solid var(--card-border);
+      border-radius: 2px;
+      padding: .75rem 1.1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .92rem; font-weight: 300;
+      color: var(--ink-muted); cursor: pointer;
+      text-align: left; width: 100%;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--wine-mid);
+      color: var(--ink); background: #f0e8ec;
+    }
+    .opt-btn.correct { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); }
+    .opt-btn.wrong   { background: var(--wrong-bg);   border-color: var(--wrong);   color: var(--wrong); }
+    .opt-btn.reveal  { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); opacity:.65; }
+    .opt-btn:disabled { cursor: default; }
+    .q-fb { margin-top: .8rem; font-size: .88rem; line-height: 1.65; display: none; }
+    .q-fb.show { display: block; }
+    .q-fb.ok   { color: var(--correct); }
+    .q-fb.fail { color: var(--wrong); }
+
+    .score-box {
+      background: var(--stone);
+      border-radius: 2px; padding: 2.2rem 2.4rem;
+      text-align: center; margin-top: 2rem; display: none;
+    }
+    .score-box.show { display: block; animation: panelIn .4s ease both; }
+    .score-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.8rem; font-weight: 300;
+      color: var(--gold-light); display: block; line-height: 1;
+    }
+    .score-lbl {
+      font-family: 'Cormorant SC', serif;
+      font-size: .75rem; letter-spacing: .25em;
+      color: rgba(255,255,255,.4); display: block; margin-top: .4rem; margin-bottom: 1rem;
+    }
+    .score-msg {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem;
+      color: rgba(255,255,255,.65);
+    }
+    .retry-btn {
+      margin-top: 1.4rem; background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-family: 'Cormorant SC', serif;
+      font-size: .75rem; letter-spacing: .2em;
+      padding: .6rem 1.4rem; cursor: pointer;
+      border-radius: 1px;
+      transition: background .2s, color .2s;
+    }
+    .retry-btn:hover { background: var(--gold); color: var(--stone); }
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; background: var(--gold-light);
+      z-index: 999; width: 0;
+      transition: width .1s linear;
+    }
+
+    /* ── MEANDER ── */
+    .meander { width: 100%; height: 14px; display: block; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--stone);
+      padding: 1.8rem 2rem;
+    }
+    .footer-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .95rem; color: rgba(255,255,255,.5);
+    }
+    .footer-brand strong { color: #fff; font-weight: 400; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-nav a {
+      font-family: 'Cormorant SC', serif;
+      font-size: .68rem; letter-spacing: .2em;
+      color: rgba(255,255,255,.4); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-nav a:hover { color: var(--gold-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .card-grid, .masters-grid, .legacy-grid, .tools-grid { grid-template-columns: 1fr; }
+      .dichotomy { grid-template-columns: 1fr; }
+      .dich-divider { padding: .8rem 0; }
+      .dich-divider-line { width: 100%; height: 2px; }
+      .card.full { grid-column: 1; }
+      .test-wrap { padding: 1.5rem 1.2rem; }
+      .hero-stats { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); padding: 1rem 0; margin-right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- SVG DEFS -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <pattern id="mp" x="0" y="0" width="40" height="14" patternUnits="userSpaceOnUse">
+      <path d="M0,7 L4,7 L4,2 L12,2 L12,12 L8,12 L8,7 L16,7 L16,2 L20,2 L20,12 L24,12 L24,7 L28,7 L28,2 L36,2 L36,12 L32,12 L32,7 L40,7"
+            fill="none" stroke="#6e1e2e" stroke-width="1"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- ══════════ TOP NAV ══════════ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal</a>
+    <span class="nav-title">Filosofía & Política</span>
+    <span class="nav-badge">Módulo III</span>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo III · Roma & Helenismo</span>
+    <h1 class="hero-title">El <em>Estoicismo</em></h1>
+    <p class="hero-subtitle">
+      La filosofía que bajó del cielo a la calle. Tres maestros, una disciplina:
+      distinguir lo que depende de ti de lo que no — y actuar en consecuencia.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Maestros</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">~500</span>
+        <span class="stat-label">Años de tradición</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">1</span>
+        <span class="stat-label">Principio nuclear</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2.300</span>
+        <span class="stat-label">Años de vigencia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TAB NAV ══════════ -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="contexto">Contexto</button>
+    <button class="tab-btn" data-tab="maestros">Los Maestros</button>
+    <button class="tab-btn" data-tab="ideas">Ideas Clave</button>
+    <button class="tab-btn" data-tab="legado">Legado Vivo</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<!-- ══════════ CONTENT ══════════ -->
+<main class="content-area">
+
+  <!-- ─── TAB: CONTEXTO ─── -->
+  <div class="tab-panel active" id="tab-contexto">
+    <div class="panel-header">
+      <h2>De Grecia a Roma: <em>la filosofía baja a la calle</em></h2>
+      <p class="panel-lead">
+        Platón buscó la ciudad perfecta. Aristóteles clasificó los regímenes. Los estoicos
+        hicieron algo radicalmente distinto: preguntaron cómo vivir bien cuando el mundo
+        se desmorona a tu alrededor.
+      </p>
+    </div>
+
+    <p class="section-label">El giro práctico</p>
+
+    <div class="card-grid">
+      <div class="card full">
+        <span class="card-icon">🏛️</span>
+        <h3>Un mundo que se rompe</h3>
+        <p>
+          El estoicismo nace en Atenas hacia el 300 a.C., fundado por <strong>Zenón de Citio</strong>,
+          un comerciante fenicio que lo perdió todo en un naufragio. No surge en un momento de esplendor,
+          sino de crisis: la polis griega agoniza, los imperios de los sucesores de Alejandro fragmentan
+          el Mediterráneo, y el individuo queda solo ante fuerzas que no controla.
+        </p>
+        <p style="margin-top:.6rem;">
+          La pregunta ya no es «¿cómo debería ser el Estado ideal?» sino algo más urgente:
+          <strong>¿cómo vivo con dignidad cuando todo lo externo es incierto?</strong>
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">🔥</span>
+        <h3>Filosofía como medicina</h3>
+        <p>
+          Para los estoicos, la filosofía no es un ejercicio académico. Es una <em>terapia del alma</em>.
+          Cada concepto tiene un propósito práctico: no entender el mundo por curiosidad, sino
+          saber cómo actuar ante el dolor, la pérdida, la injusticia y la muerte.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">⚖️</span>
+        <h3>Ética ante todo</h3>
+        <p>
+          Los estoicos dividen la filosofía en lógica, física y ética. Pero la ética es el destino final:
+          todo conocimiento tiene sentido solo si te hace vivir mejor, con más virtud y menos sufrimiento innecesario.
+        </p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"No son las cosas las que nos perturban, sino los juicios que hacemos sobre las cosas."</blockquote>
+      <cite>— Epicteto, Enquiridión, §5</cite>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">Idea central</span>
+      <h3>De la Stoa al mundo</h3>
+      <p>
+        El nombre «estoicismo» viene de la <strong>Stoa Poikilé</strong> (el Pórtico Pintado), un
+        espacio público en el ágora de Atenas donde Zenón enseñaba. No era una academia cerrada:
+        era una esquina abierta a cualquiera. Esa vocación pública nunca se perdió.
+      </p>
+      <p>
+        El estoicismo se extendió de Grecia a Roma, y fue adoptado lo mismo por <strong>esclavos</strong>
+        (Epicteto) que por <strong>senadores</strong> (Séneca) y <strong>emperadores</strong> (Marco Aurelio).
+        Ninguna otra escuela filosófica ha sido tan transversal en sus practicantes.
+      </p>
+    </div>
+  </div>
+
+  <!-- ─── TAB: LOS MAESTROS ─── -->
+  <div class="tab-panel" id="tab-maestros">
+    <div class="panel-header">
+      <h2>Tres vidas, <em>una misma disciplina</em></h2>
+      <p class="panel-lead">
+        Un esclavo, un político y un emperador. Tres situaciones radicalmente distintas,
+        la misma convicción: lo único que controlas es tu juicio, tu voluntad y tu respuesta.
+      </p>
+    </div>
+
+    <p class="section-label">Los tres grandes estoicos romanos</p>
+
+    <div class="masters-grid">
+      <div class="master-card">
+        <span class="master-role">El esclavo</span>
+        <span class="master-name">Epicteto</span>
+        <span class="master-dates">c. 50 – 135 d.C.</span>
+        <span class="master-work">Enquiridión · Disertaciones</span>
+        <p class="master-desc">
+          Nació esclavo en Hierápolis (actual Turquía). Su amo le rompió una pierna.
+          Tras ser liberado, enseñó en Roma y luego en Nicópolis. No escribió nada:
+          sus enseñanzas fueron recogidas por su alumno Arriano.
+          Su máxima central: <em>«distingue lo que depende de ti de lo que no»</em>.
+        </p>
+      </div>
+
+      <div class="master-card">
+        <span class="master-role">El político</span>
+        <span class="master-name">Séneca</span>
+        <span class="master-dates">c. 4 a.C. – 65 d.C.</span>
+        <span class="master-work">Cartas a Lucilio · De la brevedad de la vida</span>
+        <p class="master-desc">
+          Filósofo, dramaturgo, senador y tutor de Nerón. Vivió en el centro del poder
+          romano y conoció sus contradicciones. Sus cartas son un manual práctico
+          de conducta: cómo manejar la ira, el tiempo, el duelo, la riqueza y la muerte.
+          Obligado a suicidarse por Nerón, lo hizo con serenidad estoica.
+        </p>
+      </div>
+
+      <div class="master-card">
+        <span class="master-role">El emperador</span>
+        <span class="master-name">Marco Aurelio</span>
+        <span class="master-dates">121 – 180 d.C.</span>
+        <span class="master-work">Meditaciones</span>
+        <p class="master-desc">
+          Emperador de Roma en su momento más difícil: plagas, guerras fronterizas,
+          conspiraciones internas. Sus <em>Meditaciones</em> no fueron escritas para publicarse:
+          son un diario privado donde el hombre más poderoso del mundo se recuerda
+          a sí mismo que no controla nada excepto su propia mente.
+        </p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Tenemos dos oídos y una boca para escuchar el doble de lo que hablamos."</blockquote>
+      <cite>— Atribuida a Epicteto</cite>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">Lo que les une</span>
+      <h3>El mismo código, tres laboratorios</h3>
+      <p>
+        Lo extraordinario del estoicismo es que funciona igual en la esclavitud, en el senado
+        y en el trono. No es una filosofía del privilegio ni del sufrimiento: es una <strong>disciplina
+        de la percepción</strong>. Lo que cambia no es la circunstancia — es cómo eliges
+        interpretar y responder a esa circunstancia.
+      </p>
+    </div>
+
+    <p class="section-label">Comparativa</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Epicteto enseña</h3>
+        <p>Desde la experiencia del que no tiene nada. Su público eran jóvenes, soldados, ciudadanos comunes.
+           Su pedagogía es directa, confrontacional: «¿Sufres? Revisa tu juicio.»</p>
+      </div>
+      <div class="card">
+        <h3>Séneca aconseja</h3>
+        <p>Desde la experiencia del que tiene demasiado. Escribe para su amigo Lucilio cartas
+           que son lecciones de vida: sobre el uso del tiempo, el miedo a la muerte, la gestión de la ira.</p>
+      </div>
+      <div class="card full">
+        <h3>Marco Aurelio se examina</h3>
+        <p>
+          No enseña ni aconseja a nadie. Se habla a sí mismo. Las <em>Meditaciones</em> son el
+          ejercicio de un hombre que cada noche revisa si sus actos del día estuvieron a la altura
+          de sus principios. Es el estoicismo como práctica diaria, no como teoría.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TAB: IDEAS CLAVE ─── -->
+  <div class="tab-panel" id="tab-ideas">
+    <div class="panel-header">
+      <h2>El código estoico: <em>ideas para la vida práctica</em></h2>
+      <p class="panel-lead">
+        El estoicismo no se estudia — se practica. Estos son los conceptos fundamentales
+        que lo convierten en una filosofía operativa, no especulativa.
+      </p>
+    </div>
+
+    <p class="section-label">El principio nuclear</p>
+
+    <div class="highlight-card">
+      <span class="hc-label">La dicotomía del control</span>
+      <h3>Lo que depende de mí vs. lo que no depende de mí</h3>
+      <p>
+        Esta es la piedra angular de todo el estoicismo. Epicteto abre el <em>Enquiridión</em> con esta distinción:
+        <strong>depende de ti</strong> tu opinión, tu impulso, tu deseo, tu aversión — todo lo que es asunto tuyo.
+        <strong>No depende de ti</strong> tu cuerpo, tus posesiones, tu reputación, tu cargo — todo lo que no es asunto tuyo.
+      </p>
+      <p>
+        El sufrimiento innecesario nace de confundir ambas categorías: desear lo que no controlas
+        y descuidar lo que sí controlas.
+      </p>
+    </div>
+
+    <div class="dichotomy">
+      <div class="dich-col depends">
+        <span class="dich-label">Depende de mí (eph' hēmîn)</span>
+        <h3>Mi esfera de acción</h3>
+        <ul>
+          <li>Mis juicios y opiniones</li>
+          <li>Mis deseos y aversiones</li>
+          <li>Mis impulsos y rechazos</li>
+          <li>Mi carácter y mis valores</li>
+          <li>Mi esfuerzo y mi preparación</li>
+          <li>Cómo respondo a lo que pasa</li>
+        </ul>
+      </div>
+      <div class="dich-divider"><div class="dich-divider-line"></div></div>
+      <div class="dich-col not-depends">
+        <span class="dich-label">No depende de mí (ouk eph' hēmîn)</span>
+        <h3>Fuera de mi control</h3>
+        <ul>
+          <li>Mi cuerpo y mi salud</li>
+          <li>Las opiniones de los demás</li>
+          <li>Los resultados de mis acciones</li>
+          <li>El cargo, la fama, el dinero</li>
+          <li>Las decisiones de otros</li>
+          <li>Lo que ya pasó</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="section-label">Conceptos fundamentales</p>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Virtud (areté) como único bien</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Para los estoicos, la única cosa genuinamente buena es la <strong>virtud</strong>: sabiduría,
+             justicia, coraje y templanza. Todo lo demás — salud, riqueza, fama — son «preferibles»
+             pero no necesarios para una vida buena. Puedes preferir la salud, pero tu felicidad no puede depender de ella.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Vivir conforme a la naturaleza</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>No significa vivir en el bosque. Significa vivir conforme a tu naturaleza racional: usar la razón
+             como guía de tus decisiones, entender tu lugar en la comunidad humana, y aceptar el orden del cosmos
+             (lo que los estoicos llaman <strong>lógos</strong>) sin exigirle que se adapte a tus deseos.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Las pasiones como errores de juicio</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>El estoicismo no pide que no sientas. Pide que examines qué hay detrás de lo que sientes.
+             La ira, la envidia, el miedo excesivo nacen de <strong>juicios falsos</strong> sobre las cosas:
+             creer que algo es terrible cuando es indiferente, o creer que necesitas algo que en realidad solo prefieres.
+             Corrige el juicio y la emoción se transforma.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Cosmopolitismo: ciudadanos del mundo</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Los estoicos fueron los primeros cosmopolitas de la historia. Si todos compartimos la misma razón,
+             las fronteras son convenciones. Marco Aurelio lo escribió con claridad: <strong>«mi ciudad y mi patria,
+             en cuanto soy Antonino, es Roma; en cuanto soy hombre, el mundo»</strong>. Esta idea influyó directamente
+             en los derechos humanos universales.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label">Herramientas prácticas</p>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <span class="tool-latin">Premeditatio malorum</span>
+        <span class="tool-name">Anticipación de adversidades</span>
+        <p class="tool-desc">
+          Visualiza por la mañana lo peor que podría pasar. No para sufrir por adelantado,
+          sino para que nada te tome desprevenido. Séneca lo practicaba a diario.
+        </p>
+      </div>
+      <div class="tool-card">
+        <span class="tool-latin">Memento mori</span>
+        <span class="tool-name">Recuerda que morirás</span>
+        <p class="tool-desc">
+          No es morbosidad: es urgencia. Si hoy fuese tu último día, ¿perderías tiempo
+          en la queja, en la envidia, en lo trivial? La conciencia de la muerte ordena las prioridades.
+        </p>
+      </div>
+      <div class="tool-card">
+        <span class="tool-latin">Amor fati</span>
+        <span class="tool-name">Amor al destino</span>
+        <p class="tool-desc">
+          No solo aceptar lo que pasa — amarlo. Cada obstáculo es material de entrenamiento.
+          Marco Aurelio: «El impedimento a la acción hace avanzar la acción. Lo que se interpone en el camino se convierte en el camino.»
+        </p>
+      </div>
+      <div class="tool-card">
+        <span class="tool-latin">Diario reflexivo</span>
+        <span class="tool-name">Examen de conciencia nocturno</span>
+        <p class="tool-desc">
+          Cada noche, tres preguntas: ¿Qué hice bien? ¿Qué hice mal? ¿Qué puedo mejorar?
+          Las <em>Meditaciones</em> de Marco Aurelio son exactamente este ejercicio puesto por escrito.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TAB: LEGADO VIVO ─── -->
+  <div class="tab-panel" id="tab-legado">
+    <div class="panel-header">
+      <h2>2.300 años después: <em>la filosofía que no muere</em></h2>
+      <p class="panel-lead">
+        Del pórtico de Atenas a la terapia cognitivo-conductual, al liderazgo empresarial,
+        a los libros más vendidos del siglo XXI. El estoicismo nunca desapareció — cambió de formato.
+      </p>
+    </div>
+
+    <p class="section-label">Línea de transmisión</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">c. 300 a.C.</span>
+        <span class="tl-title">Zenón funda la Stoa</span>
+        <span class="tl-desc">En el Pórtico Pintado de Atenas. Filosofía abierta, pública, para cualquiera.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Siglo I – II d.C.</span>
+        <span class="tl-title">Los tres grandes romanos</span>
+        <span class="tl-desc">Séneca, Epicteto y Marco Aurelio llevan el estoicismo a su expresión más práctica y universal.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Siglos IV – XV</span>
+        <span class="tl-title">Absorción cristiana</span>
+        <span class="tl-desc">Padres de la Iglesia como Agustín y Tomás de Aquino integran ideas estoicas — la providencia,
+               la ley natural, el dominio de las pasiones — en la teología cristiana.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Siglos XVI – XVIII</span>
+        <span class="tl-title">Neoestoicismo y la Ilustración</span>
+        <span class="tl-desc">Justo Lipsio revive el estoicismo en el Renacimiento. Kant hereda la idea del deber y la razón
+               como guía moral. Spinoza dialoga con la ética de las pasiones.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Década de 1950 – 1960</span>
+        <span class="tl-title">Terapia cognitivo-conductual</span>
+        <span class="tl-desc">Albert Ellis (TREC) y Aaron Beck (TCC) construyen sus modelos terapéuticos
+               sobre el mismo principio estoico: no son los hechos los que causan el sufrimiento,
+               sino la interpretación que haces de ellos.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Siglo XXI</span>
+        <span class="tl-title">Estoicismo moderno</span>
+        <span class="tl-desc">Ryan Holiday, Massimo Pigliucci, William Irvine popularizan el estoicismo como método
+               de resiliencia, productividad y liderazgo. «Stoic Week» reúne a miles de practicantes
+               en todo el mundo.</span>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Entre el estímulo y la respuesta hay un espacio. En ese espacio está nuestra libertad."</blockquote>
+      <cite>— Atribuida a Viktor Frankl (heredero del pensamiento estoico)</cite>
+    </div>
+
+    <p class="section-label">El estoicismo hoy</p>
+
+    <div class="legacy-grid">
+      <div class="legacy-card">
+        <span class="legacy-era">Psicología</span>
+        <span class="legacy-title">Terapia cognitivo-conductual</span>
+        <p class="legacy-desc">
+          El modelo ABC de Ellis es la dicotomía del control traducida a lenguaje clínico:
+          no es el evento (A) el que causa la emoción (C), sino la creencia (B) sobre ese evento.
+        </p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">Liderazgo</span>
+        <span class="legacy-title">Resiliencia ejecutiva</span>
+        <p class="legacy-desc">
+          Navy SEALs, astronautas de la NASA y directivos de Silicon Valley citan el estoicismo
+          como marco para tomar decisiones bajo presión y gestionar la incertidumbre.
+        </p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">Vida cotidiana</span>
+        <span class="legacy-title">Gestión de la frustración</span>
+        <p class="legacy-desc">
+          El estoicismo ofrece un protocolo sencillo para el día a día:
+          identifica qué controlas, actúa sobre eso, suelta lo demás.
+          No es resignación — es eficiencia emocional.
+        </p>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">Reflexión final</span>
+      <h3>No resignación, sino libertad interior</h3>
+      <p>
+        El estoicismo se confunde a menudo con frialdad o pasividad. Es lo contrario:
+        es una <strong>filosofía de la acción enfocada</strong>. Actúa con toda tu energía sobre lo que
+        controlas; acepta con serenidad lo que no controlas. La combinación de ambas cosas
+        produce algo que los estoicos llamaban <strong>ataraxia</strong>: una tranquilidad que no depende
+        de que las cosas vayan bien, sino de que tú estés preparado para lo que venga.
+      </p>
+    </div>
+  </div>
+
+  <!-- ─── TAB: TEST ─── -->
+  <div class="tab-panel" id="tab-test">
+    <div class="panel-header">
+      <h2>Pon a prueba <em>tu comprensión</em></h2>
+      <p class="panel-lead">
+        Diez preguntas sobre el estoicismo: conceptos, maestros y legado.
+      </p>
+    </div>
+
+    <div class="test-wrap" id="quiz">
+      <p class="test-intro">
+        Selecciona la respuesta que consideres correcta. Recibirás retroalimentación inmediata.
+      </p>
+
+      <!-- Q1 -->
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta I</span>
+        <p class="q-text">¿Cuál es el principio nuclear del estoicismo según Epicteto?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Buscar el placer moderado y evitar el dolor</button></li>
+          <li><button class="opt-btn" data-idx="1">Distinguir lo que depende de nosotros de lo que no</button></li>
+          <li><button class="opt-btn" data-idx="2">Conocer las formas ideales a través de la razón pura</button></li>
+          <li><button class="opt-btn" data-idx="3">Alcanzar la ataraxia mediante la suspensión del juicio</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. El Enquiridión abre con esta distinción: lo que es «asunto nuestro» y lo que no lo es.</p>
+        <p class="q-fb fail">No. El principio central es la dicotomía del control: separar lo que depende de nosotros (juicios, voluntad) de lo que no (cuerpo, fama, resultados).</p>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-block" data-correct="2">
+        <span class="q-number">Pregunta II</span>
+        <p class="q-text">Epicteto nació como...</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Senador romano de familia patricia</button></li>
+          <li><button class="opt-btn" data-idx="1">Comerciante fenicio en Atenas</button></li>
+          <li><button class="opt-btn" data-idx="2">Esclavo en Hierápolis</button></li>
+          <li><button class="opt-btn" data-idx="3">Filósofo de la Academia platónica</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Epicteto nació esclavo y fue liberado. No escribió nada; sus enseñanzas fueron recogidas por su alumno Arriano.</p>
+        <p class="q-fb fail">Epicteto nació esclavo en Hierápolis (Frigia). Fue su condición de esclavitud la que dio profundidad a su comprensión de lo que realmente controlamos.</p>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-block" data-correct="0">
+        <span class="q-number">Pregunta III</span>
+        <p class="q-text">¿Qué son las Meditaciones de Marco Aurelio?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Un diario privado de autoexamen nunca pensado para publicarse</button></li>
+          <li><button class="opt-btn" data-idx="1">Un tratado político sobre la administración del Imperio</button></li>
+          <li><button class="opt-btn" data-idx="2">Cartas escritas a su maestro Frontón</button></li>
+          <li><button class="opt-btn" data-idx="3">Un manual de estrategia militar</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Las Meditaciones son notas personales donde el emperador se recuerda a sí mismo sus principios estoicos.</p>
+        <p class="q-fb fail">Las Meditaciones no fueron escritas para ser leídas por otros. Son el diario íntimo de un emperador que practicaba el examen de conciencia nocturno.</p>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-block" data-correct="3">
+        <span class="q-number">Pregunta IV</span>
+        <p class="q-text">Para los estoicos, ¿cuál es el único bien genuino?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">La salud del cuerpo</button></li>
+          <li><button class="opt-btn" data-idx="1">La riqueza material moderada</button></li>
+          <li><button class="opt-btn" data-idx="2">El conocimiento teórico del cosmos</button></li>
+          <li><button class="opt-btn" data-idx="3">La virtud (areté)</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La salud, la riqueza y la fama son «preferibles» pero no necesarios. Solo la virtud — sabiduría, justicia, coraje, templanza — es un bien auténtico.</p>
+        <p class="q-fb fail">Los estoicos consideran que solo la virtud (areté) es un bien auténtico. Todo lo demás son «indiferentes preferibles»: puedes desearlos, pero tu felicidad no debe depender de ellos.</p>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta V</span>
+        <p class="q-text">¿Qué significa premeditatio malorum?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Meditar sobre las virtudes cada mañana</button></li>
+          <li><button class="opt-btn" data-idx="1">Visualizar posibles adversidades para estar preparado</button></li>
+          <li><button class="opt-btn" data-idx="2">Recordar los errores del pasado para no repetirlos</button></li>
+          <li><button class="opt-btn" data-idx="3">Practicar la austeridad material voluntaria</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. No es pesimismo: es preparación mental. Séneca lo recomendaba para que ningún golpe del destino nos encuentre desprevenidos.</p>
+        <p class="q-fb fail">La premeditatio malorum consiste en anticipar mentalmente las adversidades posibles, no para sufrir, sino para que nada te tome por sorpresa.</p>
+      </div>
+
+      <!-- Q6 -->
+      <div class="q-block" data-correct="2">
+        <span class="q-number">Pregunta VI</span>
+        <p class="q-text">Séneca fue obligado a suicidarse por orden de...</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Calígula</button></li>
+          <li><button class="opt-btn" data-idx="1">Marco Aurelio</button></li>
+          <li><button class="opt-btn" data-idx="2">Nerón</button></li>
+          <li><button class="opt-btn" data-idx="3">Augusto</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Séneca fue tutor de Nerón. Cuando cayó en desgracia, el emperador ordenó su muerte y Séneca la aceptó con serenidad estoica.</p>
+        <p class="q-fb fail">Fue Nerón quien ordenó la muerte de Séneca. La ironía trágica: el alumno destruye al maestro que intentó educarlo en la virtud.</p>
+      </div>
+
+      <!-- Q7 -->
+      <div class="q-block" data-correct="0">
+        <span class="q-number">Pregunta VII</span>
+        <p class="q-text">¿Qué terapia moderna se basa explícitamente en principios estoicos?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">La terapia cognitivo-conductual (TCC)</button></li>
+          <li><button class="opt-btn" data-idx="1">El psicoanálisis freudiano</button></li>
+          <li><button class="opt-btn" data-idx="2">La terapia Gestalt</button></li>
+          <li><button class="opt-btn" data-idx="3">La psicología positiva de Seligman</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Albert Ellis y Aaron Beck reconocieron la influencia directa del estoicismo: no son los hechos los que causan el malestar, sino nuestras creencias sobre ellos.</p>
+        <p class="q-fb fail">La terapia cognitivo-conductual (TCC) de Beck y la TREC de Ellis se basan en el principio estoico de que el sufrimiento viene de nuestras interpretaciones, no de los hechos.</p>
+      </div>
+
+      <!-- Q8 -->
+      <div class="q-block" data-correct="2">
+        <span class="q-number">Pregunta VIII</span>
+        <p class="q-text">¿Qué significa «vivir conforme a la naturaleza» para los estoicos?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Rechazar la civilización y volver a la vida salvaje</button></li>
+          <li><button class="opt-btn" data-idx="1">Seguir los instintos sin interferencia de la razón</button></li>
+          <li><button class="opt-btn" data-idx="2">Usar la razón como guía y aceptar el orden cósmico</button></li>
+          <li><button class="opt-btn" data-idx="3">Imitar el comportamiento de los animales</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La «naturaleza» del ser humano, para los estoicos, es la razón. Vivir conforme a ella significa dejarse guiar por el juicio racional y entender tu lugar en el cosmos.</p>
+        <p class="q-fb fail">Para los estoicos, «naturaleza» no es la selva, sino la razón (lógos). Vivir conforme a ella significa usar el juicio racional como guía y aceptar el orden natural de las cosas.</p>
+      </div>
+
+      <!-- Q9 -->
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta IX</span>
+        <p class="q-text">¿Quién fundó la escuela estoica?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Epicteto, en Nicópolis</button></li>
+          <li><button class="opt-btn" data-idx="1">Zenón de Citio, en el Pórtico Pintado de Atenas</button></li>
+          <li><button class="opt-btn" data-idx="2">Séneca, en Roma</button></li>
+          <li><button class="opt-btn" data-idx="3">Crisipo de Solos, en Alejandría</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Zenón de Citio, un comerciante fenicio arruinado por un naufragio, comenzó a enseñar en la Stoa Poikilé (Pórtico Pintado) de Atenas hacia el 300 a.C.</p>
+        <p class="q-fb fail">El fundador fue Zenón de Citio, que enseñaba en la Stoa Poikilé de Atenas. Crisipo fue su gran sistematizador, pero no el fundador.</p>
+      </div>
+
+      <!-- Q10 -->
+      <div class="q-block" data-correct="3">
+        <span class="q-number">Pregunta X</span>
+        <p class="q-text">«Amor fati» significa...</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Resignación pasiva ante el sufrimiento</button></li>
+          <li><button class="opt-btn" data-idx="1">Evitar todo apego emocional</button></li>
+          <li><button class="opt-btn" data-idx="2">Buscar el destino más favorable posible</button></li>
+          <li><button class="opt-btn" data-idx="3">Amar lo que sucede, convirtiendo obstáculos en entrenamiento</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. No es resignación sino abrazo activo: cada obstáculo es material de crecimiento. Lo que se interpone en el camino se convierte en el camino.</p>
+        <p class="q-fb fail">Amor fati no es pasividad. Es amar activamente lo que ocurre porque cada dificultad es una oportunidad de practicar la virtud y fortalecerse.</p>
+      </div>
+
+      <div class="score-box" id="score-box">
+        <span class="score-num" id="score-num"></span>
+        <span class="score-lbl">Respuestas correctas de 10</span>
+        <p class="score-msg" id="score-msg"></p>
+        <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div style="max-width:900px;margin:0 auto;padding:0 2rem;">
+    <svg class="meander" style="margin-bottom:1.5rem;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <rect width="100%" height="100%" fill="url(#mp)"/>
+    </svg>
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía &amp; Política</div>
+      <nav class="footer-nav">
+        <a href="index.html">Portal</a>
+        <a href="grecia-socrates-platon.html">Módulo I</a>
+        <a href="aristoteles-politica.html">Módulo II</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── TABS ── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ── ACCORDION ── */
+function toggleAcc(trigger) {
+  const body = trigger.nextElementSibling;
+  const isOpen = trigger.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.acc-trigger').forEach(t => t.classList.remove('open'));
+  document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    trigger.classList.add('open');
+    body.classList.add('open');
+  }
+}
+
+/* ── QUIZ ── */
+let answered = 0;
+let score = 0;
+const total = 10;
+
+document.querySelectorAll('.q-block').forEach(block => {
+  const correct = parseInt(block.dataset.correct);
+  const btns = block.querySelectorAll('.opt-btn');
+  const fbOk = block.querySelector('.q-fb.ok');
+  const fbFail = block.querySelector('.q-fb.fail');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.disabled) return;
+      btns.forEach(b => b.disabled = true);
+      const idx = parseInt(btn.dataset.idx);
+      if (idx === correct) {
+        btn.classList.add('correct');
+        fbOk.classList.add('show');
+        score++;
+      } else {
+        btn.classList.add('wrong');
+        btns[correct].classList.add('reveal');
+        fbFail.classList.add('show');
+      }
+      answered++;
+      if (answered === total) showScore();
+    });
+  });
+});
+
+function showScore() {
+  const box = document.getElementById('score-box');
+  document.getElementById('score-num').textContent = score;
+  const msgs = [
+    [0, 3, 'El camino estoico comienza con la aceptación de lo que no sabes. Revisa el módulo.'],
+    [4, 6, 'Buen comienzo. Epicteto diría: «No pretendas que las cosas ocurran como quieres, sino quiere que ocurran como ocurren.» Sigue estudiando.'],
+    [7, 8, 'Sólido. Tu comprensión del estoicismo es práctica y real.'],
+    [9, 10, 'Excelente. Marco Aurelio aprobaría: dominas los conceptos y estás listo para practicarlos.']
+  ];
+  const msg = msgs.find(m => score >= m[0] && score <= m[1]);
+  document.getElementById('score-msg').textContent = msg[2];
+  box.classList.add('show');
+}
+
+function resetQuiz() {
+  answered = 0; score = 0;
+  document.querySelectorAll('.opt-btn').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct','wrong','reveal');
+  });
+  document.querySelectorAll('.q-fb').forEach(f => f.classList.remove('show'));
+  document.getElementById('score-box').classList.remove('show');
+}
+
+/* ── PROGRESS BAR ── */
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+</script>
+
+</body>
+</html>
