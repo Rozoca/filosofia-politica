@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo V — Hobbes y el Leviatán · Filosofía & Política</title>
+  <meta name="description" content="Thomas Hobbes: el estado de naturaleza, la guerra de todos contra todos, el contrato social y el nacimiento del Estado moderno."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:           #12151a;
+      --bg-mid:       #181c22;
+      --bg-card:      #1e2228;
+      --surface:      #282e36;
+      --border:       #363e4a;
+      --border-light: #4a5466;
+      --steel:        #4a7090;
+      --steel-mid:    #5a8aaa;
+      --steel-light:  #7aaaca;
+      --steel-pale:   #a0c8e0;
+      --gold:         #c4a040;
+      --gold-light:   #d8b850;
+      --gold-dim:     #8a7030;
+      --ivory:        #e8e4d8;
+      --ivory-mid:    #b8b0a0;
+      --ivory-dim:    #787068;
+      --text:         #d8d4c8;
+      --text-muted:   #989088;
+      --correct:      #3a8a4a;
+      --correct-bg:   #1a2e1e;
+      --wrong:        #b04040;
+      --wrong-bg:     #2e1a1a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      background: rgba(18,21,26,.95);
+      backdrop-filter: blur(12px);
+      padding: .9rem 2rem;
+      position: sticky; top: 0; z-index: 200;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-nav-inner {
+      max-width: 940px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-back {
+      font-family: 'Manrope', sans-serif;
+      font-size: .85rem; font-weight: 500;
+      color: var(--ivory-mid); text-decoration: none;
+      display: flex; align-items: center; gap: .5rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--steel-light); }
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: .85rem; font-weight: 500;
+      color: var(--ivory-dim);
+    }
+    .nav-badge {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .18em;
+      color: var(--steel-light);
+      border: 1px solid var(--steel);
+      padding: .2rem .6rem; border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-mid) 100%);
+      padding: 4.5rem 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -15%;
+      width: 55vw; height: 55vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,112,144,.1) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -25%; left: -10%;
+      width: 45vw; height: 45vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,160,64,.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 940px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: 'Manrope', sans-serif;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .4em; text-transform: uppercase;
+      color: var(--steel-mid); display: block;
+      margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 400; color: var(--ivory);
+      line-height: 1.05; margin-bottom: 1.2rem;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--steel-light);
+    }
+    .hero-subtitle {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.15rem; font-style: italic;
+      color: var(--text-muted);
+      max-width: 600px; line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-stats {
+      display: flex; gap: 0;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      padding: 1.4rem 2.4rem 1.4rem 0;
+      margin-right: 2.4rem;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 400;
+      color: var(--steel-light); display: block; line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 500;
+      letter-spacing: .15em;
+      color: var(--ivory-dim);
+      display: block; margin-top: .35rem;
+    }
+
+    /* ── TAB NAV — VISIBLE ── */
+    .tab-nav {
+      background: var(--bg-mid);
+      position: sticky; top: 48px; z-index: 150;
+      border-bottom: 1px solid var(--border);
+      padding: .6rem 0;
+    }
+    .tab-nav-inner {
+      max-width: 940px; margin: 0 auto;
+      display: flex; gap: .5rem;
+      overflow-x: auto; scrollbar-width: none;
+      padding: 0 2rem;
+    }
+    .tab-nav-inner::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      font-family: 'Manrope', sans-serif;
+      font-size: .82rem; font-weight: 600;
+      letter-spacing: .08em;
+      color: var(--ivory-dim);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: .6rem 1.3rem;
+      cursor: pointer; white-space: nowrap;
+      transition: all .25s;
+      flex-shrink: 0;
+    }
+    .tab-btn:hover {
+      color: var(--ivory-mid);
+      background: var(--border);
+      border-color: var(--border-light);
+    }
+    .tab-btn.active {
+      color: #fff;
+      background: var(--steel);
+      border-color: var(--steel-mid);
+    }
+
+    /* ── CONTENT AREA ── */
+    .content-area {
+      max-width: 940px; margin: 0 auto;
+      padding: 0 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: block;
+      animation: panelIn .4s ease both;
+    }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── PANEL HEADER ── */
+    .panel-header {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .panel-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400; color: var(--ivory);
+      line-height: 1.2;
+    }
+    .panel-header h2 em { color: var(--steel-mid); font-style: italic; }
+    .panel-lead {
+      margin-top: .8rem;
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic; font-size: 1.05rem;
+      color: var(--text-muted); line-height: 1.8;
+    }
+
+    .section-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: var(--steel-mid);
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--border);
+    }
+
+    /* ── CARDS ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1.8rem 2rem;
+    }
+    .card.full { grid-column: 1 / -1; }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 500;
+      color: var(--ivory); margin-bottom: .7rem;
+    }
+    .card p, .card li {
+      font-size: 1rem; color: var(--text-muted); line-height: 1.8;
+    }
+    .card ul { padding-left: 1.3rem; }
+    .card li { margin-bottom: .35rem; }
+    .card-icon { font-size: 1.5rem; display: block; margin-bottom: .7rem; }
+
+    /* ── HIGHLIGHT CARD ── */
+    .highlight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--steel);
+      border-radius: 3px;
+      padding: 2rem 2.4rem;
+      margin-bottom: 2.5rem;
+    }
+    .highlight-card .hc-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--steel-mid); display: block;
+      margin-bottom: .8rem;
+    }
+    .highlight-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 500; color: var(--ivory);
+      margin-bottom: .8rem;
+    }
+    .highlight-card p {
+      font-size: 1rem; color: var(--text-muted);
+      line-height: 1.85; margin-bottom: .7rem;
+    }
+    .highlight-card p:last-child { margin-bottom: 0; }
+    .highlight-card strong { color: var(--ivory); font-weight: 500; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      padding: 2rem 2.4rem;
+      margin: 2.5rem 0;
+      border-radius: 3px;
+    }
+    .pull-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-style: italic;
+      color: var(--ivory-mid); line-height: 1.6;
+    }
+    .pull-quote cite {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .15em;
+      color: var(--gold-dim); display: block;
+      margin-top: .8rem;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2.2rem; margin-bottom: 2.5rem; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: .55rem; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .tl-item { position: relative; margin-bottom: 1.8rem; }
+    .tl-dot {
+      position: absolute; left: -1.8rem; top: .35rem;
+      width: 10px; height: 10px;
+      background: var(--steel); transform: rotate(45deg);
+    }
+    .tl-date {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .15em;
+      color: var(--steel-mid); display: block; margin-bottom: .25rem;
+    }
+    .tl-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 500; color: var(--ivory);
+      margin-bottom: .25rem;
+    }
+    .tl-desc { font-size: .95rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ── ACCORDION ── */
+    .accordion { margin-bottom: 2.5rem; }
+    .acc-item {
+      border: 1px solid var(--border);
+      border-radius: 3px; margin-bottom: .6rem;
+      overflow: hidden;
+    }
+    .acc-trigger {
+      width: 100%; background: var(--bg-card);
+      border: none; padding: 1.2rem 1.5rem;
+      display: flex; justify-content: space-between;
+      align-items: center; cursor: pointer;
+      text-align: left; transition: background .2s;
+    }
+    .acc-trigger:hover { background: var(--surface); }
+    .acc-trigger.open { background: var(--steel); }
+    .acc-term {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 500; color: var(--ivory);
+      transition: color .2s;
+    }
+    .acc-trigger.open .acc-term { color: #fff; }
+    .acc-arrow {
+      font-size: .9rem; color: var(--ivory-dim);
+      transition: transform .3s, color .2s;
+      flex-shrink: 0; margin-left: 1rem;
+    }
+    .acc-trigger.open .acc-arrow {
+      transform: rotate(180deg);
+      color: var(--gold-light);
+    }
+    .acc-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      padding: 0 1.5rem;
+      background: var(--bg-mid);
+    }
+    .acc-body.open {
+      max-height: 600px;
+      padding: 1.4rem 1.5rem;
+    }
+    .acc-body p {
+      font-size: 1rem; color: var(--text-muted);
+      line-height: 1.85; margin-bottom: .7rem;
+    }
+    .acc-body p:last-child { margin-bottom: 0; }
+    .acc-body strong { color: var(--ivory); font-weight: 500; }
+
+    /* ── VERSUS GRID ── */
+    .versus {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0; margin-bottom: 2.5rem;
+      align-items: stretch;
+    }
+    .vs-col {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.8rem 1.6rem;
+      border-radius: 3px;
+    }
+    .vs-col.nature { border-top: 3px solid var(--wrong); }
+    .vs-col.state  { border-top: 3px solid var(--steel); }
+    .vs-divider {
+      display: flex; align-items: center; padding: 0 1rem;
+    }
+    .vs-divider-line {
+      width: 2px; height: 100%; background: var(--border);
+    }
+    .vs-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      display: block; margin-bottom: .8rem;
+    }
+    .vs-col.nature .vs-label { color: var(--wrong); }
+    .vs-col.state .vs-label  { color: var(--steel-mid); }
+    .vs-col h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 500;
+      color: var(--ivory); margin-bottom: .6rem;
+    }
+    .vs-col p, .vs-col li {
+      font-size: .95rem; color: var(--text-muted); line-height: 1.75;
+    }
+    .vs-col ul { padding-left: 1.1rem; margin-top: .4rem; }
+    .vs-col li { margin-bottom: .3rem; }
+
+    /* ── LEGACY GRID ── */
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem; margin-bottom: 2.5rem;
+    }
+    .legacy-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-bottom: 3px solid var(--steel);
+      padding: 1.6rem;
+      border-radius: 3px;
+    }
+    .legacy-era {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--steel-mid); display: block; margin-bottom: .5rem;
+    }
+    .legacy-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 500; color: var(--ivory);
+      margin-bottom: .5rem;
+    }
+    .legacy-desc { font-size: .92rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ── TEST ── */
+    .test-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 2.5rem 2.8rem;
+    }
+    .test-intro { font-size: 1rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.8; }
+    .q-block { margin-bottom: 2.4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .q-block:last-of-type { border-bottom: none; }
+    .q-number {
+      font-family: 'Manrope', sans-serif; font-size: .68rem; font-weight: 600;
+      letter-spacing: .2em; color: var(--steel-mid); display: block; margin-bottom: .5rem;
+    }
+    .q-text {
+      font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 500;
+      color: var(--ivory); margin-bottom: 1rem; line-height: 1.5;
+    }
+    .opts { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .opt-btn {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 3px;
+      padding: .85rem 1.2rem; font-family: 'Manrope', sans-serif;
+      font-size: .95rem; font-weight: 400; color: var(--text-muted);
+      cursor: pointer; text-align: left; width: 100%;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: var(--steel); color: var(--ivory); background: var(--bg-mid); }
+    .opt-btn.correct { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); }
+    .opt-btn.wrong   { background: var(--wrong-bg);   border-color: var(--wrong);   color: var(--wrong); }
+    .opt-btn.reveal  { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); opacity:.6; }
+    .opt-btn:disabled { cursor: default; }
+    .q-fb { margin-top: .8rem; font-size: .92rem; line-height: 1.7; display: none; }
+    .q-fb.show { display: block; }
+    .q-fb.ok   { color: var(--correct); }
+    .q-fb.fail { color: var(--wrong); }
+
+    .score-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 3px; padding: 2.4rem; text-align: center; margin-top: 2rem; display: none;
+    }
+    .score-box.show { display: block; animation: panelIn .4s ease both; }
+    .score-num { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 400; color: var(--steel-light); display: block; line-height: 1; }
+    .score-lbl { font-family: 'Manrope', sans-serif; font-size: .75rem; font-weight: 500; letter-spacing: .25em; color: var(--ivory-dim); display: block; margin-top: .4rem; margin-bottom: 1rem; }
+    .score-msg { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.05rem; color: var(--text-muted); }
+    .retry-btn {
+      margin-top: 1.4rem; background: none; border: 1px solid var(--steel);
+      color: var(--steel-light); font-family: 'Manrope', sans-serif;
+      font-size: .78rem; font-weight: 600; letter-spacing: .15em;
+      padding: .65rem 1.5rem; cursor: pointer; border-radius: 2px;
+      transition: background .2s, color .2s;
+    }
+    .retry-btn:hover { background: var(--steel); color: #fff; }
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--steel-mid); z-index: 999; width: 0; transition: width .1s linear; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 2rem; background: var(--bg); }
+    .footer-inner { max-width: 940px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Libre Baskerville', serif; font-size: .9rem; color: var(--text-muted); }
+    .footer-brand strong { color: var(--ivory); font-weight: 400; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-nav a { font-family: 'Manrope', sans-serif; font-size: .72rem; font-weight: 500; letter-spacing: .15em; color: var(--ivory-dim); text-decoration: none; transition: color .2s; }
+    .footer-nav a:hover { color: var(--steel-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .card-grid, .legacy-grid { grid-template-columns: 1fr; }
+      .versus { grid-template-columns: 1fr; }
+      .vs-divider { padding: .8rem 0; }
+      .vs-divider-line { width: 100%; height: 2px; }
+      .card.full { grid-column: 1; }
+      .test-wrap { padding: 1.6rem 1.3rem; }
+      .hero-stats { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; margin-right: 0; }
+      .tab-btn { font-size: .75rem; padding: .5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- ══════════ TOP NAV ══════════ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="fase2.html" class="nav-back">← Fase II</a>
+    <span class="nav-title">Filosofía & Política</span>
+    <span class="nav-badge">Módulo V</span>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo V · Contractualismo</span>
+    <h1 class="hero-title">Hobbes y el <em>Leviatán</em></h1>
+    <p class="hero-subtitle">
+      Imaginó un mundo sin Estado y demostró que sería una pesadilla.
+      El miedo como fundamento del orden político. El contrato social
+      como acto de supervivencia.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">1588–1679</span>
+        <span class="stat-label">Inglaterra</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">1651</span>
+        <span class="stat-label">Leviatán</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">91</span>
+        <span class="stat-label">Años de vida</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">1</span>
+        <span class="stat-label">Idea que lo cambió todo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TAB NAV ══════════ -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="quien">Quién fue</button>
+    <button class="tab-btn" data-tab="ideas">Ideas clave</button>
+    <button class="tab-btn" data-tab="leviatan">El Leviatán</button>
+    <button class="tab-btn" data-tab="legado">Legado</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<!-- ══════════ CONTENT ══════════ -->
+<main class="content-area">
+
+  <!-- ─── TAB: QUIÉN FUE ─── -->
+  <div class="tab-panel active" id="tab-quien">
+    <div class="panel-header">
+      <h2>Thomas Hobbes: <em>el filósofo del miedo</em></h2>
+      <p class="panel-lead">
+        Nació prematuro porque su madre se asustó con la noticia de la Armada Invencible.
+        Él mismo dijo: «mi madre parió gemelos: yo y el miedo.» Ese miedo se convirtió
+        en la base de su filosofía política.
+      </p>
+    </div>
+
+    <p class="section-label">Contexto histórico</p>
+
+    <div class="card-grid">
+      <div class="card full">
+        <span class="card-icon">⚔️</span>
+        <h3>La Inglaterra que se destruyó a sí misma</h3>
+        <p>
+          Hobbes vivió la Guerra Civil Inglesa (1642–1651): el rey Carlos I contra el
+          Parlamento, protestantes contra católicos, campo contra ciudad. El rey fue
+          ejecutado públicamente en 1649. Hobbes vio cómo la sociedad más poderosa de
+          Europa se desintegraba desde dentro. Esa experiencia le convenció de que
+          sin un poder central fuerte, la humanidad se destruye a sí misma.
+        </p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔬</span>
+        <h3>El científico</h3>
+        <p>
+          Hobbes no era solo filósofo: era geómetra, traductor de Tucídides, amigo de Galileo
+          y admirador de la nueva ciencia. Quiso aplicar el método de la física a la política:
+          partir de axiomas sobre la naturaleza humana y deducir lógicamente cómo debería
+          organizarse el Estado. Fue el primer materialista político moderno.
+        </p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🏃</span>
+        <h3>El exiliado</h3>
+        <p>
+          Ante el estallido de la guerra civil, Hobbes huyó a París en 1640. Pasó once
+          años en el exilio. Fue tutor del futuro Carlos II. Publicó el <em>Leviatán</em>
+          en 1651, desde Londres, como una propuesta radical: si queréis paz,
+          entregad el poder a un soberano absoluto.
+        </p>
+      </div>
+    </div>
+
+    <p class="section-label">Cronología esencial</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1588</span>
+        <span class="tl-title">Nace en Westport, Wiltshire</span>
+        <span class="tl-desc">Hijo de un vicario rural. Criado por un tío rico que le paga los estudios en Oxford.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1610–1630</span>
+        <span class="tl-title">Los Grand Tours europeos</span>
+        <span class="tl-desc">Como tutor de jóvenes aristócratas, viaja por Europa. Conoce a Galileo en Florencia, a Mersenne y Descartes en París. Descubre la geometría euclidiana y se obsesiona con el método deductivo.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1640</span>
+        <span class="tl-title">Huye a París</span>
+        <span class="tl-desc">Ante las tensiones que desembocarán en la guerra civil, publica De Cive y escapa al continente. Once años de exilio.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1649</span>
+        <span class="tl-title">Ejecución de Carlos I</span>
+        <span class="tl-desc">El rey de Inglaterra es decapitado públicamente. Para Hobbes, la prueba definitiva de que sin soberanía absoluta el caos es inevitable.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1651</span>
+        <span class="tl-title">Publica el Leviatán</span>
+        <span class="tl-desc">La obra que funda la teoría del contrato social. Le ganó enemigos en todos los bandos: los monárquicos lo acusan de ateo, los parlamentarios de absolutista.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1679</span>
+        <span class="tl-title">Muerte a los 91 años</span>
+        <span class="tl-desc">Muere en Derbyshire, lúcido hasta el final. Su última frase registrada: «Estoy a punto de emprender mi último viaje, un gran salto a la oscuridad.»</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TAB: IDEAS CLAVE ─── -->
+  <div class="tab-panel" id="tab-ideas">
+    <div class="panel-header">
+      <h2>El sistema hobbesiano: <em>del miedo al orden</em></h2>
+      <p class="panel-lead">
+        Hobbes construye un argumento de tres pasos: primero describe la naturaleza humana,
+        luego imagina qué pasaría sin Estado, y finalmente demuestra por qué
+        los individuos aceptan someterse a un soberano absoluto.
+      </p>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">Punto de partida</span>
+      <h3>La naturaleza humana según Hobbes</h3>
+      <p>
+        Los seres humanos son fundamentalmente <strong>iguales</strong> en capacidades: incluso el más
+        débil puede matar al más fuerte mediante la astucia o la alianza. Esa igualdad
+        natural no produce armonía sino <strong>competencia</strong>, porque todos desean las mismas cosas
+        y nadie tiene garantizado el acceso a ellas.
+      </p>
+      <p>
+        Los tres motores del conflicto humano son la <strong>competencia</strong> (por recursos),
+        la <strong>desconfianza</strong> (por seguridad) y la <strong>gloria</strong> (por reputación).
+      </p>
+    </div>
+
+    <p class="section-label">El argumento central</p>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">El estado de naturaleza: la guerra de todos contra todos</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Hobbes imagina qué ocurriría si no existiera ninguna autoridad política. El resultado es
+             el <strong>estado de naturaleza</strong>: una situación de guerra permanente donde cada individuo
+             es enemigo potencial de todos los demás. No hace falta que haya combates constantes:
+             basta con que exista la <strong>disposición a la violencia</strong> sin garantía de protección.</p>
+          <p>En ese estado, la vida es — en su frase más famosa — <strong>«solitaria, pobre, desagradable,
+             brutal y breve»</strong>. No hay industria, ni cultura, ni comercio, ni conocimiento.
+             Solo supervivencia.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">El contrato social: la salida racional</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>La razón humana descubre una salida: si todos renuncian simultáneamente a su derecho natural
+             a hacerlo todo y transfieren ese poder a una <strong>autoridad común</strong>, obtienen algo que
+             el estado de naturaleza no puede ofrecer: <strong>seguridad</strong>.</p>
+          <p>Este acuerdo es el <strong>contrato social</strong>. No es un evento histórico real, sino un
+             experimento mental que explica por qué la autoridad política es racionalmente necesaria.
+             Los individuos ceden libertad a cambio de paz.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">El soberano: poder absoluto e indivisible</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>El soberano creado por el contrato — ya sea un rey o una asamblea — debe tener
+             <strong>poder absoluto</strong>. No puede estar dividido ni limitado, porque un poder fragmentado
+             genera facciones, y las facciones producen guerra civil. Hobbes lo vio en carne propia.</p>
+          <p>El soberano no es parte del contrato: los ciudadanos pactan entre sí cederle el poder.
+             Por tanto, el soberano no puede violar el contrato — porque no lo firmó. Solo tiene
+             una obligación implícita: <strong>garantizar la seguridad</strong>. Si no puede proteger,
+             pierde la razón de existir.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Derecho natural vs. ley natural</span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="acc-body">
+          <p>Hobbes distingue entre <strong>derecho natural</strong> (la libertad de usar tu poder para
+             sobrevivir) y <strong>ley natural</strong> (la regla racional que dice: busca la paz si puedes obtenerla).
+             En el estado de naturaleza, el derecho manda. En la sociedad civil, la ley prevalece.</p>
+          <p>La primera ley natural es buscar la paz. La segunda: estar dispuesto a renunciar a tu
+             derecho si los demás también lo hacen. La tercera: cumplir los pactos. De estas tres
+             leyes se deriva todo el edificio del Estado.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label">Antes y después del contrato</p>
+
+    <div class="versus">
+      <div class="vs-col nature">
+        <span class="vs-label">Estado de naturaleza</span>
+        <h3>Sin soberano</h3>
+        <ul>
+          <li>Guerra de todos contra todos</li>
+          <li>Derecho ilimitado a todo</li>
+          <li>Miedo permanente</li>
+          <li>Sin propiedad, sin justicia</li>
+          <li>Vida solitaria, brutal, breve</li>
+          <li>Cada uno es juez y verdugo</li>
+        </ul>
+      </div>
+      <div class="vs-divider"><div class="vs-divider-line"></div></div>
+      <div class="vs-col state">
+        <span class="vs-label">Sociedad civil</span>
+        <h3>Con soberano</h3>
+        <ul>
+          <li>Paz garantizada por la fuerza</li>
+          <li>Derechos limitados por la ley</li>
+          <li>Seguridad y previsibilidad</li>
+          <li>Propiedad protegida, justicia posible</li>
+          <li>Comercio, industria, cultura</li>
+          <li>Un solo juez: el soberano</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"La condición del hombre es una condición de guerra de todos contra todos, en la cual cada uno es gobernado por su propia razón."</blockquote>
+      <cite>— Hobbes, Leviatán, cap. XIV</cite>
+    </div>
+  </div>
+
+  <!-- ─── TAB: EL LEVIATÁN ─── -->
+  <div class="tab-panel" id="tab-leviatan">
+    <div class="panel-header">
+      <h2><em>Leviatán</em>: la máquina del Estado</h2>
+      <p class="panel-lead">
+        Publicado en 1651, el Leviatán es una de las obras fundacionales de la filosofía
+        política occidental. Su título alude al monstruo bíblico del Libro de Job:
+        un poder tan grande que ninguno en la tierra se le compara.
+      </p>
+    </div>
+
+    <p class="section-label">Estructura del libro</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Parte I: Del hombre</h3>
+        <p>
+          Hobbes aplica el método científico a la naturaleza humana. Analiza las sensaciones,
+          la imaginación, el lenguaje, la razón, las pasiones. Concluye que el ser humano
+          está movido fundamentalmente por el deseo de poder y el miedo a la muerte.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Parte II: De la república</h3>
+        <p>
+          El corazón del libro. Aquí desarrolla el estado de naturaleza, el contrato social
+          y las funciones del soberano. Define los derechos y límites del poder, los tipos
+          de gobierno, y por qué la soberanía debe ser absoluta e indivisible.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Parte III: De un Estado cristiano</h3>
+        <p>
+          Hobbes argumenta que el poder espiritual debe estar subordinado al poder civil.
+          El soberano decide qué se predica y cómo se interpreta la Escritura.
+          Un golpe directo a la autoridad del Papa y a las iglesias independientes.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Parte IV: Del reino de las tinieblas</h3>
+        <p>
+          Un ataque frontal a la Iglesia Católica. Hobbes acusa a Roma de usar doctrinas
+          falsas para mantener poder temporal. Es la parte que le ganó la acusación de ateísmo
+          y la enemistad con los dos bandos de la guerra civil.
+        </p>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">La imagen del frontispicio</span>
+      <h3>El gigante hecho de hombres</h3>
+      <p>
+        La portada original del Leviatán muestra un gigante coronado cuyo cuerpo está compuesto
+        por cientos de personas diminutas. Es la metáfora visual perfecta del argumento:
+        <strong>el Estado es un cuerpo artificial</strong> creado por la unión de individuos que,
+        al ceder su poder, forman algo más grande que cualquiera de ellos.
+      </p>
+      <p>
+        En una mano sostiene la espada (poder militar), en la otra el báculo (poder
+        espiritual). Debajo, una ciudad ordenada y pacífica. El mensaje: <strong>el orden solo
+        es posible cuando ambos poderes están concentrados en una sola autoridad</strong>.
+      </p>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"El único camino para erigir ese poder común capaz de defenderles de la invasión extranjera y las injurias de unos a otros es conferir todo su poder y fortaleza a un hombre o asamblea de hombres."</blockquote>
+      <cite>— Hobbes, Leviatán, cap. XVII</cite>
+    </div>
+
+    <div class="card-grid">
+      <div class="card full">
+        <h3>¿Qué Hobbes no dice?</h3>
+        <p>
+          Es crucial entender lo que Hobbes <em>no</em> defiende. No dice que el soberano pueda
+          hacer lo que quiera impunemente: si no protege, los ciudadanos recuperan su derecho
+          natural a defenderse. No dice que la monarquía sea el único sistema posible: una
+          asamblea también puede ser soberana. Y no dice que el Estado deba controlar el
+          pensamiento: solo las acciones externas están bajo su jurisdicción.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TAB: LEGADO ─── -->
+  <div class="tab-panel" id="tab-legado">
+    <div class="panel-header">
+      <h2>El arquitecto involuntario <em>de la democracia</em></h2>
+      <p class="panel-lead">
+        Hobbes defendió el absolutismo, pero su método — fundar el Estado
+        en el consentimiento de los gobernados — abrió la puerta a Locke, Rousseau
+        y toda la tradición liberal y democrática.
+      </p>
+    </div>
+
+    <p class="section-label">Cadena de influencia</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1651</span>
+        <span class="tl-title">Hobbes publica el Leviatán</span>
+        <span class="tl-desc">Funda la tradición contractualista: el Estado nace del acuerdo entre individuos, no de Dios ni de la naturaleza.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1689</span>
+        <span class="tl-title">Locke responde con el Segundo Tratado</span>
+        <span class="tl-desc">Acepta el contrato social pero invierte la conclusión: el soberano que viola los derechos naturales puede ser depuesto legítimamente.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1762</span>
+        <span class="tl-title">Rousseau radicaliza el contrato</span>
+        <span class="tl-desc">El contrato no crea un soberano externo sino la voluntad general del pueblo. La soberanía es inalienable y pertenece a todos.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">1787–1789</span>
+        <span class="tl-title">Constitución americana y Revolución francesa</span>
+        <span class="tl-desc">Ambas fundan el Estado en el consentimiento de los gobernados — la semilla que Hobbes plantó, aunque él nunca habría aprobado el resultado.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Siglo XX–XXI</span>
+        <span class="tl-title">Teoría del Estado y relaciones internacionales</span>
+        <span class="tl-desc">El realismo político internacional sigue siendo hobbesiano: entre Estados no hay soberano, luego las relaciones internacionales son un estado de naturaleza permanente.</span>
+      </div>
+    </div>
+
+    <p class="section-label">Dónde sigue vivo</p>
+
+    <div class="legacy-grid">
+      <div class="legacy-card">
+        <span class="legacy-era">Filosofía política</span>
+        <span class="legacy-title">El contractualismo</span>
+        <p class="legacy-desc">
+          De Hobbes a Rawls, la idea de que la legitimidad del Estado nace del acuerdo
+          racional entre individuos sigue siendo el marco dominante para pensar la justicia política.
+        </p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">Geopolítica</span>
+        <span class="legacy-title">La anarquía internacional</span>
+        <p class="legacy-desc">
+          Kenneth Waltz y la escuela neorrealista parten de Hobbes: entre Estados soberanos
+          no hay autoridad superior, luego la relación natural es de competencia y desconfianza.
+        </p>
+      </div>
+      <div class="legacy-card">
+        <span class="legacy-era">Seguridad</span>
+        <span class="legacy-title">El monopolio de la violencia</span>
+        <p class="legacy-desc">
+          Max Weber definió el Estado como la entidad que monopoliza la violencia legítima.
+          La formulación es weberiana, pero la idea es hobbesiana: sin monopolio de la fuerza,
+          no hay paz posible.
+        </p>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <span class="hc-label">Reflexión</span>
+      <h3>De Maquiavelo a Hobbes: un hilo directo</h3>
+      <p>
+        Maquiavelo separó la política de la moral. Hobbes dio el siguiente paso:
+        <strong>construyó el Estado desde cero</strong>, partiendo de la naturaleza humana
+        y usando la razón como herramienta. Donde Maquiavelo describió cómo funciona
+        el poder, Hobbes explicó <strong>por qué es necesario</strong>.
+      </p>
+      <p>
+        El siguiente eslabón — Locke — tomará la misma estructura (estado de naturaleza,
+        contrato, soberano) pero llegará a conclusiones opuestas: el poder no puede ser
+        absoluto, porque existen derechos anteriores al Estado que ningún soberano
+        puede violar. La conversación continúa.
+      </p>
+    </div>
+  </div>
+
+  <!-- ─── TAB: TEST ─── -->
+  <div class="tab-panel" id="tab-test">
+    <div class="panel-header">
+      <h2>Pon a prueba <em>tu comprensión</em></h2>
+      <p class="panel-lead">Diez preguntas sobre Hobbes: su vida, el Leviatán y su legado.</p>
+    </div>
+
+    <div class="test-wrap" id="quiz">
+      <p class="test-intro">Selecciona la respuesta correcta. Retroalimentación inmediata tras cada respuesta.</p>
+
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta I</span>
+        <p class="q-text">¿Cómo describe Hobbes la vida en el estado de naturaleza?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Pacífica pero sin progreso tecnológico</button></li>
+          <li><button class="opt-btn" data-idx="1">Solitaria, pobre, desagradable, brutal y breve</button></li>
+          <li><button class="opt-btn" data-idx="2">Libre y armoniosa, gobernada por la razón natural</button></li>
+          <li><button class="opt-btn" data-idx="3">Igualitaria pero dominada por los más sabios</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Es la frase más célebre de toda la filosofía política: sin Estado, la vida humana es solitaria, pobre, desagradable, brutal y breve.</p>
+        <p class="q-fb fail">Hobbes describe el estado de naturaleza como una guerra de todos contra todos, donde la vida es «solitaria, pobre, desagradable, brutal y breve».</p>
+      </div>
+
+      <div class="q-block" data-correct="0">
+        <span class="q-number">Pregunta II</span>
+        <p class="q-text">¿Cuáles son los tres motores del conflicto según Hobbes?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Competencia, desconfianza y gloria</button></li>
+          <li><button class="opt-btn" data-idx="1">Codicia, envidia y soberbia</button></li>
+          <li><button class="opt-btn" data-idx="2">Ignorancia, pobreza y religión</button></li>
+          <li><button class="opt-btn" data-idx="3">Poder, riqueza y honor</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Competencia (por recursos), desconfianza (por seguridad) y gloria (por reputación): las tres causas naturales del conflicto humano.</p>
+        <p class="q-fb fail">Los tres motores son competencia (luchamos por recursos), desconfianza (nos anticipamos al ataque) y gloria (buscamos que nos respeten).</p>
+      </div>
+
+      <div class="q-block" data-correct="3">
+        <span class="q-number">Pregunta III</span>
+        <p class="q-text">¿Qué evento histórico marcó decisivamente a Hobbes?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">La conquista de América</button></li>
+          <li><button class="opt-btn" data-idx="1">La Reforma protestante de Lutero</button></li>
+          <li><button class="opt-btn" data-idx="2">La peste negra de 1348</button></li>
+          <li><button class="opt-btn" data-idx="3">La Guerra Civil Inglesa y la ejecución de Carlos I</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La guerra civil (1642–1651) y la decapitación del rey le mostraron que sin poder soberano, la sociedad se destruye.</p>
+        <p class="q-fb fail">La Guerra Civil Inglesa y la ejecución pública de Carlos I en 1649 fueron la experiencia que convenció a Hobbes de la necesidad del poder absoluto.</p>
+      </div>
+
+      <div class="q-block" data-correct="2">
+        <span class="q-number">Pregunta IV</span>
+        <p class="q-text">¿Qué es el contrato social para Hobbes?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Un documento firmado por los primeros ciudadanos de Inglaterra</button></li>
+          <li><button class="opt-btn" data-idx="1">Un acuerdo entre el soberano y el pueblo</button></li>
+          <li><button class="opt-btn" data-idx="2">Un pacto entre individuos que ceden su poder a un soberano</button></li>
+          <li><button class="opt-btn" data-idx="3">Una alianza militar entre Estados vecinos</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Los individuos pactan entre sí — no con el soberano — ceder su poder natural a una autoridad común a cambio de seguridad.</p>
+        <p class="q-fb fail">El contrato es un pacto entre individuos (no con el soberano) que acuerdan transferir su poder a una autoridad común para escapar de la guerra de todos contra todos.</p>
+      </div>
+
+      <div class="q-block" data-correct="0">
+        <span class="q-number">Pregunta V</span>
+        <p class="q-text">¿Por qué Hobbes insiste en que el poder soberano debe ser absoluto?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Porque el poder dividido genera facciones y guerra civil</button></li>
+          <li><button class="opt-btn" data-idx="1">Porque Dios otorga el poder solo a una persona</button></li>
+          <li><button class="opt-btn" data-idx="2">Porque los pueblos son incapaces de gobernarse</button></li>
+          <li><button class="opt-btn" data-idx="3">Porque la tradición monárquica inglesa así lo establece</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La experiencia de la guerra civil le demostró que dividir el poder produce facciones, y las facciones producen violencia.</p>
+        <p class="q-fb fail">Hobbes no apela a Dios ni a la tradición. Su argumento es racional: el poder dividido genera facciones rivales, y las facciones conducen a la guerra civil.</p>
+      </div>
+
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta VI</span>
+        <p class="q-text">¿Qué representa la imagen del frontispicio del Leviatán?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Un monstruo marino que destruye ciudades</button></li>
+          <li><button class="opt-btn" data-idx="1">Un gigante cuyo cuerpo está compuesto por personas, sosteniendo espada y báculo</button></li>
+          <li><button class="opt-btn" data-idx="2">El rey Carlos I en su trono</button></li>
+          <li><button class="opt-btn" data-idx="3">Un mapa de la guerra civil inglesa</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. El gigante hecho de hombres es la metáfora visual del Estado como cuerpo artificial. Espada (poder militar) y báculo (poder espiritual) en una sola mano.</p>
+        <p class="q-fb fail">El frontispicio muestra un gigante compuesto por cientos de personas, con espada y báculo: el Estado como cuerpo artificial creado por la unión de individuos.</p>
+      </div>
+
+      <div class="q-block" data-correct="3">
+        <span class="q-number">Pregunta VII</span>
+        <p class="q-text">¿Cuál es la primera ley natural según Hobbes?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">No matarás a tu prójimo</button></li>
+          <li><button class="opt-btn" data-idx="1">Obedecerás al soberano en todo</button></li>
+          <li><button class="opt-btn" data-idx="2">Cada uno tiene derecho a todo</button></li>
+          <li><button class="opt-btn" data-idx="3">Buscar la paz si es posible obtenerla</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La primera ley natural es buscar la paz. La segunda: estar dispuesto a renunciar a tu derecho si los demás también lo hacen.</p>
+        <p class="q-fb fail">La primera ley natural de Hobbes es: buscar la paz cuando sea posible. Solo cuando la paz falla, tienes derecho a usar todos los medios de la guerra.</p>
+      </div>
+
+      <div class="q-block" data-correct="2">
+        <span class="q-number">Pregunta VIII</span>
+        <p class="q-text">¿Qué filósofo tomó la estructura de Hobbes pero llegó a conclusiones opuestas?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Maquiavelo</button></li>
+          <li><button class="opt-btn" data-idx="1">Aristóteles</button></li>
+          <li><button class="opt-btn" data-idx="2">Locke</button></li>
+          <li><button class="opt-btn" data-idx="3">Descartes</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Locke usó el mismo esquema (estado de naturaleza → contrato → gobierno) pero concluyó que el soberano que viola los derechos puede ser depuesto.</p>
+        <p class="q-fb fail">Fue Locke quien tomó el marco hobbesiano (estado de naturaleza, contrato, soberanía) pero invirtió las conclusiones: el poder tiene límites y el pueblo puede resistir.</p>
+      </div>
+
+      <div class="q-block" data-correct="0">
+        <span class="q-number">Pregunta IX</span>
+        <p class="q-text">¿Cuándo pierde legitimidad el soberano según Hobbes?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">Cuando no puede garantizar la seguridad de los ciudadanos</button></li>
+          <li><button class="opt-btn" data-idx="1">Nunca, el soberano es legítimo por definición</button></li>
+          <li><button class="opt-btn" data-idx="2">Cuando el pueblo vota en contra en una asamblea</button></li>
+          <li><button class="opt-btn" data-idx="3">Cuando un filósofo demuestra que sus leyes son injustas</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. La única razón de ser del soberano es proteger. Si no puede hacerlo, los individuos recuperan su derecho natural a defenderse por sí mismos.</p>
+        <p class="q-fb fail">El soberano pierde legitimidad cuando falla en su única función: garantizar la seguridad. En ese caso, los ciudadanos recuperan su derecho natural de autodefensa.</p>
+      </div>
+
+      <div class="q-block" data-correct="1">
+        <span class="q-number">Pregunta X</span>
+        <p class="q-text">¿Qué concepto weberiano tiene raíz directa en Hobbes?</p>
+        <ul class="opts">
+          <li><button class="opt-btn" data-idx="0">La burocracia racional</button></li>
+          <li><button class="opt-btn" data-idx="1">El monopolio estatal de la violencia legítima</button></li>
+          <li><button class="opt-btn" data-idx="2">La ética protestante del trabajo</button></li>
+          <li><button class="opt-btn" data-idx="3">Los tipos ideales de dominación</button></li>
+        </ul>
+        <p class="q-fb ok">Correcto. Weber definió el Estado como el monopolio de la violencia legítima — una formulación moderna de la idea hobbesiana de que sin concentración de la fuerza no hay paz.</p>
+        <p class="q-fb fail">Es el monopolio de la violencia legítima. Weber lo formuló, pero la idea es hobbesiana: concentrar toda la fuerza en el Estado es la condición de la paz.</p>
+      </div>
+
+      <div class="score-box" id="score-box">
+        <span class="score-num" id="score-num"></span>
+        <span class="score-lbl">Respuestas correctas de 10</span>
+        <p class="score-msg" id="score-msg"></p>
+        <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
+    <nav class="footer-nav">
+      <a href="index.html">Fase I</a>
+      <a href="fase2.html">Fase II</a>
+      <a href="maquiavelo.html">Maquiavelo</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+function toggleAcc(trigger) {
+  const body = trigger.nextElementSibling;
+  const isOpen = trigger.classList.contains('open');
+  document.querySelectorAll('.acc-trigger').forEach(t => t.classList.remove('open'));
+  document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
+  if (!isOpen) { trigger.classList.add('open'); body.classList.add('open'); }
+}
+
+let answered = 0, score = 0;
+const total = 10;
+document.querySelectorAll('.q-block').forEach(block => {
+  const correct = parseInt(block.dataset.correct);
+  const btns = block.querySelectorAll('.opt-btn');
+  const fbOk = block.querySelector('.q-fb.ok');
+  const fbFail = block.querySelector('.q-fb.fail');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.disabled) return;
+      btns.forEach(b => b.disabled = true);
+      const idx = parseInt(btn.dataset.idx);
+      if (idx === correct) { btn.classList.add('correct'); fbOk.classList.add('show'); score++; }
+      else { btn.classList.add('wrong'); btns[correct].classList.add('reveal'); fbFail.classList.add('show'); }
+      answered++;
+      if (answered === total) showScore();
+    });
+  });
+});
+
+function showScore() {
+  document.getElementById('score-num').textContent = score;
+  const msgs = [
+    [0,3,'Hobbes diría que sin conocimiento, estás en estado de naturaleza intelectual. Revisa el módulo.'],
+    [4,6,'Buen comienzo. Ya entiendes por qué el miedo funda el orden. Sigue profundizando.'],
+    [7,8,'Sólido. Tu comprensión del contractualismo es clara y operativa.'],
+    [9,10,'Excelente. Hobbes te habría llevado en su exilio a París como interlocutor.']
+  ];
+  document.getElementById('score-msg').textContent = msgs.find(m => score >= m[0] && score <= m[1])[2];
+  document.getElementById('score-box').classList.add('show');
+}
+
+function resetQuiz() {
+  answered = 0; score = 0;
+  document.querySelectorAll('.opt-btn').forEach(b => { b.disabled = false; b.classList.remove('correct','wrong','reveal'); });
+  document.querySelectorAll('.q-fb').forEach(f => f.classList.remove('show'));
+  document.getElementById('score-box').classList.remove('show');
+}
+
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('progress-bar').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
+});
+</script>
+
+</body>
+</html>
