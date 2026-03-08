@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo IV — Tomás de Aquino · Filosofía & Política</title>
+<meta name="description" content="Santo Tomás de Aquino: fe y razón, las Cinco Vías, la ley natural y la síntesis medieval que reconcilió a Dios con la ciencia."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --midnight:#0c1a2e;
+  --midnight-mid:#162a48;
+  --midnight-dim:#1e3a5c;
+  --gold:#c9922a;
+  --gold-light:#e4b94e;
+  --gold-pale:#f5e6c0;
+  --stone:#e8dcc8;
+  --stone-warm:#f2ece0;
+  --card-bg:#f5f0e6;
+  --card-border:#c4b898;
+  --ink:#1a1408;
+  --ink-muted:#4a4038;
+  --rose:#8e2040;
+  --rose-light:#b83058;
+  --vitrail-blue:#2a6496;
+  --vitrail-red:#9e2832;
+  --vitrail-green:#2a7246;
+  --vitrail-amber:#c47a18;
+  --correct:#1a5c30;
+  --correct-bg:#e0f0e8;
+  --wrong:#6e1a1a;
+  --wrong-bg:#f0e0e0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'EB Garamond',serif;
+  background:var(--stone-warm);
+  color:var(--ink);
+  font-weight:400;
+  min-height:100vh;
+  font-size:17px;
+  line-height:1.7;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;
+}
+
+/* ── SCREEN SYSTEM ── */
+.screen{display:none;position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 20px 60px}
+.screen.active{display:block;animation:panelIn .45s ease both}
+@keyframes panelIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── NAV ── */
+.top-nav{
+  background:var(--midnight);
+  padding:.85rem 2rem;
+  position:sticky;top:0;z-index:200;
+  border-bottom:2px solid rgba(201,146,42,.2);
+}
+.top-nav-inner{
+  max-width:920px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-back{
+  font-family:'Cinzel',serif;
+  font-size:.7rem;letter-spacing:.2em;
+  color:var(--gold-pale);text-decoration:none;
+  display:flex;align-items:center;gap:.4rem;
+  transition:color .2s;
+}
+.nav-back:hover{color:#fff}
+.nav-title{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.25em;color:rgba(255,255,255,.35)}
+.nav-badge{
+  font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;
+  color:var(--gold-light);border:1px solid var(--gold);
+  padding:.18rem .5rem;border-radius:1px;
+}
+
+/* ── PROGRESS BAR ── */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--gold-light);z-index:999;width:0;transition:width .1s linear}
+
+/* ── TAB NAV ── */
+.tab-nav{
+  background:var(--midnight);
+  position:sticky;top:44px;z-index:150;
+  border-bottom:2px solid rgba(201,146,42,.12);
+}
+.tab-nav-inner{
+  max-width:920px;margin:0 auto;
+  display:flex;overflow-x:auto;scrollbar-width:none;
+}
+.tab-nav-inner::-webkit-scrollbar{display:none}
+.tab-btn{
+  font-family:'Cinzel',serif;
+  font-size:.68rem;letter-spacing:.18em;
+  color:rgba(255,255,255,.35);
+  background:none;border:none;
+  padding:1rem 1.4rem;
+  cursor:pointer;white-space:nowrap;
+  border-bottom:2px solid transparent;
+  margin-bottom:-2px;
+  transition:color .25s,border-color .25s;
+  flex-shrink:0;
+}
+.tab-btn:hover{color:rgba(255,255,255,.7)}
+.tab-btn.active{color:var(--gold-light);border-bottom-color:var(--gold-light)}
+
+/* ── HERO ── */
+.hero{
+  background:var(--midnight);
+  padding:3.5rem 2rem 0;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,146,42,.06) 0%,rgba(142,32,64,.04) 40%,transparent 70%);
+  pointer-events:none;
+}
+/* Gothic arch decoration */
+.hero::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:40px;
+  background:linear-gradient(to bottom,transparent,var(--stone-warm));
+  pointer-events:none;
+}
+.hero-inner{max-width:920px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{
+  font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.5em;
+  color:var(--gold);display:block;margin-bottom:1rem;text-align:center;
+}
+.hero-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(2.4rem,6vw,4.2rem);
+  font-weight:400;color:#fff;
+  line-height:1.1;margin-bottom:.6rem;text-align:center;
+}
+.hero-title em{color:var(--gold-light);font-style:normal}
+.hero-subtitle{
+  font-family:'EB Garamond',serif;
+  font-size:1.15rem;font-style:italic;
+  color:rgba(255,255,255,.55);
+  max-width:600px;line-height:1.65;
+  margin:0 auto 2.2rem;text-align:center;
+}
+
+/* Rose window stats */
+.rose-stats{
+  display:flex;justify-content:center;gap:0;
+  border-top:1px solid rgba(201,146,42,.15);
+  flex-wrap:wrap;padding-bottom:2.5rem;
+}
+.rose-stat{
+  padding:1.2rem 2rem;
+  border-right:1px solid rgba(201,146,42,.1);
+  text-align:center;
+}
+.rose-stat:last-child{border-right:none}
+.rose-num{
+  font-family:'Cinzel Decorative',serif;
+  font-size:2rem;font-weight:400;
+  color:var(--gold-light);display:block;line-height:1;
+}
+.rose-label{
+  font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;
+  color:rgba(255,255,255,.35);display:block;margin-top:.3rem;
+}
+
+/* ── SECTION STYLES ── */
+.panel-header{
+  padding:2.5rem 0 1.8rem;
+  border-bottom:1px solid var(--card-border);
+  margin-bottom:2.2rem;text-align:center;
+}
+.panel-header h2{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(1.6rem,3.5vw,2.4rem);
+  font-weight:400;color:var(--ink);line-height:1.2;
+}
+.panel-header h2 em{color:var(--rose);font-style:normal}
+.panel-lead{
+  margin-top:.6rem;font-style:italic;
+  font-size:1.05rem;color:var(--ink-muted);line-height:1.7;
+  max-width:620px;margin-left:auto;margin-right:auto;
+}
+
+.section-label{
+  font-family:'Cinzel',serif;
+  font-size:.7rem;letter-spacing:.3em;
+  color:var(--rose);text-transform:uppercase;
+  display:flex;align-items:center;gap:.8rem;
+  margin-bottom:1.6rem;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--card-border)}
+
+/* ── FLIP CARDS ── */
+.flip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:2.2rem}
+.flip-card{perspective:800px;height:200px;cursor:pointer}
+.flip-inner{width:100%;height:100%;transition:transform .55s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;position:relative}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{
+  position:absolute;inset:0;border-radius:12px;
+  backface-visibility:hidden;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;padding:18px;text-align:center;
+}
+.flip-front{
+  background:var(--card-bg);border:2px solid var(--card-border);
+  box-shadow:0 3px 14px rgba(201,146,42,.08);
+  transition:border-color .3s,box-shadow .3s;
+}
+.flip-card:hover .flip-front{border-color:var(--gold);box-shadow:0 6px 20px rgba(201,146,42,.15)}
+.flip-front .f-icon{font-size:2.2rem}
+.flip-front .f-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--midnight)}
+.flip-front .f-hint{font-size:.7rem;color:var(--ink-muted);font-style:italic}
+.flip-back{
+  background:linear-gradient(135deg,var(--midnight),var(--midnight-mid));
+  border:2px solid var(--gold);
+  transform:rotateY(180deg);
+  box-shadow:0 4px 16px rgba(12,26,46,.25);
+}
+.flip-back .f-text{font-size:.92rem;color:rgba(255,255,255,.8);line-height:1.55}
+.flip-back .f-text strong{color:var(--gold-light);font-weight:500}
+
+/* ── HIGHLIGHT BOX ── */
+.highlight-box{
+  background:linear-gradient(135deg,var(--midnight),var(--midnight-mid));
+  border-radius:12px;padding:2rem 2.2rem;
+  margin-bottom:2rem;border:1px solid rgba(201,146,42,.2);
+}
+.hb-label{
+  font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.3em;
+  color:var(--gold);display:block;margin-bottom:.6rem;
+}
+.highlight-box h3{
+  font-family:'Cinzel Decorative',serif;font-size:1.2rem;font-weight:400;
+  color:#fff;margin-bottom:.6rem;
+}
+.highlight-box p{font-size:.96rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:.5rem}
+.highlight-box p:last-child{margin-bottom:0}
+.highlight-box strong{color:var(--gold-light);font-weight:500}
+
+/* ── PULL QUOTE ── */
+.pull-quote{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-left:4px solid var(--gold);
+  padding:1.6rem 2rem;margin:2rem 0;border-radius:0 8px 8px 0;
+}
+.pull-quote blockquote{
+  font-family:'EB Garamond',serif;font-size:1.25rem;
+  font-style:italic;color:var(--ink-muted);line-height:1.6;
+}
+.pull-quote cite{
+  font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;
+  color:var(--rose);display:block;margin-top:.6rem;font-style:normal;
+}
+
+/* ── CONTENT CARDS ── */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:2.2rem}
+.card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:10px;padding:1.5rem 1.6rem;
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.06)}
+.card.full{grid-column:1/-1}
+.card h3{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+.card p,.card li{font-size:.94rem;color:var(--ink-muted);line-height:1.75}
+.card ul{padding-left:1.2rem}
+.card li{margin-bottom:.3rem}
+.card-icon{font-size:1.4rem;display:block;margin-bottom:.5rem}
+
+/* ── FIVE WAYS — Interactive ── */
+.five-ways{margin-bottom:2.5rem}
+.way-card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:12px;margin-bottom:.8rem;overflow:hidden;
+  transition:border-color .3s;
+}
+.way-card:hover{border-color:var(--gold)}
+.way-trigger{
+  width:100%;background:none;border:none;
+  padding:1.2rem 1.5rem;cursor:pointer;text-align:left;
+  display:flex;align-items:center;gap:1rem;
+  transition:background .2s;
+}
+.way-trigger:hover{background:rgba(201,146,42,.04)}
+.way-trigger.open{background:var(--midnight)}
+.way-num{
+  font-family:'Cinzel Decorative',serif;font-size:1.6rem;
+  color:var(--gold);flex-shrink:0;width:38px;text-align:center;
+  transition:color .2s;
+}
+.way-trigger.open .way-num{color:var(--gold-light)}
+.way-info{flex:1}
+.way-name{
+  font-family:'Cinzel',serif;font-size:1rem;font-weight:600;
+  color:var(--ink);display:block;transition:color .2s;
+}
+.way-trigger.open .way-name{color:#fff}
+.way-latin{
+  font-family:'EB Garamond',serif;font-size:.88rem;
+  font-style:italic;color:var(--ink-muted);display:block;margin-top:.1rem;
+  transition:color .2s;
+}
+.way-trigger.open .way-latin{color:rgba(255,255,255,.45)}
+.way-arrow{
+  font-size:.85rem;color:var(--gold);
+  transition:transform .3s,color .2s;flex-shrink:0;
+}
+.way-trigger.open .way-arrow{transform:rotate(180deg);color:var(--gold-light)}
+.way-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .45s ease,padding .3s;
+  padding:0 1.5rem;background:#f8f4ea;
+}
+.way-body.open{max-height:500px;padding:1.2rem 1.5rem 1.4rem}
+.way-body p{font-size:.94rem;color:var(--ink-muted);line-height:1.8;margin-bottom:.5rem}
+.way-body p:last-child{margin-bottom:0}
+.way-body strong{color:var(--ink);font-weight:500}
+.way-example{
+  background:rgba(201,146,42,.08);border-radius:8px;
+  padding:.8rem 1rem;margin-top:.6rem;
+  font-size:.88rem;color:var(--ink-muted);line-height:1.65;
+  border-left:3px solid var(--gold);
+}
+.way-example strong{color:var(--vitrail-amber)}
+
+/* ── BALANCE: FE vs RAZÓN ── */
+.balance-visual{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:0;margin-bottom:2.5rem;align-items:stretch;
+}
+.bal-col{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  padding:1.6rem 1.5rem;border-radius:10px;
+}
+.bal-col.fe{border-top:3px solid var(--vitrail-blue)}
+.bal-col.razon{border-top:3px solid var(--vitrail-amber)}
+.bal-divider{display:flex;align-items:center;padding:0 .8rem}
+.bal-divider-inner{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--midnight);border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel Decorative',serif;font-size:.8rem;color:var(--gold-light);
+}
+.bal-label{
+  font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.2em;
+  display:block;margin-bottom:.6rem;
+}
+.bal-col.fe .bal-label{color:var(--vitrail-blue)}
+.bal-col.razon .bal-label{color:var(--vitrail-amber)}
+.bal-col h3{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+.bal-col p,.bal-col li{font-size:.9rem;color:var(--ink-muted);line-height:1.7}
+.bal-col ul{padding-left:1rem;margin-top:.3rem}
+.bal-col li{margin-bottom:.2rem}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:2rem;margin-bottom:2.5rem}
+.timeline::before{
+  content:'';position:absolute;
+  left:.5rem;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--gold),var(--card-border),var(--gold));
+}
+.tl-item{position:relative;margin-bottom:1.5rem}
+.tl-dot{
+  position:absolute;left:-1.65rem;top:.35rem;
+  width:10px;height:10px;
+  background:var(--gold);border-radius:50%;
+  box-shadow:0 0 0 3px var(--stone-warm),0 0 0 5px var(--gold);
+}
+.tl-date{
+  font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.2em;
+  color:var(--gold);display:block;margin-bottom:.15rem;
+}
+.tl-title{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.15rem}
+.tl-desc{font-size:.9rem;color:var(--ink-muted);line-height:1.7}
+
+/* ── LEGACY GRID ── */
+.legacy-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+.legacy-card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:10px;padding:1.4rem 1.5rem;
+  border-bottom:3px solid var(--gold);
+  transition:transform .2s,box-shadow .2s;
+}
+.legacy-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.06)}
+.legacy-era{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;color:var(--gold);display:block;margin-bottom:.4rem}
+.legacy-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:.4rem}
+.legacy-desc{font-size:.88rem;color:var(--ink-muted);line-height:1.65}
+
+/* ── TEST ── */
+.test-wrap{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:12px;padding:2.2rem 2.4rem;
+}
+.test-intro{font-size:.96rem;color:var(--ink-muted);margin-bottom:2rem;line-height:1.75;text-align:center}
+.q-block{margin-bottom:2rem;padding-bottom:1.8rem;border-bottom:1px solid var(--card-border)}
+.q-block:last-of-type{border-bottom:none}
+.q-number{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;color:var(--rose);display:block;margin-bottom:.4rem}
+.q-text{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;line-height:1.45}
+.opts{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.opt-btn{
+  background:var(--stone-warm);border:1px solid var(--card-border);
+  border-radius:8px;padding:.7rem 1rem;
+  font-family:'EB Garamond',serif;font-size:.94rem;
+  color:var(--ink-muted);cursor:pointer;text-align:left;width:100%;
+  transition:border-color .2s,color .2s,background .2s;
+}
+.opt-btn:hover:not(:disabled){border-color:var(--gold);color:var(--ink);background:rgba(201,146,42,.06)}
+.opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}
+.opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:var(--wrong)}
+.opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.65}
+.opt-btn:disabled{cursor:default}
+.q-fb{margin-top:.7rem;font-size:.88rem;line-height:1.65;display:none}
+.q-fb.show{display:block}
+.q-fb.ok{color:var(--correct)}
+.q-fb.fail{color:var(--wrong)}
+
+.score-box{
+  background:var(--midnight);border-radius:12px;
+  padding:2rem 2.2rem;text-align:center;
+  margin-top:2rem;display:none;
+}
+.score-box.show{display:block;animation:panelIn .4s ease both}
+.score-num{font-family:'Cinzel Decorative',serif;font-size:3.5rem;font-weight:400;color:var(--gold-light);display:block;line-height:1}
+.score-lbl{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.25em;color:rgba(255,255,255,.35);display:block;margin-top:.3rem;margin-bottom:.8rem}
+.score-msg{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(255,255,255,.6)}
+.retry-btn{
+  margin-top:1.2rem;background:none;
+  border:1px solid var(--gold);color:var(--gold-light);
+  font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;
+  padding:.55rem 1.3rem;cursor:pointer;border-radius:4px;
+  transition:background .2s,color .2s;
+}
+.retry-btn:hover{background:var(--gold);color:var(--midnight)}
+
+/* ── FOOTER ── */
+footer{background:var(--midnight);padding:1.6rem 2rem}
+.footer-inner{
+  max-width:920px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-brand{font-family:'EB Garamond',serif;font-size:.95rem;color:rgba(255,255,255,.45)}
+.footer-brand strong{color:#fff;font-weight:500}
+.footer-nav{display:flex;gap:1.4rem}
+.footer-nav a{
+  font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;
+  color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;
+}
+.footer-nav a:hover{color:var(--gold-light)}
+
+/* ── GOTHIC DECORATIVE LINE ── */
+.gothic-line{
+  width:100%;height:20px;display:block;margin:0 auto;
+  opacity:.5;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .card-grid,.legacy-grid{grid-template-columns:1fr}
+  .card.full{grid-column:1}
+  .balance-visual{grid-template-columns:1fr}
+  .bal-divider{padding:.6rem 0;justify-content:center}
+  .flip-grid{grid-template-columns:1fr 1fr}
+  .rose-stats{flex-direction:column;align-items:center}
+  .rose-stat{border-right:none;border-bottom:1px solid rgba(201,146,42,.1);padding:.8rem 0}
+  .test-wrap{padding:1.4rem 1rem}
+  .hero{padding:2.5rem 1.5rem 0}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- ══ NAV ══ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal</a>
+    <span class="nav-title">Filosofía & Política</span>
+    <span class="nav-badge">Módulo IV</span>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo IV · La Síntesis Medieval</span>
+    <h1 class="hero-title">Tomás de <em>Aquino</em></h1>
+    <p class="hero-subtitle">
+      El hombre que demostró que fe y razón no son enemigas — y construyó
+      el puente intelectual más ambicioso entre Dios y la ciencia.
+    </p>
+    <div class="rose-stats">
+      <div class="rose-stat">
+        <span class="rose-num">5</span>
+        <span class="rose-label">Vías para probar a Dios</span>
+      </div>
+      <div class="rose-stat">
+        <span class="rose-num">1265</span>
+        <span class="rose-label">Año de la Summa</span>
+      </div>
+      <div class="rose-stat">
+        <span class="rose-num">2</span>
+        <span class="rose-label">Fuentes de verdad</span>
+      </div>
+      <div class="rose-stat">
+        <span class="rose-num">750+</span>
+        <span class="rose-label">Años de influencia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TABS ══ -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="contexto">Contexto</button>
+    <button class="tab-btn" data-tab="ferazon">Fe & Razón</button>
+    <button class="tab-btn" data-tab="vias">Las Cinco Vías</button>
+    <button class="tab-btn" data-tab="legado">Legado</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<!-- ══ CONTENT ══ -->
+<main>
+
+<!-- ─── CONTEXTO ─── -->
+<div class="screen active" id="tab-contexto">
+  <div class="panel-header">
+    <h2>El siglo XIII: <em>cuando Aristóteles regresó</em></h2>
+    <p class="panel-lead">
+      Europa redescubre a Aristóteles a través de los filósofos árabes. La Iglesia se enfrenta
+      a un dilema: ¿puede la razón griega convivir con la fe cristiana? Tomás dice que sí.
+    </p>
+  </div>
+
+  <p class="section-label">El mundo de Tomás</p>
+
+  <div class="flip-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="f-icon">🏰</span><span class="f-title">Europa feudal</span><span class="f-hint">toca para girar</span></div>
+        <div class="flip-back"><p class="f-text">El siglo XIII es el apogeo del feudalismo. La Iglesia es la institución más poderosa. Las <strong>universidades</strong> acaban de nacer (París, Bolonia, Oxford) y se convierten en centro del debate intelectual.</p></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="f-icon">📚</span><span class="f-title">El regreso de Aristóteles</span><span class="f-hint">toca para girar</span></div>
+        <div class="flip-back"><p class="f-text">Las obras de Aristóteles llegan a Europa traducidas del árabe al latín. <strong>Averroes</strong> (Ibn Rushd) y <strong>Avicena</strong> (Ibn Sina) las habían preservado y comentado. La razón griega irrumpe en un mundo dominado por la fe.</p></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="f-icon">⚡</span><span class="f-title">El problema</span><span class="f-hint">toca para girar</span></div>
+        <div class="flip-back"><p class="f-text">Aristóteles explica el mundo <strong>sin recurrir a la revelación</strong>. Muchos en la Iglesia lo ven como una amenaza. Algunos quieren prohibirlo. Tomás propone algo audaz: <strong>integrarlo</strong>.</p></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span class="f-icon">🕊️</span><span class="f-title">Tomás de Aquino</span><span class="f-hint">toca para girar</span></div>
+        <div class="flip-back"><p class="f-text">Nacido en <strong>1225</strong> en Roccasecca (Italia). Monje dominico. Estudió en Nápoles y París con Alberto Magno. Escribió la <strong>Summa Theologica</strong>, la obra filosófica más ambiciosa de la Edad Media. Murió en 1274.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"El estudio de la filosofía no es para saber qué pensaron los hombres, sino cuál es la verdad de las cosas."</blockquote>
+    <cite>— Tomás de Aquino</cite>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hb-label">La gran ambición</span>
+    <h3>Reconciliar Atenas con Jerusalén</h3>
+    <p>
+      La tradición cristiana, heredera de <strong>Agustín</strong>, desconfiaba de la razón humana: el hombre es pecador,
+      su intelecto es limitado, solo la fe ilumina. Aristóteles, en cambio, confiaba plenamente en la razón
+      como herramienta de conocimiento.
+    </p>
+    <p>
+      Tomás se propone demostrar que <strong>ambas tienen razón</strong>: la fe y la razón son dos caminos
+      complementarios hacia la misma verdad. No se contradicen — se completan. Es la síntesis
+      intelectual más influyente de Occidente.
+    </p>
+  </div>
+
+  <p class="section-label">Línea del tiempo</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1225</span>
+      <span class="tl-title">Nace en Roccasecca, Italia</span>
+      <span class="tl-desc">Familia aristocrática. Su familia quería que fuese abad; él eligió la orden mendicante dominica.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">c. 1245</span>
+      <span class="tl-title">Estudia con Alberto Magno en París y Colonia</span>
+      <span class="tl-desc">Alberto Magno le transmite el entusiasmo por Aristóteles. Lo apodaron «el buey mudo» por su corpulencia y silencio en clase.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1265–1274</span>
+      <span class="tl-title">Escribe la Summa Theologica</span>
+      <span class="tl-desc">Su obra maestra: un sistema completo que integra fe cristiana, filosofía aristotélica y ley natural. Quedó inacabada a su muerte.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1274</span>
+      <span class="tl-title">Muere a los 49 años</span>
+      <span class="tl-desc">Meses antes de morir dejó de escribir. Dijo: «Todo lo que he escrito me parece paja comparado con lo que he visto.»</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1323</span>
+      <span class="tl-title">Canonizado como santo</span>
+      <span class="tl-desc">Nombrado Doctor de la Iglesia. Su pensamiento se convierte en la filosofía oficial del catolicismo.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FE & RAZÓN ─── -->
+<div class="screen" id="tab-ferazon">
+  <div class="panel-header">
+    <h2>Dos alas para volar: <em>fe y razón</em></h2>
+    <p class="panel-lead">
+      La tesis más audaz de Tomás: la verdad es una sola, pero podemos acceder
+      a ella por dos caminos distintos que nunca se contradicen.
+    </p>
+  </div>
+
+  <p class="section-label">La gran tesis</p>
+
+  <div class="highlight-box">
+    <span class="hb-label">Principio fundamental</span>
+    <h3>La verdad no puede contradecirse a sí misma</h3>
+    <p>
+      Si Dios es el autor tanto de la naturaleza como de la revelación, entonces lo que descubrimos
+      por la <strong>razón</strong> (ciencia, filosofía) y lo que recibimos por la <strong>fe</strong>
+      (Escrituras, teología) no pueden entrar en conflicto real. Si parece haber contradicción,
+      es porque entendemos mal uno de los dos.
+    </p>
+    <p>
+      Esta idea es revolucionaria: <strong>le da a la ciencia una licencia teológica para investigar</strong>.
+      Estudiar la naturaleza no es amenazar a Dios — es descubrir su obra.
+    </p>
+  </div>
+
+  <div class="balance-visual">
+    <div class="bal-col fe">
+      <span class="bal-label">Fe (revelación)</span>
+      <h3>Lo que Dios nos dice</h3>
+      <ul>
+        <li>La Trinidad</li>
+        <li>La Encarnación</li>
+        <li>La resurrección</li>
+        <li>La gracia y la salvación</li>
+      </ul>
+      <p style="margin-top:.6rem;font-size:.88rem;color:var(--vitrail-blue);font-style:italic">
+        Verdades que la razón sola no puede alcanzar. Necesitan revelación divina.
+      </p>
+    </div>
+    <div class="bal-divider">
+      <div class="bal-divider-inner">+</div>
+    </div>
+    <div class="bal-col razon">
+      <span class="bal-label">Razón (naturaleza)</span>
+      <h3>Lo que podemos descubrir</h3>
+      <ul>
+        <li>Que Dios existe</li>
+        <li>Que el alma es inmortal</li>
+        <li>La ley moral natural</li>
+        <li>Las leyes de la naturaleza</li>
+      </ul>
+      <p style="margin-top:.6rem;font-size:.88rem;color:var(--vitrail-amber);font-style:italic">
+        Verdades alcanzables sin fe, mediante la observación y el razonamiento.
+      </p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"La fe y la razón son como dos alas con las cuales el espíritu humano se eleva hacia la contemplación de la verdad."</blockquote>
+    <cite>— Juan Pablo II, citando la tradición tomista (Fides et Ratio, 1998)</cite>
+  </div>
+
+  <p class="section-label">Implicaciones</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">🔬</span>
+      <h3>Licencia para la ciencia</h3>
+      <p>Si estudiar la naturaleza es conocer la obra de Dios, la investigación científica
+         no solo es lícita — es un acto de piedad intelectual. Esta idea fue decisiva
+         para el desarrollo de la ciencia occidental.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏛️</span>
+      <h3>Autonomía de la filosofía</h3>
+      <p>La filosofía no es sierva de la teología: tiene su propio método (la razón)
+         y puede llegar a verdades legítimas sin recurrir a la fe. Tomás le devuelve
+         a la filosofía su dignidad independiente.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⚖️</span>
+      <h3>La ley natural</h3>
+      <p>Existe una ley moral inscrita en la naturaleza humana, accesible a todos
+         por la razón — creyentes y no creyentes. Es la base de la ética universal
+         y del derecho natural que influirá en los derechos humanos.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌉</span>
+      <h3>El puente permanente</h3>
+      <p>Antes de Tomás, la teología cristiana y la filosofía griega vivían en tensión.
+         Después de él, la Iglesia tiene un marco intelectual para dialogar con la razón
+         secular. Ese puente sigue en pie 750 años después.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── LAS CINCO VÍAS ─── -->
+<div class="screen" id="tab-vias">
+  <div class="panel-header">
+    <h2>Las Cinco Vías: <em>probar a Dios por la razón</em></h2>
+    <p class="panel-lead">
+      Tomás no pide creer por fe ciega. Presenta cinco argumentos racionales para demostrar
+      la existencia de Dios a partir de la observación del mundo natural. Sin Biblia. Solo lógica.
+    </p>
+  </div>
+
+  <p class="section-label">Despliega cada vía</p>
+
+  <div class="five-ways">
+
+    <div class="way-card">
+      <button class="way-trigger" onclick="toggleWay(this)">
+        <span class="way-num">I</span>
+        <div class="way-info">
+          <span class="way-name">La Vía del Movimiento</span>
+          <span class="way-latin">Ex motu — El Primer Motor Inmóvil</span>
+        </div>
+        <span class="way-arrow">▼</span>
+      </button>
+      <div class="way-body">
+        <p>Todo lo que se mueve es movido por otro. Pero esta cadena no puede ser infinita — tiene que haber
+           un <strong>primer motor</strong> que mueve sin ser movido. A eso llamamos Dios.</p>
+        <div class="way-example">
+          <strong>Ejemplo cotidiano:</strong> Una bola de billar mueve a otra, que fue empujada por un taco,
+          que fue movido por un brazo, que fue activado por una decisión... ¿Quién inició la primera cadena de todo?
+        </div>
+      </div>
+    </div>
+
+    <div class="way-card">
+      <button class="way-trigger" onclick="toggleWay(this)">
+        <span class="way-num">II</span>
+        <div class="way-info">
+          <span class="way-name">La Vía de la Causalidad</span>
+          <span class="way-latin">Ex causa — La Primera Causa Eficiente</span>
+        </div>
+        <span class="way-arrow">▼</span>
+      </button>
+      <div class="way-body">
+        <p>Todo efecto tiene una causa. Ninguna cosa se causa a sí misma. La cadena de causas
+           no puede ser infinita, así que debe existir una <strong>primera causa incausada</strong>.</p>
+        <div class="way-example">
+          <strong>Ejemplo cotidiano:</strong> Tú existes porque tus padres existieron, que existieron porque los suyos...
+          Si retrocedes lo suficiente, necesitas algo que empezó todo sin haber sido causado por nada previo.
+        </div>
+      </div>
+    </div>
+
+    <div class="way-card">
+      <button class="way-trigger" onclick="toggleWay(this)">
+        <span class="way-num">III</span>
+        <div class="way-info">
+          <span class="way-name">La Vía de la Contingencia</span>
+          <span class="way-latin">Ex contingentia — El Ser Necesario</span>
+        </div>
+        <span class="way-arrow">▼</span>
+      </button>
+      <div class="way-body">
+        <p>Todo lo que existe podría no existir (es «contingente»). Pero si todo fuese contingente,
+           hubo un momento en que nada existía — y de la nada no sale nada. Por tanto, debe existir
+           un <strong>ser necesario</strong> cuya existencia no depende de nada.</p>
+        <div class="way-example">
+          <strong>Ejemplo cotidiano:</strong> Este edificio podría no existir. Esta ciudad podría no existir.
+          Incluso la Tierra podría no existir. Pero algo tiene que existir necesariamente para que
+          todo lo demás pueda empezar a ser.
+        </div>
+      </div>
+    </div>
+
+    <div class="way-card">
+      <button class="way-trigger" onclick="toggleWay(this)">
+        <span class="way-num">IV</span>
+        <div class="way-info">
+          <span class="way-name">La Vía de los Grados de Perfección</span>
+          <span class="way-latin">Ex gradu — El Ser Perfecto</span>
+        </div>
+        <span class="way-arrow">▼</span>
+      </button>
+      <div class="way-body">
+        <p>Decimos que algo es «más bueno», «más bello», «más verdadero» que otra cosa.
+           Pero «más» y «menos» solo tienen sentido si existe un <strong>máximo absoluto</strong>
+           que sirve como referencia. Ese máximo de perfección es Dios.</p>
+        <div class="way-example">
+          <strong>Ejemplo cotidiano:</strong> Cuando dices que un acto es «más justo» que otro, estás comparando
+          con un estándar absoluto de justicia. ¿De dónde viene ese estándar si no de algo
+          perfectamente justo?
+        </div>
+      </div>
+    </div>
+
+    <div class="way-card">
+      <button class="way-trigger" onclick="toggleWay(this)">
+        <span class="way-num">V</span>
+        <div class="way-info">
+          <span class="way-name">La Vía del Orden del Mundo</span>
+          <span class="way-latin">Ex fine — La Inteligencia Ordenadora</span>
+        </div>
+        <span class="way-arrow">▼</span>
+      </button>
+      <div class="way-body">
+        <p>Los seres naturales que carecen de inteligencia actúan de forma ordenada hacia un fin
+           (las semillas crecen, los planetas orbitan). Ese orden no puede ser azar: necesita
+           una <strong>inteligencia que lo dirija</strong>. Esa inteligencia es Dios.</p>
+        <div class="way-example">
+          <strong>Ejemplo cotidiano:</strong> Una flecha no se dirige al blanco por sí misma — necesita un arquero.
+          Del mismo modo, el orden natural (las leyes de la física, la biología) necesita un diseñador inteligente.
+          Es el argumento teleológico.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="highlight-box">
+    <span class="hb-label">Nota crítica</span>
+    <h3>Las Cinco Vías: entre admiración y debate</h3>
+    <p>
+      Las Cinco Vías han sido celebradas y contestadas durante siglos. <strong>Kant</strong> las criticará
+      en el siglo XVIII. <strong>Hume</strong> cuestionará la causalidad. La ciencia moderna ofrece
+      explicaciones alternativas. Pero el mérito de Tomás no está solo en las conclusiones
+      — está en el método: <strong>usar la razón, no la autoridad, para hablar de Dios</strong>.
+    </p>
+    <p>
+      Eso era nuevo. Y eso abrió la puerta a que la razón fuese tomada en serio incluso
+      dentro de la tradición religiosa.
+    </p>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"La existencia de Dios se puede probar por cinco vías."</blockquote>
+    <cite>— Tomás de Aquino, Summa Theologica, I, q.2, a.3</cite>
+  </div>
+</div>
+
+<!-- ─── LEGADO ─── -->
+<div class="screen" id="tab-legado">
+  <div class="panel-header">
+    <h2>750 años después: <em>el puente que sigue en pie</em></h2>
+    <p class="panel-lead">
+      Del siglo XIII a la ética contemporánea, los derechos humanos, el diálogo
+      entre ciencia y religión, y la doctrina social de la Iglesia.
+    </p>
+  </div>
+
+  <p class="section-label">Líneas de influencia</p>
+
+  <div class="legacy-grid">
+    <div class="legacy-card">
+      <span class="legacy-era">Derecho</span>
+      <span class="legacy-title">La ley natural</span>
+      <p class="legacy-desc">
+        La idea de que existe una ley moral accesible a la razón, anterior a cualquier legislación humana,
+        influyó en Grocio, Locke y la Declaración de Derechos Humanos.
+      </p>
+    </div>
+    <div class="legacy-card">
+      <span class="legacy-era">Ciencia</span>
+      <span class="legacy-title">Licencia intelectual</span>
+      <p class="legacy-desc">
+        Al afirmar que estudiar la naturaleza es conocer a Dios, Tomás legitimó la investigación empírica.
+        Las universidades medievales — incubadoras de la ciencia moderna — operaban con su marco.
+      </p>
+    </div>
+    <div class="legacy-card">
+      <span class="legacy-era">Iglesia</span>
+      <span class="legacy-title">Doctrina oficial</span>
+      <p class="legacy-desc">
+        El tomismo es la filosofía oficial de la Iglesia católica desde León XIII (1879). Todos los seminarios
+        enseñan la Summa. El Concilio Vaticano II dialoga con su tradición.
+      </p>
+    </div>
+  </div>
+
+  <p class="section-label">Ecos contemporáneos</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">🧬</span>
+      <h3>Bioética</h3>
+      <p>La ley natural tomista fundamenta posiciones actuales en bioética: dignidad de la persona,
+         límites de la manipulación genética, principio de doble efecto en decisiones médicas.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤖</span>
+      <h3>Inteligencia Artificial</h3>
+      <p>La distinción tomista entre intelecto (comprensión) y razón (cálculo) reaparece
+         en el debate sobre si las máquinas pueden realmente «pensar» o solo procesan datos.
+         Tomás diría que la IA calcula, pero no comprende.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌍</span>
+      <h3>Bien común</h3>
+      <p>La idea de que el gobierno existe para servir al bien común (no al gobernante) viene
+         directamente de Tomás. Es la base de la doctrina social católica y de gran parte
+         de la teoría política occidental.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⚖️</span>
+      <h3>Objeción de conciencia</h3>
+      <p>Tomás fue el primero en argumentar que una ley injusta no es verdadera ley
+         y que el ciudadano tiene derecho a desobedecerla. Esta idea llegará hasta
+         Martin Luther King y la desobediencia civil moderna.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hb-label">Conexión con tu presente</span>
+    <h3>¿Por qué importa Tomás en 2026?</h3>
+    <p>
+      Vivimos en una era donde <strong>ciencia y espiritualidad</strong> parecen incompatibles,
+      donde <strong>la tecnología avanza más rápido que la ética</strong>, y donde necesitamos
+      marcos de pensamiento que integren — no que dividan.
+    </p>
+    <p>
+      Tomás no ofrece respuestas finales. Ofrece algo más valioso: un <strong>método</strong>.
+      La convicción de que la verdad es una sola y de que buscarla honestamente — por la vía que sea — nunca puede ser un error.
+    </p>
+  </div>
+</div>
+
+<!-- ─── TEST ─── -->
+<div class="screen" id="tab-test">
+  <div class="panel-header">
+    <h2>Pon a prueba <em>tu comprensión</em></h2>
+    <p class="panel-lead">Diez preguntas sobre Tomás de Aquino: ideas, contexto y legado.</p>
+  </div>
+
+  <div class="test-wrap" id="quiz">
+    <p class="test-intro">Selecciona la respuesta correcta. Retroalimentación inmediata.</p>
+
+    <!-- Q1 -->
+    <div class="q-block" data-correct="2">
+      <span class="q-number">Pregunta I</span>
+      <p class="q-text">¿Cuál fue la gran tesis de Tomás de Aquino sobre fe y razón?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">La fe es superior y la razón debe someterse</button></li>
+        <li><button class="opt-btn" data-idx="1">La razón demuestra que la fe es innecesaria</button></li>
+        <li><button class="opt-btn" data-idx="2">Son dos caminos complementarios hacia la misma verdad</button></li>
+        <li><button class="opt-btn" data-idx="3">Fe y razón se contradicen inevitablemente</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Para Tomás, fe y razón son «dos alas» que se complementan: acceden a la misma verdad por caminos distintos.</p>
+      <p class="q-fb fail">La tesis central de Tomás es que fe y razón son complementarias, no opuestas. Son dos caminos hacia la misma verdad.</p>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-block" data-correct="1">
+      <span class="q-number">Pregunta II</span>
+      <p class="q-text">¿Qué filósofo griego reinterpretó Tomás para integrarlo con el cristianismo?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Platón</button></li>
+        <li><button class="opt-btn" data-idx="1">Aristóteles</button></li>
+        <li><button class="opt-btn" data-idx="2">Epicuro</button></li>
+        <li><button class="opt-btn" data-idx="3">Heráclito</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Tomás integró la filosofía de Aristóteles (redescubierta a través de los filósofos árabes) con la teología cristiana.</p>
+      <p class="q-fb fail">Fue Aristóteles. Agustín ya había integrado a Platón; la gran innovación de Tomás fue hacer lo mismo con Aristóteles.</p>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-block" data-correct="0">
+      <span class="q-number">Pregunta III</span>
+      <p class="q-text">¿Cuántas vías propone Tomás para demostrar la existencia de Dios mediante la razón?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Cinco</button></li>
+        <li><button class="opt-btn" data-idx="1">Tres</button></li>
+        <li><button class="opt-btn" data-idx="2">Siete</button></li>
+        <li><button class="opt-btn" data-idx="3">Diez</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Las Cinco Vías de la Summa Theologica: movimiento, causalidad, contingencia, grados de perfección y orden del mundo.</p>
+      <p class="q-fb fail">Son cinco: movimiento, causalidad, contingencia, grados de perfección y orden del mundo.</p>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-block" data-correct="3">
+      <span class="q-number">Pregunta IV</span>
+      <p class="q-text">La Primera Vía argumenta que debe existir...</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Un ser perfectamente justo</button></li>
+        <li><button class="opt-btn" data-idx="1">Una inteligencia que ordene el universo</button></li>
+        <li><button class="opt-btn" data-idx="2">Un ser que exista necesariamente</button></li>
+        <li><button class="opt-btn" data-idx="3">Un primer motor que mueve sin ser movido</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. La Vía del Movimiento (ex motu): todo lo que se mueve es movido por otro, hasta llegar a un primer motor inmóvil.</p>
+      <p class="q-fb fail">La Primera Vía es la del Movimiento: la cadena de cosas que mueven a otras necesita un primer motor que no sea movido por nada.</p>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-block" data-correct="2">
+      <span class="q-number">Pregunta V</span>
+      <p class="q-text">¿Cómo se llama la obra maestra de Tomás de Aquino?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">La República</button></li>
+        <li><button class="opt-btn" data-idx="1">Las Confesiones</button></li>
+        <li><button class="opt-btn" data-idx="2">Summa Theologica</button></li>
+        <li><button class="opt-btn" data-idx="3">Ética a Nicómaco</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. La Summa Theologica (1265–1274) es la obra más ambiciosa de la filosofía medieval: un sistema completo de teología y filosofía.</p>
+      <p class="q-fb fail">Es la Summa Theologica, escrita entre 1265 y 1274. La República es de Platón; las Confesiones, de Agustín; y la Ética, de Aristóteles.</p>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-block" data-correct="1">
+      <span class="q-number">Pregunta VI</span>
+      <p class="q-text">¿A través de quiénes llegaron las obras de Aristóteles a la Europa medieval?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Los vikingos del norte de Europa</button></li>
+        <li><button class="opt-btn" data-idx="1">Los filósofos árabes (Averroes, Avicena)</button></li>
+        <li><button class="opt-btn" data-idx="2">Los monjes benedictinos de Irlanda</button></li>
+        <li><button class="opt-btn" data-idx="3">Los emperadores bizantinos directamente</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Averroes (Ibn Rushd) y Avicena (Ibn Sina) preservaron, tradujeron y comentaron a Aristóteles. Sus versiones en árabe fueron luego traducidas al latín.</p>
+      <p class="q-fb fail">Fueron los filósofos árabes — especialmente Averroes y Avicena — quienes preservaron a Aristóteles y lo transmitieron a Europa occidental.</p>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-block" data-correct="0">
+      <span class="q-number">Pregunta VII</span>
+      <p class="q-text">¿Qué consecuencia tuvo para la ciencia la tesis de Tomás sobre fe y razón?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Legitimó la investigación científica como forma de conocer la obra de Dios</button></li>
+        <li><button class="opt-btn" data-idx="1">Prohibió la investigación empírica en las universidades</button></li>
+        <li><button class="opt-btn" data-idx="2">Separó completamente la ciencia de la religión</button></li>
+        <li><button class="opt-btn" data-idx="3">Declaró que la ciencia era irrelevante frente a la fe</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Al afirmar que estudiar la naturaleza es conocer a Dios, Tomás dio a la ciencia una licencia intelectual dentro del mundo cristiano.</p>
+      <p class="q-fb fail">Tomás legitimó la ciencia: si la naturaleza es obra de Dios, investigarla es un acto piadoso, no una amenaza.</p>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-block" data-correct="3">
+      <span class="q-number">Pregunta VIII</span>
+      <p class="q-text">Según Tomás, ¿qué es la ley natural?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Las leyes de la física descubiertas por Newton</button></li>
+        <li><button class="opt-btn" data-idx="1">Los mandamientos de la Biblia</button></li>
+        <li><button class="opt-btn" data-idx="2">Las costumbres de los pueblos romanos</button></li>
+        <li><button class="opt-btn" data-idx="3">Una ley moral inscrita en la naturaleza humana, accesible a todos por la razón</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. La ley natural es moral, no física. Es accesible a creyentes y no creyentes por igual, a través de la razón.</p>
+      <p class="q-fb fail">La ley natural de Tomás es una ley moral — no física — que cualquier ser humano puede descubrir usando su razón, independientemente de su fe.</p>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-block" data-correct="2">
+      <span class="q-number">Pregunta IX</span>
+      <p class="q-text">¿Qué dijo Tomás sobre las leyes injustas?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Deben obedecerse siempre por respeto a la autoridad</button></li>
+        <li><button class="opt-btn" data-idx="1">Solo los sacerdotes pueden desobedecerlas</button></li>
+        <li><button class="opt-btn" data-idx="2">Una ley injusta no es verdadera ley y puede desobedecerse</button></li>
+        <li><button class="opt-btn" data-idx="3">Las leyes nunca pueden ser injustas si vienen del rey</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Tomás argumentó que una ley que viola la ley natural no obliga moralmente. Esta idea fundamenta la objeción de conciencia y la desobediencia civil.</p>
+      <p class="q-fb fail">Tomás sostenía que una ley injusta no es verdadera ley. Esta idea influyó en Locke, en Martin Luther King y en la desobediencia civil moderna.</p>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-block" data-correct="1">
+      <span class="q-number">Pregunta X</span>
+      <p class="q-text">¿Qué apodo le pusieron a Tomás de Aquino de joven en la universidad?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">El águila de Roma</button></li>
+        <li><button class="opt-btn" data-idx="1">El buey mudo</button></li>
+        <li><button class="opt-btn" data-idx="2">El martillo de herejes</button></li>
+        <li><button class="opt-btn" data-idx="3">El sabio de Nápoles</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Por su corpulencia y su silencio en clase, lo apodaron «el buey mudo». Alberto Magno profetizó: «Este buey mugirá tan fuerte que el mundo entero lo oirá.»</p>
+      <p class="q-fb fail">Lo llamaban «el buey mudo» por su tamaño y su silencio. Su maestro Alberto Magno predijo que su voz sería escuchada en todo el mundo.</p>
+    </div>
+
+    <div class="score-box" id="score-box">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">Respuestas correctas de 10</span>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div style="max-width:920px;margin:0 auto;padding:0 2rem;">
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía &amp; Política</div>
+      <nav class="footer-nav">
+        <a href="index.html">Portal</a>
+        <a href="grecia-socrates-platon.html">Módulo I</a>
+        <a href="aristoteles-politica.html">Módulo II</a>
+        <a href="estoicismo.html">Módulo III</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── TABS ── */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.screen').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    window.scrollTo({top:document.querySelector('.tab-nav').offsetTop-44,behavior:'smooth'});
+  });
+});
+
+/* ── FIVE WAYS ACCORDION ── */
+function toggleWay(trigger){
+  const body=trigger.nextElementSibling;
+  const isOpen=trigger.classList.contains('open');
+  document.querySelectorAll('.way-trigger').forEach(t=>t.classList.remove('open'));
+  document.querySelectorAll('.way-body').forEach(b=>b.classList.remove('open'));
+  if(!isOpen){trigger.classList.add('open');body.classList.add('open')}
+}
+
+/* ── QUIZ ── */
+let answered=0,score=0;const total=10;
+document.querySelectorAll('.q-block').forEach(block=>{
+  const correct=parseInt(block.dataset.correct);
+  const btns=block.querySelectorAll('.opt-btn');
+  const fbOk=block.querySelector('.q-fb.ok');
+  const fbFail=block.querySelector('.q-fb.fail');
+  btns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      if(btn.disabled)return;
+      btns.forEach(b=>b.disabled=true);
+      const idx=parseInt(btn.dataset.idx);
+      if(idx===correct){btn.classList.add('correct');fbOk.classList.add('show');score++}
+      else{btn.classList.add('wrong');btns[correct].classList.add('reveal');fbFail.classList.add('show')}
+      answered++;
+      if(answered===total)showScore();
+    });
+  });
+});
+function showScore(){
+  const box=document.getElementById('score-box');
+  document.getElementById('score-num').textContent=score;
+  const msgs=[
+    [0,3,'Tomás diría: «El estudio no es para saber qué pensaron los hombres, sino la verdad.» Revisa el módulo.'],
+    [4,6,'Buen comienzo. La razón y la fe necesitan práctica — como todo.'],
+    [7,8,'Sólido. Tienes una buena base tomista.'],
+    [9,10,'Excelente. Alberto Magno estaría orgulloso: este buey ya muge con fuerza.']
+  ];
+  const msg=msgs.find(m=>score>=m[0]&&score<=m[1]);
+  document.getElementById('score-msg').textContent=msg[2];
+  box.classList.add('show');
+}
+function resetQuiz(){
+  answered=0;score=0;
+  document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});
+  document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));
+  document.getElementById('score-box').classList.remove('show');
+}
+
+/* ── PROGRESS BAR ── */
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress-bar').style.width=pct+'%';
+});
+</script>
+
+</body>
+</html>
