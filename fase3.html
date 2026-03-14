@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fase III — Siglo XIX: Ideologías y Revolución · Filosofía & Política</title>
+  <meta name="description" content="Del idealismo a la revolución: Hegel, Marx, Mill, Tocqueville y Nietzsche. El siglo en que las ideas bajaron a la calle y cambiaron el mundo."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:           #0e0c0a;
+      --bg-mid:       #141210;
+      --bg-card:      #1a1714;
+      --surface:      #221e1a;
+      --border:       #3a3028;
+      --border-light: #4e4238;
+      --red:          #9e2020;
+      --red-mid:      #c02828;
+      --red-light:    #d94040;
+      --red-pale:     #e87070;
+      --ink:          #f0e8d8;
+      --ink-mid:      #c0b8a8;
+      --ink-dim:      #807868;
+      --amber:        #c48820;
+      --amber-light:  #d8a030;
+      --amber-dim:    #8a6018;
+      --text:         #e0d8c8;
+      --text-muted:   #9a9080;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* Grain texture */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* Diagonal stripe pattern - like old newspaper */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(158,32,32,.015) 40px,
+        rgba(158,32,32,.015) 41px
+      );
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      background: rgba(14,12,10,.96);
+      backdrop-filter: blur(12px);
+      padding: 1rem 2rem;
+      position: sticky; top: 0; z-index: 200;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-nav-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-back {
+      font-family: 'Manrope', sans-serif;
+      font-size: .85rem; font-weight: 500;
+      letter-spacing: .06em;
+      color: var(--ink-mid); text-decoration: none;
+      display: flex; align-items: center; gap: .5rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--red-light); }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .nav-link {
+      font-family: 'Manrope', sans-serif;
+      font-size: .78rem; font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--ink-dim); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-link:hover { color: var(--amber); }
+    .nav-phase {
+      font-family: 'Playfair Display', serif;
+      font-size: .9rem; font-weight: 500;
+      color: var(--amber);
+      letter-spacing: .04em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5.5rem 2rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Big decorative "XIX" behind the title */
+    .hero::before {
+      content: 'XIX';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(14rem, 30vw, 22rem);
+      font-weight: 700;
+      color: rgba(158,32,32,.04);
+      letter-spacing: -.02em;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+      line-height: 1;
+    }
+
+    .hero-inner {
+      max-width: 720px; margin: 0 auto;
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+
+    .hero-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .4em; text-transform: uppercase;
+      color: var(--red-mid);
+      margin-bottom: 1.5rem; display: block;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 400; color: var(--ink);
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .hero-title em { font-style: italic; color: var(--red-light); }
+
+    .hero-rule {
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 320px; margin: 0 auto 1.8rem;
+    }
+    .hero-rule::before, .hero-rule::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--border-light);
+    }
+    .hero-rule-mark {
+      width: 28px; height: 1px;
+      background: var(--red);
+      position: relative;
+    }
+    .hero-rule-mark::before {
+      content: '';
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      width: 6px; height: 6px;
+      background: var(--red-mid);
+      border-radius: 50%;
+    }
+
+    .hero-subtitle {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.1rem; font-style: italic;
+      color: var(--text-muted);
+      max-width: 580px; margin: 0 auto 1.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 580px; margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    /* ── MANIFESTO BAND ── */
+    .manifesto-band {
+      background: var(--red);
+      padding: 1.2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .manifesto-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 60px,
+        rgba(0,0,0,.08) 60px,
+        rgba(0,0,0,.08) 61px
+      );
+    }
+    .manifesto-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 2rem; flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .manifesto-item {
+      font-family: 'Playfair Display', serif;
+      font-size: .9rem; font-style: italic;
+      color: rgba(255,255,255,.85);
+      letter-spacing: .02em;
+    }
+    .manifesto-sep {
+      width: 4px; height: 4px;
+      background: rgba(255,255,255,.4);
+      border-radius: 50%;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 960px; margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .section-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .32em; text-transform: uppercase;
+      color: var(--amber-dim);
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--border);
+    }
+
+    /* ── MODULE CARD ── */
+    .mod-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border);
+      border-radius: 2px;
+      padding: 2.2rem 2.8rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0 2rem;
+      align-items: start;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s, border-left-color .3s, box-shadow .3s, transform .2s;
+      margin-bottom: 1rem;
+    }
+    .mod-card:hover {
+      border-color: var(--border-light);
+      border-left-color: var(--red-mid);
+      box-shadow: 0 6px 28px rgba(158,32,32,.1), 0 2px 8px rgba(0,0,0,.25);
+      transform: translateX(4px);
+    }
+
+    .mod-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; font-weight: 400;
+      color: var(--border-light);
+      line-height: 1;
+      transition: color .3s;
+      min-width: 2.5rem;
+    }
+    .mod-card:hover .mod-num { color: var(--red-mid); }
+
+    .mod-tag {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--amber-dim);
+      margin-bottom: .4rem; display: block;
+      transition: color .3s;
+    }
+    .mod-card:hover .mod-tag { color: var(--amber); }
+
+    .mod-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem; font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2; margin-bottom: .6rem;
+    }
+
+    .mod-desc {
+      font-size: .98rem; color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .mod-topics {
+      margin-top: .9rem;
+      display: flex; flex-wrap: wrap; gap: .4rem;
+    }
+    .mod-pill {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--ink-dim);
+      border: 1px solid var(--border);
+      padding: .25rem .65rem;
+      border-radius: 1px;
+      transition: border-color .3s, color .3s;
+    }
+    .mod-card:hover .mod-pill {
+      border-color: var(--border-light);
+      color: var(--ink-mid);
+    }
+
+    .mod-arrow {
+      align-self: center;
+      font-size: 1.3rem; color: var(--border-light);
+      transition: transform .3s, color .3s;
+    }
+    .mod-card:hover .mod-arrow {
+      transform: translateX(6px);
+      color: var(--red-mid);
+    }
+
+    .mod-badge {
+      position: absolute; top: 1rem; right: 1.2rem;
+      font-family: 'Manrope', sans-serif;
+      font-size: .58rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      padding: .22rem .6rem;
+      border-radius: 1px;
+    }
+    .mod-badge.available { color: var(--amber); border: 1px solid var(--amber-dim); }
+    .mod-badge.new       { color: var(--red-light); border: 1px solid var(--red); }
+    .mod-badge.soon      { color: var(--border-light); border: 1px solid var(--border); }
+
+    /* ── DISABLED ── */
+    .mod-card-disabled {
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border);
+      border-radius: 2px;
+      padding: 1.6rem 2.8rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0 2rem;
+      align-items: center;
+      opacity: .38;
+      cursor: default;
+      margin-bottom: 1rem;
+    }
+    .mod-card-disabled .mod-num { color: var(--border); font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1; }
+    .mod-card-disabled .mod-tag { font-family: 'Manrope', sans-serif; font-size: .68rem; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; color: var(--border-light); margin-bottom: .3rem; display: block; }
+    .mod-card-disabled .mod-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 400; color: var(--border-light); }
+    .badge-soon { font-family: 'Manrope', sans-serif; font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--border-light); border: 1px solid var(--border); padding: .22rem .6rem; border-radius: 1px; }
+
+    /* ── QUOTE DIVIDER ── */
+    .quote-divider {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .quote-divider blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-style: italic;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      max-width: 640px; margin: 0 auto .8rem;
+    }
+    .quote-divider cite {
+      font-family: 'Manrope', sans-serif;
+      font-size: .7rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--red-mid);
+    }
+
+    /* ── BACK LINK ── */
+    .back-section {
+      padding: 0 0 4rem;
+      text-align: center;
+    }
+    .back-link {
+      font-family: 'Manrope', sans-serif;
+      font-size: .82rem; font-weight: 500;
+      letter-spacing: .1em;
+      color: var(--ink-dim);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: .7rem 1.8rem;
+      border-radius: 1px;
+      transition: all .2s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .back-link:hover {
+      border-color: var(--amber-dim);
+      color: var(--amber);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      background: var(--bg);
+    }
+    .footer-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Libre Baskerville', serif;
+      font-size: .9rem; color: var(--text-muted);
+    }
+    .footer-brand strong { color: var(--ink); font-weight: 400; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-nav a {
+      font-family: 'Manrope', sans-serif;
+      font-size: .7rem; font-weight: 500;
+      letter-spacing: .15em;
+      color: var(--ink-dim); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-nav a:hover { color: var(--amber); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-1 { animation: fadeUp .5s ease both; }
+    .anim-2 { animation: fadeUp .5s .08s ease both; }
+    .anim-3 { animation: fadeUp .5s .16s ease both; }
+    .anim-4 { animation: fadeUp .5s .24s ease both; }
+    .anim-5 { animation: fadeUp .5s .32s ease both; }
+    .anim-6 { animation: fadeUp .5s .4s ease both; }
+    .anim-7 { animation: fadeUp .5s .48s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .mod-card, .mod-card-disabled { grid-template-columns: auto 1fr; padding: 1.6rem 1.2rem; }
+      .mod-arrow { display: none; }
+      .mod-badge { position: static; margin-bottom: .5rem; display: inline-block; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .manifesto-inner { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal principal</a>
+    <div class="nav-links">
+      <a href="fase2.html" class="nav-link">Fase II</a>
+      <span class="nav-phase">Fase III</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-label anim-1">Fase III · Filosofía & Política</span>
+    <h1 class="hero-title anim-2">Siglo XIX: <em>Ideologías</em><br>y Revolución</h1>
+    <div class="hero-rule anim-3"><div class="hero-rule-mark"></div></div>
+    <p class="hero-subtitle anim-3">
+      Las ideas bajan a la calle. La filosofía se convierte en programa político,
+      y los programas políticos mueven ejércitos.
+    </p>
+    <p class="hero-desc anim-4">
+      De Hegel a Nietzsche, pasando por Marx, Mill y Tocqueville: el siglo que
+      inventó el comunismo, el liberalismo moderno y la crítica radical de la
+      civilización occidental. Todo lo que agita el siglo XXI tiene raíces aquí.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ MANIFESTO BAND ══════════ -->
+<div class="manifesto-band">
+  <div class="manifesto-inner">
+    <span class="manifesto-item">Dialéctica</span>
+    <span class="manifesto-sep"></span>
+    <span class="manifesto-item">Lucha de clases</span>
+    <span class="manifesto-sep"></span>
+    <span class="manifesto-item">Voluntad de poder</span>
+    <span class="manifesto-sep"></span>
+    <span class="manifesto-item">Libertad individual</span>
+    <span class="manifesto-sep"></span>
+    <span class="manifesto-item">Democracia observada</span>
+    <span class="manifesto-sep"></span>
+    <span class="manifesto-item">Materialismo histórico</span>
+  </div>
+</div>
+
+<!-- ══════════ MODULES ══════════ -->
+<div class="content">
+
+  <p class="section-label anim-5">Módulos de la Fase III</p>
+
+  <!-- MÓDULO IX — MARX -->
+  <a href="marx.html" class="mod-card anim-5" aria-label="Ir al módulo sobre Marx">
+    <span class="mod-badge new">Nuevo</span>
+    <span class="mod-num">01</span>
+    <div>
+      <span class="mod-tag">Módulo IX · Materialismo histórico</span>
+      <h2 class="mod-title">Marx y el Capital</h2>
+      <p class="mod-desc">
+        El pensador con más consecuencias prácticas de la historia moderna.
+        Materialismo histórico, lucha de clases, plusvalía, alienación.
+        No como dogma — como disección de cómo funciona realmente el poder económico.
+      </p>
+      <div class="mod-topics">
+        <span class="mod-pill">Materialismo histórico</span>
+        <span class="mod-pill">Lucha de clases</span>
+        <span class="mod-pill">Plusvalía</span>
+        <span class="mod-pill">Alienación</span>
+        <span class="mod-pill">El Manifiesto</span>
+      </div>
+    </div>
+    <span class="mod-arrow" aria-hidden="true">→</span>
+  </a>
+
+  <!-- MÓDULO X — MILL -->
+  <div class="mod-card-disabled" aria-disabled="true">
+    <span class="badge-soon">Próximamente</span>
+    <span class="mod-num">02</span>
+    <div>
+      <span class="mod-tag">Módulo X · Liberalismo</span>
+      <p class="mod-title">Mill y la libertad individual</p>
+    </div>
+  </div>
+
+  <!-- MÓDULO XI — TOCQUEVILLE -->
+  <div class="mod-card-disabled" aria-disabled="true">
+    <span class="badge-soon">Próximamente</span>
+    <span class="mod-num">03</span>
+    <div>
+      <span class="mod-tag">Módulo XI · Democracia liberal</span>
+      <p class="mod-title">Tocqueville y la democracia observada</p>
+    </div>
+  </div>
+
+  <!-- MÓDULO XII — NIETZSCHE -->
+  <div class="mod-card-disabled" aria-disabled="true">
+    <span class="badge-soon">Próximamente</span>
+    <span class="mod-num">04</span>
+    <div>
+      <span class="mod-tag">Módulo XII · Crítica radical</span>
+      <p class="mod-title">Nietzsche y la voluntad de poder</p>
+    </div>
+  </div>
+
+  <!-- QUOTE DIVIDER -->
+  <div class="quote-divider anim-7">
+    <blockquote>
+      "Un espectro recorre Europa — el espectro del comunismo."
+    </blockquote>
+    <cite>— Marx & Engels, Manifiesto del Partido Comunista, 1848</cite>
+  </div>
+
+  <div class="back-section">
+    <a href="index.html" class="back-link" style="margin-right:.8rem;">← Portal principal</a>
+    <a href="fase2.html" class="back-link">← Fase II · Renacimiento & Modernidad</a>
+  </div>
+
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
+    <nav class="footer-nav">
+      <a href="index.html">Inicio</a>
+      <a href="fase2.html">Fase II</a>
+      <a href="https://github.com/Rozoca" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
