@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo X — Marx · Filosofía & Política</title>
+  <meta name="description" content="Karl Marx: materialismo histórico, lucha de clases, plusvalía, alienación y el Manifiesto Comunista. Análisis y consecuencias."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:           #0e0c0a;
+      --bg-mid:       #141210;
+      --bg-card:      #1a1714;
+      --surface:      #221e1a;
+      --border:       #3a3028;
+      --border-light: #4e4238;
+      --red:          #9e2020;
+      --red-mid:      #c02828;
+      --red-light:    #d94040;
+      --red-pale:     #e87070;
+      --ink:          #f0e8d8;
+      --ink-mid:      #c0b8a8;
+      --ink-dim:      #807868;
+      --amber:        #c48820;
+      --amber-light:  #d8a030;
+      --amber-dim:    #8a6018;
+      --text:         #e0d8c8;
+      --text-muted:   #9a9080;
+      --correct:      #3a7a3a;
+      --correct-bg:   #131e13;
+      --wrong:        #9e2020;
+      --wrong-bg:     #1e1313;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* Progress bar */
+    .progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 3px; background: var(--red-mid);
+      z-index: 999; width: 0; transition: width .1s linear;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      background: rgba(14,12,10,.96);
+      backdrop-filter: blur(12px);
+      padding: .9rem 2rem;
+      position: sticky; top: 0; z-index: 200;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-nav-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-back {
+      font-family: 'Manrope', sans-serif;
+      font-size: .85rem; font-weight: 500;
+      color: var(--ink-mid); text-decoration: none;
+      display: flex; align-items: center; gap: .5rem;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--red-light); }
+    .nav-links { display: flex; align-items: center; gap: 1.2rem; }
+    .nav-link { font-family: 'Manrope', sans-serif; font-size: .78rem; font-weight: 500; letter-spacing: .06em; color: var(--ink-dim); text-decoration: none; transition: color .2s; }
+    .nav-link:hover { color: var(--amber); }
+    .nav-title { font-family: 'Playfair Display', serif; font-size: .85rem; font-weight: 500; color: var(--ink-dim); }
+    .nav-badge {
+      font-family: 'Manrope', sans-serif;
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .18em;
+      color: var(--red-light); border: 1px solid var(--red);
+      padding: .2rem .6rem; border-radius: 1px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 4.5rem 2rem 0;
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-mid) 100%);
+    }
+
+    /* Diagonal red slash */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 40%; height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(158,32,32,.06) 100%);
+      pointer-events: none;
+    }
+
+    .hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-family: 'Manrope', sans-serif;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .42em; text-transform: uppercase;
+      color: var(--red-mid); display: block; margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      font-weight: 400; color: var(--ink);
+      line-height: 1; margin-bottom: 1.2rem;
+    }
+    .hero-title em { font-style: italic; color: var(--red-light); }
+
+    .hero-subtitle {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.1rem; font-style: italic;
+      color: var(--text-muted);
+      max-width: 620px; line-height: 1.75; margin-bottom: 2.5rem;
+    }
+
+    /* Stats strip */
+    .hero-stats {
+      display: flex; gap: 0;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      padding: 1.3rem 2.2rem 1.3rem 0;
+      margin-right: 2.2rem;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 400;
+      color: var(--red-light); display: block; line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .14em; color: var(--ink-dim);
+      display: block; margin-top: .3rem;
+    }
+
+    /* ── TABS ── */
+    .tab-nav {
+      background: var(--bg-mid);
+      position: sticky; top: 48px; z-index: 150;
+      border-bottom: 1px solid var(--border);
+      padding: .6rem 0;
+    }
+    .tab-nav-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; gap: .5rem;
+      overflow-x: auto; scrollbar-width: none;
+      padding: 0 2rem;
+    }
+    .tab-nav-inner::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      font-family: 'Manrope', sans-serif;
+      font-size: .8rem; font-weight: 600;
+      letter-spacing: .08em;
+      color: var(--ink-dim);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: .6rem 1.3rem;
+      cursor: pointer; white-space: nowrap;
+      transition: all .25s; flex-shrink: 0;
+    }
+    .tab-btn:hover { color: var(--ink-mid); background: var(--border); border-color: var(--border-light); }
+    .tab-btn.active { color: #fff; background: var(--red); border-color: var(--red-mid); }
+
+    /* ── CONTENT AREA ── */
+    .content-area {
+      max-width: 960px; margin: 0 auto;
+      padding: 0 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: panelIn .4s ease both; }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel-header {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .panel-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 400; color: var(--ink); line-height: 1.2;
+    }
+    .panel-header h2 em { color: var(--red-mid); font-style: italic; }
+    .panel-lead {
+      margin-top: .8rem;
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic; font-size: 1.02rem;
+      color: var(--text-muted); line-height: 1.8;
+    }
+
+    .section-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: var(--amber-dim);
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── CARDS ── */
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-bottom: 2.5rem; }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 2px; padding: 1.7rem 1.9rem;
+    }
+    .card.full { grid-column: 1 / -1; }
+    .card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 500; color: var(--ink); margin-bottom: .6rem; }
+    .card p, .card li { font-size: .98rem; color: var(--text-muted); line-height: 1.8; }
+    .card ul { padding-left: 1.2rem; }
+    .card li { margin-bottom: .3rem; }
+    .card-icon { font-size: 1.4rem; display: block; margin-bottom: .6rem; }
+
+    /* ── HIGHLIGHT CARD ── */
+    .highlight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      border-radius: 2px;
+      padding: 2rem 2.4rem;
+      margin-bottom: 2.5rem;
+    }
+    .highlight-card .hc-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .28em; text-transform: uppercase;
+      color: var(--red-mid); display: block; margin-bottom: .7rem;
+    }
+    .highlight-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 500; color: var(--ink); margin-bottom: .7rem;
+    }
+    .highlight-card p { font-size: .98rem; color: var(--text-muted); line-height: 1.85; margin-bottom: .65rem; }
+    .highlight-card p:last-child { margin-bottom: 0; }
+    .highlight-card strong { color: var(--ink); font-weight: 500; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--amber);
+      padding: 1.8rem 2.4rem; margin: 2.5rem 0;
+      border-radius: 2px;
+    }
+    .pull-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-style: italic;
+      color: var(--ink-mid); line-height: 1.65;
+    }
+    .pull-quote cite {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .15em; color: var(--amber-dim);
+      display: block; margin-top: .7rem;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2rem; margin-bottom: 2.5rem; }
+    .timeline::before { content: ''; position: absolute; left: .5rem; top: 0; bottom: 0; width: 1px; background: var(--border); }
+    .tl-item { position: relative; margin-bottom: 1.8rem; }
+    .tl-dot {
+      position: absolute; left: -1.65rem; top: .3rem;
+      width: 9px; height: 9px;
+      background: var(--red); border-radius: 0;
+      transform: rotate(45deg);
+    }
+    .tl-date { font-family: 'Manrope', sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .14em; color: var(--red-mid); display: block; margin-bottom: .2rem; }
+    .tl-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: .2rem; }
+    .tl-desc { font-size: .93rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ── ACCORDION ── */
+    .accordion { margin-bottom: 2.5rem; }
+    .acc-item { border: 1px solid var(--border); border-radius: 2px; margin-bottom: .5rem; overflow: hidden; }
+    .acc-trigger {
+      width: 100%; background: var(--bg-card); border: none;
+      padding: 1.1rem 1.4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; text-align: left; transition: background .2s;
+    }
+    .acc-trigger:hover { background: var(--surface); }
+    .acc-trigger.open { background: var(--red); }
+    .acc-term { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); transition: color .2s; }
+    .acc-trigger.open .acc-term { color: #fff; }
+    .acc-arrow { font-size: .85rem; color: var(--ink-dim); transition: transform .3s, color .2s; flex-shrink: 0; margin-left: 1rem; }
+    .acc-trigger.open .acc-arrow { transform: rotate(180deg); color: var(--amber-light); }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; padding: 0 1.4rem; background: var(--bg-mid); }
+    .acc-body.open { max-height: 700px; padding: 1.3rem 1.4rem; }
+    .acc-body p { font-size: .97rem; color: var(--text-muted); line-height: 1.85; margin-bottom: .6rem; }
+    .acc-body p:last-child { margin-bottom: 0; }
+    .acc-body strong { color: var(--ink); font-weight: 500; }
+
+    /* ── TWO-ACT STRUCTURE ── */
+    .act-header {
+      background: var(--red);
+      padding: 1.5rem 2rem;
+      margin: 2.5rem 0 1.8rem;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+    .act-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent, transparent 50px,
+        rgba(0,0,0,.07) 50px, rgba(0,0,0,.07) 51px
+      );
+    }
+    .act-num {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .35em; text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      display: block; margin-bottom: .3rem;
+      position: relative; z-index: 1;
+    }
+    .act-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 400;
+      color: #fff; line-height: 1.2;
+      position: relative; z-index: 1;
+    }
+    .act-title em { font-style: italic; color: rgba(255,255,255,.75); }
+
+    /* ── CONSEQUENCES GRID ── */
+    .consequences-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.1rem; margin-bottom: 2.5rem; }
+    .consequence-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-top: 3px solid var(--red); border-radius: 2px; padding: 1.5rem;
+    }
+    .cons-era { font-family: 'Manrope', sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red-mid); display: block; margin-bottom: .4rem; }
+    .cons-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: .4rem; }
+    .cons-desc { font-size: .9rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ── COMPARISON TABLE ── */
+    .comparison-table { width: 100%; border-collapse: collapse; margin-bottom: 2.5rem; }
+    .comparison-table th {
+      font-family: 'Manrope', sans-serif;
+      font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--ink-mid); background: var(--surface);
+      padding: .9rem 1.2rem; text-align: left;
+      border: 1px solid var(--border);
+    }
+    .comparison-table th:first-child { color: var(--amber); }
+    .comparison-table td {
+      font-size: .93rem; color: var(--text-muted);
+      padding: .9rem 1.2rem; border: 1px solid var(--border);
+      line-height: 1.7; vertical-align: top;
+    }
+    .comparison-table td:first-child { color: var(--ink-mid); font-weight: 500; font-family: 'Libre Baskerville', serif; font-style: italic; font-size: .9rem; }
+    .comparison-table tr:nth-child(even) td { background: var(--bg-card); }
+
+    /* ── VIDEO CARD ── */
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      border-radius: 2px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .video-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .28em; text-transform: uppercase;
+      color: var(--red-mid); margin-bottom: 1.2rem;
+    }
+    .video-wrapper {
+      position: relative; padding-bottom: 56.25%;
+      height: 0; overflow: hidden; border-radius: 2px;
+    }
+    .video-wrapper iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: none;
+    }
+    .video-caption {
+      font-family: 'Libre Baskerville', serif;
+      font-size: .9rem; font-style: italic;
+      color: var(--text-muted); margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ── TEST ── */
+    .test-wrap {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 2px; padding: 2.5rem 2.8rem;
+    }
+    .test-intro { font-size: .98rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.8; }
+    .q-block { margin-bottom: 2.3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .q-block:last-of-type { border-bottom: none; }
+    .q-number { font-family: 'Manrope', sans-serif; font-size: .65rem; font-weight: 700; letter-spacing: .22em; color: var(--red-mid); display: block; margin-bottom: .4rem; }
+    .q-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 500; color: var(--ink); margin-bottom: .9rem; line-height: 1.5; }
+    .opts { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .opt-btn {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px;
+      padding: .8rem 1.1rem;
+      font-family: 'Manrope', sans-serif; font-size: .93rem; font-weight: 400;
+      color: var(--text-muted); cursor: pointer; text-align: left; width: 100%;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: var(--red); color: var(--ink); background: var(--bg-mid); }
+    .opt-btn.correct { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); }
+    .opt-btn.wrong   { background: var(--wrong-bg);   border-color: var(--wrong);   color: var(--red-pale); }
+    .opt-btn.reveal  { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); opacity: .6; }
+    .opt-btn:disabled { cursor: default; }
+    .q-fb { margin-top: .7rem; font-size: .9rem; line-height: 1.7; display: none; }
+    .q-fb.show { display: block; }
+    .q-fb.ok   { color: var(--correct); }
+    .q-fb.fail { color: var(--red-pale); }
+
+    .score-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 2.4rem; text-align: center;
+      margin-top: 2rem; display: none;
+    }
+    .score-box.show { display: block; animation: panelIn .4s ease both; }
+    .score-num { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 400; color: var(--red-light); display: block; line-height: 1; }
+    .score-lbl { font-family: 'Manrope', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .22em; color: var(--ink-dim); display: block; margin-top: .4rem; margin-bottom: 1rem; }
+    .score-msg { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.02rem; color: var(--text-muted); }
+    .retry-btn {
+      margin-top: 1.4rem;
+      background: none; border: 1px solid var(--red);
+      color: var(--red-light);
+      font-family: 'Manrope', sans-serif; font-size: .76rem; font-weight: 700;
+      letter-spacing: .15em; padding: .65rem 1.5rem;
+      cursor: pointer; border-radius: 1px; transition: background .2s, color .2s;
+    }
+    .retry-btn:hover { background: var(--red); color: #fff; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 2rem; background: var(--bg); }
+    .footer-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Libre Baskerville', serif; font-size: .9rem; color: var(--text-muted); }
+    .footer-brand strong { color: var(--ink); font-weight: 400; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-nav a { font-family: 'Manrope', sans-serif; font-size: .7rem; font-weight: 600; letter-spacing: .15em; color: var(--ink-dim); text-decoration: none; transition: color .2s; }
+    .footer-nav a:hover { color: var(--amber); }
+
+    @media (max-width: 640px) {
+      .card-grid, .consequences-grid { grid-template-columns: 1fr; }
+      .card.full { grid-column: 1; }
+      .test-wrap { padding: 1.5rem 1.2rem; }
+      .hero-stats { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; margin-right: 0; }
+      .tab-btn { font-size: .74rem; padding: .5rem .9rem; }
+      .comparison-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal principal</a>
+    <div class="nav-links">
+      <a href="fase3.html" class="nav-link">Fase III</a>
+      <span class="nav-title">Filosofía & Política</span>
+      <span class="nav-badge">Módulo IX</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo IX · Materialismo histórico</span>
+    <h1 class="hero-title">Marx y <em>el Capital</em></h1>
+    <p class="hero-subtitle">
+      El pensador que más ha cambiado el mundo moderno — para bien y para mal.
+      No como ideología sino como anatomía del poder económico: cómo funciona,
+      a quién sirve y por qué es tan difícil cambiarlo.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">1818–1883</span><span class="stat-label">Tréveris, Prusia</span></div>
+      <div class="stat-item"><span class="stat-num">1848</span><span class="stat-label">Manifiesto Comunista</span></div>
+      <div class="stat-item"><span class="stat-num">1867</span><span class="stat-label">El Capital, Vol. I</span></div>
+      <div class="stat-item"><span class="stat-num">+30</span><span class="stat-label">Estados que invocaron su nombre</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TABS ══════════ -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="quien">Quién fue</button>
+    <button class="tab-btn" data-tab="analisis">El análisis</button>
+    <button class="tab-btn" data-tab="consecuencias">Las consecuencias</button>
+    <button class="tab-btn" data-tab="hoy">Marx hoy</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<!-- ══════════ CONTENT ══════════ -->
+<main class="content-area">
+
+<!-- ──────────────────────────── QUIÉN FUE ──────────────────────────── -->
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header">
+    <h2>Karl Marx: <em>el anatomista del capitalismo</em></h2>
+    <p class="panel-lead">No fue un revolucionario profesional. Fue un intelectual obsesivo que pasó décadas en la biblioteca del British Museum diseccionando el sistema económico más poderoso de la historia. La revolución vino después — y en buena parte, sin él.</p>
+  </div>
+
+  <p class="section-label">Contexto histórico</p>
+  <div class="card-grid">
+    <div class="card full">
+      <span class="card-icon">🏭</span>
+      <h3>El mundo que Marx observó</h3>
+      <p>Marx escribe en plena Revolución Industrial. En Manchester, los obreros trabajan 14 horas diarias en condiciones brutales. Los niños trabajan en las minas. Los barrios obreros son hacinamiento y enfermedad. Y al mismo tiempo, los propietarios de las fábricas acumulan riquezas sin precedentes. Marx no inventó el conflicto de clases — lo encontró en las calles de Europa y decidió explicarlo con rigor científico.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📰</span>
+      <h3>El periodista expulsado</h3>
+      <p>Antes de ser filósofo, Marx fue periodista radical en Alemania. Expulsado de varios países por sus artículos, acabó en Londres en 1849, donde viviría en la pobreza el resto de su vida. Su amigo y mecenas Friedrich Engels le financió durante décadas. Sin Engels, El Capital nunca se habría escrito.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📚</span>
+      <h3>El proyecto científico</h3>
+      <p>Marx quería hacer con la economía lo que Darwin hizo con la biología: encontrar las leyes que gobiernan el desarrollo histórico. Llamó a su método «materialismo histórico»: las ideas no mueven la historia — las condiciones materiales de producción sí. Las ideas son consecuencia, no causa.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1818</span>
+      <span class="tl-title">Nace en Tréveris, Prusia</span>
+      <span class="tl-desc">Hijo de abogado judío convertido al protestantismo. Estudia derecho en Bonn, luego filosofía en Berlín. Se empapa del idealismo hegeliano y lo invierte.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1843</span>
+      <span class="tl-title">Primer exilio. Conoce a Engels en París</span>
+      <span class="tl-desc">Expulsado de Alemania por sus artículos políticos. En París conoce a Friedrich Engels, hijo de un industrial textil que le abre los ojos sobre las condiciones reales de los obreros en Manchester. Comienza la colaboración más influyente de la historia del pensamiento.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1848</span>
+      <span class="tl-title">El Manifiesto Comunista</span>
+      <span class="tl-desc">Encargado por la Liga Comunista, escrito en seis semanas. Sale a la luz semanas antes de las revoluciones de 1848 que sacuden toda Europa. 23 páginas que cambiarían el siglo XX.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1849</span>
+      <span class="tl-title">Exilio definitivo en Londres</span>
+      <span class="tl-desc">Se instala en Londres con su familia. Viven en la miseria. Tres de sus hijos mueren en la infancia. Marx pasa sus días en el British Museum construyendo la obra de su vida. Engels le envía dinero regularmente desde Manchester.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1867</span>
+      <span class="tl-title">El Capital, Volumen I</span>
+      <span class="tl-desc">La obra magna. Un análisis sistemático del modo de producción capitalista: la mercancía, el valor, la plusvalía, la acumulación, las crisis. Los volúmenes II y III serán publicados póstumamente por Engels.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1883</span>
+      <span class="tl-title">Muerte en Londres</span>
+      <span class="tl-desc">Muere en la pobreza, relativamente desconocido fuera de los círculos obreros. En su funeral en Highgate Cemetery, Engels dijo: «Su nombre vivirá a través de los siglos.» Tenía razón.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────────────── EL ANÁLISIS ──────────────────────────── -->
+<div class="tab-panel" id="tab-analisis">
+  <div class="panel-header">
+    <h2>Acto I: <em>La anatomía del capitalismo</em></h2>
+    <p class="panel-lead">Antes de la revolución, viene el análisis. Marx no llamó a las armas — explicó, con la frialdad de un cirujano, cómo funciona el sistema económico capitalista y por qué produce necesariamente desigualdad.</p>
+  </div>
+
+  <div class="act-header">
+    <span class="act-num">Concepto fundacional</span>
+    <span class="act-title">El materialismo histórico: <em>las ideas no mueven la historia</em></span>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">La inversión de Hegel</span>
+    <h3>No es la conciencia la que determina la existencia — es la existencia la que determina la conciencia</h3>
+    <p>Hegel creía que la historia avanza impulsada por las ideas. Marx lo invirtió: lo que determina lo que pensamos, creemos y valoramos son las <strong>condiciones materiales en que vivimos y trabajamos</strong>. No nacemos pensando lo que pensamos — el sistema económico en el que nacemos moldea nuestra visión del mundo.</p>
+    <p>Esto tiene una consecuencia radical: si quieres cambiar la sociedad, no basta con cambiar las ideas. Hay que cambiar las <strong>relaciones de producción</strong> — quién posee qué, quién trabaja para quién, cómo se distribuye la riqueza que se crea.</p>
+  </div>
+
+  <p class="section-label">Conceptos fundamentales</p>
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-term">La plusvalía: de dónde viene el beneficio</span>
+        <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>Es el concepto más técnico y más importante de Marx. El capitalista compra la fuerza de trabajo del obrero. El obrero, en una jornada laboral, produce más valor del que recibe como salario. <strong>Esa diferencia es la plusvalía</strong> — la fuente del beneficio capitalista.</p>
+        <p>Ejemplo: un obrero produce en 4 horas el equivalente a su salario diario. Trabaja 10 horas. Las 6 horas restantes producen valor que va al propietario. No es robo en sentido legal — es la lógica del sistema. El capitalista no lo hace por maldad: el mercado le obliga a maximizar la plusvalía o quebrará frente a la competencia.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-term">La alienación: el trabajo que nos deshumaniza</span>
+        <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>Marx describe cuatro formas de alienación en el capitalismo industrial. El obrero está alienado: del <strong>producto</strong> de su trabajo (no le pertenece), del <strong>proceso</strong> de producción (repetitivo, mecánico, sin creatividad), de <strong>otros trabajadores</strong> (la competencia los convierte en rivales) y de su propia <strong>naturaleza humana</strong> (los humanos nos realizamos trabajando creativamente — el capitalismo industrial hace imposible esa realización).</p>
+        <p>La alienación no es una queja moral. Es una descripción estructural de cómo el sistema organiza el trabajo.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-term">La lucha de clases: el motor de la historia</span>
+        <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>«La historia de todas las sociedades hasta nuestros días es la historia de la lucha de clases.» Las clases no son categorías sociológicas abstractas — son grupos con intereses materiales objetivamente opuestos. <strong>Burguesía</strong> (propietarios de los medios de producción) y <strong>proletariado</strong> (los que solo tienen su fuerza de trabajo para vender) no pueden tener intereses comunes: lo que gana uno, lo pierde el otro.</p>
+        <p>Esto no significa odio — significa conflicto estructural. Como el conflicto entre el propietario que quiere maximizar el alquiler y el inquilino que quiere pagarlo mínimo. No es personal: es la estructura del sistema.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-term">La ideología: las ideas al servicio del poder</span>
+        <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>«Las ideas dominantes de cada época son las ideas de la clase dominante.» La clase que controla la producción material también controla la producción ideológica. Las ideas sobre qué es justo, natural, inevitable — no son neutras. Tienden a justificar el orden existente.</p>
+        <p>Ejemplo: la idea de que la desigualdad refleja diferencias de mérito, esfuerzo y talento individuales es, para Marx, una ideología que hace que los de abajo culpen a su propia mediocridad en lugar de al sistema. No importa si es verdad o no: funciona para mantener el sistema.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-term">Las crisis: el capitalismo se destruye a sí mismo</span>
+        <span class="acc-arrow">▼</span>
+      </button>
+      <div class="acc-body">
+        <p>Marx predijo que el capitalismo genera crisis cíclicas inevitables por su propia lógica: la búsqueda individual de beneficio lleva a la sobreproducción colectiva. Cada capitalista maximiza su producción; el conjunto produce más de lo que los trabajadores (con salarios bajos) pueden comprar; el sistema colapsa periódicamente.</p>
+        <p>También predijo la concentración creciente del capital: los grandes devoran a los pequeños, el capital se concentra en cada vez menos manos. Si observas la evolución de los mercados globales desde 1990, la predicción es difícil de refutar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"Los filósofos no han hecho más que interpretar el mundo de distintas maneras; de lo que se trata es de transformarlo."</blockquote>
+    <cite>— Marx, Tesis sobre Feuerbach, 1845</cite>
+  </div>
+
+  <p class="section-label">Marx vs. sus predecesores</p>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th>Hobbes / Locke / Rousseau</th>
+        <th>Marx</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Motor de la historia</td>
+        <td>Naturaleza humana, ideas, contrato social</td>
+        <td>Condiciones materiales de producción</td>
+      </tr>
+      <tr>
+        <td>El Estado</td>
+        <td>Árbitro neutral entre ciudadanos</td>
+        <td>Instrumento de la clase dominante</td>
+      </tr>
+      <tr>
+        <td>La propiedad</td>
+        <td>Derecho natural fundamental (Locke)</td>
+        <td>Fuente de la explotación y la desigualdad</td>
+      </tr>
+      <tr>
+        <td>La libertad</td>
+        <td>Ausencia de coerción externa</td>
+        <td>Ilusoria sin igualdad económica real</td>
+      </tr>
+      <tr>
+        <td>Solución propuesta</td>
+        <td>Mejor diseño institucional, más derechos</td>
+        <td>Abolir las relaciones de producción capitalistas</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──────────────────────────── CONSECUENCIAS ──────────────────────────── -->
+<div class="tab-panel" id="tab-consecuencias">
+  <div class="panel-header">
+    <h2>Acto II: <em>Las consecuencias</em></h2>
+    <p class="panel-lead">Ningún otro filósofo moderno ha generado más consecuencias prácticas — y más contradictorias. El marxismo como herramienta de análisis y el marxismo como ideología política son dos cosas muy distintas. A menudo, lo que se hizo en nombre de Marx habría hecho que Marx saliera corriendo.</p>
+  </div>
+
+  <div class="act-header">
+    <span class="act-num">La paradoja central</span>
+    <span class="act-title">Marx predijo la revolución en los países más industrializados. <em>Ocurrió en los más atrasados.</em></span>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">El problema de la implementación</span>
+    <h3>Lo que Marx no previó — y lo que usaron en su nombre</h3>
+    <p>Marx esperaba que la revolución llegara en Inglaterra o Alemania, donde el capitalismo industrial estaba más desarrollado y el proletariado más organizado. Llegó en Rusia en 1917 — un país agrario, semifeudal, con una clase obrera pequeña. Lenin adaptó el marxismo a condiciones que Marx nunca había contemplado.</p>
+    <p><strong>Lo que Marx escribió:</strong> la emancipación de la clase obrera debe ser obra de la propia clase obrera. <strong>Lo que se hizo en su nombre:</strong> una vanguardia de intelectuales revolucionarios tomó el poder «en nombre del proletariado» y construyó uno de los sistemas más autoritarios del siglo XX. Marx habría tenido mucho que decir al respecto.</p>
+  </div>
+
+  <p class="section-label">Línea de impacto global</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1871</span>
+      <span class="tl-title">La Comuna de París</span>
+      <span class="tl-desc">Primera experiencia de gobierno obrero moderno. Duró 72 días. Marx la analizó como el primer experimento real de «dictadura del proletariado». Aplastada por el ejército francés con miles de muertos.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1917</span>
+      <span class="tl-title">Revolución rusa</span>
+      <span class="tl-desc">Lenin toma el poder en Rusia invocando a Marx. Funda la URSS. El experimento político más radical del siglo XX. Dura 74 años, llega a 15 repúblicas y produce tanto logros industriales como el Gulag.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1949</span>
+      <span class="tl-title">Revolución china</span>
+      <span class="tl-desc">Mao Zedong adapta el marxismo-leninismo a China. 1.300 millones de personas bajo un régimen de partido único que aún hoy se reivindica marxista. El Gran Salto Adelante provoca una de las mayores hambrunas de la historia.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1959</span>
+      <span class="tl-title">Revolución cubana</span>
+      <span class="tl-desc">Castro y el Che Guevara llevan el marxismo a América Latina. Cuba se convierte en un laboratorio: universalización de la educación y la sanidad junto a ausencia de libertad política. Sigue siendo objeto de debate.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot"></span>
+      <span class="tl-date">1989</span>
+      <span class="tl-title">Caída del Muro de Berlín</span>
+      <span class="tl-desc">Los regímenes del bloque soviético colapsan. Se declara el «fin del marxismo». Dura poco: la crisis de 2008 devuelve a Marx a las listas de libros más vendidos en todo el mundo occidental.</span>
+    </div>
+  </div>
+
+  <p class="section-label">Lo que el marxismo generó en Occidente</p>
+  <div class="consequences-grid">
+    <div class="consequence-card">
+      <span class="cons-era">Economía política</span>
+      <span class="cons-title">El Estado del bienestar</span>
+      <p class="cons-desc">Las conquistas obreras del siglo XX — jornada de 8 horas, vacaciones pagadas, pensiones, sanidad pública — no son marxistas. Pero tampoco habrían existido sin la presión del movimiento obrero marxista. El capitalismo reformó lo suficiente para no ser derrocado.</p>
+    </div>
+    <div class="consequence-card">
+      <span class="cons-era">Sociología y humanidades</span>
+      <span class="cons-title">El análisis de clase</span>
+      <p class="cons-desc">Toda la sociología moderna usa herramientas marxistas: análisis de clase, poder económico, ideología. Bourdieu, Gramsci, la Escuela de Frankfurt — incluso quienes critican a Marx lo hacen con sus conceptos.</p>
+    </div>
+    <div class="consequence-card">
+      <span class="cons-era">Movimientos sociales</span>
+      <span class="cons-title">De la lucha de clases a la interseccionalidad</span>
+      <p class="cons-desc">El feminismo de segunda ola, los movimientos anticoloniales, los derechos civiles — todos tomaron prestado el análisis marxista de la opresión estructural y lo aplicaron a género, raza y colonialismo. El marxismo les dio las herramientas analíticas.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────────────── MARX HOY ──────────────────────────── -->
+<div class="tab-panel" id="tab-hoy">
+  <div class="panel-header">
+    <h2>Marx en el siglo XXI: <em>¿sigue siendo útil?</em></h2>
+    <p class="panel-lead">Después del colapso soviético, Marx fue declarado muerto. Después de 2008, resucitó. La pregunta no es si sus soluciones funcionaron — muchas no. La pregunta es si su diagnóstico sigue siendo válido.</p>
+  </div>
+
+  <p class="section-label">Dónde el análisis marxista sigue siendo potente</p>
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">📊</span>
+      <h3>La concentración del capital</h3>
+      <p>Marx predijo que el capital tendería a concentrarse en cada vez menos manos. El 1% más rico posee actualmente más riqueza que el 99% restante combinado. El informe anual de Oxfam sobre desigualdad confirma la predicción con números.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🔄</span>
+      <h3>Las crisis cíclicas</h3>
+      <p>La crisis financiera de 2008 fue exactamente el tipo de colapso que Marx describió: sobreacumulación, especulación, derrumbe. Las ventas de El Capital se dispararon en Alemania y el Reino Unido tras la crisis.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤖</span>
+      <h3>Automatización y plusvalía</h3>
+      <p>La IA y la automatización replantean la teoría del valor-trabajo: si las máquinas hacen el trabajo, ¿quién se queda la plusvalía que generan? La respuesta es la misma que Marx daría: el propietario del capital. El debate sobre renta universal tiene raíces marxistas.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌍</span>
+      <h3>Alienación en la economía de plataformas</h3>
+      <p>El análisis de la alienación describe con precisión la experiencia del trabajador de Glovo, Uber o Amazon Mechanical Turk: separado del producto, sin control sobre el proceso, sin identidad colectiva como clase. Marx no conoció la gig economy pero la habría reconocido.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Dónde el análisis marxista falla o tiene límites</p>
+  <div class="highlight-card">
+    <span class="hc-label">Las críticas válidas</span>
+    <h3>Lo que Marx no supo ver — o no quiso</h3>
+    <p><strong>La naturaleza humana y los incentivos:</strong> Marx asumió que, liberados de la explotación, los humanos trabajarían de forma cooperativa y creativa. La experiencia histórica sugiere que los incentivos individuales importan y son difíciles de eliminar sin coste.</p>
+    <p><strong>El papel del Estado:</strong> Marx fue vago sobre cómo funcionaría una sociedad sin Estado. Ese vacío fue llenado — con consecuencias desastrosas — por Lenin, Stalin y Mao, que construyeron Estados más poderosos, no menos.</p>
+    <p><strong>La clase media y la reforma:</strong> Marx predijo la polarización entre burguesía y proletariado. En cambio, el siglo XX produjo una enorme clase media que prefirió reformar el capitalismo a derrocarlo — y funcionó lo suficiente como para hacer irrelevante la revolución en los países ricos.</p>
+    <p><strong>La identidad más allá de la clase:</strong> El marxismo clásico reducía todas las opresiones a la económica. El feminismo, el antirracismo y los movimientos LGBTQ+ demostraron que la opresión tiene dimensiones que no se explican solo por la clase social.</p>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"No soy marxista."</blockquote>
+    <cite>— Karl Marx, en respuesta a los «marxistas» franceses de los años 1880, según Engels</cite>
+  </div>
+
+  <p class="section-label">Para profundizar</p>
+  <div class="video-card">
+    <div class="video-label">Vídeo recomendado</div>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/ZyudaagzIMA"
+        title="Marx — vídeo explicativo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="video-caption">Antes de pasar al test, un vídeo para consolidar los conceptos clave del módulo.</p>
+  </div>
+</div>
+
+<!-- ──────────────────────────── TEST ──────────────────────────── -->
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header">
+    <h2>Pon a prueba <em>tu comprensión</em></h2>
+    <p class="panel-lead">15 preguntas sobre Marx, el marxismo y sus consecuencias. Sin trampas ideológicas — solo comprensión.</p>
+  </div>
+
+  <div class="test-wrap" id="quiz">
+    <p class="test-intro">Selecciona la respuesta correcta en cada pregunta.</p>
+
+    <div class="q-block" data-correct="2">
+      <span class="q-number">Pregunta I</span>
+      <p class="q-text">¿Qué es el materialismo histórico?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">La teoría de que la materia es la única realidad</button></li>
+        <li><button class="opt-btn" data-idx="1">La idea de que los grandes hombres mueven la historia</button></li>
+        <li><button class="opt-btn" data-idx="2">La tesis de que las condiciones materiales de producción determinan la conciencia y la historia</button></li>
+        <li><button class="opt-btn" data-idx="3">El estudio arqueológico de las civilizaciones antiguas</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. No son las ideas las que mueven la historia — son las relaciones de producción. Las ideas son consecuencia, no causa.</p>
+      <p class="q-fb fail">El materialismo histórico dice que las condiciones materiales en que vivimos y trabajamos determinan nuestra visión del mundo y el curso de la historia.</p>
+    </div>
+
+    <div class="q-block" data-correct="1">
+      <span class="q-number">Pregunta II</span>
+      <p class="q-text">¿Qué es la plusvalía para Marx?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">El salario extra que recibe el trabajador productivo</button></li>
+        <li><button class="opt-btn" data-idx="1">La diferencia entre el valor producido por el trabajador y el salario que recibe</button></li>
+        <li><button class="opt-btn" data-idx="2">El beneficio del comerciante que vende caro lo que compró barato</button></li>
+        <li><button class="opt-btn" data-idx="3">El valor añadido por las máquinas en la producción industrial</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. El obrero produce más valor del que cobra. Esa diferencia — la plusvalía — es la fuente del beneficio capitalista.</p>
+      <p class="q-fb fail">La plusvalía es el valor que el trabajador produce más allá de su salario. Esa diferencia es capturada por el propietario de los medios de producción.</p>
+    </div>
+
+    <div class="q-block" data-correct="0">
+      <span class="q-number">Pregunta III</span>
+      <p class="q-text">¿En qué año se publicó el Manifiesto Comunista?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">1848</button></li>
+        <li><button class="opt-btn" data-idx="1">1867</button></li>
+        <li><button class="opt-btn" data-idx="2">1871</button></li>
+        <li><button class="opt-btn" data-idx="3">1859</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. 1848 — el año de las revoluciones europeas. Marx y Engels publicaron el Manifiesto semanas antes de que Europa empezara a arder.</p>
+      <p class="q-fb fail">El Manifiesto Comunista se publicó en 1848, pocas semanas antes de las revoluciones que sacudieron toda Europa.</p>
+    </div>
+
+    <div class="q-block" data-correct="3">
+      <span class="q-number">Pregunta IV</span>
+      <p class="q-text">¿Qué entiende Marx por alienación del trabajador?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">El rechazo del trabajador hacia sus compañeros de trabajo</button></li>
+        <li><button class="opt-btn" data-idx="1">La emigración forzada de los obreros a las ciudades</button></li>
+        <li><button class="opt-btn" data-idx="2">La dependencia psicológica del salario</button></li>
+        <li><button class="opt-btn" data-idx="3">La separación del trabajador respecto al producto, al proceso, a otros trabajadores y a su propia naturaleza humana</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. La alienación es estructural, no psicológica: el sistema organiza el trabajo de forma que el trabajador se convierte en apéndice de la máquina.</p>
+      <p class="q-fb fail">La alienación en Marx es la separación del trabajador de cuatro elementos: el producto de su trabajo, el proceso productivo, los otros trabajadores y su propia esencia humana creativa.</p>
+    </div>
+
+    <div class="q-block" data-correct="2">
+      <span class="q-number">Pregunta V</span>
+      <p class="q-text">¿Cómo definía Marx la ideología?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Un sistema coherente de ideas filosóficas</button></li>
+        <li><button class="opt-btn" data-idx="1">Las creencias religiosas que dominan una sociedad</button></li>
+        <li><button class="opt-btn" data-idx="2">El conjunto de ideas que justifican y reproducen el orden social de la clase dominante</button></li>
+        <li><button class="opt-btn" data-idx="3">Los programas políticos de los partidos en el poder</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Las ideas dominantes de cada época son las ideas de la clase dominante. No son neutras: sirven para mantener el orden existente.</p>
+      <p class="q-fb fail">Para Marx, la ideología es el conjunto de ideas que la clase dominante produce para que el orden existente parezca natural, justo o inevitable.</p>
+    </div>
+
+    <div class="q-block" data-correct="1">
+      <span class="q-number">Pregunta VI</span>
+      <p class="q-text">¿Cuál era la relación entre Marx y Friedrich Engels?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Eran primos que se conocieron en la universidad</button></li>
+        <li><button class="opt-btn" data-idx="1">Amigo, colaborador intelectual y mecenas que financió a Marx durante décadas</button></li>
+        <li><button class="opt-btn" data-idx="2">Engels era el editor que publicó la obra de Marx</button></li>
+        <li><button class="opt-btn" data-idx="3">Rivales teóricos que acabaron reconciliados al final de su vida</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Sin Engels — hijo de un industrial que conocía el capitalismo desde dentro — Marx no habría podido escribir El Capital. Lo financió durante 40 años.</p>
+      <p class="q-fb fail">Engels fue el mejor amigo de Marx, su colaborador intelectual y quien lo financió durante décadas mientras Marx escribía en la pobreza. Sin Engels, El Capital no existiría.</p>
+    </div>
+
+    <div class="q-block" data-correct="0">
+      <span class="q-number">Pregunta VII</span>
+      <p class="q-text">¿Dónde predijo Marx que se produciría la revolución comunista?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">En los países más industrializados, donde el proletariado era más numeroso y organizado</button></li>
+        <li><button class="opt-btn" data-idx="1">En las colonias europeas de África y Asia</button></li>
+        <li><button class="opt-btn" data-idx="2">En Rusia, por su tradición comunitaria agraria</button></li>
+        <li><button class="opt-btn" data-idx="3">En los países más pobres, donde la miseria era mayor</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Marx pensaba en Inglaterra o Alemania. La paradoja histórica es que ocurrió en Rusia, uno de los países menos industrializados de Europa.</p>
+      <p class="q-fb fail">Marx esperaba la revolución en los países más desarrollados industrialmente — Inglaterra, Alemania. Que ocurriera en la Rusia agraria fue una de las grandes paradojas de la historia marxista.</p>
+    </div>
+
+    <div class="q-block" data-correct="3">
+      <span class="q-number">Pregunta VIII</span>
+      <p class="q-text">¿Qué es la «dictadura del proletariado» en Marx?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Un régimen totalitario liderado por obreros industriales</button></li>
+        <li><button class="opt-btn" data-idx="1">Un partido de vanguardia que gobierna en nombre del pueblo</button></li>
+        <li><button class="opt-btn" data-idx="2">El socialismo de Estado con planificación centralizada</button></li>
+        <li><button class="opt-btn" data-idx="3">Una fase transitoria en que la clase obrera ejerce el poder político para desmantelar las estructuras capitalistas</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Para Marx era una fase transitoria, no un sistema permanente. La forma que tomó en la URSS bajo Stalin habría sido irreconocible para él.</p>
+      <p class="q-fb fail">La dictadura del proletariado en Marx es una fase transitoria — el período en que la clase obrera toma el poder para desmantelar el capitalismo antes de que el Estado mismo se extinga.</p>
+    </div>
+
+    <div class="q-block" data-correct="2">
+      <span class="q-number">Pregunta IX</span>
+      <p class="q-text">¿Cuándo se publicó el Volumen I de El Capital?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">1848</button></li>
+        <li><button class="opt-btn" data-idx="1">1859</button></li>
+        <li><button class="opt-btn" data-idx="2">1867</button></li>
+        <li><button class="opt-btn" data-idx="3">1883</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. 1867, después de casi 20 años de trabajo en la biblioteca del British Museum. Los volúmenes II y III los publicó Engels después de la muerte de Marx.</p>
+      <p class="q-fb fail">El Capital, Volumen I se publicó en 1867. Marx pasó casi dos décadas construyendo su análisis del capitalismo antes de publicarlo.</p>
+    </div>
+
+    <div class="q-block" data-correct="1">
+      <span class="q-number">Pregunta X</span>
+      <p class="q-text">¿Cuál es la primera frase del Manifiesto Comunista?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">«Proletarios de todos los países, uníos»</button></li>
+        <li><button class="opt-btn" data-idx="1">«Un espectro recorre Europa — el espectro del comunismo»</button></li>
+        <li><button class="opt-btn" data-idx="2">«La historia de todas las sociedades es la historia de la lucha de clases»</button></li>
+        <li><button class="opt-btn" data-idx="3">«La religión es el opio del pueblo»</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Una de las aperturas más famosas de la historia de la filosofía política. «Proletarios de todos los países, uníos» es la última frase, no la primera.</p>
+      <p class="q-fb fail">La primera frase del Manifiesto es «Un espectro recorre Europa — el espectro del comunismo». «Proletarios de todos los países, uníos» es la última.</p>
+    </div>
+
+    <div class="q-block" data-correct="0">
+      <span class="q-number">Pregunta XI</span>
+      <p class="q-text">¿Cuál fue la principal diferencia teórica entre Marx y Lenin?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Lenin introdujo el concepto de «partido de vanguardia» que Marx no contemplaba</button></li>
+        <li><button class="opt-btn" data-idx="1">Lenin rechazó el materialismo histórico de Marx</button></li>
+        <li><button class="opt-btn" data-idx="2">Marx era pacifista y Lenin no</button></li>
+        <li><button class="opt-btn" data-idx="3">Lenin añadió el concepto de plusvalía que Marx había omitido</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Marx creía que la clase obrera se organizaría espontáneamente. Lenin introdujo la idea del partido de vanguardia de intelectuales profesionales que guiarían a la clase obrera desde fuera.</p>
+      <p class="q-fb fail">La gran innovación de Lenin fue el partido de vanguardia: una organización de revolucionarios profesionales que dirigen la revolución. Marx nunca contempló ese modelo.</p>
+    </div>
+
+    <div class="q-block" data-correct="3">
+      <span class="q-number">Pregunta XII</span>
+      <p class="q-text">¿Qué consecuencia tuvo el marxismo en los países capitalistas occidentales?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Ninguna — el capitalismo ignoró completamente el marxismo</button></li>
+        <li><button class="opt-btn" data-idx="1">La revolución obrera que Marx predijo, pero de forma pacífica</button></li>
+        <li><button class="opt-btn" data-idx="2">La sustitución del capitalismo por economías mixtas sin propiedad privada</button></li>
+        <li><button class="opt-btn" data-idx="3">Reformas laborales y sociales — jornada de 8 horas, pensiones, sanidad pública — impulsadas por la presión del movimiento obrero</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. El capitalismo reformó lo suficiente — bajo la presión del movimiento obrero marxista — para evitar la revolución. El Estado del bienestar es, en parte, una consecuencia del marxismo.</p>
+      <p class="q-fb fail">En Occidente, el marxismo no generó revolución pero sí presión suficiente para que el capitalismo se reformara: jornada laboral limitada, sindicatos legalizados, seguridad social, pensiones públicas.</p>
+    </div>
+
+    <div class="q-block" data-correct="2">
+      <span class="q-number">Pregunta XIII</span>
+      <p class="q-text">¿Por qué las ventas de El Capital se dispararon tras la crisis de 2008?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">Porque los gobiernos recomendaron su lectura para entender la crisis</button></li>
+        <li><button class="opt-btn" data-idx="1">Por una campaña de marketing de editoriales de izquierda</button></li>
+        <li><button class="opt-btn" data-idx="2">Porque su análisis de las crisis capitalistas por sobreacumulación y especulación describía con precisión lo ocurrido</button></li>
+        <li><button class="opt-btn" data-idx="3">Fue una moda pasajera sin base intelectual real</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Marx describió cien años antes las dinámicas de sobreacumulación y especulación que produjeron la crisis financiera de 2008. Muchos economistas lo reconocieron.</p>
+      <p class="q-fb fail">El análisis marxista de las crisis capitalistas — sobreacumulación, especulación, colapso sistémico — describía con notable precisión lo que ocurrió en 2008. Eso explica el renovado interés.</p>
+    </div>
+
+    <div class="q-block" data-correct="1">
+      <span class="q-number">Pregunta XIV</span>
+      <p class="q-text">¿Cuál es la famosa frase de Marx sobre la religión?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">«La religión es el enemigo del proletariado»</button></li>
+        <li><button class="opt-btn" data-idx="1">«La religión es el opio del pueblo»</button></li>
+        <li><button class="opt-btn" data-idx="2">«La religión es la superstición de las clases dominantes»</button></li>
+        <li><button class="opt-btn" data-idx="3">«La religión morirá con el capitalismo»</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. Pero el significado es más matizado de lo que parece: Marx no solo criticaba la religión — la describía como el «suspiro de la criatura oprimida», un alivio ante un mundo injusto. La crítica era al mundo que hacía necesario ese alivio.</p>
+      <p class="q-fb fail">«La religión es el opio del pueblo» — pero Marx añadía que era el «suspiro de la criatura oprimida». Criticaba el mundo que hacía necesaria esa evasión, no solo la religión en sí.</p>
+    </div>
+
+    <div class="q-block" data-correct="0">
+      <span class="q-number">Pregunta XV</span>
+      <p class="q-text">¿Qué dijo Marx sobre el marxismo, según cuenta Engels?</p>
+      <ul class="opts">
+        <li><button class="opt-btn" data-idx="0">«No soy marxista»</button></li>
+        <li><button class="opt-btn" data-idx="1">«El marxismo es la única ciencia social verdadera»</button></li>
+        <li><button class="opt-btn" data-idx="2">«El marxismo superará al capitalismo en 50 años»</button></li>
+        <li><button class="opt-btn" data-idx="3">No dijo nada sobre el marxismo; el término fue inventado por sus enemigos</button></li>
+      </ul>
+      <p class="q-fb ok">Correcto. En respuesta a los «marxistas» franceses de los años 1880, que defendían posiciones que él no reconocía como suyas, Marx le dijo a Engels: «Solo sé que yo no soy marxista.»</p>
+      <p class="q-fb fail">Marx le dijo a Engels, en respuesta a los «marxistas» franceses: «No soy marxista.» Una de las frases más irónicas de la historia del pensamiento político.</p>
+    </div>
+
+    <div class="score-box" id="score-box">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">Respuestas correctas de 15</span>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
+    <nav class="footer-nav">
+      <a href="index.html">Inicio</a>
+      <a href="fase3.html">Fase III</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('tab-' + b.dataset.tab).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// Accordion
+function toggleAcc(t) {
+  const b = t.nextElementSibling;
+  const open = t.classList.contains('open');
+  document.querySelectorAll('.acc-trigger').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.acc-body').forEach(x => x.classList.remove('open'));
+  if (!open) { t.classList.add('open'); b.classList.add('open'); }
+}
+
+// Quiz
+let answered = 0, score = 0;
+const total = 15;
+
+document.querySelectorAll('.q-block').forEach(block => {
+  const c = parseInt(block.dataset.correct);
+  const btns = block.querySelectorAll('.opt-btn');
+  const ok   = block.querySelector('.q-fb.ok');
+  const fail = block.querySelector('.q-fb.fail');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.disabled) return;
+      btns.forEach(b => b.disabled = true);
+      const i = parseInt(btn.dataset.idx);
+      if (i === c) {
+        btn.classList.add('correct');
+        ok.classList.add('show');
+        score++;
+      } else {
+        btn.classList.add('wrong');
+        btns[c].classList.add('reveal');
+        fail.classList.add('show');
+      }
+      answered++;
+      if (answered === total) showScore();
+    });
+  });
+});
+
+function showScore() {
+  document.getElementById('score-num').textContent = score;
+  const msgs = [
+    [0,  5,  'El espectro del olvido recorre estas respuestas. Vuelve al módulo — hay mucho terreno que recuperar.'],
+    [6,  9,  'Sólida base. Distingues el análisis de la ideología. Profundiza en las consecuencias.'],
+    [10, 12, 'Buen dominio. Entiendes a Marx mejor que la mayoría de quienes lo invocan o lo atacan.'],
+    [13, 15, 'Excelente. Das cuenta del Marx real — no del fantasma que unos reverencian y otros caricaturizan.']
+  ];
+  document.getElementById('score-msg').textContent = msgs.find(x => score >= x[0] && score <= x[1])[2];
+  document.getElementById('score-box').classList.add('show');
+}
+
+function resetQuiz() {
+  answered = 0; score = 0;
+  document.querySelectorAll('.opt-btn').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct', 'wrong', 'reveal');
+  });
+  document.querySelectorAll('.q-fb').forEach(f => f.classList.remove('show'));
+  document.getElementById('score-box').classList.remove('show');
+}
+
+// Progress bar
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('progress-bar').style.width =
+    (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
+});
+</script>
+</body>
+</html>
