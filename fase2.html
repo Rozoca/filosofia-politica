@@ -70,6 +70,17 @@
       transition: color .2s;
     }
     .nav-back:hover { color: var(--gold-light); }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .nav-link {
+      font-family: 'Manrope', sans-serif;
+      font-size: .78rem; font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--ivory-dim); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-link:hover { color: var(--gold-light); }
     .nav-phase {
       font-family: 'Playfair Display', serif;
       font-size: .9rem; font-weight: 500;
@@ -309,12 +320,14 @@
       border-radius: 2px;
     }
 
-    /* ── BACK TO PORTAL LINK ── */
-    .back-section {
+    /* ── NAVIGATION BUTTONS ── */
+    .nav-section {
       padding: 0 0 4rem;
-      text-align: center;
+      display: flex; justify-content: center;
+      gap: 1rem; flex-wrap: wrap;
+      margin-top: 3rem;
     }
-    .back-link {
+    .nav-btn {
       font-family: 'Manrope', sans-serif;
       font-size: .85rem; font-weight: 500;
       letter-spacing: .1em;
@@ -326,9 +339,19 @@
       transition: all .2s;
       display: inline-flex; align-items: center; gap: .5rem;
     }
-    .back-link:hover {
+    .nav-btn:hover {
       border-color: var(--gold-dim);
       color: var(--gold);
+    }
+    .nav-btn.forward {
+      background: var(--crimson);
+      border-color: var(--crimson-mid);
+      color: #fff;
+    }
+    .nav-btn.forward:hover {
+      background: var(--crimson-mid);
+      border-color: var(--crimson-light);
+      color: #fff;
     }
 
     /* ── FOOTER ── */
@@ -377,6 +400,7 @@
       .mod-arrow { display: none; }
       .mod-badge { position: static; margin-bottom: .5rem; display: inline-block; }
       .footer-inner { flex-direction: column; text-align: center; }
+      .nav-section { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -386,7 +410,10 @@
 <nav class="top-nav">
   <div class="top-nav-inner">
     <a href="index.html" class="nav-back">← Portal principal</a>
-    <span class="nav-phase">Fase II</span>
+    <div class="nav-links">
+      <a href="fase3.html" class="nav-link">Fase III →</a>
+      <span class="nav-phase">Fase II</span>
+    </div>
   </div>
 </nav>
 
@@ -498,7 +525,7 @@
   </a>
 
   <a href="kant.html" class="mod-card anim-6" aria-label="Ir al módulo sobre Kant">
-    <span class="mod-badge new">Nuevo</span>
+    <span class="mod-badge available">Disponible</span>
     <span class="mod-num">05</span>
     <div>
       <span class="mod-tag">Módulo VIII · La Ilustración</span>
@@ -518,8 +545,10 @@
     <span class="mod-arrow" aria-hidden="true">→</span>
   </a>
 
-  <div class="back-section anim-6" style="margin-top:3rem;">
-    <a href="index.html" class="back-link">← Volver a la Fase I · Antigüedad</a>
+  <!-- Navigation buttons -->
+  <div class="nav-section anim-6">
+    <a href="index.html" class="nav-btn">← Fase I · Antigüedad</a>
+    <a href="fase3.html" class="nav-btn forward">Fase III · Siglo XIX →</a>
   </div>
 
 </div>
@@ -530,6 +559,7 @@
     <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
     <nav class="footer-nav">
       <a href="index.html">Fase I</a>
+      <a href="fase3.html">Fase III</a>
       <a href="https://github.com/Rozoca" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
   </div>
