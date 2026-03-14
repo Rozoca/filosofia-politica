@@ -320,6 +320,62 @@
       border-radius: 2px;
     }
 
+    /* ── REFLEXIONES ── */
+    .reflexiones {
+      border-top: 1px solid var(--border);
+      padding: 4rem 0 2rem;
+      margin-top: 3rem;
+    }
+    .reflex-intro {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.08rem; font-style: italic;
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.85;
+      margin-bottom: 3rem;
+    }
+    .reflex-block {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .reflex-block:last-of-type {
+      border-bottom: none;
+    }
+    .reflex-h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 500;
+      color: var(--ivory);
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+    }
+    .reflex-h3 em { font-style: italic; color: var(--gold); }
+    .reflex-p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .reflex-p:last-child { margin-bottom: 0; }
+    .reflex-p strong { color: var(--ivory-mid); font-weight: 500; }
+    .reflex-close {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--crimson);
+      padding: 2rem 2.4rem;
+      border-radius: 2px;
+      margin-top: 1rem;
+    }
+    .reflex-close p {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem; font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: .8rem;
+    }
+    .reflex-close p:last-child { margin-bottom: 0; }
+    .reflex-close strong { color: var(--ivory-mid); font-style: normal; font-weight: 400; }
+
     /* ── NAVIGATION BUTTONS ── */
     .nav-section {
       padding: 0 0 4rem;
@@ -544,6 +600,57 @@
     </div>
     <span class="mod-arrow" aria-hidden="true">→</span>
   </a>
+
+  <!-- ══════════ REFLEXIONES ══════════ -->
+  <div class="reflexiones">
+
+    <p class="section-label">Reflexiones · Fase II</p>
+
+    <p class="reflex-intro">
+      Del Renacimiento a la Ilustración, la filosofía política moderna construye una sola pregunta
+      con respuestas radicalmente distintas: ¿por qué obedecemos? No la obediencia forzada —
+      esa es fácil de explicar — sino la que consideramos legítima, la que aceptamos como justa.
+    </p>
+
+    <!-- HOBBES -->
+    <div class="reflex-block">
+      <h3 class="reflex-h3">Hobbes: <em>el miedo como fundamento del Estado</em></h3>
+      <p class="reflex-p">Para Hobbes, el hombre en estado de naturaleza es un ser racional pero profundamente peligroso. La igualdad natural no genera armonía sino competencia: si todos tenemos capacidades similares, todos podemos desear lo mismo, y ese deseo compartido genera inevitablemente el conflicto. En ausencia de una autoridad común, no hay justicia ni injusticia — solo la fuerza.</p>
+      <p class="reflex-p">La solución hobbesiana es coherente con su diagnóstico: si el miedo mutuo es el problema, solo un poder lo suficientemente grande para superarlo puede ser la solución. El Leviatán no es un ideal moral sino una necesidad racional. Los hombres ceden su libertad natural a cambio de seguridad — es un intercambio, no una imposición.</p>
+      <p class="reflex-p">Lo que hace a Hobbes moderno — y perturbador — es que no necesita a Dios para justificar el poder. El Estado no es divino: es el resultado frío del cálculo racional de seres que prefieren la servidumbre a la muerte. En eso anticipó siglos de pensamiento político realista.</p>
+    </div>
+
+    <!-- LOCKE -->
+    <div class="reflex-block">
+      <h3 class="reflex-h3">Locke: <em>los derechos que el Estado no puede tocar</em></h3>
+      <p class="reflex-p">Locke parte de un estado de naturaleza mucho menos sombrío. Para él, la mayoría de los hombres son razonables y honestos; existe una ley natural que establece derechos previos a cualquier gobierno: la vida, la libertad y la propiedad. El problema no es la guerra de todos contra todos, sino la ausencia de un árbitro imparcial cuando surgen los conflictos.</p>
+      <p class="reflex-p">Esta diferencia de diagnóstico produce una diferencia radical en la solución. Los hombres se asocian para proteger derechos que ya poseen — no para crearlos de la nada. Y un Estado que viola esos derechos no solo es injusto: <strong>pierde su legitimidad</strong>. El pueblo tiene entonces derecho a la resistencia, incluso a la revolución.</p>
+      <p class="reflex-p">Locke introduce además la separación de poderes como garantía estructural contra la tiranía. Distribuir el poder no es solo eficiencia: es la arquitectura institucional que hace imposible — o al menos más difícil — que el poder se vuelva contra quienes lo cedieron. Su influencia en el constitucionalismo liberal es directa: cuando la Declaración de Independencia habla de «vida, libertad y búsqueda de la felicidad», está reescribiendo en lenguaje político la triada lockiana.</p>
+    </div>
+
+    <!-- ROUSSEAU -->
+    <div class="reflex-block">
+      <h3 class="reflex-h3">Rousseau: <em>la libertad como autogobierno colectivo</em></h3>
+      <p class="reflex-p">Rousseau rompe con la lógica de sus predecesores en un punto esencial: para él, la civilización no es la solución al problema de la naturaleza humana — es el problema. El hombre natural es bueno; la sociedad, con su propiedad, su desigualdad y su competencia, lo corrompe.</p>
+      <p class="reflex-p">Su respuesta — la voluntad general — es la más exigente del contractualismo. No basta con un contrato que proteja intereses individuales. La voluntad general no es la suma de voluntades particulares: es el bien común que emerge cuando los ciudadanos deliberan pensando en la comunidad. La soberanía pertenece al pueblo de forma inalienable e indelegable.</p>
+      <p class="reflex-p">Rousseau abre una tensión que la democracia liberal nunca ha resuelto del todo: entre la voluntad de la mayoría y la protección del individuo, entre la soberanía popular y los derechos que esa soberanía podría aplastar. Inspiró la Revolución Francesa — y también, como señalaron sus críticos, las formas más autoritarias del jacobinismo que invocaban «la voluntad del pueblo» para justificar el Terror.</p>
+    </div>
+
+    <!-- KANT -->
+    <div class="reflex-block">
+      <h3 class="reflex-h3">Kant: <em>la mayoría de edad de la razón</em></h3>
+      <p class="reflex-p">Kant cierra esta fase con una pregunta que en apariencia es más modesta que las anteriores — ¿qué es la Ilustración? — pero que sintetiza y supera todo lo anterior. Su respuesta: la Ilustración es la salida del hombre de su minoría de edad <strong>autoculpable</strong>. La clave está en el adjetivo. No es que las instituciones hayan impedido el pensamiento libre — es que los propios individuos han renunciado a pensar por sí mismos.</p>
+      <p class="reflex-p">Pero Kant va más allá de la crítica individual. Señala el mecanismo institucional que perpetúa esa minoría de edad: las élites que comprenden este comportamiento y lo explotan. Mantener al pueblo ignorante no es un efecto secundario del poder — es una estrategia deliberada de conservación del mismo. El acceso al conocimiento se administra como un monopolio.</p>
+      <p class="reflex-p">Esta crítica conecta directamente con Locke — el poder que priva al pueblo del conocimiento es el mismo que Locke declaraba ilegítimo — y con Rousseau — la voluntad general solo puede ser auténtica si los ciudadanos son capaces de razonar de forma autónoma. Sin Ilustración, el contrato social es una trampa: los ciudadanos ceden poder sin entender lo que ceden ni a quién.</p>
+    </div>
+
+    <!-- CIERRE -->
+    <div class="reflex-close">
+      <p>De Maquiavelo a Kant, la Fase II describe un arco coherente: el poder político se desacraliza, se racionaliza y se somete progresivamente a la crítica. <strong>Maquiavelo</strong> separó la política de la moral. <strong>Hobbes</strong> la fundó en el miedo. <strong>Locke</strong> la limitó con derechos. <strong>Rousseau</strong> la devolvió al pueblo. <strong>Kant</strong> exigió que ese pueblo fuera capaz de pensar.</p>
+      <p>Cada paso supone al anterior y lo corrige. Y los problemas que estos pensadores identificaron — la legitimidad del poder, los límites del Estado, la tensión entre libertad individual y bien común, la manipulación del conocimiento como herramienta política — no son problemas resueltos. Son los mismos que aparecen en cualquier debate político serio del siglo XXI.</p>
+    </div>
+
+  </div>
 
   <!-- Navigation buttons -->
   <div class="nav-section anim-6">
