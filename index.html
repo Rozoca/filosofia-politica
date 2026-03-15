@@ -84,7 +84,27 @@
     .nav-drop-badge{font-size:.65rem;font-family:'Cormorant SC',serif;letter-spacing:.12em;color:var(--terra-dim);background:rgba(140,58,30,.08);padding:.1rem .4rem;border-radius:1px}
     .nav-autor-link{font-family:'Cormorant SC',serif;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
     .nav-autor-link:hover{color:var(--terra)}
-    @media(max-width:700px){.nav-menu{display:none}}
+    /* ── HAMBURGER ── */
+    .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
+    .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--terra);border-radius:1px;transition:transform .25s, opacity .25s}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .nav-hamburger.open span:nth-child(2){opacity:0}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+    /* Mobile drawer */
+    .mobile-drawer{display:none;position:fixed;top:52px;left:0;right:0;bottom:0;background:rgba(244,234,216,.98);z-index:199;overflow-y:auto;padding:1rem 0 2rem;border-top:1px solid var(--card-border);transform:translateY(-8px);opacity:0;transition:opacity .2s, transform .2s;pointer-events:none}
+    .mobile-drawer.open{opacity:1;transform:translateY(0);pointer-events:all}
+    .mobile-phase-label{font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--terra-mid);padding:.8rem 1.6rem .3rem;display:block;border-top:1px solid var(--card-border);margin-top:.5rem}
+    .mobile-phase-label:first-child{border-top:none;margin-top:0}
+    .mobile-nav-link{display:block;padding:.65rem 1.6rem;font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;color:var(--ink-muted);text-decoration:none;transition:color .15s,background .15s}
+    .mobile-nav-link:hover{color:var(--terra);background:var(--papyrus)}
+    .mobile-nav-link.disabled{color:var(--disabled-text);pointer-events:none;opacity:.5}
+
+    @media(max-width:700px){
+      .nav-menu{display:none}
+      .nav-hamburger{display:flex}
+      .mobile-drawer{display:block}
+    }
 
     .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 
@@ -612,8 +632,45 @@
       </div>
       <a href="autor.html" class="nav-autor-link">Sobre el autor</a>
     </div>
+    <!-- Hamburger button (mobile only) -->
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <span class="mobile-phase-label">Fase I — Antigüedad</span>
+  <a href="grecia-socrates-platon.html" class="mobile-nav-link">Sócrates &amp; Platón</a>
+  <a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a>
+  <a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a>
+  <a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
+
+  <span class="mobile-phase-label">Fase II — Renacimiento &amp; Modernidad</span>
+  <a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a>
+  <a href="hobbes.html" class="mobile-nav-link">Hobbes y el Leviatán</a>
+  <a href="locke.html" class="mobile-nav-link">Locke y los derechos naturales</a>
+  <a href="rousseau.html" class="mobile-nav-link">Rousseau</a>
+  <a href="kant.html" class="mobile-nav-link">Kant y la razón universal</a>
+
+  <span class="mobile-phase-label">Fase III — Siglo XIX · Ideologías</span>
+  <a href="marx.html" class="mobile-nav-link">Marx y el Capital</a>
+  <a href="mill.html" class="mobile-nav-link">Mill y la libertad</a>
+  <a href="tocqueville.html" class="mobile-nav-link">Tocqueville y la democracia</a>
+  <a href="nietzsche.html" class="mobile-nav-link">Nietzsche y el martillo</a>
+  <a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo — Las sombras del XIX</a>
+
+  <span class="mobile-phase-label">Fase IV — Economía Política</span>
+  <a href="smith.html" class="mobile-nav-link">Adam Smith</a>
+  <a href="keynes.html" class="mobile-nav-link">Keynes</a>
+  <a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a>
+  <a href="#" class="mobile-nav-link disabled">Globalización · próximamente</a>
+  <a href="#" class="mobile-nav-link disabled">El nuevo desorden mundial · próximamente</a>
+
+  <span class="mobile-phase-label">Más</span>
+  <a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
+</div>
 
 <!-- ══ SVG Assets ══ -->
 <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg">
@@ -863,6 +920,7 @@
 </footer>
 
 <script>
+// Desktop dropdowns
 function toggleDrop(id){
   const all=document.querySelectorAll('.nav-dropdown');
   const allBtns=document.querySelectorAll('.nav-item-btn');
@@ -880,6 +938,26 @@ document.addEventListener('click',e=>{
     document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
     document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
   }
+});
+
+// Mobile hamburger
+const hamburger = document.getElementById('hamburger');
+const drawer = document.getElementById('mobile-drawer');
+hamburger.addEventListener('click', () => {
+  const isOpen = drawer.classList.contains('open');
+  drawer.classList.toggle('open', !isOpen);
+  hamburger.classList.toggle('open', !isOpen);
+  hamburger.setAttribute('aria-expanded', String(!isOpen));
+  drawer.setAttribute('aria-hidden', String(isOpen));
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+});
+// Close drawer when a link is tapped
+drawer.querySelectorAll('.mobile-nav-link:not(.disabled)').forEach(link => {
+  link.addEventListener('click', () => {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
 });
 </script>
 </body>
