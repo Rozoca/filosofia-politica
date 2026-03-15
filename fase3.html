@@ -388,6 +388,8 @@
     .back-section {
       padding: 0 0 4rem;
       text-align: center;
+      display: flex; justify-content: center;
+      gap: 1rem; flex-wrap: wrap;
     }
     .back-link {
       font-family: 'Manrope', sans-serif;
@@ -404,6 +406,15 @@
     .back-link:hover {
       border-color: var(--amber-dim);
       color: var(--amber);
+    }
+    .back-link.forward {
+      background: var(--red);
+      border-color: var(--red-mid);
+      color: #fff;
+    }
+    .back-link.forward:hover {
+      background: var(--red-mid);
+      color: #fff;
     }
 
     /* ── FOOTER ── */
@@ -684,8 +695,9 @@
   </div>
 
   <div class="back-section">
-    <a href="index.html" class="back-link" style="margin-right:.8rem;">← Portal principal</a>
+    <a href="index.html" class="back-link">← Portal principal</a>
     <a href="fase2.html" class="back-link">← Fase II · Renacimiento & Modernidad</a>
+    <a href="fase4.html" class="back-link forward">Fase IV · Economía Política →</a>
   </div>
 
 </div>
