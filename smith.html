@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo XIII — Adam Smith · Filosofía & Política</title>
+  <meta name="description" content="Adam Smith: la mano invisible, la división del trabajo, la riqueza de las naciones y los límites del mercado que el propio Smith señaló."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#080e0a;--bg-mid:#0c1410;--bg-card:#111a14;--surface:#182018;
+      --border:#263426;--border-light:#384838;
+      --green:#1a5a2a;--green-mid:#227832;--green-light:#30a044;--green-pale:#60c870;
+      --copper:#b06820;--copper-light:#d08030;--copper-dim:#7a4810;
+      --ink:#e8f0e0;--ink-mid:#a8c0a0;--ink-dim:#607058;
+      --text:#d8e8d0;--text-muted:#889880;
+      --correct:#3a7a3a;--correct-bg:#0e1e0e;--wrong:#8a2020;--wrong-bg:#1e1010;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:17px;line-height:1.75;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(26,90,42,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(26,90,42,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--green-mid);z-index:999;width:0;transition:width .1s linear}
+    .top-nav{background:rgba(8,14,10,.96);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--green-pale)}
+    .nav-links{display:flex;align-items:center;gap:1.2rem}
+    .nav-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--copper-light)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--ink-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--green-pale);border:1px solid var(--green-mid);padding:.2rem .6rem;border-radius:1px}
+    .hero{padding:4.5rem 2rem 0;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-mid) 100%)}
+    .hero::before{content:'';position:absolute;top:-10%;right:-10%;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(26,90,42,.07) 0%,transparent 60%);pointer-events:none}
+    .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+    .hero-eyebrow{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--green-mid);display:block;margin-bottom:1rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5.2rem);font-weight:400;color:var(--ink);line-height:1;margin-bottom:1.2rem}
+    .hero-title em{font-style:italic;color:var(--green-pale)}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-style:italic;color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:2.5rem}
+    .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-item{padding:1.3rem 2.2rem 1.3rem 0;margin-right:2.2rem;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--green-pale);display:block;line-height:1}
+    .stat-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.14em;color:var(--ink-dim);display:block;margin-top:.3rem}
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:960px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ink-mid);background:var(--border)}.tab-btn.active{color:#fff;background:var(--green);border-color:var(--green-mid)}
+    .content-area{max-width:960px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;color:var(--ink);line-height:1.2}
+    .panel-header h2 em{color:var(--green-mid);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--copper-dim);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:1.7rem 1.9rem}
+    .card.full{grid-column:1/-1}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ink);margin-bottom:.6rem}
+    .card p,.card li{font-size:.98rem;color:var(--text-muted);line-height:1.8}
+    .card ul{padding-left:1.2rem}.card li{margin-bottom:.3rem}
+    .card-icon{font-size:1.4rem;display:block;margin-bottom:.6rem}
+    .highlight-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:2px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .highlight-card .hc-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--green-mid);display:block;margin-bottom:.7rem}
+    .highlight-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--ink);margin-bottom:.7rem}
+    .highlight-card p{font-size:.98rem;color:var(--text-muted);line-height:1.85;margin-bottom:.65rem}.highlight-card p:last-child{margin-bottom:0}
+    .highlight-card strong{color:var(--ink);font-weight:500}
+    .pull-quote{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--copper);padding:1.8rem 2.4rem;margin:2.5rem 0;border-radius:2px}
+    .pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--ink-mid);line-height:1.65}
+    .pull-quote cite{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;color:var(--copper-dim);display:block;margin-top:.7rem}
+    .timeline{position:relative;padding-left:2rem;margin-bottom:2.5rem}
+    .timeline::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:1.8rem}
+    .tl-dot{position:absolute;left:-1.65rem;top:.3rem;width:9px;height:9px;background:var(--green);border-radius:0;transform:rotate(45deg)}
+    .tl-date{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--green-mid);display:block;margin-bottom:.2rem}
+    .tl-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.2rem}
+    .tl-desc{font-size:.93rem;color:var(--text-muted);line-height:1.75}
+    .accordion{margin-bottom:2.5rem}
+    .acc-item{border:1px solid var(--border);border-radius:2px;margin-bottom:.5rem;overflow:hidden}
+    .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:background .2s}
+    .acc-trigger:hover{background:var(--surface)}.acc-trigger.open{background:var(--green)}
+    .acc-term{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink)}
+    .acc-trigger.open .acc-term{color:#fff}
+    .acc-arrow{font-size:.85rem;color:var(--ink-dim);transition:transform .3s;flex-shrink:0;margin-left:1rem}
+    .acc-trigger.open .acc-arrow{transform:rotate(180deg);color:var(--copper-light)}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 1.4rem;background:var(--bg-mid)}
+    .acc-body.open{max-height:700px;padding:1.3rem 1.4rem}
+    .acc-body p{font-size:.97rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.acc-body p:last-child{margin-bottom:0}
+    .acc-body strong{color:var(--ink);font-weight:500}
+    /* CONTEMPORARY CONNECTIONS — distinctive component for Fase IV */
+    .connection-block{margin-bottom:2rem;border:1px solid var(--border);border-radius:2px;overflow:hidden}
+    .connection-header{background:var(--surface);padding:1.2rem 1.8rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem}
+    .connection-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ink)}
+    .connection-tag{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green-pale);background:var(--green);padding:.2rem .6rem;border-radius:1px;flex-shrink:0}
+    .connection-body{padding:1.5rem 1.8rem;background:var(--bg-card)}
+    .connection-body p{font-size:.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.connection-body p:last-child{margin-bottom:0}
+    .connection-body strong{color:var(--ink-mid);font-weight:500}
+    /* Limits grid */
+    .limits-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+    .limit-card{background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--copper);border-radius:2px;padding:1.5rem}
+    .limit-label{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--copper-dim);display:block;margin-bottom:.4rem}
+    .limit-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:.4rem}
+    .limit-desc{font-size:.9rem;color:var(--text-muted);line-height:1.75}
+    /* TEST */
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:.98rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;color:var(--green-mid);display:block;margin-bottom:.4rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.8rem 1.1rem;font-family:'Manrope',sans-serif;font-size:.93rem;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--green);color:var(--ink);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}
+    .opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:#e87070}
+    .opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}
+    .opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.7rem;font-size:.9rem;line-height:1.7;display:none}.q-fb.show{display:block}
+    .q-fb.ok{color:var(--correct)}.q-fb.fail{color:#e87070}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}
+    .score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--green-pale);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.22em;color:var(--ink-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--green);color:var(--green-pale);font-family:'Manrope',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:1px;transition:background .2s,color .2s}
+    .retry-btn:hover{background:var(--green);color:#fff}
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ink);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--copper)}
+    @media(max-width:640px){.card-grid,.limits-grid{grid-template-columns:1fr}.card.full{grid-column:1}.test-wrap{padding:1.5rem 1.2rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.74rem;padding:.5rem .9rem}}
+
+    /* ── NAV GLOBAL ── */
+    .top-nav{background:rgba(14,12,10,.96);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--gold,#c48820);text-decoration:none;display:flex;align-items:center;letter-spacing:.02em;flex-shrink:0}
+    .nav-brand:hover{color:var(--gold-light,#d8a030)}
+    .nav-menu{display:flex;align-items:stretch;gap:0}
+    .nav-item{position:relative;display:flex;align-items:stretch}
+    .nav-item-btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--gold,#c48820)}
+    .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
+    .nav-item-btn.open .arrow{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,18,16,.98);border:1px solid var(--border,#3a3028);border-top:none;min-width:260px;z-index:300;display:none;backdrop-filter:blur(12px)}
+    .nav-dropdown.open{display:block;animation:dropIn .15s ease}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    .nav-drop-section{padding:.5rem 0}
+    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--border,#3a3028)}
+    .nav-drop-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim,#8a6018);padding:.4rem 1.2rem .2rem;display:block}
+    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-mid,#c0b8a8);text-decoration:none;transition:background .15s,color .15s}
+    .nav-drop-link:hover{background:var(--surface,#221e1a);color:var(--gold,#c48820)}
+    .nav-drop-link.disabled{color:var(--ink-dim,#807868);cursor:default;opacity:.45;pointer-events:none}
+    .nav-drop-badge{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim,#8a6018);background:rgba(196,136,32,.1);padding:.1rem .4rem;border-radius:1px}
+    .nav-autor-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
+    .nav-autor-link:hover,.nav-autor-link.active{color:var(--gold,#c48820)}
+    @media(max-width:700px){.nav-menu{display:none}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
+    <div class="nav-menu">
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d1')">Fase I <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d1">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Antigüedad griega</span>
+            <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
+            <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
+            <a href="#" class="nav-drop-link disabled">Cicerón <span class="nav-drop-badge">Próx.</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d2')">Fase II <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d2">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Renacimiento &amp; Modernidad</span>
+            <a href="maquiavelo.html" class="nav-drop-link">Maquiavelo</a>
+            <a href="hobbes.html" class="nav-drop-link">Hobbes y el Leviatán</a>
+            <a href="locke.html" class="nav-drop-link">Locke y los derechos naturales</a>
+            <a href="rousseau.html" class="nav-drop-link">Rousseau</a>
+            <a href="kant.html" class="nav-drop-link">Kant y la razón universal</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d3')">Fase III <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d3">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Siglo XIX · Ideologías</span>
+            <a href="marx.html" class="nav-drop-link">Marx y el Capital</a>
+            <a href="mill.html" class="nav-drop-link">Mill y la libertad</a>
+            <a href="tocqueville.html" class="nav-drop-link">Tocqueville y la democracia</a>
+            <a href="nietzsche.html" class="nav-drop-link">Nietzsche y el martillo</a>
+          </div>
+          <div class="nav-drop-section">
+            <a href="epilogo-fase3.html" class="nav-drop-link">✦ Epílogo — Las sombras del XIX</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn active" onclick="toggleDrop('d4')">Fase IV <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d4">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Economía Política</span>
+            <a href="smith.html" class="nav-drop-link">Adam Smith</a>
+            <a href="keynes.html" class="nav-drop-link">Keynes</a>
+            <a href="hayek-keynes.html" class="nav-drop-link">Hayek vs. Keynes</a>
+            <a href="#" class="nav-drop-link disabled">Globalización <span class="nav-drop-badge">Próx.</span></a>
+            <a href="#" class="nav-drop-link disabled">El nuevo desorden mundial <span class="nav-drop-badge">Próx.</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="autor.html" class="nav-autor-link">Sobre el autor</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo XIII · Liberalismo económico</span>
+    <h1 class="hero-title">Adam Smith y <em>la mano invisible</em></h1>
+    <p class="hero-subtitle">El hombre que fundó la economía como ciencia y cuyo nombre ha sido invocado para justificar casi cualquier cosa. Lo que Smith realmente escribió es más matizado, más crítico del poder corporativo y más cercano a la ética que lo que sus herederos reconocen.</p>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">1723–1790</span><span class="stat-label">Kirkcaldy, Escocia</span></div>
+      <div class="stat-item"><span class="stat-num">1759</span><span class="stat-label">Teoría de los sentimientos morales</span></div>
+      <div class="stat-item"><span class="stat-num">1776</span><span class="stat-label">La riqueza de las naciones</span></div>
+      <div class="stat-item"><span class="stat-num">1x</span><span class="stat-label">«Mano invisible» en toda la obra</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="quien">Quién fue</button>
+    <button class="tab-btn" data-tab="sistema">El sistema</button>
+    <button class="tab-btn" data-tab="limites">Los límites</button>
+    <button class="tab-btn" data-tab="hoy">Smith hoy</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<main class="content-area">
+
+<!-- QUIÉN FUE -->
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header">
+    <h2>Adam Smith: <em>el filósofo moral que fundó la economía</em></h2>
+    <p class="panel-lead">Smith no fue un defensor del egoísmo ni un apologista del capitalismo salvaje. Fue un filósofo moral escocés que intentó entender cómo los seres humanos coordinan sus acciones en sociedades complejas — y descubrió que el mercado hacía algo sorprendente y eficiente sin que nadie lo dirigiera.</p>
+  </div>
+
+  <p class="section-label">Contexto histórico</p>
+  <div class="card-grid">
+    <div class="card full">
+      <span class="card-icon">⚙️</span>
+      <h3>El amanecer de la economía industrial</h3>
+      <p>Smith escribe en el umbral de la Revolución Industrial. En 1776, el año de La riqueza de las naciones, también se firma la Declaración de Independencia americana. El mundo antiguo —de gremios, monopolios reales y economías mercantilistas— está siendo desafiado por fuerzas nuevas: manufactura a escala, comercio atlántico, mercados que crecen más allá del control de cualquier rey. Smith no inventó el capitalismo — lo observó nacer y trató de entender sus leyes.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏛️</span>
+      <h3>El filósofo antes que el economista</h3>
+      <p>La primera gran obra de Smith, La teoría de los sentimientos morales (1759), es un tratado de ética. Analiza cómo los seres humanos desarrollan empatía y juicio moral. Esta base ética es fundamental: para Smith, el mercado no existe en el vacío — existe dentro de una sociedad con normas, instituciones y valores morales que lo condicionan.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎓</span>
+      <h3>El profesor de Glasgow</h3>
+      <p>Catedrático de Filosofía Moral en Glasgow durante 13 años. Su método: observación empírica, no doctrina. Estudió durante una década los sistemas económicos de su época antes de publicar La riqueza de las naciones. El libro tardó diez años en escribirse. Su densidad y su matiz son el resultado de esa lentitud deliberada.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1723</span><span class="tl-title">Nace en Kirkcaldy, Escocia</span><span class="tl-desc">Hijo de un funcionario de aduanas. A los 14 años entra en la Universidad de Glasgow. A los 17, en Oxford — donde pasa seis años sin aprender gran cosa, según sus propias palabras.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1751</span><span class="tl-title">Catedrático en Glasgow</span><span class="tl-desc">Primero de Lógica, luego de Filosofía Moral. Sus clases cubren ética, jurisprudencia, economía política y astronomía. Sus estudiantes lo recuerdan como uno de los mejores profesores que habían conocido.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1759</span><span class="tl-title">La teoría de los sentimientos morales</span><span class="tl-desc">Su primera gran obra. Analiza la empatía y el juicio moral. Establece la base ética sobre la que construirá su economía política. Sin este libro, La riqueza de las naciones se malinterpreta.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1764–66</span><span class="tl-title">Viaje por Francia con el Duque de Buccleuch</span><span class="tl-desc">Conoce a los fisiócratas franceses — los primeros economistas sistemáticos. Discute con Voltaire en Ginebra. Europa en fermentación intelectual y política. Usa el viaje para documentar los sistemas económicos del continente.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1776</span><span class="tl-title">La riqueza de las naciones</span><span class="tl-desc">El libro más influyente de la historia económica. Publicado el mismo año que la Declaración de Independencia americana — dos manifiestos distintos de la misma era. Inmediatamente influyente en la política económica británica.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1790</span><span class="tl-title">Muere en Edimburgo</span><span class="tl-desc">Antes de morir, ordena destruir la mayoría de sus manuscritos inéditos. Solo deja publicadas sus dos grandes obras. Su legado ya estaba siendo reclamado por corrientes que él no habría reconocido.</span></div>
+  </div>
+</div>
+
+<!-- EL SISTEMA -->
+<div class="tab-panel" id="tab-sistema">
+  <div class="panel-header">
+    <h2>El sistema de Smith: <em>mercado, trabajo y coordinación</em></h2>
+    <p class="panel-lead">El argumento central de La riqueza de las naciones es tan simple en su formulación como profundo en sus implicaciones: cuando los individuos persiguen su propio interés en un mercado competitivo, generan bienestar colectivo sin proponérselo. Pero Smith añadió condiciones que sus herederos suelen ignorar.</p>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">El concepto nuclear</span>
+    <h3>La mano invisible — y lo que Smith realmente quiso decir</h3>
+    <p>La frase más famosa de la economía moderna aparece <strong>una sola vez</strong> en toda La riqueza de las naciones. Smith no la usó como el principio organizador de su sistema — fue el siglo XX quien la convirtió en eso.</p>
+    <p>Lo que Smith argumentó es más preciso: cuando los mercados son <strong>competitivos</strong> — sin monopolios, sin colusión, con información disponible — el mecanismo de precios coordina millones de decisiones individuales de forma más eficiente que cualquier planificador central. El panadero no te da pan por bondad: te lo da porque quiere tu dinero. Y el resultado es que tú tienes pan y él tiene dinero.</p>
+    <p>La condición es crucial: <strong>mercados competitivos</strong>. Smith era profundamente hostil a los monopolios, a los privilegios corporativos y a los empresarios que se coludían para fijar precios. «La gente del mismo oficio raramente se reúne, incluso para divertirse, sin que la conversación acabe en una conspiración contra el público.»</p>
+  </div>
+
+  <p class="section-label">Los tres pilares del sistema</p>
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La división del trabajo: la fuente de la riqueza</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body">
+        <p>Smith abre La riqueza de las naciones con el ejemplo de la fábrica de alfileres: un hombre solo produce quizás 20 alfileres al día. Diez hombres con tareas especializadas producen 48.000. La <strong>división del trabajo</strong> — cada persona hace una tarea específica en lugar de todo el proceso — multiplica la productividad de forma exponencial.</p>
+        <p>Pero Smith también señaló el coste: el trabajador que repite la misma operación mil veces al día se embrutece intelectualmente. La división del trabajo enriquece a la sociedad y empobrece al trabajador individual. Es una de las primeras formulaciones del problema que Marx llamará alienación.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El precio y el mecanismo de coordinación</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body">
+        <p>Los precios en un mercado competitivo transmiten información de forma descentralizada. Si escasea el trigo, su precio sube — lo que simultáneamente incentiva a más agricultores a plantarlo, incentiva a los consumidores a buscar sustitutos y dirige recursos hacia donde se necesitan. <strong>Nadie lo dirige: emerge del sistema.</strong></p>
+        <p>Smith no afirmó que los precios de mercado sean siempre justos o correctos. Afirmó que son más eficientes que la planificación central para coordinar información dispersa. La diferencia importa.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El interés propio como motor — con condiciones</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body">
+        <p>Smith no afirmó que el egoísmo sea una virtud. Afirmó que en un mercado competitivo, la búsqueda del interés propio produce resultados beneficiosos para el conjunto aunque nadie lo pretenda. La diferencia es importante: no es una defensa moral del egoísmo sino una descripción funcional de un mecanismo.</p>
+        <p>Y el propio Smith fue el primero en señalar los límites: <strong>el interés propio sin competencia real produce monopolio, no bienestar.</strong> El empresario que elimina a sus rivales no produce bienestar social — extrae renta. Smith era perfectamente consciente de esto.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El papel del Estado según Smith</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body">
+        <p>Contra la imagen de Smith como defensor del laissez-faire absoluto, el propio Smith identificó tres funciones legítimas del Estado: defensa nacional, justicia y administración de obras públicas que el mercado no proveerá por sí solo (infraestructuras, educación básica, salud pública).</p>
+        <p>Smith apoyó la educación pública precisamente porque la división del trabajo embrurece a los trabajadores — el Estado debe compensar ese efecto. También fue crítico del imperialismo comercial y de las Compañías de Indias Orientales, que usaban el poder del Estado para monopolizar el comercio. <strong>El Smith real es mucho más institucionalista y mucho menos libertario de lo que su leyenda sugiere.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"La gente del mismo oficio raramente se reúne, incluso para divertirse, sin que la conversación acabe en una conspiración contra el público o en algún ardid para subir los precios."</blockquote>
+    <cite>— Adam Smith, La riqueza de las naciones, Libro I, Cap. X, 1776</cite>
+  </div>
+</div>
+
+<!-- LOS LÍMITES -->
+<div class="tab-panel" id="tab-limites">
+  <div class="panel-header">
+    <h2>Los límites del mercado: <em>lo que el propio Smith admitió</em></h2>
+    <p class="panel-lead">Smith fue el primero en identificar los fallos del mercado — mucho antes de que se llamaran así. Los herederos que invocan su nombre para oponerse a cualquier regulación leen a Smith de forma selectiva.</p>
+  </div>
+
+  <p class="section-label">Cuatro fallos que Smith reconoció</p>
+  <div class="limits-grid">
+    <div class="limit-card">
+      <span class="limit-label">Fallo 1</span>
+      <span class="limit-title">Monopolios y poder de mercado</span>
+      <p class="limit-desc">Smith era ferozmente anti-monopolio. Cuando una empresa elimina la competencia, los precios suben y la calidad baja. El mecanismo de la mano invisible requiere competencia real — sin ella, es solo poder corporativo sin freno.</p>
+    </div>
+    <div class="limit-card">
+      <span class="limit-label">Fallo 2</span>
+      <span class="limit-title">Bienes públicos</span>
+      <p class="limit-desc">Infraestructuras, defensa, educación básica — bienes que el mercado no proveerá en cantidad suficiente porque no son excludibles o rentables. Smith aceptó el gasto público en estas áreas como legítimo y necesario.</p>
+    </div>
+    <div class="limit-card">
+      <span class="limit-label">Fallo 3</span>
+      <span class="limit-title">Externalidades</span>
+      <p class="limit-desc">Cuando una fábrica contamina un río, el coste lo paga la sociedad, no el fabricante. El precio de mercado no refleja ese coste real. Smith no usó el término pero describió el problema: los costes que recaen sobre terceros no entran en el cálculo del mercado.</p>
+    </div>
+    <div class="limit-card">
+      <span class="limit-label">Fallo 4</span>
+      <span class="limit-title">Asimetría de información</span>
+      <p class="limit-desc">El médico sabe más que el paciente. El vendedor sabe más que el comprador. Cuando la información no está equilibrada, el mercado no produce resultados eficientes. Smith observó este problema en los mercados financieros y en la relación entre empleador y trabajador.</p>
+    </div>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">El Smith que se ignora</span>
+    <h3>Por qué Smith habría apoyado la regulación financiera</h3>
+    <p>En La riqueza de las naciones, Smith defendió la regulación del sistema bancario — incluso llamándola una restricción a la libertad natural — porque los bancos que quiebran arrastran a personas inocentes. <strong>Aceptó explícitamente que cuando la libertad de unos pone en riesgo la seguridad de otros, el Estado puede y debe intervenir.</strong></p>
+    <p>Este argumento es perfectamente aplicable a la crisis financiera de 2008: bancos que tomaban riesgos excesivos con el dinero de sus clientes y del sistema, sabiendo que el Estado los rescataría si fallaban. Smith habría diagnosticado el problema con precisión — y habría apoyado la regulación que lo prevenía.</p>
+  </div>
+</div>
+
+<!-- SMITH HOY -->
+<div class="tab-panel" id="tab-hoy">
+  <div class="panel-header">
+    <h2>Smith en el mundo actual: <em>conexiones reales</em></h2>
+    <p class="panel-lead">Los conceptos de Smith no son arqueología económica. Son la base sobre la que se construyen los debates más urgentes de hoy — desde la regulación de las Big Tech hasta la política de competencia en pagos digitales.</p>
+  </div>
+
+  <p class="section-label">Conceptos smithianos en el siglo XXI</p>
+
+  <div class="connection-block">
+    <div class="connection-header">
+      <h3>La mano invisible y los algoritmos de precios</h3>
+      <span class="connection-tag">Hoy</span>
+    </div>
+    <div class="connection-body">
+      <p>Amazon, Uber y las aerolíneas usan algoritmos de precios dinámicos que ajustan precios en milisegundos según la oferta y demanda. Es la mano invisible en su forma más pura y automatizada. Pero también genera precios discriminatorios donde el mismo bien cuesta más a quien más lo necesita o menos capacidad tiene de comparar.</p>
+      <p><strong>La pregunta smithiana:</strong> ¿es esto un mercado competitivo o es poder de mercado digital que extrae renta? Smith habría exigido que los reguladores investigaran si hay colusión algorítmica — cuando los algoritmos de distintas empresas coordinan precios sin que los humanos lo decidan explícitamente.</p>
+    </div>
+  </div>
+
+  <div class="connection-block">
+    <div class="connection-header">
+      <h3>Monopolios del siglo XXI: Big Tech y plataformas de pagos</h3>
+      <span class="connection-tag">Hoy</span>
+    </div>
+    <div class="connection-body">
+      <p>Google tiene el 90% de las búsquedas mundiales. Apple y Google controlan el 99% de los sistemas operativos móviles. Visa y Mastercard dominan los pagos con tarjeta globalmente. Estos son monopolios o duopolios que Smith habría identificado como amenazas al bienestar del consumidor.</p>
+      <p><strong>La paradoja:</strong> estas empresas son eficientes y ofrecen servicios de gran calidad — exactamente lo que el mercado promete. Pero su dominio también les permite extraer rentas (comisiones de interchange, cuotas de App Store) que un mercado verdaderamente competitivo no sostendría. Smith habría apoyado la política de competencia agresiva que la UE está aplicando con la Digital Markets Act.</p>
+    </div>
+  </div>
+
+  <div class="connection-block">
+    <div class="connection-header">
+      <h3>Comercio internacional y desglobalización</h3>
+      <span class="connection-tag">Hoy</span>
+    </div>
+    <div class="connection-body">
+      <p>Smith fue el primer gran defensor del libre comercio internacional: si cada país se especializa en lo que produce más eficientemente (ventaja comparativa), el comercio entre ellos genera más riqueza que si cada uno intenta producir todo. El orden económico de la segunda mitad del siglo XX se construyó sobre este principio.</p>
+      <p><strong>La crisis actual:</strong> la pandemia de COVID-19, la guerra de Ucrania y la rivalidad China-EEUU han revelado la fragilidad de las cadenas de suministro globales. Los semiconductores se hacen en Taiwán. Los medicamentos básicos en India y China. Los fertilizantes en Rusia y Bielorrusia. <strong>La desglobalización actual es la respuesta política al descubrimiento de que la eficiencia smithiana tiene un coste de vulnerabilidad estratégica que Smith no calculó.</strong></p>
+    </div>
+  </div>
+
+  <div class="connection-block">
+    <div class="connection-header">
+      <h3>La división del trabajo y la automatización</h3>
+      <span class="connection-tag">Hoy</span>
+    </div>
+    <div class="connection-body">
+      <p>Smith observó que la división del trabajo embrutece al trabajador que repite la misma operación mecánicamente. La automatización e IA llevan esa lógica a su extremo: si la máquina hace la tarea repetitiva mejor y más barato que el humano, ¿qué hace el humano? Smith sugirió la educación pública como compensación — sin anticipar que la velocidad de la automatización actual supera la capacidad de los sistemas educativos de adaptarse.</p>
+      <p><strong>La pregunta que el siglo XXI plantea a Smith:</strong> si el mercado crea riqueza pero la distribuye de forma que los propietarios del capital (incluidas las máquinas y algoritmos) capturan casi todo el incremento, ¿sigue siendo la mano invisible el mecanismo de coordinación óptimo? Es la pregunta que conecta Smith con Keynes, con Piketty y con el debate sobre la renta universal.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header">
+    <h2>Pon a prueba <em>tu comprensión</em></h2>
+    <p class="panel-lead">15 preguntas sobre Adam Smith — el real, no la caricatura neoliberal.</p>
+  </div>
+  <div class="test-wrap" id="quiz">
+    <p class="test-intro">Selecciona la respuesta correcta en cada pregunta.</p>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta I</span><p class="q-text">¿Cuántas veces aparece la expresión «mano invisible» en La riqueza de las naciones?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Docenas de veces — es el concepto central de la obra</button></li><li><button class="opt-btn" data-idx="1">Tres veces</button></li><li><button class="opt-btn" data-idx="2">Una sola vez</button></li><li><button class="opt-btn" data-idx="3">Nunca — es una interpretación posterior</button></li></ul><p class="q-fb ok">Correcto. «Mano invisible» aparece una sola vez en La riqueza de las naciones. El siglo XX convirtió esa metáfora puntual en el principio organizador de todo el pensamiento de Smith — algo que el propio texto no justifica.</p><p class="q-fb fail">La expresión «mano invisible» aparece una sola vez en toda La riqueza de las naciones. Su conversión en el concepto central del pensamiento de Smith es una construcción posterior.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta II</span><p class="q-text">¿Cuál era la formación académica de Adam Smith?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Filósofo moral — su primera gran obra fue un tratado de ética, no de economía</button></li><li><button class="opt-btn" data-idx="1">Economista — fue el primer catedrático de economía de la historia</button></li><li><button class="opt-btn" data-idx="2">Jurista — aplicó el derecho natural a los mercados</button></li><li><button class="opt-btn" data-idx="3">Matemático — introdujo el método cuantitativo en economía</button></li></ul><p class="q-fb ok">Correcto. Smith era catedrático de Filosofía Moral. Su primera gran obra fue La teoría de los sentimientos morales (1759). Sin esa base ética, La riqueza de las naciones se malinterpreta.</p><p class="q-fb fail">Smith era filósofo moral, catedrático en Glasgow. Su primera gran obra fue un tratado de ética — La teoría de los sentimientos morales (1759). La economía política vino después, sobre esa base moral.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta III</span><p class="q-text">¿Cuál era la posición de Smith sobre los monopolios?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Los aceptaba como resultado natural del mercado competitivo</button></li><li><button class="opt-btn" data-idx="1">Los veía como benéficos porque permiten economías de escala</button></li><li><button class="opt-btn" data-idx="2">No se pronunció sobre el tema — es una cuestión posterior</button></li><li><button class="opt-btn" data-idx="3">Era ferozmente anti-monopolio: destruyen la competencia que hace funcionar al mercado</button></li></ul><p class="q-fb ok">Correcto. Smith fue uno de los críticos más duros de los monopolios y de los privilegios corporativos. Sin competencia real, la mano invisible no funciona — solo hay extracción de renta.</p><p class="q-fb fail">Smith era ferozmente anti-monopolio. Escribió que los empresarios del mismo sector tendían a coludirse para subir precios. Los monopolios destruyen la competencia que hace funcionar el mecanismo de mercado que él defendía.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta IV</span><p class="q-text">¿Con qué ejemplo inicia Smith La riqueza de las naciones para ilustrar la división del trabajo?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Una panadería industrial</button></li><li><button class="opt-btn" data-idx="1">Una fábrica de alfileres donde la especialización multiplica la producción de 20 a 48.000 unidades</button></li><li><button class="opt-btn" data-idx="2">Un barco mercante con tripulación especializada</button></li><li><button class="opt-btn" data-idx="3">Una granja con cultivos diferenciados</button></li></ul><p class="q-fb ok">Correcto. La fábrica de alfileres es uno de los ejemplos más famosos de la historia económica: diez hombres con tareas especializadas producen 48.000 alfileres al día; uno solo, quizás 20.</p><p class="q-fb fail">Smith abre La riqueza de las naciones con la fábrica de alfileres: diez trabajadores especializados producen 48.000 al día; uno solo haría quizás 20. Es el ejemplo fundacional de la productividad moderna.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta V</span><p class="q-text">¿Qué coste de la división del trabajo señaló el propio Smith?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que reducía la calidad de los productos artesanales</button></li><li><button class="opt-btn" data-idx="1">Que concentraba la riqueza en los propietarios de las fábricas</button></li><li><button class="opt-btn" data-idx="2">Que embrutecía intelectualmente al trabajador que repite la misma operación mecánica</button></li><li><button class="opt-btn" data-idx="3">Que destruía la economía rural tradicional</button></li></ul><p class="q-fb ok">Correcto. Smith fue el primero en señalar lo que Marx llamará alienación: el trabajo repetitivo y mecánico destruye la capacidad intelectual del trabajador. Por eso defendió la educación pública como compensación necesaria.</p><p class="q-fb fail">Smith señaló que la división del trabajo embrutece intelectualmente al trabajador. El que repite la misma operación mecánicamente pierde la capacidad de pensar y juzgar. Esta es la razón por la que Smith apoyó la educación pública.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VI</span><p class="q-text">¿Qué tres funciones del Estado aceptó Smith como legítimas?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Defensa nacional, justicia y obras públicas que el mercado no proveerá (infraestructuras, educación básica)</button></li><li><button class="opt-btn" data-idx="1">Solo la defensa nacional — todo lo demás debía dejarse al mercado</button></li><li><button class="opt-btn" data-idx="2">Regulación de precios, salario mínimo y protección de industrias nacionales</button></li><li><button class="opt-btn" data-idx="3">Banca central, política monetaria y regulación del comercio exterior</button></li></ul><p class="q-fb ok">Correcto. Smith no era un anarcocapitalista. Aceptó el Estado para defensa, justicia y bienes públicos que el mercado no provee. El Smith real es mucho más institucionalista que su leyenda neoliberal.</p><p class="q-fb fail">Smith aceptó tres funciones legítimas del Estado: defensa nacional, administración de justicia y obras públicas que el mercado no proveerá por sí solo, incluyendo infraestructuras y educación básica.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta VII</span><p class="q-text">¿En qué año se publicó La riqueza de las naciones?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">1759</button></li><li><button class="opt-btn" data-idx="1">1789</button></li><li><button class="opt-btn" data-idx="2">1848</button></li><li><button class="opt-btn" data-idx="3">1776</button></li></ul><p class="q-fb ok">Correcto. 1776 — el mismo año que la Declaración de Independencia americana. Dos manifiestos distintos del mismo momento histórico: el nacimiento del mundo moderno liberal.</p><p class="q-fb fail">1776 — el mismo año que la Declaración de Independencia americana. Dos documentos fundacionales del mundo moderno publicados en el mismo año.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta VIII</span><p class="q-text">¿Qué condición es necesaria para que la «mano invisible» funcione según Smith?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que el Estado no intervenga bajo ninguna circunstancia</button></li><li><button class="opt-btn" data-idx="1">Que exista competencia real en los mercados, sin monopolios ni colusión</button></li><li><button class="opt-btn" data-idx="2">Que los agentes económicos actúen de forma racional y con información perfecta</button></li><li><button class="opt-btn" data-idx="3">Que el comercio internacional sea libre y sin aranceles</button></li></ul><p class="q-fb ok">Correcto. La mano invisible requiere competencia real. Sin ella, lo que se produce no es coordinación eficiente sino extracción de renta por parte del monopolista. Smith era perfectamente consciente de esta condición.</p><p class="q-fb fail">La mano invisible funciona solo con competencia real. Sin ella, los mercados producen monopolios y extracción de renta, no bienestar colectivo. Smith fue muy explícito sobre esta condición.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta IX</span><p class="q-text">¿Qué fue La teoría de los sentimientos morales?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Una defensa del egoísmo como motor del progreso</button></li><li><button class="opt-btn" data-idx="1">Un tratado de economía política anterior a La riqueza de las naciones</button></li><li><button class="opt-btn" data-idx="2">Un análisis de cómo los seres humanos desarrollan empatía y juicio moral — la base ética de toda la obra de Smith</button></li><li><button class="opt-btn" data-idx="3">Una crítica del mercantilismo desde una perspectiva religiosa</button></li></ul><p class="q-fb ok">Correcto. La teoría de los sentimientos morales (1759) es la primera gran obra de Smith y su fundamento ético. Sin ella, La riqueza de las naciones parece una defensa del egoísmo — con ella, es parte de una teoría completa del comportamiento humano.</p><p class="q-fb fail">La teoría de los sentimientos morales (1759) es el tratado de ética de Smith, previo a La riqueza de las naciones. Analiza la empatía y el juicio moral. Es el fundamento sin el cual la economía de Smith se malinterpreta.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta X</span><p class="q-text">¿Qué posición tenía Smith sobre el libre comercio internacional?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Lo defendió: cada país debe especializarse en lo que produce más eficientemente y comerciar con los demás</button></li><li><button class="opt-btn" data-idx="1">Se opuso: cada nación debe ser autosuficiente para garantizar su independencia</button></li><li><button class="opt-btn" data-idx="2">Era indiferente: el comercio internacional no era su objeto de estudio</button></li><li><button class="opt-btn" data-idx="3">Lo aceptó solo para materias primas, no para manufacturas</button></li></ul><p class="q-fb ok">Correcto. Smith fue el primer gran defensor del libre comercio internacional basado en la especialización y la ventaja comparativa. El orden económico global del siglo XX se construyó sobre este principio.</p><p class="q-fb fail">Smith defendió el libre comercio internacional: cada país debe especializarse en lo que produce mejor y comerciar libremente. Es el fundamento del orden económico global que se construyó después de 1945.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta XI</span><p class="q-text">¿Qué dijo Smith sobre los empresarios que se reúnen para hablar de negocios?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que eran los motores del progreso económico y merecían protección del Estado</button></li><li><button class="opt-btn" data-idx="1">Que sus acuerdos eran necesarios para estabilizar los mercados</button></li><li><button class="opt-btn" data-idx="2">Que generaban innovación a través de la cooperación entre iguales</button></li><li><button class="opt-btn" data-idx="3">Que raramente se reúnen sin que la conversación acabe en una conspiración para subir los precios</button></li></ul><p class="q-fb ok">Correcto. Una de las frases más sorprendentes de Smith — el padre del liberalismo económico era profundamente escéptico del poder empresarial. Su argumento pro-mercado era pro-competencia, no pro-empresario.</p><p class="q-fb fail">Smith escribió que los empresarios del mismo sector raramente se reúnen sin que la conversación acabe en una conspiración para subir precios. Era profundamente escéptico del poder corporativo — su argumento era pro-competencia, no pro-empresario.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta XII</span><p class="q-text">¿Por qué la desglobalización actual es relevante para el pensamiento de Smith?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Porque confirma que Smith tenía razón en defender las economías nacionales cerradas</button></li><li><button class="opt-btn" data-idx="1">Porque revela que la eficiencia del libre comercio tiene un coste de vulnerabilidad estratégica que Smith no calculó</button></li><li><button class="opt-btn" data-idx="2">Porque demuestra que el mercantilismo que Smith criticó era en realidad correcto</button></li><li><button class="opt-btn" data-idx="3">Porque muestra que los mercados internacionales son inherentemente inestables</button></li></ul><p class="q-fb ok">Correcto. La pandemia y las guerras han revelado que la eficiencia smithiana de las cadenas de suministro globales tiene un precio: vulnerabilidad estratégica. Los semiconductores en Taiwán, los medicamentos en China, los fertilizantes en Rusia — todos son riesgos que el libre comercio puro no calcula.</p><p class="q-fb fail">La desglobalización actual muestra el límite que Smith no calculó: la eficiencia del libre comercio crea vulnerabilidades estratégicas. Cuando tu industria farmacéutica depende de China o tu energía de Rusia, la lógica smithiana de la especialización se convierte en riesgo geopolítico.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta XIII</span><p class="q-text">¿Cómo justificó Smith la regulación del sistema bancario a pesar de su defensa de la libertad de mercado?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Porque los bancos que quiebran arrastran a personas inocentes — cuando la libertad de unos pone en riesgo la seguridad de otros, el Estado puede intervenir</button></li><li><button class="opt-btn" data-idx="1">Porque los bancos son monopolios naturales que requieren supervisión estatal</button></li><li><button class="opt-btn" data-idx="2">Porque el dinero es una creación del Estado y debe permanecer bajo su control</button></li><li><button class="opt-btn" data-idx="3">No justificó la regulación bancaria — era contraria a sus principios</button></li></ul><p class="q-fb ok">Correcto. Smith aceptó la regulación bancaria explícitamente. Cuando la quiebra de un banco arruina a personas que no tomaron esos riesgos, la libertad individual del banquero viola la seguridad de terceros. Es el mismo razonamiento que Mill usará con el principio del daño.</p><p class="q-fb fail">Smith defendió la regulación bancaria porque los bancos que quiebran arrastran a inocentes. Cuando la libertad de unos pone en riesgo la seguridad de otros, el Estado puede y debe intervenir. Habría apoyado la regulación post-2008.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta XIV</span><p class="q-text">¿Qué relación tiene el pensamiento de Smith con los monopolios digitales actuales?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Ninguna — Smith no contempló mercados de servicios digitales</button></li><li><button class="opt-btn" data-idx="1">Smith habría apoyado a las Big Tech porque son innovadoras y eficientes</button></li><li><button class="opt-btn" data-idx="2">Smith habría apoyado la regulación de competencia contra las Big Tech porque destruyen la competencia que hace funcionar al mercado</button></li><li><button class="opt-btn" data-idx="3">Smith habría propuesto nacionalizar las plataformas digitales</button></li></ul><p class="q-fb ok">Correcto. Smith era pro-competencia, no pro-empresa. Una empresa que domina el 90% del mercado de búsquedas o el 99% de los sistemas operativos móviles es exactamente el tipo de poder de mercado que Smith consideraba perjudicial para el bienestar colectivo.</p><p class="q-fb fail">Smith era pro-competencia, no pro-empresa. Habría apoyado la regulación contra monopolios digitales porque destruyen la competencia que hace funcionar la mano invisible. La Digital Markets Act de la UE es smithiana en su espíritu.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta XV</span><p class="q-text">¿Cuál es la principal diferencia entre el Smith real y el «Smith neoliberal» que se invoca habitualmente?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">El Smith real era más proteccionista y el neoliberal más librecambista</button></li><li><button class="opt-btn" data-idx="1">El Smith real reconoció los fallos del mercado, apoyó regulaciones y era crítico del poder corporativo; el «Smith neoliberal» lo reduce a «los mercados siempre saben mejor»</button></li><li><button class="opt-btn" data-idx="2">El Smith real era más igualitario y el neoliberal más elitista</button></li><li><button class="opt-btn" data-idx="3">No hay diferencia real — el neoliberalismo desarrolló correctamente sus ideas</button></li></ul><p class="q-fb ok">Correcto. El Smith real era institucionalista, reconoció los fallos del mercado, apoyó la educación pública, era anti-monopolio y aceptó la regulación bancaria. El «Smith neoliberal» es una construcción selectiva que ignora todo eso.</p><p class="q-fb fail">El Smith real reconoció fallos del mercado, defendió la educación pública, fue anti-monopolio y aceptó regulaciones. El «Smith neoliberal» es una lectura selectiva que ignora todo eso para reducirlo a «el mercado siempre sabe mejor».</p></div>
+
+    <div class="score-box" id="score-box">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">Respuestas correctas de 15</span>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Inicio</a><a href="fase4.html">Fase IV</a></nav></div></footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})});
+function toggleAcc(t){const b=t.nextElementSibling,o=t.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.acc-body').forEach(x=>x.classList.remove('open'));if(!o){t.classList.add('open');b.classList.add('open')}}
+let answered=0,score=0;const total=15;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,5,'Smith diría: vuelve al mercado de las ideas. El módulo está disponible.'],[6,9,'Buen comienzo. Distingues al Smith real del Smith de manual.'],[10,12,'Sólido. Entiendes por qué el mercado necesita instituciones para funcionar.'],[13,15,'Excelente. Lees a Smith sin la distorsión neoliberal — que es exactamente lo que él habría pedido.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>
