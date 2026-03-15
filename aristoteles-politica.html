@@ -541,125 +541,6 @@
       transition: width .1s linear;
     }
 
-    /* ── AUDIO PLAYER ── */
-    .audio-section {
-      margin-bottom: 2.5rem;
-    }
-    .audio-intro {
-      font-size: 1rem; color: var(--ink-muted);
-      line-height: 1.8; margin-bottom: 2rem;
-    }
-    .audio-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .audio-card-header {
-      background: var(--aegean);
-      padding: 1.5rem 2rem;
-      display: flex; align-items: center; gap: 1.2rem;
-    }
-    .audio-icon {
-      width: 48px; height: 48px;
-      background: rgba(255,255,255,.1);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .audio-icon svg { width: 22px; height: 22px; fill: var(--bronze-light); }
-    .audio-card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; font-weight: 400; color: #fff;
-      display: block;
-    }
-    .audio-card-sub {
-      font-family: 'Cormorant SC', serif;
-      font-size: .68rem; letter-spacing: .2em;
-      color: rgba(255,255,255,.45); display: block;
-      margin-top: .2rem;
-    }
-    .audio-card-body {
-      padding: 1.8rem 2rem;
-    }
-    .audio-player {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-    .ap-play {
-      width: 50px; height: 50px;
-      background: var(--aegean);
-      border: none; border-radius: 50%;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: background .2s, transform .15s;
-    }
-    .ap-play:hover { background: var(--aegean-mid); transform: scale(1.06); }
-    .ap-play svg { width: 18px; height: 18px; fill: #fff; }
-    .ap-play .icon-pause { display: none; }
-    .ap-play.playing .icon-play { display: none; }
-    .ap-play.playing .icon-pause { display: block; }
-    .ap-info { flex: 1; min-width: 0; }
-    .ap-label {
-      font-family: 'Cormorant SC', serif;
-      font-size: .72rem; letter-spacing: .2em;
-      color: var(--aegean-dim); display: block;
-      margin-bottom: .4rem;
-    }
-    .ap-progress {
-      width: 100%; height: 8px;
-      background: #d8d0c0;
-      border-radius: 4px; cursor: pointer;
-      position: relative; overflow: hidden;
-    }
-    .ap-fill {
-      height: 100%; background: var(--aegean);
-      border-radius: 4px; width: 0%;
-      transition: width .1s linear;
-    }
-    .ap-time {
-      font-family: 'Jost', sans-serif;
-      font-size: .82rem; font-weight: 400;
-      color: var(--ink-muted);
-      display: flex; justify-content: space-between;
-      margin-top: .3rem;
-    }
-    .ap-volume {
-      display: flex; align-items: center; gap: .5rem;
-      flex-shrink: 0;
-    }
-    .ap-vol-icon { width: 18px; height: 18px; fill: var(--aegean-dim); }
-    .ap-vol-slider {
-      width: 70px; height: 5px;
-      -webkit-appearance: none; appearance: none;
-      background: #d8d0c0; border-radius: 3px; outline: none;
-    }
-    .ap-vol-slider::-webkit-slider-thumb {
-      -webkit-appearance: none; appearance: none;
-      width: 14px; height: 14px;
-      background: var(--aegean); border-radius: 50%; cursor: pointer;
-    }
-    .audio-placeholder {
-      background: #e8e0d0;
-      border: 1px dashed var(--card-border);
-      border-radius: 2px;
-      padding: 1.2rem 1.5rem;
-      text-align: center;
-    }
-    .audio-placeholder p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: .95rem; font-style: italic;
-      color: var(--ink-muted); line-height: 1.7;
-    }
-    .audio-placeholder code {
-      font-size: .85rem; font-style: normal;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      padding: .1rem .4rem; border-radius: 2px;
-      color: var(--aegean-mid);
-    }
-
     /* ── FOOTER ── */
     footer {
       background: var(--aegean);
@@ -696,10 +577,32 @@
       .test-wrap { padding: 1.5rem 1.2rem; }
       .hero-stats { flex-direction: column; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 1rem 0; margin-right: 0; }
-      .audio-player { flex-wrap: wrap; }
-      .ap-volume { display: none; }
-      .audio-card-body { padding: 1.3rem 1.2rem; }
     }
+
+    /* ── NAV GLOBAL ── */
+    .top-nav{background:rgba(244,234,216,.97);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--card-border,#c8b48a)}
+    .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
+    .nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--terra,#8c3a1e);text-decoration:none;display:flex;align-items:center;letter-spacing:.04em;flex-shrink:0;font-style:italic}
+    .nav-brand:hover{color:var(--terra-mid,#b04d28)}
+    .nav-menu{display:flex;align-items:stretch;gap:0}
+    .nav-item{position:relative;display:flex;align-items:stretch}
+    .nav-item-btn{font-family:'Cormorant SC',serif;font-size:.82rem;font-weight:400;letter-spacing:.18em;color:var(--ink-muted,#5a4530);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%;text-transform:uppercase}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--terra,#8c3a1e)}
+    .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
+    .nav-item-btn.open .arrow{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(244,234,216,.99);border:1px solid var(--card-border,#c8b48a);border-top:none;min-width:260px;z-index:300;display:none}
+    .nav-dropdown.open{display:block;animation:dropIn .15s ease}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    .nav-drop-section{padding:.5rem 0}
+    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--card-border,#c8b48a)}
+    .nav-drop-label{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--terra-dim,#c47a50);padding:.4rem 1.2rem .2rem;display:block}
+    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Jost',sans-serif;font-size:.82rem;font-weight:400;color:var(--ink-muted,#5a4530);text-decoration:none;transition:background .15s,color .15s}
+    .nav-drop-link:hover{background:var(--papyrus,#ede0c4);color:var(--terra,#8c3a1e)}
+    .nav-drop-link.disabled{color:var(--disabled-text,#9a8a6e);cursor:default;opacity:.5;pointer-events:none}
+    .nav-drop-badge{font-size:.65rem;font-family:'Cormorant SC',serif;letter-spacing:.12em;color:var(--terra-dim,#c47a50);background:rgba(140,58,30,.08);padding:.1rem .4rem;border-radius:1px}
+    .nav-autor-link{font-family:'Cormorant SC',serif;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted,#5a4530);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
+    .nav-autor-link:hover{color:var(--terra,#8c3a1e)}
+    @media(max-width:700px){.nav-menu{display:none}}
   </style>
 </head>
 <body>
@@ -719,9 +622,63 @@
 <!-- TOP NAV -->
 <nav class="top-nav">
   <div class="top-nav-inner">
-    <a href="index.html" class="nav-back">← Portal</a>
-    <span class="nav-title">Filosofía &amp; Política</span>
-    <span class="nav-badge">Módulo II</span>
+    <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
+    <div class="nav-menu">
+      <div class="nav-item">
+        <button class="nav-item-btn active" onclick="toggleDrop('d1')">Fase I <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d1">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Antigüedad griega</span>
+            <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
+            <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
+            <a href="estoicismo.html" class="nav-drop-link">El Estoicismo</a>
+            <a href="tomas-de-aquino.html" class="nav-drop-link">Tomás de Aquino</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d2')">Fase II <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d2">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Renacimiento &amp; Modernidad</span>
+            <a href="maquiavelo.html" class="nav-drop-link">Maquiavelo</a>
+            <a href="hobbes.html" class="nav-drop-link">Hobbes y el Leviatán</a>
+            <a href="locke.html" class="nav-drop-link">Locke y los derechos naturales</a>
+            <a href="rousseau.html" class="nav-drop-link">Rousseau</a>
+            <a href="kant.html" class="nav-drop-link">Kant y la razón universal</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d3')">Fase III <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d3">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Siglo XIX · Ideologías</span>
+            <a href="marx.html" class="nav-drop-link">Marx y el Capital</a>
+            <a href="mill.html" class="nav-drop-link">Mill y la libertad</a>
+            <a href="tocqueville.html" class="nav-drop-link">Tocqueville y la democracia</a>
+            <a href="nietzsche.html" class="nav-drop-link">Nietzsche y el martillo</a>
+          </div>
+          <div class="nav-drop-section">
+            <a href="epilogo-fase3.html" class="nav-drop-link">✦ Epílogo — Las sombras del XIX</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d4')">Fase IV <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d4">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Economía Política</span>
+            <a href="smith.html" class="nav-drop-link">Adam Smith</a>
+            <a href="keynes.html" class="nav-drop-link">Keynes</a>
+            <a href="hayek-keynes.html" class="nav-drop-link">Hayek vs. Keynes</a>
+            <a href="#" class="nav-drop-link disabled">Globalización <span class="nav-drop-badge">Próx.</span></a>
+            <a href="#" class="nav-drop-link disabled">El nuevo desorden mundial <span class="nav-drop-badge">Próx.</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="autor.html" class="nav-autor-link">Sobre el autor</a>
+    </div>
   </div>
 </nav>
 
@@ -764,7 +721,6 @@
     <button class="tab-btn" data-tab="politica">Política</button>
     <button class="tab-btn" data-tab="legado">Legado</button>
     <button class="tab-btn" data-tab="test">Test</button>
-    <button class="tab-btn" data-tab="podcast">🎧 Podcast</button>
   </div>
 </div>
 
@@ -1157,72 +1113,6 @@
     </div>
   </div>
 
-  <!-- ══ TAB: PODCAST ══ -->
-  <div class="tab-panel" id="tab-podcast">
-    <div class="panel-header">
-      <h2>Escucha a Aristóteles: <em>el podcast del módulo</em></h2>
-      <p class="panel-lead">
-        Un resumen audiográfico de las ideas fundamentales de Aristóteles.
-        Para escuchar mientras caminas, corres o simplemente quieres repasar sin pantalla.
-      </p>
-    </div>
-
-    <div class="audio-section">
-      <div class="audio-card">
-        <div class="audio-card-header">
-          <div class="audio-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zM19 10v2a7 7 0 0 1-14 0v-2H3v2a9 9 0 0 0 8 8.94V23h2v-2.06A9 9 0 0 0 21 12v-2h-2z"/></svg>
-          </div>
-          <div>
-            <span class="audio-card-title">Aristóteles y la Política</span>
-            <span class="audio-card-sub">Podcast · Resumen del Módulo II</span>
-          </div>
-        </div>
-        <div class="audio-card-body">
-
-          <!-- ═══ PLAYER ═══ -->
-          <div class="audio-player" id="main-player" data-src="audio-aristoteles-podcast.m4a">
-            <button class="ap-play" aria-label="Reproducir">
-              <svg class="icon-play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-              <svg class="icon-pause" viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
-            </button>
-            <div class="ap-info">
-              <span class="ap-label">Aristóteles · Podcast del módulo</span>
-              <div class="ap-progress"><div class="ap-fill"></div></div>
-              <div class="ap-time"><span class="ap-current">0:00</span><span class="ap-duration">--:--</span></div>
-            </div>
-            <div class="ap-volume">
-              <svg class="ap-vol-icon" viewBox="0 0 24 24"><path d="M3,9v6h4l5,5V4L7,9H3z M16.5,12c0-1.77-1.02-3.29-2.5-4.03v8.05C15.48,15.29,16.5,13.77,16.5,12z"/></svg>
-              <input type="range" class="ap-vol-slider" min="0" max="1" step="0.05" value="0.8"/>
-            </div>
-          </div>
-
-          <!-- Placeholder message -->
-          <div class="audio-placeholder" id="audio-status">
-            <p>
-              El podcast se cargará cuando subas el archivo
-              <code>audio-aristoteles-podcast.m4a</code> al repositorio.
-              Generado con NotebookLM, reproduciéndose directamente desde GitHub Pages.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="highlight-card">
-      <span class="hc-label">Sobre este formato</span>
-      <h3>¿Por qué un podcast?</h3>
-      <p>
-        La filosofía nació como conversación oral. Sócrates nunca escribió.
-        Aristóteles daba sus clases paseando por el Liceo (de ahí «peripatéticos»).
-        Escuchar las ideas en formato audio recupera algo de ese espíritu original:
-        pensar mientras te mueves, sin la rigidez de la pantalla.
-      </p>
-    </div>
-
-  </div>
-
 </div><!-- /content-area -->
 
 <svg class="meander" style="opacity:.2;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -1443,74 +1333,26 @@ function resetQuiz() {
   buildQuiz();
   document.querySelector('.test-wrap').scrollIntoView({ behavior:'smooth', block:'start' });
 }
-
-/* ── AUDIO PLAYER ── */
-(function() {
-  const player = document.getElementById('main-player');
-  if (!player) return;
-  const audio = new Audio(player.dataset.src);
-  const playBtn = player.querySelector('.ap-play');
-  const fill = player.querySelector('.ap-fill');
-  const progress = player.querySelector('.ap-progress');
-  const current = player.querySelector('.ap-current');
-  const duration = player.querySelector('.ap-duration');
-  const volSlider = player.querySelector('.ap-vol-slider');
-  const placeholder = document.getElementById('audio-status');
-
-  audio.volume = 0.8;
-
-  function fmt(s) {
-    if (isNaN(s)) return '--:--';
-    const m = Math.floor(s / 60);
-    const sec = Math.floor(s % 60);
-    return m + ':' + (sec < 10 ? '0' : '') + sec;
+</script>
+<script>
+function toggleDrop(id){
+  const all=document.querySelectorAll('.nav-dropdown');
+  const allBtns=document.querySelectorAll('.nav-item-btn');
+  const target=document.getElementById(id);
+  const isOpen=target.classList.contains('open');
+  all.forEach(d=>d.classList.remove('open'));
+  allBtns.forEach(b=>b.classList.remove('open'));
+  if(!isOpen){
+    target.classList.add('open');
+    target.previousElementSibling.classList.add('open');
   }
-
-  audio.addEventListener('loadedmetadata', () => {
-    duration.textContent = fmt(audio.duration);
-    if (placeholder) placeholder.style.display = 'none';
-  });
-
-  audio.addEventListener('timeupdate', () => {
-    const pct = (audio.currentTime / audio.duration) * 100;
-    fill.style.width = pct + '%';
-    current.textContent = fmt(audio.currentTime);
-  });
-
-  audio.addEventListener('ended', () => {
-    playBtn.classList.remove('playing');
-    fill.style.width = '0%';
-    current.textContent = '0:00';
-  });
-
-  audio.addEventListener('error', () => {
-    if (placeholder) placeholder.style.display = 'block';
-  });
-
-  playBtn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play().catch(() => {
-        if (placeholder) placeholder.style.display = 'block';
-      });
-      playBtn.classList.add('playing');
-    } else {
-      audio.pause();
-      playBtn.classList.remove('playing');
-    }
-  });
-
-  progress.addEventListener('click', (e) => {
-    const rect = progress.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
-    if (audio.duration) audio.currentTime = pct * audio.duration;
-  });
-
-  if (volSlider) {
-    volSlider.addEventListener('input', () => {
-      audio.volume = volSlider.value;
-    });
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-item')){
+    document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
+    document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
   }
-})();
+});
 </script>
 </body>
 </html>
