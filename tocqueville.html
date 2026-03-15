@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo XI — Tocqueville · Filosofía & Política</title>
+  <meta name="description" content="Alexis de Tocqueville: la democracia observada, el despotismo blando, la igualdad y sus peligros. Un francés en América, un espejo para hoy."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#0c0e10;--bg-mid:#121518;--bg-card:#181c20;--surface:#202530;
+      --border:#303848;--border-light:#404e60;
+      --blue:#1a4a7a;--blue-mid:#2060a0;--blue-light:#4080c0;--blue-pale:#80b0e0;
+      --amber:#c48820;--amber-light:#d8a030;--amber-dim:#8a6018;
+      --ink:#e8f0f8;--ink-mid:#a8b8c8;--ink-dim:#607080;
+      --text:#d8e0e8;--text-muted:#8898a8;
+      --correct:#3a7a3a;--correct-bg:#111e11;--wrong:#8a2020;--wrong-bg:#1e1111;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:17px;line-height:1.75;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--blue-mid);z-index:999;width:0;transition:width .1s linear}
+    .top-nav{background:rgba(12,14,16,.96);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--blue-light)}
+    .nav-links{display:flex;align-items:center;gap:1.2rem}
+    .nav-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--amber)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--ink-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--blue-light);border:1px solid var(--blue);padding:.2rem .6rem;border-radius:1px}
+    .hero{padding:4.5rem 2rem 0;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-mid) 100%)}
+    .hero::before{content:'';position:absolute;top:0;right:0;width:60%;height:100%;background:linear-gradient(135deg,transparent 30%,rgba(26,74,122,.06) 100%);pointer-events:none}
+    .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+    .hero-eyebrow{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--blue-mid);display:block;margin-bottom:1rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5.2rem);font-weight:400;color:var(--ink);line-height:1;margin-bottom:1.2rem}
+    .hero-title em{font-style:italic;color:var(--blue-light)}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-style:italic;color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:2.5rem}
+    .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-item{padding:1.3rem 2.2rem 1.3rem 0;margin-right:2.2rem;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--blue-light);display:block;line-height:1}
+    .stat-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.14em;color:var(--ink-dim);display:block;margin-top:.3rem}
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:960px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ink-mid);background:var(--border)}.tab-btn.active{color:#fff;background:var(--blue);border-color:var(--blue-mid)}
+    .content-area{max-width:960px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;color:var(--ink);line-height:1.2}
+    .panel-header h2 em{color:var(--blue-mid);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--amber-dim);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:1.7rem 1.9rem}
+    .card.full{grid-column:1/-1}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ink);margin-bottom:.6rem}
+    .card p,.card li{font-size:.98rem;color:var(--text-muted);line-height:1.8}
+    .card ul{padding-left:1.2rem}.card li{margin-bottom:.3rem}
+    .card-icon{font-size:1.4rem;display:block;margin-bottom:.6rem}
+    .highlight-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:2px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .highlight-card .hc-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--blue-mid);display:block;margin-bottom:.7rem}
+    .highlight-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--ink);margin-bottom:.7rem}
+    .highlight-card p{font-size:.98rem;color:var(--text-muted);line-height:1.85;margin-bottom:.65rem}.highlight-card p:last-child{margin-bottom:0}
+    .highlight-card strong{color:var(--ink);font-weight:500}
+    .pull-quote{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--amber);padding:1.8rem 2.4rem;margin:2.5rem 0;border-radius:2px}
+    .pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--ink-mid);line-height:1.65}
+    .pull-quote cite{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;color:var(--amber-dim);display:block;margin-top:.7rem}
+    .timeline{position:relative;padding-left:2rem;margin-bottom:2.5rem}
+    .timeline::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:1.8rem}
+    .tl-dot{position:absolute;left:-1.65rem;top:.3rem;width:9px;height:9px;background:var(--blue);border-radius:0;transform:rotate(45deg)}
+    .tl-date{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--blue-mid);display:block;margin-bottom:.2rem}
+    .tl-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.2rem}
+    .tl-desc{font-size:.93rem;color:var(--text-muted);line-height:1.75}
+    /* ENTONCES & AHORA — the distinctive Tocqueville component */
+    .then-now-block{margin-bottom:2rem;border:1px solid var(--border);border-radius:2px;overflow:hidden}
+    .then-now-header{background:var(--surface);padding:1.2rem 1.8rem;border-bottom:1px solid var(--border)}
+    .then-now-header h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--ink)}
+    .then-now-cols{display:grid;grid-template-columns:1fr 1fr}
+    .then-col{background:var(--bg-card);padding:1.6rem 1.8rem;border-right:1px solid var(--border)}
+    .now-col{background:var(--bg-mid);padding:1.6rem 1.8rem}
+    .col-label{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;display:block;margin-bottom:.7rem}
+    .then-col .col-label{color:var(--blue-mid)}
+    .now-col .col-label{color:var(--amber-dim)}
+    .then-col p,.now-col p{font-size:.93rem;color:var(--text-muted);line-height:1.8}
+    .then-col strong,.now-col strong{color:var(--ink);font-weight:500}
+    /* ACCORDION */
+    .accordion{margin-bottom:2.5rem}
+    .acc-item{border:1px solid var(--border);border-radius:2px;margin-bottom:.5rem;overflow:hidden}
+    .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:background .2s}
+    .acc-trigger:hover{background:var(--surface)}.acc-trigger.open{background:var(--blue)}
+    .acc-term{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink)}
+    .acc-trigger.open .acc-term{color:#fff}
+    .acc-arrow{font-size:.85rem;color:var(--ink-dim);transition:transform .3s;flex-shrink:0;margin-left:1rem}
+    .acc-trigger.open .acc-arrow{transform:rotate(180deg);color:var(--amber-light)}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 1.4rem;background:var(--bg-mid)}
+    .acc-body.open{max-height:700px;padding:1.3rem 1.4rem}
+    .acc-body p{font-size:.97rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.acc-body p:last-child{margin-bottom:0}
+    .acc-body strong{color:var(--ink);font-weight:500}
+    /* TEST */
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:.98rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;color:var(--blue-mid);display:block;margin-bottom:.4rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.8rem 1.1rem;font-family:'Manrope',sans-serif;font-size:.93rem;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--blue);color:var(--ink);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}
+    .opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:#e87070}
+    .opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}
+    .opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.7rem;font-size:.9rem;line-height:1.7;display:none}.q-fb.show{display:block}
+    .q-fb.ok{color:var(--correct)}.q-fb.fail{color:#e87070}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}
+    .score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--blue-light);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.22em;color:var(--ink-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--blue);color:var(--blue-light);font-family:'Manrope',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:1px;transition:background .2s,color .2s}
+    .retry-btn:hover{background:var(--blue);color:#fff}
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ink);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--amber)}
+    @media(max-width:640px){.card-grid{grid-template-columns:1fr}.card.full{grid-column:1}.then-now-cols{grid-template-columns:1fr}.then-col{border-right:none;border-bottom:1px solid var(--border)}.test-wrap{padding:1.5rem 1.2rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.74rem;padding:.5rem .9rem}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal principal</a>
+    <div class="nav-links">
+      <a href="fase3.html" class="nav-link">Fase III</a>
+      <span class="nav-title">Filosofía & Política</span>
+      <span class="nav-badge">Módulo XI</span>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo XI · Democracia liberal</span>
+    <h1 class="hero-title">Tocqueville y <em>la democracia</em></h1>
+    <p class="hero-subtitle">Un aristócrata francés viajó a América en 1831 para entender la democracia desde dentro. Lo que escribió sigue siendo el análisis más lúcido de sus virtudes y sus peligros — incluidos los que aún no habían ocurrido.</p>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">1805–1859</span><span class="stat-label">Verneuil, Francia</span></div>
+      <div class="stat-item"><span class="stat-num">1831</span><span class="stat-label">Viaje a América</span></div>
+      <div class="stat-item"><span class="stat-num">1835–40</span><span class="stat-label">La democracia en América</span></div>
+      <div class="stat-item"><span class="stat-num">1856</span><span class="stat-label">El Antiguo Régimen y la Revolución</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="quien">Quién fue</button>
+    <button class="tab-btn" data-tab="america">La democracia observada</button>
+    <button class="tab-btn" data-tab="peligros">Los peligros</button>
+    <button class="tab-btn" data-tab="entonces">1835 · 2025</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<main class="content-area">
+
+<!-- QUIÉN FUE -->
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header">
+    <h2>Tocqueville: <em>el aristócrata que entendió la democracia</em></h2>
+    <p class="panel-lead">Paradoja perfecta: el análisis más penetrante de la democracia americana lo escribió un aristócrata francés cuya familia casi fue guillotinada en la Revolución. Esa distancia le dio una claridad que los demócratas convencidos no tenían.</p>
+  </div>
+  <p class="section-label">Contexto</p>
+  <div class="card-grid">
+    <div class="card full">
+      <span class="card-icon">🚢</span>
+      <h3>El viaje que cambió la teoría política</h3>
+      <p>En 1831, Tocqueville y su amigo Gustave de Beaumont viajaron a Estados Unidos con el pretexto oficial de estudiar el sistema penitenciario americano. El resultado real fue un año de observación directa de la democracia más avanzada del mundo — sus instituciones, sus costumbres, sus tensiones, sus contradicciones. La democracia en América (1835 y 1840) no es solo un libro de ciencia política: es uno de los primeros grandes trabajos de sociología empírica de la historia.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏛️</span>
+      <h3>El contexto europeo</h3>
+      <p>Europa en 1830 es un continente dividido entre el Antiguo Régimen y las aspiraciones democráticas post-revolucionarias. Tocqueville comprendió que la igualación de condiciones era una tendencia histórica irreversible — el único debate era si llevaría a la libertad o a una nueva forma de servidumbre. Fue a América para ver cuál de los dos caminos era posible.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎯</span>
+      <h3>El método del observador</h3>
+      <p>Tocqueville no teoriza desde el gabinete: observa, entrevista, compara. Habla con presidentes y con granjeros, con jueces y con presos, con abolicionistas y con esclavistas. Su método anticipa la sociología moderna: las instituciones no se entienden sin las costumbres («moeurs») que las sostienen o las socavan.</p>
+    </div>
+  </div>
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1805</span><span class="tl-title">Nace en Verneuil, Normandía</span><span class="tl-desc">Familia aristocrática. Sus abuelos paternos murieron en la guillotina durante el Terror. Su padre sobrevivió pero encanecio de un día para otro al enterarse. Tocqueville creció con la Revolución como trauma familiar.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1831</span><span class="tl-title">Viaje a Estados Unidos</span><span class="tl-desc">Nueve meses recorriendo la joven república americana. Visita 17 de los 24 estados. Entrevista a John Quincy Adams. Observa la esclavitud en el Sur y las comunidades libres del Norte.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1835</span><span class="tl-title">La democracia en América, Vol. I</span><span class="tl-desc">Éxito inmediato en Francia y Europa. Analiza las instituciones democráticas americanas — federalismo, libertad de prensa, asociaciones civiles, jury system.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1840</span><span class="tl-title">La democracia en América, Vol. II</span><span class="tl-desc">El más profético. Analiza los efectos psicológicos y culturales de la igualdad — individualismo, despotismo blando, tiranía de la mayoría. Sus advertencias resuenan con más fuerza en el siglo XXI que en el XIX.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1848</span><span class="tl-title">Político activo. Ministro de Asuntos Exteriores</span><span class="tl-desc">Diputado desde 1839, ministro brevemente en 1849. Observador directo de la Revolución de 1848 y del golpe de Luis Napoleón. La política real le confirmó sus teorías sobre la fragilidad democrática.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1859</span><span class="tl-title">Muere en Cannes</span><span class="tl-desc">Tuberculosis. Muere a los 53 años, dejando inconclusa su gran obra sobre el Antiguo Régimen. Sus últimas reflexiones sobre la Revolución Francesa son el trabajo más maduro sobre la paradoja de las revoluciones que producen lo contrario de lo que prometen.</span></div>
+  </div>
+</div>
+
+<!-- LA DEMOCRACIA OBSERVADA -->
+<div class="tab-panel" id="tab-america">
+  <div class="panel-header">
+    <h2>Lo que Tocqueville vio en América: <em>la democracia desde dentro</em></h2>
+    <p class="panel-lead">Tocqueville llegó a América sin el entusiasmo del admirador ni el desprecio del aristócrata. Llegó como científico — y lo que encontró fue más complejo y más inquietante que lo que esperaba.</p>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">La tesis central</span>
+    <h3>La igualdad de condiciones es el hecho generador de la democracia — y su mayor peligro</h3>
+    <p>Tocqueville no es ni defensor acrítico ni enemigo de la democracia. Su argumento es más sofisticado: <strong>la tendencia hacia la igualdad de condiciones es una fuerza histórica irresistible</strong>. La pregunta no es si habrá democracia — la habrá. La pregunta es qué tipo: una democracia que amplía la libertad o una que la devora desde dentro.</p>
+    <p>América en 1831 mostraba que la democracia podía funcionar — con las instituciones, las costumbres y la cultura cívica correctas. Pero también mostraba sus tentaciones más peligrosas.</p>
+  </div>
+
+  <p class="section-label">Lo que funcionaba en América</p>
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Las asociaciones civiles: la escuela de la democracia</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><p>Lo que más sorprendió a Tocqueville fue la proliferación de asociaciones voluntarias — religiosas, cívicas, comerciales, benéficas. Los americanos se asociaban para todo. Tocqueville lo interpretó como el antídoto contra el individualismo atomizante: <strong>las asociaciones enseñan a los ciudadanos a cooperar, a deliberar y a actuar colectivamente sin depender del Estado.</strong></p><p>Su conclusión: la democracia necesita ese tejido asociativo para sobrevivir. Sin él, los individuos aislados caen bajo el poder del Estado central.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El federalismo y la descentralización del poder</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><p>Tocqueville admiró el sistema federal americano: la distribución del poder entre el gobierno federal, los estados y los gobiernos locales. La descentralización no era ineficiencia — era protección contra la tiranía central. <strong>Cuando el poder está cerca del ciudadano, el ciudadano puede controlarlo.</strong></p><p>Su contraste implícito era con la Francia centralizada, donde todos los caminos llevaban a París — y toda la política se jugaba ahí, lejos de la mayoría de los ciudadanos.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La libertad de prensa</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><p>Tocqueville no idealizó la prensa americana — la encontró ruidosa, parcial y a menudo grosera. Pero entendió que era indispensable: <strong>sin prensa libre, los ciudadanos no pueden coordinar la resistencia frente al poder.</strong></p><p>Su argumento es pragmático, no idealista: no puedes tener libertad sin el instrumento que permite a los ciudadanos comunicarse y actuar juntos. La prensa no es agradable. Es necesaria.</p></div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"Los americanos de todas las edades, todas las condiciones y todos los caracteres forman constantemente asociaciones. [...] Donde veo que el gobierno de una nación democrática no dispone de la asociación, veo el despotismo."</blockquote>
+    <cite>— Tocqueville, La democracia en América, Tomo II, 1840</cite>
+  </div>
+</div>
+
+<!-- LOS PELIGROS -->
+<div class="tab-panel" id="tab-peligros">
+  <div class="panel-header">
+    <h2>Los peligros de la democracia: <em>lo que Tocqueville temía</em></h2>
+    <p class="panel-lead">El Tocqueville más valioso no es el que admiró América — es el que la analizó con frialdad. Sus advertencias sobre los peligros internos de la democracia son más relevantes en el siglo XXI que en el XIX.</p>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">El concepto más original de Tocqueville</span>
+    <h3>El despotismo blando: la tiranía sin tirano</h3>
+    <p>Tocqueville imaginó un tipo de opresión que no se parece a ningún despotismo histórico — sin violencia, sin terror, sin carceleros. <strong>Una sociedad igualitaria en la que los individuos, absortos en sus pequeños placeres privados, entregan gradualmente todas las decisiones al Estado.</strong></p>
+    <p>El Estado, a cambio, los provee, los protege, los administra. Es tutelar, no violento. Los ciudadanos no son prisioneros — son niños perpetuos. No pierden sus libertades por la fuerza: las abandonan por comodidad.</p>
+    <p>Tocqueville llamó a esto «despotismo blando» — y es, posiblemente, la predicción política más exacta del siglo XIX sobre el siglo XX y XXI.</p>
+  </div>
+
+  <p class="section-label">Los cuatro grandes peligros</p>
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El individualismo: el aislamiento que debilita</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><p>La igualdad corta los vínculos entre generaciones y entre clases. El aristócrata sentía responsabilidad hacia sus subordinados y hacia sus ancestros. El ciudadano democrático, igual a todos, no se siente vinculado a nadie. <strong>El resultado es el individualismo</strong>: cada uno se encierra en su pequeño círculo familiar y abandona la gran sociedad a su suerte.</p><p>Individualismo no es egoísmo — es un error intelectual. El ciudadano democrático cree que puede valerse solo. No ve que su bienestar depende del funcionamiento del conjunto que ya no le preocupa.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La tiranía de la mayoría: la democracia que aplasta</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><p>En una democracia, la mayoría tiene una autoridad moral inmensa. Si la mayoría dice que algo es cierto, ¿quién se atreve a contradecirla? Tocqueville vio en América una presión social homogeneizadora tan potente como cualquier censura gubernamental. <strong>La minoría que piensa diferente no es perseguida — es aplastada por el silencio y la exclusión social.</strong></p><p>Comparó esto con la Inquisición: la Inquisición torturaba el cuerpo pero dejaba libre el alma. La tiranía de la mayoría va más lejos — ataca la propia voluntad de pensar distinto.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La pasión por la igualdad sobre la libertad</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><p>Tocqueville observó que los ciudadanos democráticos sienten la desigualdad de forma más intensa que la falta de libertad. <strong>Prefieren la igualdad en la servidumbre a la desigualdad en la libertad.</strong> Si el vecino tiene más que yo, eso me duele más que perder una libertad abstracta.</p><p>Esta preferencia es la palanca que el despotismo blando aprovecha: el Estado promete igualdad y los ciudadanos le entregan libertad. El intercambio parece justo hasta que ya no hay libertad que recuperar.</p></div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La concentración administrativa del poder</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body"><p>Las democracias tienden a centralizar la administración porque es más eficiente. El Estado central gestiona mejor que los municipios pequeños. El problema: <strong>cuando toda la administración está centralizada, el ciudadano pierde la práctica de autogobernarse.</strong> Y un pueblo que no practica el autogobierno local no puede sostener el autogobierno nacional.</p><p>Tocqueville defendía la administración local no por romanticismo sino porque es donde la democracia se aprende: en el ayuntamiento, en la asociación de vecinos, en el jurado. Quitar eso es quitar el sustrato de la libertad.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 1835 · 2025 -->
+<div class="tab-panel" id="tab-entonces">
+  <div class="panel-header">
+    <h2>1835 · 2025: <em>Tocqueville, aquí y ahora</em></h2>
+    <p class="panel-lead">Cada observación de Tocqueville tiene un eco exacto en el presente. No porque sea profeta — sino porque identificó dinámicas estructurales que la democracia lleva consigo independientemente de la época.</p>
+  </div>
+
+  <div class="then-now-block">
+    <div class="then-now-header"><h3>El despotismo blando</h3></div>
+    <div class="then-now-cols">
+      <div class="then-col"><span class="col-label">1840 — lo que Tocqueville escribió</span><p>Imaginó un poder que «no rompe las voluntades sino que las ablanda, las dobla y las dirige.» Un Estado que cubre a los ciudadanos de un velo de pequeñas reglas complicadas, que los prevé de todo, que les evita la molestia de pensar por sí mismos. <strong>Los ciudadanos son «un rebaño de animales tímidos e industriosos, cuyo pastor es el gobierno.»</strong></p></div>
+      <div class="now-col"><span class="col-label">2025 — el eco contemporáneo</span><p>El debate sobre el Estado del bienestar excesivo, la burocracia que regula hasta lo trivial, los algoritmos que «nos protegen» de contenido que podría perturbarnos. La pregunta de si la comodidad del ciudadano-consumidor ha reemplazado a la exigencia del ciudadano-político. <strong>El ciudadano que delega en el Estado, en la empresa, en el algoritmo — y pierde la práctica de decidir.</strong></p></div>
+    </div>
+  </div>
+
+  <div class="then-now-block">
+    <div class="then-now-header"><h3>La tiranía de la mayoría y la opinión pública</h3></div>
+    <div class="then-now-cols">
+      <div class="then-col"><span class="col-label">1835 — lo que Tocqueville escribió</span><p>En América, la presión social para conformarse es tan fuerte que quien piensa diferente se autocensura. No hay ley que lo prohíba — no hace falta. La mayoría no persigue al disidente: lo excluye. <strong>El resultado es una sociedad donde se dice mucho y se piensa poco.</strong></p></div>
+      <div class="now-col"><span class="col-label">2025 — el eco contemporáneo</span><p>La cultura de la cancelación, el miedo al pilón digital, la autocensura en redes sociales. Estudios muestran que una fracción creciente de ciudadanos en democracias liberales oculta sus opiniones políticas por miedo a las consecuencias sociales. <strong>Tocqueville tenía un nombre para esto: tiranía de la opinión prevalente.</strong></p></div>
+    </div>
+  </div>
+
+  <div class="then-now-block">
+    <div class="then-now-header"><h3>Las asociaciones civiles como contrapoder</h3></div>
+    <div class="then-now-cols">
+      <div class="then-col"><span class="col-label">1835 — lo que Tocqueville escribió</span><p>Sin las asociaciones civiles que obligan a los ciudadanos a pensar en algo más que en sí mismos, la democracia se disuelve en individualismo atomizado. Las asociaciones son <strong>el único antídoto contra el despotismo blando</strong> — obligan a cooperar, a deliberar, a actuar colectivamente.</p></div>
+      <div class="now-col"><span class="col-label">2025 — el eco contemporáneo</span><p>El declive de los partidos políticos, los sindicatos, las iglesias y los clubes cívicos en Occidente — lo que Robert Putnam llamó «Bowling Alone». La sociabilidad digital no los reemplaza: conectar en redes no es asociarse cívicamente. <strong>El aislamiento que Tocqueville temía ha encontrado su forma perfecta en el scroll solitario.</strong></p></div>
+    </div>
+  </div>
+
+  <div class="then-now-block">
+    <div class="then-now-header"><h3>La democracia y el cortoplacismo</h3></div>
+    <div class="then-now-cols">
+      <div class="then-col"><span class="col-label">1840 — lo que Tocqueville escribió</span><p>Los políticos democráticos piensan en el siguiente ciclo electoral. Los ciudadanos piensan en sus intereses inmediatos. <strong>Las democracias tienen dificultad estructural para tomar decisiones que cuestan ahora pero benefician en veinte años.</strong></p></div>
+      <div class="now-col"><span class="col-label">2025 — el eco contemporáneo</span><p>El cambio climático es el ejemplo perfecto: el coste de actuar es inmediato, el beneficio es a 50 años. Las pensiones, la deuda pública, la inversión en infraestructura. <strong>El horizonte del ciclo electoral de cuatro años es el marco temporal más corto de la historia política — y Tocqueville ya lo señaló como un defecto estructural de la democracia.</strong></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header">
+    <h2>Pon a prueba <em>tu comprensión</em></h2>
+    <p class="panel-lead">15 preguntas sobre Tocqueville, la democracia y sus contradicciones.</p>
+  </div>
+  <div class="test-wrap" id="quiz">
+    <p class="test-intro">Selecciona la respuesta correcta en cada pregunta.</p>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta I</span><p class="q-text">¿Cuál fue el pretexto oficial del viaje de Tocqueville a América en 1831?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Estudiar el sistema político democrático americano</button></li><li><button class="opt-btn" data-idx="1">Estudiar el sistema penitenciario americano</button></li><li><button class="opt-btn" data-idx="2">Representar al gobierno francés en negociaciones comerciales</button></li><li><button class="opt-btn" data-idx="3">Escribir un informe sobre la esclavitud en el Sur</button></li></ul><p class="q-fb ok">Correcto. El pretexto oficial era estudiar las prisiones. El resultado real fue La democracia en América — el análisis político más influyente del siglo XIX.</p><p class="q-fb fail">El pretexto oficial fue estudiar el sistema penitenciario americano. El resultado real fue La democracia en América.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta II</span><p class="q-text">¿Qué es el «despotismo blando» para Tocqueville?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Una dictadura que usa la persuasión en lugar de la violencia</button></li><li><button class="opt-btn" data-idx="1">Un gobierno autoritario que mantiene elecciones formales</button></li><li><button class="opt-btn" data-idx="2">Un Estado tutelar que provee y protege a ciudadanos que abandonan voluntariamente su autonomía por comodidad</button></li><li><button class="opt-btn" data-idx="3">La corrupción suave que penetra las instituciones democráticas</button></li></ul><p class="q-fb ok">Correcto. El despotismo blando no necesita violencia ni terror. Los ciudadanos no son prisioneros — son niños perpetuos que entregan sus decisiones a cambio de seguridad y comodidad.</p><p class="q-fb fail">El despotismo blando es un Estado que cubre a los ciudadanos de pequeñas reglas, los prevé de todo, los libera de la molestia de pensar por sí mismos. No hay violencia — solo tutela permanente.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta III</span><p class="q-text">¿Por qué admiró Tocqueville las asociaciones civiles americanas?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Porque enseñan a los ciudadanos a cooperar y actuar colectivamente sin depender del Estado</button></li><li><button class="opt-btn" data-idx="1">Porque producen riqueza económica a través de la iniciativa privada</button></li><li><button class="opt-btn" data-idx="2">Porque sustituyen eficientemente a un Estado que no puede llegar a todos</button></li><li><button class="opt-btn" data-idx="3">Porque refuerzan la identidad nacional americana</button></li></ul><p class="q-fb ok">Correcto. Las asociaciones son la escuela práctica de la democracia: donde los ciudadanos aprenden a deliberar, negociar y actuar juntos. Sin ese tejido, los individuos aislados caen bajo el poder del Estado central.</p><p class="q-fb fail">Tocqueville admiró las asociaciones porque enseñan a los ciudadanos a cooperar sin el Estado. Son el antídoto contra el individualismo atomizante y el despotismo blando.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta IV</span><p class="q-text">¿Qué diferencia al «individualismo» de Tocqueville del simple egoísmo?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">El egoísmo es peor porque implica activamente dañar a otros</button></li><li><button class="opt-btn" data-idx="1">El individualismo es una virtud mientras el egoísmo es un vicio</button></li><li><button class="opt-btn" data-idx="2">No hay diferencia real — son dos nombres para lo mismo</button></li><li><button class="opt-btn" data-idx="3">El individualismo es un error intelectual: el ciudadano cree que puede valerse solo sin ver que depende del conjunto</button></li></ul><p class="q-fb ok">Correcto. El individualista no es malo — está equivocado. Cree que su bienestar es independiente del funcionamiento del conjunto que ya no le preocupa.</p><p class="q-fb fail">Para Tocqueville, el individualismo no es egoísmo sino un error intelectual: el ciudadano democrático cree que puede valerse solo, sin ver que su bienestar depende del conjunto social que abandona.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta V</span><p class="q-text">¿Qué observó Tocqueville sobre la tiranía de la mayoría en América?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que la mayoría usaba la ley para perseguir a las minorías</button></li><li><button class="opt-btn" data-idx="1">Que el sistema electoral favorecía sistemáticamente a los grupos mayoritarios</button></li><li><button class="opt-btn" data-idx="2">Que la presión social aplastaba el pensamiento disidente más eficazmente que cualquier censura legal</button></li><li><button class="opt-btn" data-idx="3">Que las mayorías étnicas dominaban el sistema judicial</button></li></ul><p class="q-fb ok">Correcto. No había ley que prohibiera pensar diferente — tampoco hacía falta. La exclusión social era suficiente. El resultado: una sociedad donde se dice mucho y se piensa poco.</p><p class="q-fb fail">La tiranía de la mayoría que observó Tocqueville no era legal sino social: la presión para conformarse era tan fuerte que los disidentes se autocensuraban sin necesidad de coerción.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta VI</span><p class="q-text">¿En qué años se publicaron los dos volúmenes de La democracia en América?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">1831 y 1835</button></li><li><button class="opt-btn" data-idx="1">1835 y 1840</button></li><li><button class="opt-btn" data-idx="2">1840 y 1848</button></li><li><button class="opt-btn" data-idx="3">1848 y 1856</button></li></ul><p class="q-fb ok">Correcto. El Vol. I (1835) analiza las instituciones. El Vol. II (1840) — el más profético — analiza los efectos psicológicos y culturales de la igualdad democrática.</p><p class="q-fb fail">1835 y 1840. El primer volumen analiza las instituciones americanas; el segundo, mucho más oscuro y profético, analiza los peligros internos de la democracia.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VII</span><p class="q-text">¿Por qué Tocqueville defendía la descentralización administrativa?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Porque el autogobierno local es donde los ciudadanos aprenden a gobernarse — sin esa práctica, no pueden sostener el autogobierno nacional</button></li><li><button class="opt-btn" data-idx="1">Porque los gobiernos locales son más eficientes que el Estado central</button></li><li><button class="opt-btn" data-idx="2">Porque la descentralización reduce el gasto público</button></li><li><button class="opt-btn" data-idx="3">Porque la diversidad regional es un valor cultural en sí mismo</button></li></ul><p class="q-fb ok">Correcto. La democracia se aprende en el ayuntamiento, en la asociación de vecinos, en el jurado. Quitar ese sustrato local es quitar el aprendizaje práctico de la libertad.</p><p class="q-fb fail">Para Tocqueville, el autogobierno local es la escuela de la democracia. Sin esa práctica cotidiana, los ciudadanos pierden la capacidad de gobernarse a nivel nacional.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta VIII</span><p class="q-text">¿Qué paradoja central observó Tocqueville sobre la pasión democrática por la igualdad?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que la igualdad produce más conflicto social que la desigualdad</button></li><li><button class="opt-btn" data-idx="1">Que los más igualitarios terminan siendo los más ricos</button></li><li><button class="opt-btn" data-idx="2">Que la igualdad formal esconde una desigualdad real más profunda</button></li><li><button class="opt-btn" data-idx="3">Que los ciudadanos democráticos prefieren la igualdad en la servidumbre a la desigualdad en la libertad</button></li></ul><p class="q-fb ok">Correcto. Esta es la palanca del despotismo blando: el Estado promete igualdad, los ciudadanos le entregan libertad. El intercambio parece justo — hasta que ya no hay libertad que recuperar.</p><p class="q-fb fail">La paradoja que Tocqueville señaló: los ciudadanos democráticos sienten la desigualdad más intensamente que la pérdida de libertad. Prefieren la igualdad en la servidumbre — y eso los hace vulnerables al despotismo blando.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta IX</span><p class="q-text">¿Cuál era la procedencia familiar de Tocqueville y cómo influyó en su obra?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Era de clase media ilustrada — lo que le dio simpatía por las causas democráticas</button></li><li><button class="opt-btn" data-idx="1">Era aristocrático — su familia casi fue guillotinada en la Revolución, lo que le dio distancia analítica frente a la democracia</button></li><li><button class="opt-btn" data-idx="2">Era de origen popular — lo que le permitió entender la democracia desde dentro</button></li><li><button class="opt-btn" data-idx="3">Era hijo de revolucionarios — lo que le hizo defensor incondicional de la igualdad</button></li></ul><p class="q-fb ok">Correcto. Sus abuelos murieron en la guillotina. Esa distancia aristocrática le dio una capacidad analítica que los entusiastas democráticos no tenían — podía ver tanto las virtudes como los peligros sin idealizarlos.</p><p class="q-fb fail">Tocqueville era aristócrata — sus abuelos murieron en la guillotina. Esa distancia le permitió analizar la democracia sin el entusiasmo acrítico del converso ni el desprecio del reaccionario.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta X</span><p class="q-text">¿Qué comparación hizo Tocqueville entre la Inquisición y la tiranía de la mayoría democrática?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que ambas eran igualmente violentas en sus métodos</button></li><li><button class="opt-btn" data-idx="1">Que la Inquisición era más eficaz para suprimir el pensamiento</button></li><li><button class="opt-btn" data-idx="2">Que la Inquisición torturaba el cuerpo pero dejaba libre el alma; la tiranía de la mayoría ataca la voluntad de pensar diferente</button></li><li><button class="opt-btn" data-idx="3">Que ambas eran formas de control por élites religiosas</button></li></ul><p class="q-fb ok">Correcto. La Inquisición era brutal pero más limitada. La tiranía de la mayoría es más profunda: no solo persigue el pensamiento disidente — destruye la voluntad de tenerlo.</p><p class="q-fb fail">Tocqueville dijo que la Inquisición torturaba el cuerpo pero dejaba libre el alma. La tiranía de la mayoría democrática va más lejos: ataca la voluntad misma de pensar diferente.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta XI</span><p class="q-text">¿Qué vio Tocqueville en la prensa americana que encontró positivo a pesar de sus defectos?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que era indispensable para coordinar la resistencia ciudadana frente al poder, independientemente de su calidad</button></li><li><button class="opt-btn" data-idx="1">Que era modélica en su rigor y objetividad</button></li><li><button class="opt-btn" data-idx="2">Que era el instrumento de la clase intelectual para educar al pueblo</button></li><li><button class="opt-btn" data-idx="3">Que era más libre que la prensa europea porque no tenía regulación</button></li></ul><p class="q-fb ok">Correcto. Tocqueville no idealizó la prensa americana — la encontró ruidosa y parcial. Pero la defendió porque sin ella los ciudadanos no pueden coordinarse para actuar colectivamente frente al poder.</p><p class="q-fb fail">Tocqueville no admiró la calidad de la prensa americana sino su función: sin libertad de prensa, los ciudadanos no pueden coordinarse para resistir al poder. La prensa no necesita ser buena — necesita ser libre.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta XII</span><p class="q-text">¿Qué tendencia estructural predijo Tocqueville sobre las democracias y el tiempo?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que se volverían más sabias con la experiencia histórica</button></li><li><button class="opt-btn" data-idx="1">Que inevitablemente se convertirían en tecnocracias</button></li><li><button class="opt-btn" data-idx="2">Que producirían mayor desigualdad económica con el tiempo</button></li><li><button class="opt-btn" data-idx="3">Que tendrían dificultad estructural para tomar decisiones que cuestan ahora y benefician en el futuro</button></li></ul><p class="q-fb ok">Correcto. El horizonte electoral de cuatro años crea un sesgo hacia el cortoplacismo. El cambio climático, las pensiones, la deuda — son todos problemas que Tocqueville habría reconocido como estructuralmente difíciles para la democracia.</p><p class="q-fb fail">Tocqueville observó que las democracias son estructuralmente cortoplacistas: los políticos piensan en el siguiente ciclo electoral, los ciudadanos en sus intereses inmediatos. Las decisiones que cuestan hoy y benefician en 20 años son sistemáticamente postergadas.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta XIII</span><p class="q-text">¿Cuál era la tesis central de Tocqueville sobre la igualdad de condiciones?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que era un ideal deseable pero prácticamente inalcanzable</button></li><li><button class="opt-btn" data-idx="1">Que era peligrosa porque destruía el orden social tradicional</button></li><li><button class="opt-btn" data-idx="2">Que era una tendencia histórica irresistible — la pregunta era si llevaría a la libertad o a una nueva servidumbre</button></li><li><button class="opt-btn" data-idx="3">Que solo era posible en condiciones materiales de abundancia</button></li></ul><p class="q-fb ok">Correcto. Tocqueville no era anti-igualitario ni pro-igualitario. Aceptaba la igualdad como destino histórico inevitable y se preguntaba qué tipo de democracia produciría: una que amplía la libertad o una que la devora.</p><p class="q-fb fail">Tocqueville veía la igualdad de condiciones como irresistible — no era una opción sino un destino histórico. Su pregunta era qué tipo de sociedad democrática produciría: libre o servilmente igualitaria.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta XIV</span><p class="q-text">¿Qué obra posterior de Tocqueville analiza la Revolución Francesa?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Recuerdos (1850)</button></li><li><button class="opt-btn" data-idx="1">El Antiguo Régimen y la Revolución (1856)</button></li><li><button class="opt-btn" data-idx="2">Sobre la democracia en Suiza (1848)</button></li><li><button class="opt-btn" data-idx="3">La libertad y la igualdad (1852)</button></li></ul><p class="q-fb ok">Correcto. El Antiguo Régimen y la Revolución (1856) es su última gran obra. Analiza la paradoja central: la Revolución no rompió con el Antiguo Régimen tanto como creía — en muchos aspectos lo continuó.</p><p class="q-fb fail">El Antiguo Régimen y la Revolución (1856) es la obra donde Tocqueville analiza la Revolución Francesa — y llega a la conclusión incómoda de que la ruptura revolucionaria fue menos radical de lo que parecía.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta XV</span><p class="q-text">¿Qué concepto de Tocqueville describe mejor el declive actual de los partidos, sindicatos e iglesias en las democracias occidentales?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">El deterioro del tejido asociativo civil que él identificó como condición de la democracia saludable</button></li><li><button class="opt-btn" data-idx="1">La tiranía de la mayoría aplicada a las instituciones intermedias</button></li><li><button class="opt-btn" data-idx="2">La concentración del poder en el Estado central que él predijo</button></li><li><button class="opt-btn" data-idx="3">El individualismo egoísta que reemplaza a la solidaridad colectiva</button></li></ul><p class="q-fb ok">Correcto. Tocqueville advirtió que sin asociaciones civiles los ciudadanos quedan aislados frente al Estado. El fenómeno que Robert Putnam llamó «Bowling Alone» — el declive del asociacionismo — es exactamente lo que Tocqueville temía.</p><p class="q-fb fail">El declive del tejido asociativo es exactamente lo que Tocqueville señaló como el mayor peligro para la democracia. Sin asociaciones, los ciudadanos quedan aislados — vulnerables al despotismo blando y al individualismo.</p></div>
+
+    <div class="score-box" id="score-box">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">Respuestas correctas de 15</span>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Inicio</a><a href="fase3.html">Fase III</a></nav></div></footer>
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})});
+function toggleAcc(t){const b=t.nextElementSibling,o=t.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.acc-body').forEach(x=>x.classList.remove('open'));if(!o){t.classList.add('open');b.classList.add('open')}}
+let answered=0,score=0;const total=15;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,5,'Tocqueville diría: sal de tu individualismo. El módulo está ahí para releerlo.'],[6,9,'Buen comienzo. El despotismo blando ya no es un concepto abstracto para ti.'],[10,12,'Sólido. Distingues las virtudes y los peligros de la democracia con claridad.'],[13,15,'Excelente. Aplicas la mirada tocquevilleana al presente — que es exactamente para lo que sirve.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>
