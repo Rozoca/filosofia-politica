@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre el autor — Rodrigo Vidal · Filosofía & Política</title>
+  <meta name="description" content="Rodrigo Vidal — Ciencias Políticas, filosofía aplicada y la voluntad incansable de seguir aprendiendo y compartir conocimiento."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#0e0c0a;--bg-mid:#141210;--bg-card:#1a1714;--surface:#221e1a;
+      --border:#3a3028;--border-light:#4e4238;
+      --gold:#c48820;--gold-light:#d8a030;--gold-dim:#8a6018;
+      --ink:#f0e8d8;--ink-mid:#c0b8a8;--ink-dim:#807868;
+      --text:#e0d8c8;--text-muted:#9a9080;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:17px;line-height:1.8;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+
+    /* ── NAV GLOBAL ── */
+    .top-nav{background:rgba(14,12,10,.96);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--gold);text-decoration:none;display:flex;align-items:center;letter-spacing:.02em;flex-shrink:0}
+    .nav-brand:hover{color:var(--gold-light)}
+    .nav-menu{display:flex;align-items:stretch;gap:0}
+    .nav-item{position:relative;display:flex;align-items:stretch}
+    .nav-item-btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--gold)}
+    .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
+    .nav-item-btn.open .arrow{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,18,16,.98);border:1px solid var(--border);border-top:none;min-width:260px;z-index:300;display:none;backdrop-filter:blur(12px)}
+    .nav-dropdown.open{display:block;animation:dropIn .15s ease}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    .nav-drop-section{padding:.5rem 0}
+    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--border)}
+    .nav-drop-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim);padding:.4rem 1.2rem .2rem;display:block}
+    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-mid);text-decoration:none;transition:background .15s,color .15s}
+    .nav-drop-link:hover{background:var(--surface);color:var(--gold)}
+    .nav-drop-link.disabled{color:var(--ink-dim);cursor:default;opacity:.45}
+    .nav-drop-link.disabled:hover{background:none;color:var(--ink-dim)}
+    .nav-drop-badge{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim);background:rgba(196,136,32,.1);padding:.1rem .4rem;border-radius:1px}
+    .nav-autor-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
+    .nav-autor-link:hover,.nav-autor-link.active{color:var(--gold)}
+
+    /* ── HERO ── */
+    .hero{padding:5rem 2rem 3rem;position:relative;overflow:hidden}
+    .hero::before{content:'"';position:absolute;top:-2rem;right:2rem;font-family:'Playfair Display',serif;font-size:20rem;font-weight:700;color:rgba(196,136,32,.04);line-height:1;pointer-events:none;z-index:0}
+    .hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:start}
+
+    /* Photo */
+    .author-photo-wrap{position:relative}
+    .author-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:2px;filter:grayscale(15%) contrast(1.05);display:block}
+    .photo-border{position:absolute;inset:0;border:1px solid var(--border-light);border-radius:2px;pointer-events:none}
+    .photo-caption{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dim);margin-top:.8rem;text-align:center}
+
+    /* Text */
+    .author-content{}
+    .author-eyebrow{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:1rem}
+    .author-name{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,3.5rem);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:.6rem}
+    .author-tagline{font-family:'Libre Baskerville',serif;font-size:1.05rem;font-style:italic;color:var(--text-muted);margin-bottom:2rem;line-height:1.7}
+
+    .author-bio p{font-size:1rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.1rem}
+    .author-bio p:last-child{margin-bottom:0}
+    .author-bio strong{color:var(--ink-mid);font-weight:500}
+    .author-bio em{font-style:italic;color:var(--gold-light)}
+
+    /* ── SECTIONS ── */
+    .main-content{max-width:900px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+
+    .section-divider{border:none;border-top:1px solid var(--border);margin:3.5rem 0}
+
+    .section-label{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-dim);display:flex;align-items:center;gap:1rem;margin-bottom:2rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+    /* Homo Sapiens Politikon */
+    .hsp-block{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:2px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .hsp-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim);display:block;margin-bottom:.6rem}
+    .hsp-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:500;color:var(--gold);margin-bottom:.8rem;font-style:italic}
+    .hsp-block p{font-size:.97rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.hsp-block p:last-child{margin-bottom:0}
+    .hsp-block strong{color:var(--ink-mid);font-weight:500}
+    .hsp-logo-wrap{margin:.8rem 0 1.4rem;border-radius:2px;overflow:hidden}
+    .hsp-logo{width:100%;display:block;border-radius:2px;opacity:.9}
+
+    /* Proyecto */
+    .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:1.6rem 1.8rem}
+    .project-card h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:.5rem}
+    .project-card p{font-size:.9rem;color:var(--text-muted);line-height:1.8}
+    .project-card-icon{font-size:1.3rem;display:block;margin-bottom:.5rem}
+
+    /* Copyright */
+    .copyright-block{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:1.8rem 2.2rem}
+    .copyright-block p{font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:.5rem}.copyright-block p:last-child{margin-bottom:0}
+    .copyright-block strong{color:var(--ink-mid);font-weight:500}
+    .copyright-year{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);font-style:italic}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
+    .footer-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ink);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--gold)}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .anim{animation:fadeUp .6s ease both}
+
+    @media(max-width:700px){
+      .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+      .author-photo-wrap{max-width:220px;margin:0 auto}
+      .project-grid{grid-template-columns:1fr}
+      .footer-inner{flex-direction:column;text-align:center}
+      .nav-menu{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV GLOBAL ══════════ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
+    <div class="nav-menu">
+
+      <!-- FASE I -->
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d1')">Fase I <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d1">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Antigüedad griega</span>
+            <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
+            <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
+            <a href="#" class="nav-drop-link disabled">Cicerón <span class="nav-drop-badge">Próx.</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE II -->
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d2')">Fase II <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d2">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Renacimiento &amp; Modernidad</span>
+            <a href="maquiavelo.html" class="nav-drop-link">Maquiavelo</a>
+            <a href="hobbes.html" class="nav-drop-link">Hobbes y el Leviatán</a>
+            <a href="locke.html" class="nav-drop-link">Locke y los derechos naturales</a>
+            <a href="rousseau.html" class="nav-drop-link">Rousseau</a>
+            <a href="kant.html" class="nav-drop-link">Kant y la razón universal</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE III -->
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d3')">Fase III <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d3">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Siglo XIX · Ideologías</span>
+            <a href="marx.html" class="nav-drop-link">Marx y el Capital</a>
+            <a href="mill.html" class="nav-drop-link">Mill y la libertad</a>
+            <a href="tocqueville.html" class="nav-drop-link">Tocqueville y la democracia</a>
+            <a href="nietzsche.html" class="nav-drop-link">Nietzsche y el martillo</a>
+          </div>
+          <div class="nav-drop-section">
+            <a href="epilogo-fase3.html" class="nav-drop-link">✦ Epílogo — Las sombras del XIX</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE IV -->
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d4')">Fase IV <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d4">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Economía Política</span>
+            <a href="smith.html" class="nav-drop-link">Adam Smith y la mano invisible</a>
+            <a href="keynes.html" class="nav-drop-link">Keynes y el Estado que actúa</a>
+            <a href="hayek-keynes.html" class="nav-drop-link">Hayek vs. Keynes</a>
+            <a href="#" class="nav-drop-link disabled">Globalización <span class="nav-drop-badge">Próx.</span></a>
+            <a href="#" class="nav-drop-link disabled">El nuevo desorden mundial <span class="nav-drop-badge">Próx.</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="autor.html" class="nav-autor-link active">Sobre el autor</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-inner anim">
+
+    <div class="author-photo-wrap">
+      <img src="foto-autor.jpg" alt="Rodrigo Vidal" class="author-photo"/>
+      <div class="photo-border"></div>
+      <p class="photo-caption">Rodrigo Vidal · Madrid</p>
+    </div>
+
+    <div class="author-content">
+      <span class="author-eyebrow">Sobre el autor</span>
+      <h1 class="author-name">Rodrigo Vidal</h1>
+      <p class="author-tagline">Aprendiz permanente. Lector inquieto. El que necesita entender antes de opinar.</p>
+
+      <div class="author-bio">
+        <p>Soy Rodrigo Vidal, brasileño en Madrid desde 2005. Mi relación con la filosofía y la política no empezó en un aula — empezó en la curiosidad que me hizo estudiar <strong>Ciencias Políticas en la Universitat de Barcelona</strong> y que desde entonces no ha parado de crecer.</p>
+        <p>Llevo más de diecinueve años trabajando en banca y fintech — un mundo donde la economía política no es una abstracción sino una realidad que se siente en los tipos de interés, en los sistemas de pago y en cada decisión que los mercados toman y que afecta a millones de personas. Eso me enseñó que entender el pensamiento que hay detrás de los sistemas no es un lujo intelectual: es una necesidad práctica.</p>
+        <p>Pero siempre hubo algo más que el análisis profesional. La filosofía — la pregunta sobre cómo debemos vivir, cómo organizamos el poder, qué significa ser libre — me ha acompañado como <em>inquietud personal</em>, no como obligación académica. Este proyecto es la forma que encontré de honrar esa inquietud.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CONTENIDO ══════════ -->
+<main class="main-content">
+
+  <hr class="section-divider"/>
+
+  <!-- HOMO SAPIENS POLITIKON -->
+  <p class="section-label">El antecedente</p>
+  <div class="hsp-block">
+    <span class="hsp-label">Blog · 2010–2015</span>
+    <div class="hsp-title">Homo Sapiens Politikon</div>
+    <div class="hsp-logo-wrap">
+      <img src="homo-sapiens-politikon.png" alt="Homo Sapiens Politikon — el hombre como ser social y político" class="hsp-logo"/>
+    </div>
+    <p>Hace quince años, mientras cursaba Ciencias Políticas en Barcelona, creé un blog con ese nombre. Lo elegí por razones obvias: era la unión de la definición aristotélica del ser humano como <strong>animal político</strong> con la especie que somos. Quería un espacio para pensar en voz alta sobre lo que aprendía, conectar la teoría con lo que pasaba en el mundo, y compartirlo con quien quisiera leerlo.</p>
+    <p>El blog fue una escuela en sí mismo. Me enseñó que el conocimiento adquiere otra dimensión cuando intentas explicárselo a alguien — que el esfuerzo de hacerlo comprensible te obliga a entenderlo de verdad. Esa lección no la he olvidado.</p>
+    <p><em>Filosofía &amp; Política</em> es, en cierto modo, la versión adulta de aquel proyecto: más ambiciosa, más estructurada, construida con más experiencia pero con el mismo impulso de siempre — entender y compartir.</p>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- EL PROYECTO -->
+  <p class="section-label">Este proyecto</p>
+
+  <div style="margin-bottom:2rem;">
+    <p style="font-size:1rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.1rem;">Hace unos años estuve valorando volver a estudiar — un máster en filosofía, quizás. Finalmente decidí algo distinto: <strong>hacerlo por mi cuenta, de forma autónoma</strong>, sin restricciones de currículo ni presiones de examen. Con el tiempo, el rigor y la profundidad que yo decidiera poner.</p>
+    <p style="font-size:1rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.1rem;">Lo que ves aquí es el resultado de ese proceso: un portal de filosofía y política pensado para adultos que quieren aprender sin necesitar un título para hacerlo. Para quien tiene curiosidad pero no tiempo de leer cuatro tomos. Para quien quiere entender a Marx sin convertirse en marxista, a Hayek sin volverse libertario, a Nietzsche sin que le roben las ideas.</p>
+    <p style="font-size:1rem;color:var(--text-muted);line-height:1.9;">El formato —módulos didácticos con contexto histórico, conceptos clave, conexión con el presente y test al final— nació de una pregunta simple: <em>¿cómo me habría gustado a mí aprender esto?</em></p>
+  </div>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <span class="project-card-icon">🏛️</span>
+      <h3>Para no especialistas</h3>
+      <p>Escrito para personas inteligentes sin formación filosófica previa. Sin jerga innecesaria, sin asumir que ya lo sabes.</p>
+    </div>
+    <div class="project-card">
+      <span class="project-card-icon">🔗</span>
+      <h3>Conectado al presente</h3>
+      <p>Cada pensador, cada concepto, tiene un espejo en 2025. La filosofía no es arqueología — es una caja de herramientas para leer lo que pasa.</p>
+    </div>
+    <div class="project-card">
+      <span class="project-card-icon">🌐</span>
+      <h3>Acceso libre</h3>
+      <p>Sin suscripción, sin muro de pago. El conocimiento debería ser accesible para quien tenga la voluntad de buscarlo.</p>
+    </div>
+    <div class="project-card">
+      <span class="project-card-icon">📐</span>
+      <h3>En construcción permanente</h3>
+      <p>El portal crece con cada módulo nuevo. Cuatro fases activas, una quinta en camino. Esto no termina — aprende y se actualiza.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- COPYRIGHT -->
+  <p class="section-label">Autoría y uso</p>
+  <div class="copyright-block">
+    <p><strong>© <span class="copyright-year">Rodrigo Vidal</span> — Filosofía &amp; Política</strong></p>
+    <p>Todo el contenido de este portal — textos, estructura didáctica, cuestionarios y diseño — es de autoría propia y está protegido por derechos de autor. El portal nació en <strong>2024</strong> como proyecto personal de divulgación filosófica y política.</p>
+    <p>Puedes compartir enlaces al portal libremente. Si quieres citar algún contenido, menciona la fuente: <em>Filosofía &amp; Política · Rodrigo Vidal · rozoca.github.io/filosofia-politica</em></p>
+    <p>Este portal no tiene fines comerciales. No hay publicidad, no hay patrocinadores. Solo la voluntad de que el conocimiento llegue a quien lo busca.</p>
+  </div>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía &amp; Política</div>
+    <nav class="footer-nav">
+      <a href="index.html">Portal</a>
+      <a href="https://github.com/Rozoca" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+function toggleDrop(id){
+  const all=document.querySelectorAll('.nav-dropdown');
+  const allBtns=document.querySelectorAll('.nav-item-btn');
+  const target=document.getElementById(id);
+  const isOpen=target.classList.contains('open');
+  all.forEach(d=>d.classList.remove('open'));
+  allBtns.forEach(b=>b.classList.remove('open'));
+  if(!isOpen){
+    target.classList.add('open');
+    target.previousElementSibling.classList.add('open');
+  }
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-item')){
+    document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
+    document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
+  }
+});
+</script>
+</body>
+</html>
