@@ -453,6 +453,31 @@
       .footer-inner { flex-direction: column; text-align: center; }
       .manifesto-inner { gap: 1rem; }
     }
+
+    /* ── NAV GLOBAL ── */
+    .top-nav{background:rgba(14,12,10,.96);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--gold,#c48820);text-decoration:none;display:flex;align-items:center;letter-spacing:.02em;flex-shrink:0}
+    .nav-brand:hover{color:var(--gold-light,#d8a030)}
+    .nav-menu{display:flex;align-items:stretch;gap:0}
+    .nav-item{position:relative;display:flex;align-items:stretch}
+    .nav-item-btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--gold,#c48820)}
+    .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
+    .nav-item-btn.open .arrow{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,18,16,.98);border:1px solid var(--border,#3a3028);border-top:none;min-width:260px;z-index:300;display:none;backdrop-filter:blur(12px)}
+    .nav-dropdown.open{display:block;animation:dropIn .15s ease}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    .nav-drop-section{padding:.5rem 0}
+    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--border,#3a3028)}
+    .nav-drop-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim,#8a6018);padding:.4rem 1.2rem .2rem;display:block}
+    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-mid,#c0b8a8);text-decoration:none;transition:background .15s,color .15s}
+    .nav-drop-link:hover{background:var(--surface,#221e1a);color:var(--gold,#c48820)}
+    .nav-drop-link.disabled{color:var(--ink-dim,#807868);cursor:default;opacity:.45;pointer-events:none}
+    .nav-drop-badge{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim,#8a6018);background:rgba(196,136,32,.1);padding:.1rem .4rem;border-radius:1px}
+    .nav-autor-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
+    .nav-autor-link:hover,.nav-autor-link.active{color:var(--gold,#c48820)}
+    @media(max-width:700px){.nav-menu{display:none}}
   </style>
 </head>
 <body>
@@ -460,10 +485,61 @@
 <!-- ══════════ NAV ══════════ -->
 <nav class="top-nav">
   <div class="top-nav-inner">
-    <a href="index.html" class="nav-back">← Portal principal</a>
-    <div class="nav-links">
-      <a href="fase2.html" class="nav-link">Fase II</a>
-      <span class="nav-phase">Fase III</span>
+    <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
+    <div class="nav-menu">
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d1')">Fase I <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d1">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Antigüedad griega</span>
+            <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
+            <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
+            <a href="#" class="nav-drop-link disabled">Cicerón <span class="nav-drop-badge">Próx.</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d2')">Fase II <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d2">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Renacimiento &amp; Modernidad</span>
+            <a href="maquiavelo.html" class="nav-drop-link">Maquiavelo</a>
+            <a href="hobbes.html" class="nav-drop-link">Hobbes y el Leviatán</a>
+            <a href="locke.html" class="nav-drop-link">Locke y los derechos naturales</a>
+            <a href="rousseau.html" class="nav-drop-link">Rousseau</a>
+            <a href="kant.html" class="nav-drop-link">Kant y la razón universal</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn active" onclick="toggleDrop('d3')">Fase III <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d3">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Siglo XIX · Ideologías</span>
+            <a href="marx.html" class="nav-drop-link">Marx y el Capital</a>
+            <a href="mill.html" class="nav-drop-link">Mill y la libertad</a>
+            <a href="tocqueville.html" class="nav-drop-link">Tocqueville y la democracia</a>
+            <a href="nietzsche.html" class="nav-drop-link">Nietzsche y el martillo</a>
+          </div>
+          <div class="nav-drop-section">
+            <a href="epilogo-fase3.html" class="nav-drop-link">✦ Epílogo — Las sombras del XIX</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-item-btn" onclick="toggleDrop('d4')">Fase IV <span class="arrow">▾</span></button>
+        <div class="nav-dropdown" id="d4">
+          <div class="nav-drop-section">
+            <span class="nav-drop-label">Economía Política</span>
+            <a href="smith.html" class="nav-drop-link">Adam Smith</a>
+            <a href="keynes.html" class="nav-drop-link">Keynes</a>
+            <a href="hayek-keynes.html" class="nav-drop-link">Hayek vs. Keynes</a>
+            <a href="#" class="nav-drop-link disabled">Globalización <span class="nav-drop-badge">Próx.</span></a>
+            <a href="#" class="nav-drop-link disabled">El nuevo desorden mundial <span class="nav-drop-badge">Próx.</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="autor.html" class="nav-autor-link">Sobre el autor</a>
     </div>
   </div>
 </nav>
