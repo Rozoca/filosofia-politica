@@ -243,6 +243,72 @@
       background: var(--card-border);
     }
 
+
+
+    /* ── CIERRE BAUMAN ── */
+    .bauman-section {
+      padding: 2.5rem 0 3rem;
+      text-align: center;
+      border-top: 1px solid var(--card-border);
+    }
+    .bauman-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto .6rem;
+    }
+    .bauman-attr {
+      font-family: 'Cormorant SC', serif;
+      font-size: .88rem;
+      letter-spacing: .2em;
+      color: var(--terra-dim);
+      display: block;
+      margin-top: .5rem;
+    }
+    /* ── MANIFESTO ── */
+    .manifesto-section {
+      padding: 2.5rem 0 2.5rem;
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 2.5rem;
+    }
+    .manifesto-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 0 auto 1.8rem;
+      text-align: center;
+    }
+    .manifesto-lead em {
+      color: var(--terra);
+      font-style: italic;
+    }
+    .manifesto-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      justify-content: center;
+    }
+    .manifesto-pill {
+      font-family: 'Cormorant SC', serif;
+      font-size: .82rem;
+      letter-spacing: .15em;
+      color: var(--terra-dim);
+      border: 1px solid var(--card-border);
+      padding: .35rem .9rem;
+      border-radius: 1px;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .manifesto-pill span { font-size: 1rem; }
     .modules-section { padding: 1rem 0 3rem; }
 
     .card-active {
@@ -593,11 +659,6 @@
           <cite class="quote-attr">— Aristóteles, Política · s. IV a.C.</cite>
         </blockquote>
 
-        <blockquote class="header-quote header-quote--bauman anim-3">
-          "En un mundo líquido, quienes abandonan el pensamiento crítico quedan a merced de las corrientes."
-          <cite class="quote-attr">— Zygmunt Bauman · Modernidad Líquida</cite>
-        </blockquote>
-
         <p class="header-tagline anim-4">
           En la era de la Inteligencia Artificial, pensar sigue siendo el acto más radical.<br/>
           Este espacio existe para no dejar de hacerlo.
@@ -628,6 +689,24 @@
       <rect width="100%" height="100%" fill="url(#meander-pat)"/>
     </svg>
   </header>
+
+  <!-- ══════════ MANIFIESTO ══════════ -->
+  <section class="manifesto-section anim-5">
+    <p class="manifesto-lead">
+      Un portal para <em>aprender filosofía y política sin necesitar un título</em> para hacerlo.
+      Para quien tiene curiosidad pero no tiempo de leer cuatro tomos.<br/>
+      Para quien quiere entender a Marx sin convertirse en marxista —
+      y necesita conocer el pasado para leer lo que ocurre hoy.<br/>
+      Para <em>mentes inquietas</em>, para futuros estudiantes de ciencias sociales, política o economía,
+      y para curiosos que saben que las grandes preguntas no tienen fecha de caducidad.
+    </p>
+    <div class="manifesto-pills">
+      <span class="manifesto-pill"><span>🏛️</span> Para no especialistas</span>
+      <span class="manifesto-pill"><span>🔗</span> Conectado al presente</span>
+      <span class="manifesto-pill"><span>🌐</span> Acceso libre</span>
+      <span class="manifesto-pill"><span>📐</span> En construcción permanente</span>
+    </div>
+  </section>
 
   <!-- ══════════ MODULES ══════════ -->
   <section class="modules-section anim-5">
@@ -735,6 +814,27 @@
       Fase II → Renacimiento &amp; Modernidad
     </a>
   </section>
+
+  <!-- ══════════ CITAS CIERRE ══════════ -->
+  <section class="bauman-section anim-7">
+
+    <blockquote class="bauman-quote">
+      "Sapere aude. Ten el valor de servirte de tu propia razón."
+    </blockquote>
+    <cite class="bauman-attr">— Immanuel Kant · ¿Qué es la Ilustración? · 1784</cite>
+
+    <blockquote class="bauman-quote" style="margin-top:2rem;">
+      "Es mejor ser Sócrates insatisfecho que un necio satisfecho."
+    </blockquote>
+    <cite class="bauman-attr">— John Stuart Mill · El utilitarismo · 1863</cite>
+
+    <blockquote class="bauman-quote" style="margin-top:2rem;">
+      "En un mundo líquido, quienes abandonan el pensamiento crítico quedan a merced de las corrientes."
+    </blockquote>
+    <cite class="bauman-attr">— Zygmunt Bauman · Modernidad Líquida</cite>
+
+  </section>
+
 
 </div>
 
