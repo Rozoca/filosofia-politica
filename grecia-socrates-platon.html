@@ -422,6 +422,31 @@
       .context-card.full { grid-column: 1; }
       .test-section { padding: 1.5rem 1.2rem; }
     }
+
+    /* ── NAV GLOBAL ── */
+    .top-nav{background:rgba(244,234,216,.97);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--card-border,#c8b48a)}
+    .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
+    .nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--terra,#8c3a1e);text-decoration:none;display:flex;align-items:center;letter-spacing:.04em;flex-shrink:0;font-style:italic}
+    .nav-brand:hover{color:var(--terra-mid,#b04d28)}
+    .nav-menu{display:flex;align-items:stretch;gap:0}
+    .nav-item{position:relative;display:flex;align-items:stretch}
+    .nav-item-btn{font-family:'Cormorant SC',serif;font-size:.82rem;font-weight:400;letter-spacing:.18em;color:var(--ink-muted,#5a4530);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%;text-transform:uppercase}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--terra,#8c3a1e)}
+    .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
+    .nav-item-btn.open .arrow{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(244,234,216,.99);border:1px solid var(--card-border,#c8b48a);border-top:none;min-width:260px;z-index:300;display:none}
+    .nav-dropdown.open{display:block;animation:dropIn .15s ease}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    .nav-drop-section{padding:.5rem 0}
+    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--card-border,#c8b48a)}
+    .nav-drop-label{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--terra-dim,#c47a50);padding:.4rem 1.2rem .2rem;display:block}
+    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Jost',sans-serif;font-size:.82rem;font-weight:400;color:var(--ink-muted,#5a4530);text-decoration:none;transition:background .15s,color .15s}
+    .nav-drop-link:hover{background:var(--papyrus,#ede0c4);color:var(--terra,#8c3a1e)}
+    .nav-drop-link.disabled{color:var(--disabled-text,#9a8a6e);cursor:default;opacity:.5;pointer-events:none}
+    .nav-drop-badge{font-size:.65rem;font-family:'Cormorant SC',serif;letter-spacing:.12em;color:var(--terra-dim,#c47a50);background:rgba(140,58,30,.08);padding:.1rem .4rem;border-radius:1px}
+    .nav-autor-link{font-family:'Cormorant SC',serif;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted,#5a4530);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
+    .nav-autor-link:hover{color:var(--terra,#8c3a1e)}
+    @media(max-width:700px){.nav-menu{display:none}}
   </style>
 </head>
 <body>
@@ -853,6 +878,26 @@ function resetQuiz() {
 }
 
 buildQuiz();
+</script>
+<script>
+function toggleDrop(id){
+  const all=document.querySelectorAll('.nav-dropdown');
+  const allBtns=document.querySelectorAll('.nav-item-btn');
+  const target=document.getElementById(id);
+  const isOpen=target.classList.contains('open');
+  all.forEach(d=>d.classList.remove('open'));
+  allBtns.forEach(b=>b.classList.remove('open'));
+  if(!isOpen){
+    target.classList.add('open');
+    target.previousElementSibling.classList.add('open');
+  }
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-item')){
+    document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
+    document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
+  }
+});
 </script>
 </body>
 </html>
