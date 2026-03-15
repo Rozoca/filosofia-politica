@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo XII — Nietzsche · Filosofía & Política</title>
+  <meta name="description" content="Friedrich Nietzsche: la muerte de Dios, la voluntad de poder, el eterno retorno y el legado más malinterpretado de la filosofía occidental."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#08060a;--bg-mid:#0e0a12;--bg-card:#140e1a;--surface:#1c1424;
+      --border:#362840;--border-light:#4e3860;
+      --wine:#6a1a3a;--wine-mid:#8a2050;--wine-light:#b03070;--wine-pale:#d06090;
+      --violet:#4a2080;--violet-mid:#6030a8;--violet-light:#8050c8;
+      --amber:#c48820;--amber-light:#d8a030;--amber-dim:#8a6018;
+      --ink:#f0e0f0;--ink-mid:#c0a8c8;--ink-dim:#806878;
+      --text:#e0d0e8;--text-muted:#9a8898;
+      --correct:#3a7a3a;--correct-bg:#111811;--wrong:#8a2020;--wrong-bg:#1a1010;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:17px;line-height:1.8;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--wine-mid);z-index:999;width:0;transition:width .1s linear}
+    .top-nav{background:rgba(8,6,10,.97);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--wine-light)}
+    .nav-links{display:flex;align-items:center;gap:1.2rem}
+    .nav-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--amber)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--ink-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--wine-light);border:1px solid var(--wine);padding:.2rem .6rem;border-radius:1px}
+    /* HERO — cinematic, darker */
+    .hero{padding:5rem 2rem 0;position:relative;overflow:hidden;background:var(--bg)}
+    .hero::before{content:'†';position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);font-family:'Playfair Display',serif;font-size:clamp(16rem,35vw,26rem);font-weight:400;color:rgba(106,26,58,.06);pointer-events:none;line-height:1;z-index:0}
+    .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+    .hero-eyebrow{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--wine-mid);display:block;margin-bottom:1rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:400;color:var(--ink);line-height:.95;margin-bottom:1.4rem}
+    .hero-title em{font-style:italic;color:var(--wine-light)}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-style:italic;color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:2.5rem}
+    .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-item{padding:1.3rem 2.2rem 1.3rem 0;margin-right:2.2rem;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--wine-light);display:block;line-height:1}
+    .stat-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.14em;color:var(--ink-dim);display:block;margin-top:.3rem}
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:960px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ink-mid);background:var(--border)}.tab-btn.active{color:#fff;background:var(--wine);border-color:var(--wine-mid)}
+    .content-area{max-width:960px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;color:var(--ink);line-height:1.2}
+    .panel-header h2 em{color:var(--wine-mid);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--amber-dim);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    /* ESSAY SECTIONS — Nietzsche's distinctive format */
+    .essay-section{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+    .essay-section:last-of-type{border-bottom:none}
+    .essay-h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:500;color:var(--ink);line-height:1.2;margin-bottom:1.2rem}
+    .essay-h3 em{color:var(--wine-light);font-style:italic}
+    .essay-p{font-size:1rem;color:var(--text-muted);line-height:1.9;margin-bottom:1rem}
+    .essay-p:last-child{margin-bottom:0}
+    .essay-p strong{color:var(--ink-mid);font-weight:500}
+    /* Warning box */
+    .warning-box{background:rgba(106,26,58,.12);border:1px solid var(--wine);border-radius:2px;padding:1.8rem 2rem;margin:2rem 0}
+    .warning-box .wb-label{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--wine-light);display:block;margin-bottom:.7rem}
+    .warning-box p{font-size:.97rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.warning-box p:last-child{margin-bottom:0}
+    .warning-box strong{color:var(--ink-mid);font-weight:500}
+    /* Cards */
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:1.7rem 1.9rem}
+    .card.full{grid-column:1/-1}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ink);margin-bottom:.6rem}
+    .card p{font-size:.98rem;color:var(--text-muted);line-height:1.8}
+    .card-icon{font-size:1.4rem;display:block;margin-bottom:.6rem}
+    /* Timeline */
+    .timeline{position:relative;padding-left:2rem;margin-bottom:2.5rem}
+    .timeline::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:1.8rem}
+    .tl-dot{position:absolute;left:-1.65rem;top:.3rem;width:9px;height:9px;background:var(--wine);border-radius:0;transform:rotate(45deg)}
+    .tl-date{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--wine-mid);display:block;margin-bottom:.2rem}
+    .tl-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.2rem}
+    .tl-desc{font-size:.93rem;color:var(--text-muted);line-height:1.75}
+    /* Pull quote */
+    .pull-quote{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--amber);padding:1.8rem 2.4rem;margin:2.5rem 0;border-radius:2px}
+    .pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--ink-mid);line-height:1.65}
+    .pull-quote cite{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;color:var(--amber-dim);display:block;margin-top:.7rem}
+    /* Highlight */
+    .highlight-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--wine);border-radius:2px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .highlight-card .hc-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--wine-mid);display:block;margin-bottom:.7rem}
+    .highlight-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--ink);margin-bottom:.7rem}
+    .highlight-card p{font-size:.98rem;color:var(--text-muted);line-height:1.85;margin-bottom:.65rem}.highlight-card p:last-child{margin-bottom:0}
+    .highlight-card strong{color:var(--ink);font-weight:500}
+    /* TEST */
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:.98rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;color:var(--wine-mid);display:block;margin-bottom:.4rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.8rem 1.1rem;font-family:'Manrope',sans-serif;font-size:.93rem;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--wine);color:var(--ink);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}
+    .opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:#e87070}
+    .opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}
+    .opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.7rem;font-size:.9rem;line-height:1.7;display:none}.q-fb.show{display:block}
+    .q-fb.ok{color:var(--correct)}.q-fb.fail{color:#e87070}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}
+    .score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--wine-light);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.22em;color:var(--ink-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--wine);color:var(--wine-light);font-family:'Manrope',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:1px;transition:background .2s,color .2s}
+    .retry-btn:hover{background:var(--wine);color:#fff}
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ink);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--amber)}
+    @media(max-width:640px){.card-grid{grid-template-columns:1fr}.card.full{grid-column:1}.test-wrap{padding:1.5rem 1.2rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.74rem;padding:.5rem .9rem}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal principal</a>
+    <div class="nav-links">
+      <a href="fase3.html" class="nav-link">Fase III</a>
+      <span class="nav-title">Filosofía & Política</span>
+      <span class="nav-badge">Módulo XII</span>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo XII · Crítica radical</span>
+    <h1 class="hero-title">Nietzsche<br><em>y el martillo</em></h1>
+    <p class="hero-subtitle">El filósofo que dinamitó los fundamentos morales de Occidente — y cuyas ideas fueron robadas, deformadas y usadas para justificar exactamente lo que él habría abominado. Leerlo bien es urgente precisamente porque se le lee tan mal.</p>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">1844–1900</span><span class="stat-label">Röcken, Prusia</span></div>
+      <div class="stat-item"><span class="stat-num">1882</span><span class="stat-label">La gaya ciencia</span></div>
+      <div class="stat-item"><span class="stat-num">1883–85</span><span class="stat-label">Así habló Zaratustra</span></div>
+      <div class="stat-item"><span class="stat-num">11</span><span class="stat-label">Años de silencio final</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="quien">Quién fue</button>
+    <button class="tab-btn" data-tab="dios">La muerte de Dios</button>
+    <button class="tab-btn" data-tab="poder">Voluntad de poder</button>
+    <button class="tab-btn" data-tab="legado">El legado robado</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<main class="content-area">
+
+<!-- QUIÉN FUE -->
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header">
+    <h2>Nietzsche: <em>el filósofo a martillazos</em></h2>
+    <p class="panel-lead">No escribió sistemas — escribió detonaciones. Aforismos, parábolas, ataques. Cada texto es una carga explosiva colocada bajo los cimientos de la moral occidental. Y como toda explosión, los fragmentos llegaron a lugares que nadie controló.</p>
+  </div>
+
+  <p class="section-label">Contexto y vida</p>
+  <div class="card-grid">
+    <div class="card full">
+      <span class="card-icon">⚡</span>
+      <h3>El hijo del pastor que mató a Dios</h3>
+      <p>Nietzsche nació en una familia de pastores luteranos y creció en un ambiente profundamente religioso. Su padre, pastor, murió cuando Nietzsche tenía cinco años. Estudió filología clásica y fue el más joven catedrático de la Universidad de Basilea con solo 24 años. La trayectoria predecible de un académico brillante. Lo que siguió fue otra cosa.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎵</span>
+      <h3>Wagner y el desencanto</h3>
+      <p>Su amistad y ruptura con Richard Wagner fue una de las experiencias definitorias de su vida intelectual. Primero lo idolatró — luego lo atacó con ferocidad. Wagner le pareció un síntoma de la decadencia que quería diagnosticar: arte que adormece en lugar de despertar, que apela al instinto de rebaño en lugar de a la voluntad individual.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤕</span>
+      <h3>La enfermedad como condición</h3>
+      <p>Nietzsche escribió casi toda su obra con migrañas devastadoras, problemas de visión y dolores físicos crónicos. Muchas de sus ideas sobre el sufrimiento, la superación y la voluntad de poder tienen su origen en su experiencia directa con el dolor. En 1889, a los 44 años, colapsó en Turín. Nunca se recuperó mentalmente. Vivió once años más sin poder escribir.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1844</span><span class="tl-title">Nace en Röcken, Sajonia</span><span class="tl-desc">Familia de pastores luteranos. Su padre muere cuando Nietzsche tiene cinco años. Crece en un mundo de piedad religiosa que acabará demoliendo.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1869</span><span class="tl-title">Catedrático en Basilea, 24 años</span><span class="tl-desc">El más joven de la historia de la universidad. Renuncia a su ciudadanía prusiana — nunca adquirirá otra. Será apátrida hasta su muerte, coherente con su antipatriotismo filosófico.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1878</span><span class="tl-title">Ruptura con Wagner. Inicio de la filosofía madura</span><span class="tl-desc">Humano, demasiado humano marca la ruptura definitiva con el romanticismo wagneriano y el inicio de su propio camino. Abandona la filología y empieza a filosofar con el martillo.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1882</span><span class="tl-title">«Dios ha muerto» — La gaya ciencia</span><span class="tl-desc">La declaración más famosa de la filosofía moderna. No un grito de triunfo: un diagnóstico catastrófico de las consecuencias que nadie ha procesado todavía.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1883–85</span><span class="tl-title">Así habló Zaratustra</span><span class="tl-desc">Su obra más leída y más malentendida. El Superhombre, el Eterno Retorno, la Voluntad de Poder. No un manual político — una exploración de cómo vivir sin los fundamentos morales tradicionales.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1889</span><span class="tl-title">Colapso en Turín</span><span class="tl-desc">Se abraza al cuello de un caballo al que ve golpear y no se recupera. Vive once años más, cuidado por su madre y luego por su hermana Elisabeth — quien manipulará sus archivos póstumamente para acercarlos al antisemitismo que Nietzsche abominó.</span></div>
+  </div>
+</div>
+
+<!-- LA MUERTE DE DIOS -->
+<div class="tab-panel" id="tab-dios">
+  <div class="panel-header">
+    <h2>La muerte de Dios: <em>el diagnóstico, no la celebración</em></h2>
+    <p class="panel-lead">«Dios ha muerto» es la frase más citada y más malentendida de la filosofía moderna. No es un grito ateo de triunfo. Es un diagnóstico de la mayor crisis de la historia occidental — y una advertencia de consecuencias que nadie quería escuchar.</p>
+  </div>
+
+  <div class="essay-section">
+    <h3 class="essay-h3">Lo que Nietzsche realmente dijo — y lo que no dijo</h3>
+    <p class="essay-p">En La gaya ciencia (1882), un hombre loco corre por la plaza del mercado gritando que Dios ha muerto. La gente se ríe. El hombre loco les dice: «¿No oís el ruido de los sepultureros que entierran a Dios? ¿No sentís todavía nada de la descomposición divina?» Y concluye: <strong>«He llegado demasiado pronto. Este acontecimiento enorme está todavía en camino.»</strong></p>
+    <p class="essay-p">Nietzsche no celebra la muerte de Dios. La describe como la mayor catástrofe de la historia humana. Dios —el Dios cristiano, pero también cualquier fundamento absoluto de valores— había sido el horizonte que daba sentido a todo: lo bueno y lo malo, el sufrimiento y la esperanza, la vida y la muerte. Con ese horizonte desaparecido, <strong>¿sobre qué base se construyen los valores? ¿Quién decide lo que es bueno?</strong></p>
+    <p class="essay-p">El problema no es intelectual — es existencial. Europa había matado a Dios intelectualmente (con la ciencia, el racionalismo, la crítica histórica de la Biblia) pero seguía viviendo como si Dios existiera. Moralidad, derechos humanos, igualdad — todos conceptos que tienen sentido en un marco teológico pero que, sin ese marco, flotan en el vacío.</p>
+  </div>
+
+  <div class="essay-section">
+    <h3 class="essay-h3">El nihilismo: <em>el peligro que Nietzsche vio venir</em></h3>
+    <p class="essay-p">Si Dios ha muerto y nada tiene valor absoluto, la respuesta más fácil es el nihilismo: nada vale nada, todo da igual. Nietzsche diagnosticó el nihilismo como la enfermedad del siglo XX antes de que llegara el siglo XX. Lo vio como inevitable — pero no como deseable.</p>
+    <p class="essay-p">Para Nietzsche, el nihilismo es el síntoma de una civilización que ha perdido sus fundamentos pero no ha tenido el coraje de construir otros nuevos. <strong>El nihilismo es la fase inevitable después de la muerte de Dios — pero no tiene que ser el destino.</strong></p>
+    <p class="essay-p">La pregunta que obsesionaba a Nietzsche no era «¿existe Dios?» sino «¿cómo se vive con sentido sin los fundamentos absolutos?». La respuesta que propuso es radical, incompleta, y más compleja que cualquier eslogan.</p>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"Dios ha muerto. Dios permanece muerto. Y nosotros lo hemos matado. ¿Cómo nos consolaremos, nosotros, los asesinos de todos los asesinos?"</blockquote>
+    <cite>— Nietzsche, La gaya ciencia, §125, 1882</cite>
+  </div>
+
+  <div class="essay-section">
+    <h3 class="essay-h3">La moral del rebaño: <em>la crítica al cristianismo y a la democracia</em></h3>
+    <p class="essay-p">Nietzsche distinguió entre moral de señores y moral de esclavos. La moral de señores es creadora: dice sí a la vida, al poder, a la diferencia. La moral de esclavos es reactiva: no puede crear valores propios, solo puede resentir los de los fuertes y llamar «malo» a lo que le supera.</p>
+    <p class="essay-p">En su análisis, el cristianismo fue la gran inversión de valores: tomó las virtudes de los débiles — la humildad, la pobreza, la mansedumbre — y las presentó como las virtudes supremas. <strong>El «resentimiento» de los que no pueden competir se convirtió en sistema moral.</strong></p>
+    <p class="essay-p">Y aquí está la conexión política más polémica: para Nietzsche, la democracia igualitaria es la versión secularizada de esa misma moral. La igualdad como valor supremo es, en su lectura, el resentimiento de los mediocres institucionalizado. No porque los débiles no merezcan protección — sino porque fundar toda la moral en la igualdad aplana la excelencia y domestica la vida.</p>
+
+    <div class="warning-box">
+      <span class="wb-label">Advertencia necesaria</span>
+      <p>Esta crítica fue malentendida, deformada y usada para justificar el fascismo y el nazismo. <strong>Nietzsche era ferozmente anti-antisemita</strong> — llamó al antisemitismo «el mayor asco» y rompió con su amigo Wagner precisamente por sus tendencias racistas. Su «Superhombre» no es una raza: es una posibilidad individual de superación. Su hermana Elisabeth manipuló sus textos póstumos para acercarlos a la ideología nazi — algo que Nietzsche no habría consentido.</p>
+      <p>Leer a Nietzsche sin esta advertencia es como leer El Capital sin mencionar el Gulag. Las consecuencias importan — y la responsabilidad de una lectura honesta también.</p>
+    </div>
+  </div>
+</div>
+
+<!-- VOLUNTAD DE PODER -->
+<div class="tab-panel" id="tab-poder">
+  <div class="panel-header">
+    <h2>Voluntad de poder y Superhombre: <em>lo que significa realmente</em></h2>
+    <p class="panel-lead">Los dos conceptos más malinterpretados de Nietzsche. No tienen nada que ver con la dominación política ni con la superioridad racial. Tienen todo que ver con la superación de uno mismo.</p>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">El concepto más malentendido</span>
+    <h3>La voluntad de poder no es querer dominar a otros</h3>
+    <p>La voluntad de poder es el impulso fundamental de la vida — no hacia la supervivencia, como decía Darwin, sino hacia el <strong>crecimiento, la expresión, la superación</strong>. Una planta no crece para sobrevivir: crece porque esa es su naturaleza.</p>
+    <p>Para Nietzsche, la voluntad de poder más auténtica no se dirige hacia afuera — hacia la dominación de otros — sino hacia adentro: la superación de uno mismo. El artista que perfecciona su obra. El filósofo que destruye sus propias certezas para construir otras más verdaderas. El atleta que supera sus propios límites.</p>
+    <p><strong>El tirano que domina a otros es, para Nietzsche, la forma más débil de voluntad de poder</strong> — necesita a otros para sentirse fuerte. El verdadero poderoso es el que se supera a sí mismo sin necesitar la sumisión ajena.</p>
+  </div>
+
+  <div class="essay-section">
+    <h3 class="essay-h3">El Superhombre: <em>no una raza, una posibilidad</em></h3>
+    <p class="essay-p">El Übermensch (comúnmente traducido como Superhombre) no es una raza ni un tipo físico. Es una posibilidad existencial: el ser humano que, habiendo comprendido que no hay valores absolutos dados desde fuera, <strong>asume la responsabilidad de crear sus propios valores</strong>.</p>
+    <p class="essay-p">Nietzsche lo contrastó con «el último hombre» — el ser humano domesticado de la democracia de masas, satisfecho con sus pequeños placeres, incapaz de crear nada grande, incapaz de arriesgar nada. El último hombre parpadea y dice: «Hemos inventado la felicidad.» Para Nietzsche, esa es la forma más miserable de existir.</p>
+    <p class="essay-p">El Superhombre es un ideal, no un programa político. Nietzsche era profundamente escéptico de cualquier proyecto colectivo de transformación humana — incluyendo los socialistas que en su época aspiraban a crear un «hombre nuevo».</p>
+  </div>
+
+  <div class="essay-section">
+    <h3 class="essay-h3">El eterno retorno: <em>la prueba definitiva</em></h3>
+    <p class="essay-p">El experimento mental más exigente de Nietzsche: imagina que vivirás esta misma vida, con cada detalle, infinitamente. <strong>¿Puedes decir sí a eso?</strong> ¿Puedes querer que se repita eternamente?</p>
+    <p class="essay-p">No es una teoría cosmológica — es una prueba de la calidad de tu vida. Si la idea del eterno retorno te horroriza, significa que estás viviendo una vida que no puedes afirmar. Si puedes decir sí — <em>amor fati</em>, amor al destino — entonces has alcanzado la forma más alta de afirmación vital.</p>
+    <p class="essay-p">Para Nietzsche, el problema de la moral occidental —cristiana y democrática— es que es fundamentalmente negadora de la vida: prometía compensación en otro mundo, culpabilizaba el placer presente, postergaba la afirmación. El eterno retorno exige lo contrario: afirmar esta vida, este momento, sin reservas ni escapatorias.</p>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"Lo que no me mata me hace más fuerte."</blockquote>
+    <cite>— Nietzsche, Crepúsculo de los ídolos, 1889</cite>
+  </div>
+</div>
+
+<!-- EL LEGADO ROBADO -->
+<div class="tab-panel" id="tab-legado">
+  <div class="panel-header">
+    <h2>El legado robado: <em>cómo se usó y cómo se usa hoy</em></h2>
+    <p class="panel-lead">Ningún filósofo del siglo XIX fue más sistemáticamente deformado que Nietzsche. Comprender ese proceso de deformación es parte esencial de comprenderle a él.</p>
+  </div>
+
+  <div class="essay-section">
+    <h3 class="essay-h3">Elisabeth Förster-Nietzsche: <em>la hermana que falsificó el archivo</em></h3>
+    <p class="essay-p">Cuando Nietzsche colapsó en 1889, su hermana Elisabeth tomó el control de su obra y su imagen. Elisabeth era antisemita y nacionalista — exactamente lo opuesto de Friedrich. Seleccionó, editó y en algunos casos falsificó fragmentos póstumos para construir una imagen de Nietzsche compatible con el nacionalismo alemán emergente.</p>
+    <p class="essay-p">El resultado fue que cuando los nazis llegaron al poder en 1933, encontraron un «Nietzsche» pre-fabricado que encajaba con su ideología. Hitler visitó el archivo Nietzsche en Weimar. Se fotografió mirando el busto del filósofo. Se apropiaron del «Superhombre», la «voluntad de poder» y la crítica a la moral igualitaria — sin entender, o sin querer entender, que Nietzsche había escrito que el antisemitismo era una «bajeza».</p>
+    <p class="essay-p"><strong>Esta es la mayor ironía de la historia de la filosofía occidental</strong>: el pensador que más duramente atacó el nacionalismo, el antisemitismo y la ideología del rebaño fue convertido en icono del movimiento que encarnaba exactamente lo que él odiaba.</p>
+  </div>
+
+  <div class="essay-section">
+    <h3 class="essay-h3">Nietzsche hoy: <em>influencias reales y apropiaciones problemáticas</em></h3>
+    <p class="essay-p">La influencia genuina de Nietzsche es inmensa y diversa. Fue decisivo para el existencialismo (Sartre, Camus), el posestructuralismo (Foucault, Derrida), la psicología profunda (Freud y Jung tomaron prestados sus conceptos), la literatura del siglo XX (Kafka, Mann, Camus) y la filosofía continental en general.</p>
+    <p class="essay-p">Pero también hay apropiaciones contemporáneas que merecen el mismo escrutinio que la apropiación nazi. Algunos movimientos de la alt-right online citan a Nietzsche para justificar jerarquías naturales y masculinidades dominantes. La «píldora roja» y el «pensamiento de hombre alfa» tienen una vaga deuda nietzscheana que el propio Nietzsche habría encontrado ridícula — él tenía el máximo desprecio por los que sustituyen el pensamiento propio con las poses de la dureza.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">📖</span>
+      <h3>Influencia legítima</h3>
+      <p>Existencialismo, posestructuralismo, psicología del siglo XX, filosofía de la cultura, crítica de la modernidad, bioética contemporánea. Foucault le debe el concepto de «genealogía» del poder. Camus le debe la pregunta central del absurdo.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⚠️</span>
+      <h3>Apropiaciones problemáticas</h3>
+      <p>Nazismo (mediante falsificación), fascismo europeo, algunos sectores de la derecha alternativa contemporánea. En todos los casos, se seleccionan fragmentos descontextualizados ignorando el antipatriotismo, el antiracismo y el anticolectivismo radical de Nietzsche.</p>
+    </div>
+    <div class="card full">
+      <h3>La pregunta que deja abierta</h3>
+      <p>¿Es posible fundar una ética sin fundamentos absolutos? ¿Puede la excelencia individual convivir con la solidaridad social? ¿O la tensión entre el individuo que se supera a sí mismo y la comunidad que protege a todos es irresoluble? Nietzsche no da respuesta — plantea la pregunta con una brutalidad que ningún otro filósofo se atrevió. Eso, en sí mismo, es su mayor contribución.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header">
+    <h2>Pon a prueba <em>tu comprensión</em></h2>
+    <p class="panel-lead">12 preguntas sobre Nietzsche — el real, no el fabricado por sus apropiadores.</p>
+  </div>
+  <div class="test-wrap" id="quiz">
+    <p class="test-intro">Selecciona la respuesta correcta en cada pregunta.</p>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta I</span><p class="q-text">¿Qué quiso decir Nietzsche con «Dios ha muerto»?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que el ateísmo había triunfado definitivamente en Europa</button></li><li><button class="opt-btn" data-idx="1">Que la ciencia había refutado la existencia de Dios</button></li><li><button class="opt-btn" data-idx="2">Que los fundamentos absolutos de valor que sustentaban la civilización occidental habían colapsado, con consecuencias catastróficas</button></li><li><button class="opt-btn" data-idx="3">Que la religión había dejado de ser relevante para la vida cotidiana</button></li></ul><p class="q-fb ok">Correcto. No es una celebración — es un diagnóstico catastrófico. Europa había matado a Dios intelectualmente pero seguía viviendo como si existiera, sin procesar las consecuencias.</p><p class="q-fb fail">«Dios ha muerto» no es un grito de triunfo. Es un diagnóstico de la mayor crisis de Occidente: los fundamentos absolutos de valor han colapsado y nadie quiere procesar las consecuencias.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta II</span><p class="q-text">¿Qué es la «voluntad de poder» para Nietzsche?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">El impulso fundamental hacia el crecimiento, la expresión y la superación de uno mismo</button></li><li><button class="opt-btn" data-idx="1">El deseo de dominar y controlar a otras personas</button></li><li><button class="opt-btn" data-idx="2">La tendencia natural del ser humano hacia la acumulación de riqueza y poder político</button></li><li><button class="opt-btn" data-idx="3">La fuerza que impulsa a los Estados a expandir su territorio</button></li></ul><p class="q-fb ok">Correcto. La voluntad de poder más auténtica va hacia adentro — la superación de uno mismo — no hacia la dominación de otros. El tirano es la forma más débil de esta voluntad.</p><p class="q-fb fail">La voluntad de poder es el impulso hacia el crecimiento y la superación propia, no la dominación ajena. Para Nietzsche, el que necesita dominar a otros es el que tiene la forma más débil de esta voluntad.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta III</span><p class="q-text">¿Qué es el «Superhombre» (Übermensch) de Nietzsche?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Un ser humano genéticamente superior al resto</button></li><li><button class="opt-btn" data-idx="1">El ideal de una raza dominante sobre las demás</button></li><li><button class="opt-btn" data-idx="2">Un líder político carismático que guía a las masas</button></li><li><button class="opt-btn" data-idx="3">Una posibilidad existencial: el individuo que asume la responsabilidad de crear sus propios valores sin fundamentos absolutos externos</button></li></ul><p class="q-fb ok">Correcto. El Superhombre no es una raza ni un programa político. Es un ideal de superación individual: quien crea valores propios en lugar de heredar los del rebaño.</p><p class="q-fb fail">El Superhombre es una posibilidad existencial, no racial. Es el individuo que, habiendo asumido que no hay valores absolutos, crea los suyos propios con plena responsabilidad.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta IV</span><p class="q-text">¿Cómo fueron apropiados los textos de Nietzsche por el nazismo?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Nietzsche era abiertamente germanista y sus textos encajaban naturalmente con el nazismo</button></li><li><button class="opt-btn" data-idx="1">Su hermana Elisabeth manipuló y seleccionó los archivos póstumos para acercarlos al antisemitismo que Nietzsche abominaba</button></li><li><button class="opt-btn" data-idx="2">Los nazis lo rechazaron en vida pero lo adoptaron después de su muerte</button></li><li><button class="opt-btn" data-idx="3">Sus propios textos publicados eran compatibles con la ideología nazi sin necesidad de manipulación</button></li></ul><p class="q-fb ok">Correcto. Elisabeth Förster-Nietzsche, su hermana antisemita, falsificó y seleccionó los archivos para construir una imagen de Nietzsche compatible con el nacionalismo. El propio Nietzsche había llamado al antisemitismo «una bajeza».</p><p class="q-fb fail">Su hermana Elisabeth, antisemita y nacionalista, manipuló los archivos póstumos para fabricar un «Nietzsche» compatible con el nazismo. El Nietzsche real era ferozmente anti-antisemita.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta V</span><p class="q-text">¿Qué es el «eterno retorno» en Nietzsche?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La teoría de que el universo se repite cíclicamente en el tiempo</button></li><li><button class="opt-btn" data-idx="1">La creencia en la reencarnación de las almas</button></li><li><button class="opt-btn" data-idx="2">Un experimento mental para evaluar si puedes afirmar tu vida: ¿querrías vivirla idéntica, infinitamente?</button></li><li><button class="opt-btn" data-idx="3">La tendencia de la historia a repetir los mismos patrones</button></li></ul><p class="q-fb ok">Correcto. No es cosmología sino una prueba existencial. Si la idea te horroriza, significa que estás viviendo una vida que no puedes afirmar plenamente.</p><p class="q-fb fail">El eterno retorno es un experimento mental, no una teoría cósmica. Su pregunta: ¿puedes querer que esta vida se repita eternamente, con cada detalle? Es una prueba de si estás viviendo afirmativamente.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VI</span><p class="q-text">¿Qué diferencia estableció Nietzsche entre «moral de señores» y «moral de esclavos»?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La moral de señores crea valores positivos; la moral de esclavos es reactiva y se define por el resentimiento hacia los fuertes</button></li><li><button class="opt-btn" data-idx="1">La moral de señores es para las clases altas; la de esclavos para las clases bajas</button></li><li><button class="opt-btn" data-idx="2">La moral de señores es violenta; la de esclavos es pacífica</button></li><li><button class="opt-btn" data-idx="3">La moral de señores es antigua; la de esclavos es moderna</button></li></ul><p class="q-fb ok">Correcto. La moral de esclavos no puede crear valores propios — solo puede resentir los de los fuertes y llamar «malo» a lo que les supera. Para Nietzsche, el resentimiento es el fundamento oculto de la moral igualitaria.</p><p class="q-fb fail">La moral de señores es creadora: dice sí a la vida. La moral de esclavos es reactiva: no puede crear valores propios, solo resentir los de los fuertes y llamar «malo» a lo que la supera.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta VII</span><p class="q-text">¿Cuál era la posición de Nietzsche sobre el antisemitismo?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Lo consideraba un fenómeno cultural comprensible aunque no deseable</button></li><li><button class="opt-btn" data-idx="1">No se pronunció explícitamente sobre el tema</button></li><li><button class="opt-btn" data-idx="2">Lo toleraba como una forma de nacionalismo cultural</button></li><li><button class="opt-btn" data-idx="3">Lo rechazó ferozmente — lo llamó «el mayor asco» y rompió con Wagner parcialmente por sus tendencias antisemitas</button></li></ul><p class="q-fb ok">Correcto. Nietzsche fue uno de los críticos más duros del antisemitismo de su época. La apropiación nazi de su obra es una de las mayores falsificaciones intelectuales de la historia.</p><p class="q-fb fail">Nietzsche rechazó el antisemitismo ferozmente. Lo llamó «el mayor asco» y rompió relaciones con personas cercanas por sus tendencias antisemitas. Su apropiación nazi es una falsificación histórica.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta VIII</span><p class="q-text">¿Qué es el «nihilismo» para Nietzsche?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La posición filosófica correcta ante la ausencia de Dios</button></li><li><button class="opt-btn" data-idx="1">La enfermedad inevitable de una civilización que ha perdido sus fundamentos sin construir otros nuevos</button></li><li><button class="opt-btn" data-idx="2">Una etapa histórica positiva de liberación de la moral tradicional</button></li><li><button class="opt-btn" data-idx="3">La consecuencia necesaria y deseable de la muerte de Dios</button></li></ul><p class="q-fb ok">Correcto. Nietzsche diagnosticó el nihilismo como inevitable pero no deseable — es la fase en que una civilización ha perdido sus valores pero no tiene el coraje de crear otros. El Superhombre es la respuesta al nihilismo, no su aceptación.</p><p class="q-fb fail">Para Nietzsche, el nihilismo es una enfermedad — la consecuencia de haber perdido los fundamentos sin construir otros. Es inevitable después de la muerte de Dios, pero no es el destino deseado. Hay que superarlo.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta IX</span><p class="q-text">¿Con qué figura artística rompió Nietzsche y por qué resultó filosóficamente significativo?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Con Richard Wagner — su arte le parecía un síntoma de la decadencia que él quería superar</button></li><li><button class="opt-btn" data-idx="1">Con Brahms — por diferencias estéticas sobre la música absoluta</button></li><li><button class="opt-btn" data-idx="2">Con Schopenhauer — su pesimismo le parecía una negación cobarde de la vida</button></li><li><button class="opt-btn" data-idx="3">Con Liszt — por sus tendencias nacionalistas en la música</button></li></ul><p class="q-fb ok">Correcto. La ruptura con Wagner fue filosóficamente central: Wagner representaba para Nietzsche el arte que adormece y apela al instinto de rebaño — exactamente lo que Nietzsche quería destruir.</p><p class="q-fb fail">La ruptura con Wagner fue central en su desarrollo intelectual. Wagner le pareció un síntoma de la decadencia: arte que adormece, apela al rebaño y halaga el instinto gregario en lugar de despertar la voluntad individual.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta X</span><p class="q-text">¿Qué es el «amor fati» de Nietzsche?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">El amor a la fuerza y al poder como valores supremos</button></li><li><button class="opt-btn" data-idx="1">La aceptación resignada del sufrimiento inevitable</button></li><li><button class="opt-btn" data-idx="2">El amor al propio destino: afirmar todo lo que ha ocurrido en tu vida, incluido el sufrimiento, sin desear que fuera diferente</button></li><li><button class="opt-btn" data-idx="3">La doctrina de que el destino de cada persona está predeterminado</button></li></ul><p class="q-fb ok">Correcto. Amor fati no es resignación — es afirmación activa. No «soportar» lo que ha ocurrido sino «querer» que haya ocurrido. La forma más alta de afirmación vital.</p><p class="q-fb fail">Amor fati — amor al destino — es la afirmación activa de todo lo que ha ocurrido en tu vida, incluido el sufrimiento. No resignación sino querer que haya sido exactamente así.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta XI</span><p class="q-text">¿Qué filósofo posterior desarrolló el concepto de «genealogía» a partir de Nietzsche?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Jean-Paul Sartre</button></li><li><button class="opt-btn" data-idx="1">Albert Camus</button></li><li><button class="opt-btn" data-idx="2">Martin Heidegger</button></li><li><button class="opt-btn" data-idx="3">Michel Foucault</button></li></ul><p class="q-fb ok">Correcto. Foucault tomó el método genealógico de Nietzsche — rastrear el origen histórico de los conceptos morales para revelar las relaciones de poder que los produjeron — y lo aplicó a la prisión, la sexualidad, la locura.</p><p class="q-fb fail">Michel Foucault desarrolló la genealogía nietzscheana y la aplicó al análisis del poder en las instituciones modernas — la prisión, la clínica, la sexualidad. Nietzsche es el padre intelectual del posestructuralismo.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta XII</span><p class="q-text">¿Cuántos años vivió Nietzsche sin poder escribir tras su colapso de 1889?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Cinco años</button></li><li><button class="opt-btn" data-idx="1">Once años</button></li><li><button class="opt-btn" data-idx="2">Tres años</button></li><li><button class="opt-btn" data-idx="3">Ocho años</button></li></ul><p class="q-fb ok">Correcto. Colapsó en Turín en enero de 1889, a los 44 años. Murió en 1900. Once años de silencio, durante los cuales su hermana construyó la imagen que llegaría al siglo XX.</p><p class="q-fb fail">Nietzsche vivió once años tras su colapso de 1889, sin poder escribir. Murió en 1900. Fue durante esos años cuando su hermana construyó el «Nietzsche» que llegaría deformado al siglo XX.</p></div>
+
+    <div class="score-box" id="score-box">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">Respuestas correctas de 12</span>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Inicio</a><a href="fase3.html">Fase III</a></nav></div></footer>
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})});
+let answered=0,score=0;const total=12;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,3,'El martillo de Nietzsche aún no ha llegado. Vuelve a leer antes de juzgar.'],[4,7,'Buen comienzo. Distingues al Nietzsche real del fabricado. Sigue profundizando.'],[8,10,'Sólido. Lees a Nietzsche con honestidad — que es lo que él habría pedido.'],[11,12,'Excelente. Has entendido al filósofo más malinterpretado de la historia occidental.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>
