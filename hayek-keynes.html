@@ -143,28 +143,28 @@
     @media(max-width:640px){.hero-split{grid-template-columns:1fr;grid-template-rows:auto auto auto}.hero-divider{display:none}.hero-k,.hero-h{text-align:center;padding:2rem 1.5rem 1rem}.hero-center{padding:1rem}.debate-cols,.bio-grid,.quote-pair,.scoreboard{grid-template-columns:1fr}.debate-k{border-right:none;border-bottom:1px solid var(--border)}.test-wrap{padding:1.5rem 1.2rem}.tab-btn{font-size:.74rem;padding:.5rem .9rem}}
 
     /* ── NAV GLOBAL ── */
-    .top-nav{background:rgba(14,12,10,.96);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav{background:rgba(10,10,8,.97);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
     .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
-    .nav-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--gold,#c48820);text-decoration:none;display:flex;align-items:center;letter-spacing:.02em;flex-shrink:0}
-    .nav-brand:hover{color:var(--gold-light,#d8a030)}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--neutral-light,#a0a070);text-decoration:none;display:flex;align-items:center;letter-spacing:.02em;flex-shrink:0}
+    .nav-brand:hover{color:var(--ink,#f0f0e0)}
     .nav-menu{display:flex;align-items:stretch;gap:0}
     .nav-item{position:relative;display:flex;align-items:stretch}
-    .nav-item-btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%}
-    .nav-item-btn:hover,.nav-item-btn.active{color:var(--gold,#c48820)}
+    .nav-item-btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#707060);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--neutral-light,#a0a070)}
     .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
     .nav-item-btn.open .arrow{transform:rotate(180deg)}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,18,16,.98);border:1px solid var(--border,#3a3028);border-top:none;min-width:260px;z-index:300;display:none;backdrop-filter:blur(12px)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,20,16,.98);border:1px solid var(--border,#30300e);border-top:none;min-width:260px;z-index:300;display:none;backdrop-filter:blur(12px)}
     .nav-dropdown.open{display:block;animation:dropIn .15s ease}
     @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
     .nav-drop-section{padding:.5rem 0}
-    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--border,#3a3028)}
-    .nav-drop-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim,#8a6018);padding:.4rem 1.2rem .2rem;display:block}
-    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-mid,#c0b8a8);text-decoration:none;transition:background .15s,color .15s}
-    .nav-drop-link:hover{background:var(--surface,#221e1a);color:var(--gold,#c48820)}
-    .nav-drop-link.disabled{color:var(--ink-dim,#807868);cursor:default;opacity:.45;pointer-events:none}
-    .nav-drop-badge{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim,#8a6018);background:rgba(196,136,32,.1);padding:.1rem .4rem;border-radius:1px}
-    .nav-autor-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
-    .nav-autor-link:hover,.nav-autor-link.active{color:var(--gold,#c48820)}
+    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--border,#30300e)}
+    .nav-drop-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--neutral,#6a6a50);padding:.4rem 1.2rem .2rem;display:block}
+    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-mid,#c0c0a0);text-decoration:none;transition:background .15s,color .15s}
+    .nav-drop-link:hover{background:var(--surface,#1e1e14);color:var(--neutral-light,#a0a070)}
+    .nav-drop-link.disabled{color:var(--ink-dim,#707060);cursor:default;opacity:.45;pointer-events:none}
+    .nav-drop-badge{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--neutral,#6a6a50);background:rgba(160,160,112,.1);padding:.1rem .4rem;border-radius:1px}
+    .nav-autor-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#707060);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
+    .nav-autor-link:hover{color:var(--neutral-light,#a0a070)}
     @media(max-width:700px){.nav-menu{display:none}}
   </style>
 </head>
@@ -181,7 +181,8 @@
             <span class="nav-drop-label">Antigüedad griega</span>
             <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
             <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
-            <a href="#" class="nav-drop-link disabled">Cicerón <span class="nav-drop-badge">Próx.</span></a>
+            <a href="estoicismo.html" class="nav-drop-link">El Estoicismo</a>
+            <a href="tomas-de-aquino.html" class="nav-drop-link">Tomás de Aquino</a>
           </div>
         </div>
       </div>
@@ -506,6 +507,26 @@ document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dat
 function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,5,'El debate sigue vivo. Vuelve a las pestañas — ninguno tiene razón en todo.'],[6,9,'Buen comienzo. Ya distingues cuándo aplica cada uno.'],[10,12,'Sólido. Entiendes el debate sin dogmatismo — que es la única forma correcta de entenderlo.'],[13,15,'Excelente. Applies both frameworks where they work. That is real economic literacy.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
 function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
 window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+<script>
+function toggleDrop(id){
+  const all=document.querySelectorAll('.nav-dropdown');
+  const allBtns=document.querySelectorAll('.nav-item-btn');
+  const target=document.getElementById(id);
+  const isOpen=target.classList.contains('open');
+  all.forEach(d=>d.classList.remove('open'));
+  allBtns.forEach(b=>b.classList.remove('open'));
+  if(!isOpen){
+    target.classList.add('open');
+    target.previousElementSibling.classList.add('open');
+  }
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-item')){
+    document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
+    document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
+  }
+});
 </script>
 </body>
 </html>
