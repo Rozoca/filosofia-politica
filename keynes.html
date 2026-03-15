@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo XIV — Keynes · Filosofía &amp; Política</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#090a0e;--bg-mid:#0e1016;--bg-card:#14161e;--surface:#1c1e28;--border:#2a2c3a;--border-light:#3c3e50;--navy:#1a2a5a;--navy-mid:#2040a0;--navy-light:#3060cc;--navy-pale:#7090e0;--copper:#b06820;--copper-light:#d08030;--copper-dim:#7a4810;--ink:#e0e8f8;--ink-mid:#a0b0d0;--ink-dim:#506080;--text:#d0d8e8;--text-muted:#7888a8;--correct:#3a7a3a;--correct-bg:#0e180e;--wrong:#8a2020;--wrong-bg:#180e0e}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:17px;line-height:1.75;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--navy-mid);z-index:999;width:0;transition:width .1s linear}
+    .top-nav{background:rgba(9,10,14,.96);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--navy-pale)}
+    .nav-links{display:flex;align-items:center;gap:1.2rem}
+    .nav-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--copper-light)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--ink-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--navy-pale);border:1px solid var(--navy-mid);padding:.2rem .6rem;border-radius:1px}
+    .hero{padding:4.5rem 2rem 0;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-mid) 100%)}
+    .hero::before{content:'';position:absolute;bottom:-20%;left:-10%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(26,42,90,.1) 0%,transparent 60%);pointer-events:none}
+    .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+    .hero-eyebrow{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--navy-mid);display:block;margin-bottom:1rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5.2rem);font-weight:400;color:var(--ink);line-height:1;margin-bottom:1.2rem}
+    .hero-title em{font-style:italic;color:var(--navy-pale)}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-style:italic;color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:2.5rem}
+    .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-item{padding:1.3rem 2.2rem 1.3rem 0;margin-right:2.2rem;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--navy-pale);display:block;line-height:1}
+    .stat-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.14em;color:var(--ink-dim);display:block;margin-top:.3rem}
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:960px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ink-mid);background:var(--border)}.tab-btn.active{color:#fff;background:var(--navy);border-color:var(--navy-mid)}
+    .content-area{max-width:960px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;color:var(--ink);line-height:1.2}
+    .panel-header h2 em{color:var(--navy-mid);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--copper-dim);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:1.7rem 1.9rem}
+    .card.full{grid-column:1/-1}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ink);margin-bottom:.6rem}
+    .card p{font-size:.98rem;color:var(--text-muted);line-height:1.8}
+    .card-icon{font-size:1.4rem;display:block;margin-bottom:.6rem}
+    .highlight-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--navy-mid);border-radius:2px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .highlight-card .hc-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--navy-light);display:block;margin-bottom:.7rem}
+    .highlight-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--ink);margin-bottom:.7rem}
+    .highlight-card p{font-size:.98rem;color:var(--text-muted);line-height:1.85;margin-bottom:.65rem}.highlight-card p:last-child{margin-bottom:0}
+    .highlight-card strong{color:var(--ink);font-weight:500}
+    .pull-quote{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--copper);padding:1.8rem 2.4rem;margin:2.5rem 0;border-radius:2px}
+    .pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--ink-mid);line-height:1.65}
+    .pull-quote cite{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;color:var(--copper-dim);display:block;margin-top:.7rem}
+    .timeline{position:relative;padding-left:2rem;margin-bottom:2.5rem}
+    .timeline::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:1.8rem}
+    .tl-dot{position:absolute;left:-1.65rem;top:.3rem;width:9px;height:9px;background:var(--navy-mid);border-radius:0;transform:rotate(45deg)}
+    .tl-date{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--navy-light);display:block;margin-bottom:.2rem}
+    .tl-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.2rem}
+    .tl-desc{font-size:.93rem;color:var(--text-muted);line-height:1.75}
+    .accordion{margin-bottom:2.5rem}
+    .acc-item{border:1px solid var(--border);border-radius:2px;margin-bottom:.5rem;overflow:hidden}
+    .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:background .2s}
+    .acc-trigger:hover{background:var(--surface)}.acc-trigger.open{background:var(--navy)}
+    .acc-term{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink)}
+    .acc-trigger.open .acc-term{color:#fff}
+    .acc-arrow{font-size:.85rem;color:var(--ink-dim);transition:transform .3s;flex-shrink:0;margin-left:1rem}
+    .acc-trigger.open .acc-arrow{transform:rotate(180deg);color:var(--copper-light)}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 1.4rem;background:var(--bg-mid)}
+    .acc-body.open{max-height:700px;padding:1.3rem 1.4rem}
+    .acc-body p{font-size:.97rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.acc-body p:last-child{margin-bottom:0}
+    .acc-body strong{color:var(--ink);font-weight:500}
+    /* ANTES / DESPUES */
+    .ba-block{margin-bottom:2rem;border:1px solid var(--border);border-radius:2px;overflow:hidden}
+    .ba-title{background:var(--surface);padding:1.2rem 1.8rem;border-bottom:1px solid var(--border)}
+    .ba-title h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ink)}
+    .ba-cols{display:grid;grid-template-columns:1fr 1fr}
+    .ba-before{background:var(--bg-card);padding:1.6rem 1.8rem;border-right:1px solid var(--border)}
+    .ba-after{background:var(--bg-mid);padding:1.6rem 1.8rem}
+    .ba-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;display:block;margin-bottom:.7rem}
+    .ba-before .ba-label{color:var(--ink-dim)}
+    .ba-after .ba-label{color:var(--navy-light)}
+    .ba-before p,.ba-after p{font-size:.93rem;color:var(--text-muted);line-height:1.8}
+    .ba-before strong,.ba-after strong{color:var(--ink);font-weight:500}
+    .crisis-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+    .crisis-card{background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--navy-mid);border-radius:2px;padding:1.5rem}
+    .crisis-era{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-light);display:block;margin-bottom:.4rem}
+    .crisis-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:.4rem}
+    .crisis-desc{font-size:.9rem;color:var(--text-muted);line-height:1.75}
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:.98rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;color:var(--navy-light);display:block;margin-bottom:.4rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.8rem 1.1rem;font-family:'Manrope',sans-serif;font-size:.93rem;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--navy-mid);color:var(--ink);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}
+    .opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:#e87070}
+    .opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}
+    .opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.7rem;font-size:.9rem;line-height:1.7;display:none}.q-fb.show{display:block}
+    .q-fb.ok{color:var(--correct)}.q-fb.fail{color:#e87070}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}
+    .score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--navy-pale);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.22em;color:var(--ink-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--navy-mid);color:var(--navy-pale);font-family:'Manrope',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:1px;transition:background .2s,color .2s}
+    .retry-btn:hover{background:var(--navy);color:#fff}
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ink);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--copper)}
+    @media(max-width:640px){.card-grid,.crisis-grid{grid-template-columns:1fr}.card.full{grid-column:1}.ba-cols{grid-template-columns:1fr}.ba-before{border-right:none;border-bottom:1px solid var(--border)}.test-wrap{padding:1.5rem 1.2rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.74rem;padding:.5rem .9rem}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="nav-back">← Portal principal</a>
+  <div class="nav-links">
+    <a href="fase4.html" class="nav-link">Fase IV</a>
+    <span class="nav-title">Filosofía &amp; Política</span>
+    <span class="nav-badge">Módulo XIV</span>
+  </div>
+</div></nav>
+
+<section class="hero"><div class="hero-inner">
+  <span class="hero-eyebrow">Módulo XIV · Keynesianismo</span>
+  <h1 class="hero-title">Keynes y <em>el Estado que actúa</em></h1>
+  <p class="hero-subtitle">El economista que cambió las reglas del capitalismo en su peor momento. Cuando los mercados colapsan, Keynes demostró que esperar a que se corrijan solos puede ser una sentencia de muerte — política y económica.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">1883–1946</span><span class="stat-label">Cambridge, Inglaterra</span></div>
+    <div class="stat-item"><span class="stat-num">1929</span><span class="stat-label">El crash que lo cambió todo</span></div>
+    <div class="stat-item"><span class="stat-num">1936</span><span class="stat-label">Teoría General</span></div>
+    <div class="stat-item"><span class="stat-num">1944</span><span class="stat-label">Bretton Woods</span></div>
+  </div>
+</div></section>
+
+<nav class="tab-nav"><div class="tab-nav-inner">
+  <button class="tab-btn active" data-tab="quien">Quién fue</button>
+  <button class="tab-btn" data-tab="ideas">Las ideas</button>
+  <button class="tab-btn" data-tab="crisis">Crisis y respuesta</button>
+  <button class="tab-btn" data-tab="hoy">Keynes hoy</button>
+  <button class="tab-btn" data-tab="test">Test</button>
+</div></nav>
+
+<main class="content-area">
+
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header">
+    <h2>John Maynard Keynes: <em>el hombre que salvó al capitalismo de sí mismo</em></h2>
+    <p class="panel-lead">Keynes no era un socialista. Era un liberal que amaba el mercado y odiaba verlo destruirse por sus propias contradicciones. Su proyecto era salvar el capitalismo reformándolo — antes de que el fascismo o el comunismo lo eliminaran.</p>
+  </div>
+  <p class="section-label">Contexto</p>
+  <div class="card-grid">
+    <div class="card full"><span class="card-icon">📉</span><h3>El mundo que Keynes tuvo que responder</h3><p>En octubre de 1929, la bolsa de Nueva York se derrumba. En tres años, el PIB de EEUU cae un 30%, el desempleo llega al 25% y miles de bancos quiebran. La respuesta ortodoxa — austeridad, equilibrio presupuestario — no solo no funcionaba: lo empeoraba. En Europa, el desempleo masivo alimentaba al fascismo y al comunismo. Keynes observó este derrumbe y llegó a una conclusión radical: la teoría económica dominante estaba equivocada en sus fundamentos.</p></div>
+    <div class="card"><span class="card-icon">🎓</span><h3>El Cambridge brillante</h3><p>Keynes fue el economista más completo del siglo XX. Matemático, filósofo, inversor en bolsa con gran éxito personal, coleccionista de arte, mecenas de ballet, director del Banco de Inglaterra, negociador en Versalles y en Bretton Woods. No era un teórico de gabinete — entendía los mercados reales porque los vivía desde dentro.</p></div>
+    <div class="card"><span class="card-icon">⚠️</span><h3>La advertencia ignorada de Versalles</h3><p>En 1919 representó al Tesoro británico en las negociaciones del Tratado de Versalles. Renunció en protesta y publicó <em>Las consecuencias económicas de la paz</em>, prediciendo que las reparaciones de guerra impuestas a Alemania serían económicamente destructivas y políticamente catastróficas. Nadie le hizo caso. Tuvo razón en todo.</p></div>
+  </div>
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1883</span><span class="tl-title">Nace en Cambridge</span><span class="tl-desc">Hijo de un economista y una alcaldesa. Estudia en Eton y Cambridge. Se dice que quedó segundo en el examen de acceso a la función pública porque sabía más de economía que sus examinadores.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1919</span><span class="tl-title">Las consecuencias económicas de la paz</span><span class="tl-desc">Escrito en tres meses tras su dimisión en Versalles. Predice la inestabilidad alemana que producirán las reparaciones. La hiperinflación de los años 20 y el nazismo confirman su análisis.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1929–33</span><span class="tl-title">La Gran Depresión. Keynes diagnostica</span><span class="tl-desc">Mientras la ortodoxia prescribe austeridad, Keynes argumenta que el problema es la insuficiencia de demanda. El mercado no se corregirá solo — el Estado debe actuar.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1936</span><span class="tl-title">Teoría General del Empleo, el Interés y el Dinero</span><span class="tl-desc">La obra que refunda la macroeconomía. Demolición de la teoría clásica y construcción de un nuevo marco que explica por qué las economías pueden quedar atrapadas en el desempleo indefinidamente.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1944</span><span class="tl-title">Bretton Woods</span><span class="tl-desc">Keynes diseña el nuevo orden financiero internacional. Propone el bancor — una moneda de reserva supranacional — que EEUU rechaza. Se crean el FMI y el Banco Mundial como versión diluida de su visión.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1946</span><span class="tl-title">Muere en Tilton, exhausto</span><span class="tl-desc">Agotado por las negociaciones de Bretton Woods. Muere de infarto a los 62 años. El mundo keynesiano que ayudó a construir producirá treinta años de crecimiento sin precedentes.</span></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-ideas">
+  <div class="panel-header">
+    <h2>Las ideas de Keynes: <em>por qué el mercado solo no basta</em></h2>
+    <p class="panel-lead">El argumento central no es que el mercado sea malo. Es que puede quedar atrapado en equilibrios de bajo empleo durante años — y que en ese caso, esperar es política y socialmente inaceptable.</p>
+  </div>
+  <div class="highlight-card">
+    <span class="hc-label">La tesis central</span>
+    <h3>En el largo plazo todos estaremos muertos</h3>
+    <p>La teoría clásica decía: no te preocupes, el mercado se corregirá solo. Keynes respondió con su frase más famosa: <strong>«En el largo plazo todos estaremos muertos.»</strong> No era cinismo — era urgencia política. Cuando el 25% de la población está en paro, decirles que esperen cinco o diez años es políticamente suicida y moralmente inaceptable. El fascismo y el comunismo ofrecían respuestas más rápidas. Si el capitalismo liberal no actuaba, perdería la partida.</p>
+  </div>
+  <p class="section-label">Conceptos fundamentales</p>
+  <div class="accordion">
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La demanda agregada: el motor real de la economía</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Para los clásicos, la oferta crea su propia demanda. Keynes lo invirtió: <strong>es la demanda la que determina el nivel de producción y empleo.</strong> Si consumidores, empresas y Estado no gastan suficiente, habrá desempleo. En recesión, todos ahorran simultáneamente — lo que es racional para cada individuo es desastroso para el conjunto: es la <strong>paradoja del ahorro</strong>.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El multiplicador fiscal: un euro del Estado vale más que uno</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>El euro que el Estado paga al trabajador no desaparece — lo gasta en el supermercado, cuyo dueño lo gasta en la ferretería, y así. <strong>Un euro de gasto público puede generar dos o tres euros de actividad económica total.</strong> Funciona mejor cuando la economía está por debajo de su capacidad — con parados y fábricas sin usar.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La trampa de la liquidez</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Cuando los tipos están cerca de cero, la política monetaria pierde efectividad. Si las expectativas son tan negativas que nadie quiere invertir, bajar tipos no sirve de nada. <strong>Solo el gasto fiscal directo puede relanzar la economía.</strong> Keynes llegó a defender que incluso pagar para cavar hoyos y rellenarlos sería mejor que no hacer nada — el absurdo ilustra el punto.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Los espíritus animales: la irracionalidad económica</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>Las empresas invierten no solo cuando los cálculos son positivos sino cuando hay <strong>confianza y optimismo</strong>. La economía no es un sistema mecánico — es un sistema social donde las expectativas se autoconfirman: si todos creen que habrá recesión, reducen la inversión y producen la recesión que temían.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">El déficit como instrumento, no como pecado</span><span class="acc-arrow">▼</span></button>
+    <div class="acc-body"><p>La ortodoxia consideraba el déficit un pecado — como el endeudamiento de una familia. Keynes señaló la falacia: <strong>el Estado no es una familia.</strong> Cuando gasta más de lo que ingresa en recesión, compensa la caída del gasto privado. La condición: el déficit en recesión debe compensarse con superávit en el auge. El problema político es que los gobiernos tienden a gastar en ambas fases.</p></div></div>
+  </div>
+  <div class="pull-quote">
+    <blockquote>"En el largo plazo todos estaremos muertos. Los economistas se plantean una tarea demasiado fácil si solo nos dicen que cuando la tormenta haya pasado el océano volverá a estar en calma."</blockquote>
+    <cite>— Keynes, Tratado sobre la reforma monetaria, 1923</cite>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-crisis">
+  <div class="panel-header">
+    <h2>Crisis y respuesta: <em>el antes y el después keynesiano</em></h2>
+    <p class="panel-lead">El keynesianismo no es teoría abstracta — es respuesta a crisis concretas. Cada vez que el capitalismo ha colapsado en profundidad, los gobiernos han vuelto a Keynes.</p>
+  </div>
+
+  <div class="ba-block">
+    <div class="ba-title"><h3>La Gran Depresión y el New Deal (1929–1939)</h3></div>
+    <div class="ba-cols">
+      <div class="ba-before"><span class="ba-label">El problema</span><p>Crash bursátil, quiebras bancarias, desempleo al 25% en EEUU, deflación. La respuesta ortodoxa — austeridad, equilibrio presupuestario — agrava la crisis. Hoover recorta el gasto. La economía sigue cayendo. En Europa, la desesperación alimenta al fascismo.</p></div>
+      <div class="ba-after"><span class="ba-label">La respuesta keynesiana</span><p>Roosevelt lanza el New Deal: gasto público masivo en infraestructuras, empleos directos del Estado, regulación bancaria. Recuperación parcial. <strong>La recuperación completa llegó con el gasto militar de la Segunda Guerra Mundial — el mayor programa keynesiano de la historia.</strong></p></div>
+    </div>
+  </div>
+
+  <div class="ba-block">
+    <div class="ba-title"><h3>Los Treinta Gloriosos (1945–1975)</h3></div>
+    <div class="ba-cols">
+      <div class="ba-before"><span class="ba-label">El contexto post-guerra</span><p>Europa y Japón destruidos. El comunismo soviético como alternativa real. La pregunta existencial: ¿puede el capitalismo liberal ofrecer prosperidad amplia, o solo para los de arriba?</p></div>
+      <div class="ba-after"><span class="ba-label">El capitalismo keynesiano triunfa</span><p>Treinta años de crecimiento sin precedentes: Estado del bienestar, pleno empleo, sindicatos fuertes, Bretton Woods. <strong>La clase media occidental se construyó sobre el keynesianismo aplicado.</strong> El período de mayor reducción de desigualdad del capitalismo moderno.</p></div>
+    </div>
+  </div>
+
+  <div class="ba-block">
+    <div class="ba-title"><h3>La stagflation y la contrarrevolución (1973–1980)</h3></div>
+    <div class="ba-cols">
+      <div class="ba-before"><span class="ba-label">El problema</span><p>La crisis del petróleo de 1973 produce stagflation: <strong>inflación alta y desempleo alto simultáneamente.</strong> El modelo keynesiano predecía un trade-off entre los dos — no podían darse juntos. La crisis revela un límite real de la teoría.</p></div>
+      <div class="ba-after"><span class="ba-label">Hayek y Friedman aprovechan el momento</span><p>Llevan décadas argumentando contra Keynes. La stagflation les da la oportunidad política. Thatcher (1979) y Reagan (1980) desmantelan el consenso keynesiano. Llega el monetarismo y la austeridad como doctrina dominante durante 30 años.</p></div>
+    </div>
+  </div>
+
+  <div class="ba-block">
+    <div class="ba-title"><h3>La crisis financiera de 2008</h3></div>
+    <div class="ba-cols">
+      <div class="ba-before"><span class="ba-label">Septiembre 2008</span><p>Lehman Brothers quiebra. El sistema financiero global al borde del colapso. El crédito se congela. La teoría dominante — los mercados se autorregulan — acaba de demostrar su mayor fallo histórico.</p></div>
+      <div class="ba-after"><span class="ba-label">El retorno de Keynes</span><p><strong>Todos los gobiernos del G20 aplican keynesianismo de emergencia</strong> — incluyendo los más anti-keynesianos. Rescates bancarios, estímulos fiscales, tipos a cero. El FMI recomienda déficits. Las ventas de la Teoría General se dispararon.</p></div>
+    </div>
+  </div>
+
+  <div class="ba-block">
+    <div class="ba-title"><h3>La pandemia COVID-19 (2020–2021)</h3></div>
+    <div class="ba-cols">
+      <div class="ba-before"><span class="ba-label">Marzo 2020</span><p>La economía global se detiene por decreto sanitario. Millones de empresas sin ingresos, millones de trabajadores sin empleo. No es una crisis de mercado — es un apagón forzado. El mercado no tiene respuesta.</p></div>
+      <div class="ba-after"><span class="ba-label">El mayor estímulo keynesiano de la historia</span><p>EEUU lanza el CARES Act (2,2 billones de dólares). La UE el Next Generation EU. ERTEs, cheques directos, compra masiva de deuda. <strong>La recuperación post-COVID fue la más rápida de cualquier recesión comparable.</strong></p></div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-hoy">
+  <div class="panel-header">
+    <h2>Keynes hoy: <em>los debates abiertos</em></h2>
+    <p class="panel-lead">El keynesianismo no está resuelto. Hay tensiones que Keynes dejó abiertas y que el siglo XXI está forzando a responder.</p>
+  </div>
+  <p class="section-label">Tres tensiones no resueltas</p>
+  <div class="card-grid">
+    <div class="card"><span class="card-icon">⚖️</span><h3>Déficit en recesión, superávit en auge — nadie cumple la segunda parte</h3><p>Keynes fue claro: el déficit en la recesión debe compensarse con superávit en el crecimiento. En la práctica los gobiernos tienden a gastar en ambos momentos. La deuda pública acumulada en Occidente es consecuencia de un keynesianismo políticamente conveniente que solo aplica la mitad de la doctrina.</p></div>
+    <div class="card"><span class="card-icon">📈</span><h3>Inflación post-COVID: ¿demasiado Keynes?</h3><p>Los estímulos masivos de 2020-21 fueron seguidos por la mayor inflación en cuarenta años. ¿Fue exceso de estímulo keynesiano, o fue el choque de las cadenas de suministro roto por la guerra de Ucrania? El debate sigue abierto.</p></div>
+    <div class="card full"><span class="card-icon">🌍</span><h3>El cambio climático como desafío keynesiano</h3><p>La transición energética requiere la mayor inversión pública coordinada de la historia. Es un proyecto inherentemente keynesiano: el mercado no la financiará a la escala y velocidad necesaria sin intervención del Estado. El IRA americano y el Next Generation EU son las versiones contemporáneas del New Deal rooseveltiano.</p></div>
+  </div>
+  <p class="section-label">El legado institucional</p>
+  <div class="crisis-grid">
+    <div class="crisis-card"><span class="crisis-era">1944</span><span class="crisis-title">FMI y Banco Mundial</span><p class="crisis-desc">Diseñados en Bretton Woods para estabilizar el sistema financiero internacional. Versión diluida de Keynes, que quería un banco central mundial con moneda propia.</p></div>
+    <div class="crisis-card"><span class="crisis-era">1945–75</span><span class="crisis-title">Estado del bienestar occidental</span><p class="crisis-desc">Sanidad pública, pensiones, educación universal, desempleo — el Estado keynesiano como estabilizador automático que sostiene la demanda cuando el ciclo cae.</p></div>
+    <div class="crisis-card"><span class="crisis-era">2010–hoy</span><span class="crisis-title">Bancos centrales como bomberos</span><p class="crisis-desc">El BCE, la Fed y el Banco de Japón comprando deuda pública a escala masiva es keynesianismo monetario: el Estado entra donde el mercado falla.</p></div>
+  </div>
+  <div class="pull-quote">
+    <blockquote>"Las ideas de los economistas y los filósofos políticos, tanto cuando son correctas como cuando están equivocadas, son más poderosas de lo que generalmente se cree."</blockquote>
+    <cite>— Keynes, Teoría General, capítulo final, 1936</cite>
+  </div>
+</div>
+
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header"><h2>Pon a prueba <em>tu comprensión</em></h2><p class="panel-lead">15 preguntas sobre Keynes, las crisis y el Estado que actúa.</p></div>
+  <div class="test-wrap" id="quiz"><p class="test-intro">Selecciona la respuesta correcta.</p>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta I</span><p class="q-text">¿Qué significa «En el largo plazo todos estaremos muertos»?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que el pensamiento económico debe ignorar el largo plazo</button></li><li><button class="opt-btn" data-idx="1">Que esperar a que el mercado se corrija solo es inaceptable cuando el sufrimiento es inmediato</button></li><li><button class="opt-btn" data-idx="2">Que el capitalismo está condenado a desaparecer</button></li><li><button class="opt-btn" data-idx="3">Que los economistas no deben preocuparse del futuro</button></li></ul><p class="q-fb ok">Correcto. No es cinismo — es urgencia política. Cuando millones están en paro, decirles que esperen es inaceptable política y moralmente.</p><p class="q-fb fail">La frase expresa urgencia: cuando el sufrimiento es inmediato, esperar la corrección del mercado es inaceptable. Era una crítica a la economía ortodoxa ante la Gran Depresión.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta II</span><p class="q-text">¿Qué es la demanda agregada en el pensamiento keynesiano?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La suma de todos los precios de la economía</button></li><li><button class="opt-btn" data-idx="1">La producción total de bienes y servicios</button></li><li><button class="opt-btn" data-idx="2">La suma del gasto de consumidores, empresas, Estado y exportaciones netas — el motor real del empleo</button></li><li><button class="opt-btn" data-idx="3">La demanda de crédito del sistema bancario</button></li></ul><p class="q-fb ok">Correcto. Para Keynes, la demanda — no la oferta — determina el nivel de producción y empleo.</p><p class="q-fb fail">La demanda agregada es la suma del gasto de todos los sectores: consumo, inversión, gasto público y exportaciones netas. Es el motor del empleo en el modelo keynesiano.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta III</span><p class="q-text">¿Qué es la paradoja del ahorro?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Lo que es prudente para cada individuo (ahorrar) es desastroso para el conjunto si todos lo hacen a la vez</button></li><li><button class="opt-btn" data-idx="1">Que ahorrar más produce más inversión y más crecimiento</button></li><li><button class="opt-btn" data-idx="2">Que los ricos ahorran más pero consumen menos</button></li><li><button class="opt-btn" data-idx="3">Que el ahorro privado siempre supera al público en recesiones</button></li></ul><p class="q-fb ok">Correcto. Si todos ahorran a la vez, nadie compra, las empresas despiden, y el ahorro colectivo se hunde.</p><p class="q-fb fail">La paradoja del ahorro: ahorrar es racional individualmente, pero si todos ahorran a la vez la demanda colapsa y la economía se hunde.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta IV</span><p class="q-text">¿Qué es el multiplicador fiscal?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">El número de veces que el Estado puede imprimir dinero sin inflación</button></li><li><button class="opt-btn" data-idx="1">La ratio de deuda sobre PIB</button></li><li><button class="opt-btn" data-idx="2">El efecto negativo del gasto público sobre la inversión privada</button></li><li><button class="opt-btn" data-idx="3">El efecto por el que un euro de gasto público genera más de un euro de actividad total</button></li></ul><p class="q-fb ok">Correcto. El euro que el Estado paga circula por la economía: trabajador → supermercado → proveedor → ... Funciona mejor en recesiones.</p><p class="q-fb fail">El multiplicador fiscal: un euro de gasto público genera más de un euro de actividad total, porque el receptor lo gasta y ese gasto genera otro gasto.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta V</span><p class="q-text">¿Qué son los «espíritus animales» en Keynes?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Los instintos irracionales que llevan a gastar más de lo racional</button></li><li><button class="opt-btn" data-idx="1">La dimensión psicológica de las decisiones económicas: confianza y optimismo que impulsan la inversión</button></li><li><button class="opt-btn" data-idx="2">Los incentivos perversos que generan burbujas</button></li><li><button class="opt-btn" data-idx="3">Las fuerzas del mercado que actúan de forma autónoma</button></li></ul><p class="q-fb ok">Correcto. La economía no es un sistema mecánico — es social. Las expectativas se autoconfirman: si todos esperan recesión, la producen.</p><p class="q-fb fail">Los espíritus animales son la dimensión psicológica de la economía. Las empresas invierten cuando hay confianza, no solo cuando los cálculos son positivos.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta VI</span><p class="q-text">¿Qué predijo Keynes sobre el Tratado de Versalles?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que Alemania se recuperaría rápidamente gracias a su industria</button></li><li><button class="opt-btn" data-idx="1">Que las reparaciones de guerra eran justas y necesarias</button></li><li><button class="opt-btn" data-idx="2">Que las reparaciones serían económicamente destructivas y políticamente catastróficas</button></li><li><button class="opt-btn" data-idx="3">Que Francia y Gran Bretaña debían cancelar sus deudas mutuas</button></li></ul><p class="q-fb ok">Correcto. Renunció a su cargo en protesta y publicó su predicción. La hiperinflación alemana y el nazismo confirmaron todo lo que anticipó.</p><p class="q-fb fail">Keynes predijo que las reparaciones de Versalles producirían devastación económica y desestabilización política. Nadie le escuchó. Tuvo razón en todo.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VII</span><p class="q-text">¿Qué es la trampa de la liquidez?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Cuando los tipos están cerca de cero y la política monetaria pierde efectividad porque nadie quiere invertir</button></li><li><button class="opt-btn" data-idx="1">Cuando el sistema bancario acumula reservas y no concede crédito</button></li><li><button class="opt-btn" data-idx="2">Cuando el Estado no puede financiar su déficit</button></li><li><button class="opt-btn" data-idx="3">Cuando la inflación destruye el ahorro</button></li></ul><p class="q-fb ok">Correcto. Con tipos a cero y expectativas muy negativas, solo el gasto fiscal directo puede relanzar la economía.</p><p class="q-fb fail">La trampa de la liquidez: con tipos a cero y expectativas negativas, bajar tipos más no estimula la inversión. Solo el gasto fiscal directo funciona.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta VIII</span><p class="q-text">¿En qué año publicó Keynes su Teoría General?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">1929</button></li><li><button class="opt-btn" data-idx="1">1919</button></li><li><button class="opt-btn" data-idx="2">1944</button></li><li><button class="opt-btn" data-idx="3">1936</button></li></ul><p class="q-fb ok">Correcto. 1936 — en plena Gran Depresión. La Teoría General refundó la macroeconomía moderna.</p><p class="q-fb fail">La Teoría General se publicó en 1936, en plena Gran Depresión, como respuesta directa al fracaso de la teoría clásica.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta IX</span><p class="q-text">¿Qué propuso Keynes en Bretton Woods que no se adoptó?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que el FMI tuviera poder para imponer austeridad a los países deudores</button></li><li><button class="opt-btn" data-idx="1">El bancor — una moneda de reserva internacional neutral, no el dólar de ningún país</button></li><li><button class="opt-btn" data-idx="2">Que los tipos de cambio fueran completamente flexibles</button></li><li><button class="opt-btn" data-idx="3">La creación de un ejército internacional bajo mandato de la ONU</button></li></ul><p class="q-fb ok">Correcto. EEUU rechazó el bancor para imponer el dólar como moneda de reserva global. El sistema que se creó fue una versión diluida de la visión de Keynes.</p><p class="q-fb fail">Keynes propuso el bancor — una moneda internacional neutral. EEUU lo rechazó para mantener el dólar como moneda de reserva global. Su visión habría dado más equilibrio al sistema.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta X</span><p class="q-text">¿Qué fue la stagflation y por qué desafió al keynesianismo?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Alta inflación con alto crecimiento</button></li><li><button class="opt-btn" data-idx="1">Deflación con estancamiento — la trampa de la liquidez</button></li><li><button class="opt-btn" data-idx="2">Inflación alta y desempleo alto simultáneamente — el modelo keynesiano predecía que no podían coexistir</button></li><li><button class="opt-btn" data-idx="3">Crecimiento estancado con déficit público creciente</button></li></ul><p class="q-fb ok">Correcto. El modelo keynesiano establecía un trade-off entre inflación y desempleo. La stagflation de los 70 rompió esa relación y abrió la puerta al neoliberalismo de Thatcher y Reagan.</p><p class="q-fb fail">La stagflation — inflación y desempleo altos a la vez — contradecía el modelo keynesiano. Fue la crisis teórica que abrió el camino al monetarismo.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta XI</span><p class="q-text">¿Por qué el gasto militar de la Segunda Guerra Mundial fue clave para la recuperación?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Porque fue el mayor programa keynesiano de la historia: llevó el desempleo del 15% al 1% con gasto público masivo</button></li><li><button class="opt-btn" data-idx="1">Porque destruyó la capacidad productiva de los competidores de EEUU</button></li><li><button class="opt-btn" data-idx="2">Porque la victoria restauró la confianza en los mercados</button></li><li><button class="opt-btn" data-idx="3">Porque los tratados de paz abrieron nuevos mercados</button></li></ul><p class="q-fb ok">Correcto. El gasto militar fue el mayor estímulo keynesiano de la historia: pleno empleo garantizado por el Estado. La demostración empírica más contundente del multiplicador.</p><p class="q-fb fail">La Segunda Guerra Mundial fue el mayor experimento keynesiano: gasto masivo del Estado llevó el desempleo del 15% al 1%. Demostró empíricamente lo que Keynes había teorizado.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta XII</span><p class="q-text">¿Cómo respondieron los gobiernos del G20 a la crisis de 2008?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Con austeridad generalizada para restaurar la confianza de los mercados</button></li><li><button class="opt-btn" data-idx="1">Con estímulos fiscales masivos y rescates bancarios — keynesianismo de emergencia universal</button></li><li><button class="opt-btn" data-idx="2">Con reducción de impuestos para estimular la oferta</button></li><li><button class="opt-btn" data-idx="3">Con tipos altos para controlar la inflación que la crisis generó</button></li></ul><p class="q-fb ok">Correcto. En 2008-09, todos los gobiernos aplicaron keynesianismo de emergencia — incluidos los más anti-keynesianos. La crisis superó la ideología.</p><p class="q-fb fail">En 2008-09, todos los G20 respondieron con estímulos keynesianos: rescates bancarios, déficits deliberados, gasto de emergencia. Incluso el FMI recomendó déficits. Keynes había vuelto.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta XIII</span><p class="q-text">¿Cuál fue el principal estímulo keynesiano durante la pandemia COVID-19 en Europa?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La bajada generalizada de impuestos en todos los países miembros</button></li><li><button class="opt-btn" data-idx="1">La privatización de servicios sanitarios para aumentar la eficiencia</button></li><li><button class="opt-btn" data-idx="2">El Next Generation EU y los ERTEs — sostenimiento de la demanda y el empleo con gasto público masivo</button></li><li><button class="opt-btn" data-idx="3">La subida de tipos de interés para controlar la inflación sanitaria</button></li></ul><p class="q-fb ok">Correcto. Los ERTEs mantuvieron a los trabajadores vinculados a las empresas durante el cierre. El Next Generation EU fue el mayor programa de inversión pública coordinada en la historia de la UE.</p><p class="q-fb fail">El Next Generation EU y los ERTEs fueron la respuesta keynesiana europea: el Estado sostuvo la demanda y el empleo cuando el mercado no podía. Keynesianismo puro ante un shock sin precedentes.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta XIV</span><p class="q-text">¿Cuál es el límite político del keynesianismo que el propio Keynes reconoció?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que el gasto público nunca puede ser más eficiente que el privado</button></li><li><button class="opt-btn" data-idx="1">Que la deuda pública destruye el crecimiento a largo plazo</button></li><li><button class="opt-btn" data-idx="2">Que el multiplicador solo funciona en economías cerradas</button></li><li><button class="opt-btn" data-idx="3">Que políticamente es fácil gastar en la recesión pero muy difícil reducir el déficit en el auge — raramente se cumple la segunda parte</button></li></ul><p class="q-fb ok">Correcto. Keynes prescribía déficit en recesión y superávit en auge. Los gobiernos tienden a gastar en ambas fases. Esa asimetría política es la fuente de la deuda acumulada en Occidente.</p><p class="q-fb fail">El límite reconocido por Keynes: es fácil gastar en la recesión, difícil ahorrar en el auge. La segunda parte de la doctrina raramente se aplica — y eso explica la deuda pública acumulada.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta XV</span><p class="q-text">¿Qué relación tiene el Green New Deal con el pensamiento de Keynes?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Es keynesianismo climático: inversión pública masiva donde el mercado no llegará a la escala ni velocidad necesarias para la transición energética</button></li><li><button class="opt-btn" data-idx="1">Es una propuesta que confía en el mercado de carbono para resolver el clima</button></li><li><button class="opt-btn" data-idx="2">Es una versión del New Deal original para países en desarrollo</button></li><li><button class="opt-btn" data-idx="3">No tiene relación con Keynes — es solo política energética</button></li></ul><p class="q-fb ok">Correcto. La transición energética requiere inversión que el mercado privado no producirá a la escala y velocidad necesarias. El Estado como inversor de última instancia — exactamente la lógica keynesiana aplicada al clima.</p><p class="q-fb fail">El Green New Deal es keynesianismo climático: el Estado invierte donde el mercado no llega. El IRA americano y el Next Generation EU son sus versiones actuales. La misma lógica del New Deal rooseveltiano.</p></div>
+
+    <div class="score-box" id="score-box">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">Respuestas correctas de 15</span>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía &amp; Política</div><nav class="footer-nav"><a href="index.html">Inicio</a><a href="fase4.html">Fase IV</a><a href="smith.html">Smith</a></nav></div></footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})});
+function toggleAcc(t){const b=t.nextElementSibling,o=t.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.acc-body').forEach(x=>x.classList.remove('open'));if(!o){t.classList.add('open');b.classList.add('open')}}
+let answered=0,score=0;const total=15;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,5,'En el largo plazo todos estaremos muertos. Revisa el módulo antes de que llegue la próxima crisis.'],[6,9,'Buen comienzo. Distingues la paradoja del ahorro del multiplicador.'],[10,12,'Sólido. Entiendes cuándo el Estado debe actuar y por qué el mercado solo no basta.'],[13,15,'Excelente. Aplicas a Keynes sin ideología — exactamente lo que él habría exigido.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>

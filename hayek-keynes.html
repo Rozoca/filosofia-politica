@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo XV — Hayek vs. Keynes · Filosofía &amp; Política</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#0a0a08;--bg-mid:#101008;--bg-card:#161610;--surface:#1e1e14;
+      --border:#30300e;--border-light:#44441a;
+      /* Keynes side — blue */
+      --k:#1a3a7a;--k-mid:#2050b0;--k-light:#4070d0;--k-pale:#80a8f0;
+      /* Hayek side — amber/gold */
+      --h:#7a3a00;--h-mid:#b05800;--h-light:#d07820;--h-pale:#f0a840;
+      --neutral:#6a6a50;--neutral-light:#a0a070;
+      --ink:#f0f0e0;--ink-mid:#c0c0a0;--ink-dim:#707060;
+      --text:#e0e0c8;--text-muted:#888870;
+      --correct:#3a7a3a;--correct-bg:#0e180e;--wrong:#8a2020;--wrong-bg:#180e0e;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:17px;line-height:1.75;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--neutral-light);z-index:999;width:0;transition:width .1s linear}
+    /* NAV */
+    .top-nav{background:rgba(10,10,8,.97);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--ink)}
+    .nav-links{display:flex;align-items:center;gap:1.2rem}
+    .nav-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--neutral-light)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--ink-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--neutral-light);border:1px solid var(--neutral);padding:.2rem .6rem;border-radius:1px}
+    /* HERO — split design */
+    .hero{padding:4rem 0 0;position:relative;overflow:hidden}
+    .hero-split{display:grid;grid-template-columns:1fr auto 1fr;min-height:220px}
+    .hero-k{background:linear-gradient(135deg,rgba(26,58,122,.15) 0%,transparent 70%);padding:3rem 3rem 2rem;display:flex;flex-direction:column;justify-content:flex-end}
+    .hero-h{background:linear-gradient(225deg,rgba(122,58,0,.15) 0%,transparent 70%);padding:3rem 3rem 2rem;display:flex;flex-direction:column;justify-content:flex-end;text-align:right}
+    .hero-center{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem;gap:1rem;position:relative;z-index:1}
+    .hero-vs{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:400;color:var(--ink-dim);line-height:1}
+    .hero-eyebrow-k{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--k-mid);margin-bottom:.6rem;display:block}
+    .hero-eyebrow-h{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--h-mid);margin-bottom:.6rem;display:block}
+    .hero-name-k{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;color:var(--k-pale);line-height:1}
+    .hero-name-h{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;color:var(--h-pale);line-height:1}
+    .hero-tag-k{font-family:'Libre Baskerville',serif;font-style:italic;font-size:.95rem;color:var(--text-muted);margin-top:.5rem}
+    .hero-tag-h{font-family:'Libre Baskerville',serif;font-style:italic;font-size:.95rem;color:var(--text-muted);margin-top:.5rem}
+    .hero-divider{width:1px;background:linear-gradient(to bottom,transparent,var(--border-light),transparent);align-self:stretch}
+    .hero-bottom{max-width:960px;margin:0 auto;padding:1.5rem 2rem 0;text-align:center}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1rem;font-style:italic;color:var(--text-muted);line-height:1.8}
+    /* TABS */
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:960px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ink-mid);background:var(--border)}.tab-btn.active{color:#fff;background:var(--neutral);border-color:var(--neutral-light)}
+    .content-area{max-width:960px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;color:var(--ink);line-height:1.2}
+    .panel-header h2 em{color:var(--neutral-light);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    /* DEBATE BLOCK — the core component */
+    .debate-block{margin-bottom:2rem;border:1px solid var(--border);border-radius:2px;overflow:hidden}
+    .debate-question{background:var(--surface);padding:1.3rem 2rem;border-bottom:1px solid var(--border);text-align:center}
+    .debate-question h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--ink)}
+    .debate-question p{font-size:.88rem;color:var(--text-muted);margin-top:.3rem;font-style:italic}
+    .debate-cols{display:grid;grid-template-columns:1fr 1fr}
+    .debate-k{background:rgba(26,58,122,.06);padding:1.6rem 2rem;border-right:1px solid var(--border)}
+    .debate-h{background:rgba(122,58,0,.06);padding:1.6rem 2rem}
+    .debate-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem}
+    .debate-k .debate-label{color:var(--k-light)}
+    .debate-h .debate-label{color:var(--h-light)}
+    .debate-k .debate-label::before{content:'';width:10px;height:10px;background:var(--k-mid);border-radius:50%;flex-shrink:0}
+    .debate-h .debate-label::before{content:'';width:10px;height:10px;background:var(--h-mid);border-radius:50%;flex-shrink:0}
+    .debate-k p,.debate-h p{font-size:.93rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.debate-k p:last-child,.debate-h p:last-child{margin-bottom:0}
+    .debate-k strong{color:var(--k-pale);font-weight:500}
+    .debate-h strong{color:var(--h-pale);font-weight:500}
+    .debate-footer{background:var(--bg-card);padding:1.1rem 2rem;border-top:1px solid var(--border)}
+    .debate-footer p{font-size:.88rem;color:var(--text-muted);line-height:1.75;text-align:center}
+    .debate-footer strong{color:var(--neutral-light);font-weight:500}
+    /* BIO GRID */
+    .bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .bio-card-k{background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--k-mid);border-radius:2px;padding:1.8rem 2rem}
+    .bio-card-h{background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--h-mid);border-radius:2px;padding:1.8rem 2rem}
+    .bio-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:.3rem}
+    .bio-dates{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);margin-bottom:.8rem;display:block}
+    .bio-card-k .bio-dates{color:var(--k-light)}
+    .bio-card-h .bio-dates{color:var(--h-light)}
+    .bio-p{font-size:.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:.6rem}.bio-p:last-child{margin-bottom:0}
+    /* PULL QUOTE */
+    .quote-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2.5rem 0}
+    .quote-k{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--k-mid);padding:1.6rem 2rem;border-radius:2px}
+    .quote-h{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--h-mid);padding:1.6rem 2rem;border-radius:2px}
+    .quote-k blockquote,.quote-h blockquote{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;line-height:1.6}
+    .quote-k blockquote{color:var(--k-pale)}
+    .quote-h blockquote{color:var(--h-pale)}
+    .quote-k cite,.quote-h cite{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;display:block;margin-top:.6rem}
+    .quote-k cite{color:var(--k-light)}
+    .quote-h cite{color:var(--h-light)}
+    /* VERDICT CARD */
+    .verdict-card{background:var(--surface);border:1px solid var(--border-light);border-radius:2px;padding:2.2rem 2.4rem;margin:2.5rem 0}
+    .verdict-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--neutral-light);display:block;margin-bottom:.8rem}
+    .verdict-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.8rem}
+    .verdict-card p{font-size:.97rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.verdict-card p:last-child{margin-bottom:0}
+    .verdict-card strong{color:var(--ink-mid);font-weight:500}
+    /* SCOREBOARD */
+    .scoreboard{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
+    .score-k{background:rgba(26,58,122,.08);border:1px solid var(--k-mid);border-radius:2px;padding:1.6rem}
+    .score-h{background:rgba(122,58,0,.08);border:1px solid var(--h-mid);border-radius:2px;padding:1.6rem}
+    .score-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;margin-bottom:.8rem}
+    .score-k .score-title{color:var(--k-pale)}
+    .score-h .score-title{color:var(--h-pale)}
+    .score-item{font-size:.88rem;color:var(--text-muted);line-height:1.75;padding:.35rem 0;border-bottom:1px solid var(--border)}.score-item:last-child{border-bottom:none}
+    /* TEST */
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:.98rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;color:var(--neutral-light);display:block;margin-bottom:.4rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.8rem 1.1rem;font-family:'Manrope',sans-serif;font-size:.93rem;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--neutral-light);color:var(--ink);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}
+    .opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:#e87070}
+    .opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}
+    .opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.7rem;font-size:.9rem;line-height:1.7;display:none}.q-fb.show{display:block}
+    .q-fb.ok{color:var(--correct)}.q-fb.fail{color:#e87070}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}
+    .score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--neutral-light);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.22em;color:var(--ink-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--neutral);color:var(--neutral-light);font-family:'Manrope',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:1px;transition:background .2s,color .2s}
+    .retry-btn:hover{background:var(--neutral);color:#fff}
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ink);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--neutral-light)}
+    @media(max-width:640px){.hero-split{grid-template-columns:1fr;grid-template-rows:auto auto auto}.hero-divider{display:none}.hero-k,.hero-h{text-align:center;padding:2rem 1.5rem 1rem}.hero-center{padding:1rem}.debate-cols,.bio-grid,.quote-pair,.scoreboard{grid-template-columns:1fr}.debate-k{border-right:none;border-bottom:1px solid var(--border)}.test-wrap{padding:1.5rem 1.2rem}.tab-btn{font-size:.74rem;padding:.5rem .9rem}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="nav-back">← Portal principal</a>
+  <div class="nav-links">
+    <a href="fase4.html" class="nav-link">Fase IV</a>
+    <span class="nav-title">Filosofía &amp; Política</span>
+    <span class="nav-badge">Módulo XV</span>
+  </div>
+</div></nav>
+
+<!-- HERO SPLIT -->
+<section class="hero">
+  <div class="hero-split">
+    <div class="hero-k">
+      <span class="hero-eyebrow-k">Cambridge · 1883–1946</span>
+      <div class="hero-name-k">Keynes</div>
+      <div class="hero-tag-k">El Estado que actúa</div>
+    </div>
+    <div class="hero-center">
+      <div class="hero-vs">vs</div>
+    </div>
+    <div class="hero-h">
+      <span class="hero-eyebrow-h">Viena · 1899–1992</span>
+      <div class="hero-name-h">Hayek</div>
+      <div class="hero-tag-h">El mercado que sabe</div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <p class="hero-subtitle">El debate más influyente de la economía moderna. Dos visiones radicalmente distintas sobre la libertad, el conocimiento y el poder del Estado que todavía determinan la política económica de cualquier gobierno. No tiene ganador — tiene consecuencias.</p>
+  </div>
+</section>
+
+<nav class="tab-nav"><div class="tab-nav-inner">
+  <button class="tab-btn active" data-tab="protagonistas">Los protagonistas</button>
+  <button class="tab-btn" data-tab="debate">El debate</button>
+  <button class="tab-btn" data-tab="historia">La historia decide</button>
+  <button class="tab-btn" data-tab="hoy">Hoy</button>
+  <button class="tab-btn" data-tab="test">Test</button>
+</div></nav>
+
+<main class="content-area">
+
+<!-- PROTAGONISTAS -->
+<div class="tab-panel active" id="tab-protagonistas">
+  <div class="panel-header">
+    <h2>Keynes y Hayek: <em>dos mentes, un siglo</em></h2>
+    <p class="panel-lead">No solo discrepaban sobre economía — discrepaban sobre la naturaleza del conocimiento humano, sobre la libertad y sobre lo que significa gobernar bien. El debate era filosófico antes que técnico.</p>
+  </div>
+
+  <div class="bio-grid">
+    <div class="bio-card-k">
+      <div class="bio-name">John Maynard Keynes</div>
+      <span class="bio-dates">1883–1946 · Cambridge, Inglaterra</span>
+      <p class="bio-p">Aristócrata intelectual de Cambridge. Matemático, filósofo, inversor de bolsa, mecenas de ballet. Vivía en el centro del poder — asesor del Tesoro, negociador en Versalles y Bretton Woods. Veía la economía como una disciplina al servicio de la política y de la civilización.</p>
+      <p class="bio-p">Su experiencia directa con las crisis le convenció de que los mercados podían fallar de forma catastrófica y prolongada. El Estado no era el enemigo de la libertad — era su condición de posibilidad cuando el mercado se derrumbaba.</p>
+    </div>
+    <div class="bio-card-h">
+      <div class="bio-name">Friedrich August von Hayek</div>
+      <span class="bio-dates">1899–1992 · Viena, Austria</span>
+      <p class="bio-p">De la Viena intelectual del cambio de siglo — la misma ciudad que produjo a Freud, Wittgenstein y Popper. Economista riguroso que vio cómo la hiperinflación destruía la clase media alemana y austríaca. Eso le dejó una desconfianza permanente del dinero fácil y del Estado activo.</p>
+      <p class="bio-p">Emigró al Reino Unido huyendo del nazismo. Para Hayek, el camino al totalitarismo estaba pavimentado de buenas intenciones intervencionistas. La planificación económica, aunque bienintencionada, destruía la libertad. No era el fascismo el peligro — era el estatismo suave que lo preparaba.</p>
+    </div>
+  </div>
+
+  <div class="quote-pair">
+    <div class="quote-k"><blockquote>"Cuando los hechos cambian, yo cambio de opinión. ¿Qué hace usted, señor?"</blockquote><cite>— Keynes</cite></div>
+    <div class="quote-h"><blockquote>"El conocimiento de las circunstancias que debemos utilizar nunca existe de forma concentrada o integrada, sino únicamente como fragmentos dispersos entre una multitud de individuos distintos."</blockquote><cite>— Hayek, El uso del conocimiento en la sociedad, 1945</cite></div>
+  </div>
+
+  <div class="verdict-card">
+    <span class="verdict-label">La diferencia de fondo</span>
+    <h3>No es solo economía — es epistemología</h3>
+    <p>Keynes creía que los expertos podían entender la economía lo suficientemente bien como para gestionarla activamente. La macroeconomía era cognoscible y manejable. El Estado con buenos economistas podía tomar decisiones mejores que el mercado en determinadas circunstancias.</p>
+    <p>Hayek argumentó que eso era imposible en principio. <strong>El conocimiento necesario para gestionar una economía no existe en ninguna mente ni institución</strong> — está disperso en millones de personas que conocen sus circunstancias locales, sus preferencias, sus recursos. El mercado no es un mecanismo eficiente a pesar de su aparente caos — es eficiente precisamente porque agrega ese conocimiento disperso. Ningún planificador puede replicarlo.</p>
+    <p>Esta diferencia epistemológica hace que el debate sea más profundo que cualquier disputa técnica sobre multiplicadores o tipos de interés.</p>
+  </div>
+</div>
+
+<!-- EL DEBATE -->
+<div class="tab-panel" id="tab-debate">
+  <div class="panel-header">
+    <h2>El debate punto por punto: <em>misma pregunta, respuestas opuestas</em></h2>
+    <p class="panel-lead">Cada pregunta fundamental de la política económica tiene una respuesta keynesiana y una hayekiana. Aquí, frente a frente.</p>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>¿Puede el Estado mejorar lo que hace el mercado?</h3></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes</span><p>Sí — en determinadas circunstancias. El mercado puede quedar atrapado en equilibrios de bajo empleo durante años. Cuando eso ocurre, el Estado no solo puede sino que <strong>debe intervenir para sostener la demanda.</strong> No se trata de reemplazar al mercado sino de rescatarlo cuando falla.</p></div>
+      <div class="debate-h"><span class="debate-label">Hayek</span><p>No — o al menos no sin costes que superan los beneficios. El Estado carece del conocimiento necesario para mejorar lo que hace el mercado. Sus intervenciones, por bien intencionadas que sean, <strong>distorsionan los precios y destruyen información</strong> que el mercado habría generado. Los errores del planificador son sistemáticos, no aleatorios.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>¿Quién tiene razón?</strong> Depende del contexto. En una recesión profunda con trampa de liquidez, Keynes. En una economía funcionando normalmente, Hayek tiene más razón que el keynesianismo vulgar que justifica cualquier gasto.</p></div>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>¿Qué es la inflación y cuál es su origen?</h3></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes</span><p>La inflación es un problema cuando la economía está cerca de la plena capacidad — entonces el exceso de demanda sube precios. Pero <strong>en una recesión con capacidad ociosa, el gasto del Estado no produce inflación sino empleo.</strong> El riesgo inflacionario es condicional, no absoluto.</p></div>
+      <div class="debate-h"><span class="debate-label">Hayek</span><p>La inflación es siempre y en todas partes un fenómeno monetario — consecuencia de crear más dinero del que la economía produce. El gasto deficitario financiado con expansión monetaria es <strong>la causa de los ciclos económicos:</strong> el boom artificial que precede inevitablemente a la corrección dolorosa.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>Resultado histórico:</strong> Friedman y los monetaristas reformularon la posición de Hayek con mayor rigor. La inflación de los 70 validó sus advertencias. Pero la deflación de los 30 y el riesgo deflacionario post-2008 validaron las de Keynes.</p></div>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>¿Debe el Estado redistribuir la riqueza?</h3></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes</span><p>La redistribución tiene un fundamento macroeconómico, no solo moral: los pobres consumen una mayor proporción de su renta que los ricos. <strong>Redistribuir hacia los que más consumen aumenta la demanda agregada</strong> y estabiliza el ciclo económico. El Estado del bienestar no es solo justicia — es estabilizador automático.</p></div>
+      <div class="debate-h"><span class="debate-label">Hayek</span><p>La redistribución coercitiva viola la libertad individual y destruye los incentivos que generan riqueza. Hayek no se oponía a la seguridad social mínima — aceptaba una red de protección básica. Pero el Estado del bienestar extenso <strong>conduce gradualmente a la servidumbre</strong>: crea dependencias, reduce la iniciativa y expande el poder del Estado indefinidamente.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>La ironía:</strong> los países con mayor redistribución (Escandinavia) tienen también algunos de los mercados más competitivos y los empresarios más emprendedores del mundo. Ni Keynes ni Hayek predijeron esa combinación.</p></div>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>¿Es posible la planificación económica central?</h3></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes</span><p>La planificación total no era su propuesta — Keynes era un liberal de mercado. Pero sí defendía la <strong>gestión macroeconómica activa:</strong> el Estado interviniendo en variables agregadas como la demanda, el empleo y los tipos de interés sin planificar empresa por empresa.</p></div>
+      <div class="debate-h"><span class="debate-label">Hayek</span><p>La planificación central es imposible no solo en la práctica sino en principio. El cálculo económico requiere el sistema de precios para funcionar — sin precios libres, el planificador no sabe qué producir ni en qué cantidades. <strong>La URSS no fracasó por mal ejecutada: fracasó porque era imposible por definición.</strong></p></div>
+    </div>
+    <div class="debate-footer"><p><strong>Veredicto post-1989:</strong> El colapso soviético validó el argumento de Hayek sobre la planificación central. Pero no valida el argumento contra toda intervención macroeconómica — que es lo que el neoliberalismo extrajo de Hayek.</p></div>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>¿Qué provoca las crisis económicas?</h3></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes</span><p>Las crisis son consecuencia de la inestabilidad inherente de la demanda privada — especialmente la inversión, que fluctúa con los «espíritus animales». Una caída de la confianza puede producir una contracción en cascada. <strong>El mercado no contiene mecanismos automáticos de autocorrección rápida.</strong></p></div>
+      <div class="debate-h"><span class="debate-label">Hayek</span><p>Las crisis son la corrección inevitable de los booms artificiales creados por la expansión del crédito. Los bancos centrales que mantienen tipos demasiado bajos generan inversiones que no serían rentables con tipos normales. <strong>El boom crea las semillas de su propio colapso.</strong> La recesión es la cura, no la enfermedad.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>2008 en perspectiva:</strong> los tipos bajos de los 2000 generaron una burbuja inmobiliaria — argumento hayekiano. Pero la respuesta correcta al colapso fue estímulo keynesiano, no dejar que la economía se «curara sola». Ambos tenían parte de razón.</p></div>
+  </div>
+</div>
+
+<!-- LA HISTORIA DECIDE -->
+<div class="tab-panel" id="tab-historia">
+  <div class="panel-header">
+    <h2>La historia como árbitro: <em>¿quién ganó cada ronda?</em></h2>
+    <p class="panel-lead">El debate teórico no se resuelve en el papel — se resuelve en los hechos. Cada era económica del siglo XX y XXI ha dado razón a uno, al otro, o a los dos.</p>
+  </div>
+
+  <p class="section-label">Ronda por ronda</p>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>Ronda 1 · 1930–1945: La Gran Depresión</h3><p>¿Qué funciona ante un colapso total de la demanda?</p></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes gana esta ronda</span><p>La austeridad de Hoover agravó la depresión. El New Deal de Roosevelt y el gasto militar de guerra la terminaron. La recesión no se corrigió sola — necesitó intervención masiva. <strong>Hayek defendió que había que dejar que la crisis siguiera su curso.</strong> No lo hicieron — y fue la decisión correcta.</p></div>
+      <div class="debate-h"><span class="debate-label">Hayek señala los orígenes</span><p>Hayek argumentó que el crédito fácil de los años 20 creó el boom insostenible que colapsó en 1929. La Reserva Federal había mantenido tipos demasiado bajos durante demasiado tiempo. <strong>El diagnóstico sobre las causas era correcto</strong> — aunque su prescripción para la crisis aguda era equivocada.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>Veredicto: Keynes sobre la respuesta, Hayek sobre las causas.</strong></p></div>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>Ronda 2 · 1945–1975: Los Treinta Gloriosos</h3><p>¿Puede el capitalismo keynesiano producir prosperidad sostenida?</p></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes gana claramente</span><p>Treinta años de pleno empleo, crecimiento sostenido, expansión de la clase media. El capitalismo keynesiano — Estado de bienestar, gasto público anticíclico, Bretton Woods — produjo el período de mayor prosperidad compartida de la historia moderna. <strong>Hayek había predicho que el camino a la servidumbre era inevitable. No lo fue.</strong></p></div>
+      <div class="debate-h"><span class="debate-label">Hayek advierte</span><p>Las semillas de los problemas futuros se plantaron aquí: <strong>las instituciones del bienestar crecieron, la disciplina fiscal se relajó, los sindicatos acumularon poder</strong> que usarían para mantener salarios inflacionarios. Hayek veía la erosión gradual de los incentivos que alimentaría los problemas de los 70.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>Veredicto: Keynes gana la ronda, pero Hayek señala las grietas que se ensancharán.</strong></p></div>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>Ronda 3 · 1973–1989: Stagflation y contrarrevolución</h3><p>¿Puede el keynesianismo gestionar la inflación y el desempleo simultáneos?</p></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes pierde</span><p>La stagflation de los 70 — inflación alta y desempleo alto a la vez — era impredecible en el modelo keynesiano, que asumía un trade-off entre ambos. Los gobiernos keynesianos no supieron responder. <strong>El gasto deficitario producía más inflación sin reducir el desempleo.</strong></p></div>
+      <div class="debate-h"><span class="debate-label">Hayek gana</span><p>Thatcher y Reagan aplican políticas inspiradas en Hayek y Friedman: control de la inflación vía política monetaria, desregulación, reducción del Estado. <strong>La inflación se domó.</strong> Hayek recibió el Nobel en 1974 — el año de la crisis del petróleo. La historia le había dado la plataforma que necesitaba.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>Veredicto: Hayek gana la ronda. Pero el thatcherismo-reaganismo extrajo conclusiones de Hayek que él mismo no habría aceptado en su totalidad.</strong></p></div>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>Ronda 4 · 2008–2020: Crisis financiera global y COVID</h3><p>¿Qué hacemos cuando el sistema financiero colapsa?</p></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Keynes regresa</span><p>Todos los gobiernos del mundo — incluyendo los más hayekianos — aplicaron keynesianismo de emergencia. Los que aplicaron austeridad prematura (Europa en 2010-12) se recuperaron más despacio. Los que mantuvieron el estímulo más tiempo (EEUU) se recuperaron antes. <strong>El retorno de Keynes fue universal.</strong></p></div>
+      <div class="debate-h"><span class="debate-label">Hayek señala el precio</span><p>La expansión monetaria sin precedentes post-2008 y post-COVID produjo la inflación más alta en cuarenta años en 2021-23. <strong>Los bancos centrales crearon el boom artificial que Hayek predijo.</strong> La subida de tipos de 2022-23 fue la corrección dolorosa que él habría esperado.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>Veredicto: Ambos tenían razón — Keynes sobre la respuesta de emergencia, Hayek sobre los efectos secundarios del exceso de estímulo.</strong></p></div>
+  </div>
+</div>
+
+<!-- HOY -->
+<div class="tab-panel" id="tab-hoy">
+  <div class="panel-header">
+    <h2>El debate hoy: <em>¿quién está ganando en el siglo XXI?</em></h2>
+    <p class="panel-lead">El debate Keynes-Hayek nunca se cerró. En el siglo XXI toma nuevas formas con nuevos actores: bancos centrales omnipotentes, plataformas digitales que concentran poder, pandemia global, guerra en Europa, transición climática.</p>
+  </div>
+
+  <p class="section-label">Temas actuales — dos lecturas</p>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>La inflación post-COVID (2021–2023)</h3></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Lectura keynesiana</span><p>La inflación fue principalmente un choque de oferta — cadenas de suministro rotas por la pandemia y la guerra de Ucrania. No fue consecuencia del exceso de estímulo sino de la escasez física de bienes. <strong>Retirar el estímulo demasiado pronto habría producido una recesión innecesaria.</strong></p></div>
+      <div class="debate-h"><span class="debate-label">Lectura hayekiana</span><p>Los billones inyectados en 2020-21 crearon demasiado dinero persiguiendo demasiado pocos bienes. La Fed y el BCE tardaron demasiado en reaccionar porque el paradigma keynesiano les hacía temer más la deflación que la inflación. <strong>El exceso monetario fue la causa principal, no los cuellos de botella.</strong></p></div>
+    </div>
+  </div>
+
+  <div class="debate-block">
+    <div class="debate-question"><h3>La transición energética y el Estado</h3></div>
+    <div class="debate-cols">
+      <div class="debate-k"><span class="debate-label">Lectura keynesiana</span><p>El mercado no invertirá en energías renovables a la escala y velocidad necesarias sin intervención pública. Los costes del cambio climático son externalidades que el mercado no calcula. <strong>El Estado debe actuar como inversor y coordinador</strong> — el Green New Deal y el IRA americano son la respuesta correcta.</p></div>
+      <div class="debate-h"><span class="debate-label">Lectura hayekiana</span><p>Las subvenciones a tecnologías concretas (solar, eólica) distorsionan los precios y pueden apoyar las tecnologías equivocadas. Un precio al carbono — que internalice las externalidades en el sistema de precios — sería más eficiente: <strong>deja que el mercado elija las soluciones</strong> dentro de un marco de incentivos correcto.</p></div>
+    </div>
+    <div class="debate-footer"><p><strong>En este caso, hay una síntesis posible:</strong> precio al carbono (Hayek) + inversión pública en infraestructura básica (Keynes). Los mejores sistemas actuales combinan ambos.</p></div>
+  </div>
+
+  <div class="verdict-card">
+    <span class="verdict-label">El veredicto provisional del siglo XXI</span>
+    <h3>No hay ganador — hay contextos</h3>
+    <p>La lección del debate Keynes-Hayek no es que uno tenga razón y el otro no. Es que <strong>cada uno describe correctamente un conjunto de fenómenos distintos.</strong></p>
+    <p>Hayek describe mejor los mecanismos de coordinación del mercado en condiciones normales, los peligros de la planificación central y los riesgos del exceso monetario. <strong>Keynes describe mejor las crisis agudas de demanda, las trampas de liquidez y el papel del Estado como estabilizador en situaciones de emergencia.</strong></p>
+    <p>El error es aplicar uno de los dos como dogma en todas las circunstancias. El thatcherismo aplicó Hayek en contextos que requerían Keynes. El keynesianismo vulgar aplicó déficit en situaciones que requerían disciplina fiscal. La sofisticación está en saber cuándo aplica cada uno.</p>
+  </div>
+
+  <div class="scoreboard">
+    <div class="score-k">
+      <div class="score-title">Keynes tiene razón cuando...</div>
+      <div class="score-item">La economía está en recesión profunda con demanda insuficiente</div>
+      <div class="score-item">Los tipos de interés están en cero (trampa de liquidez)</div>
+      <div class="score-item">El sector privado no puede o no quiere invertir</div>
+      <div class="score-item">Hay desempleo masivo y capacidad productiva ociosa</div>
+      <div class="score-item">Las externalidades (clima, salud pública) requieren coordinación que el mercado no produce</div>
+    </div>
+    <div class="score-h">
+      <div class="score-title">Hayek tiene razón cuando...</div>
+      <div class="score-item">La economía está funcionando cerca de su potencial</div>
+      <div class="score-item">El banco central mantiene tipos artificialmente bajos demasiado tiempo</div>
+      <div class="score-item">El gasto público se expande más allá de los estabilizadores automáticos</div>
+      <div class="score-item">La planificación central intenta sustituir al sistema de precios</div>
+      <div class="score-item">El intervencionismo acumula dependencias que erosionan los incentivos a largo plazo</div>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header"><h2>Pon a prueba <em>tu comprensión</em></h2><p class="panel-lead">15 preguntas sobre el debate Keynes-Hayek — sin ideología, solo comprensión.</p></div>
+  <div class="test-wrap" id="quiz"><p class="test-intro">Selecciona la respuesta correcta.</p>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta I</span><p class="q-text">¿Cuál es la diferencia epistemológica fundamental entre Keynes y Hayek?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Keynes creía en el libre mercado y Hayek en la planificación</button></li><li><button class="opt-btn" data-idx="1">Keynes era conservador y Hayek liberal</button></li><li><button class="opt-btn" data-idx="2">Keynes creía que la economía era cognoscible y manejable por expertos; Hayek que el conocimiento necesario está disperso y nadie puede agregarlo</button></li><li><button class="opt-btn" data-idx="3">Keynes estudiaba el largo plazo y Hayek el corto plazo</button></li></ul><p class="q-fb ok">Correcto. El debate no es solo técnico — es sobre si el conocimiento necesario para gestionar una economía puede concentrarse en una institución o en expertos. Hayek dice que no.</p><p class="q-fb fail">La diferencia de fondo es epistemológica: Keynes creía que la economía era manejable con los instrumentos correctos. Hayek argumentó que el conocimiento necesario está disperso en millones de personas y no puede ser agregado por ningún planificador.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta II</span><p class="q-text">¿Qué argumentó Hayek sobre el sistema de precios?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que los precios libres agregan el conocimiento disperso de millones de personas de forma que ningún planificador puede replicar</button></li><li><button class="opt-btn" data-idx="1">Que los precios libres son justos porque reflejan el valor real de los bienes</button></li><li><button class="opt-btn" data-idx="2">Que los precios deben ser controlados para evitar monopolios</button></li><li><button class="opt-btn" data-idx="3">Que el sistema de precios solo funciona en economías pequeñas</button></li></ul><p class="q-fb ok">Correcto. Esta es la contribución más original de Hayek: los precios no son solo señales de escasez — son el mecanismo que coordina el conocimiento disperso de toda la sociedad. Destruir los precios es destruir esa coordinación.</p><p class="q-fb fail">Para Hayek, los precios libres agregan información dispersa de millones de individuos. Nadie sabe todo — pero el sistema de precios actúa como si lo supiera. Interferir con los precios destruye esa coordinación.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta III</span><p class="q-text">¿Qué es «El camino de servidumbre» de Hayek?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Un análisis de la esclavitud en las economías antiguas</button></li><li><button class="opt-btn" data-idx="1">Una crítica al imperialismo económico occidental</button></li><li><button class="opt-btn" data-idx="2">Un tratado sobre cómo los monopolios destruyen la libertad económica</button></li><li><button class="opt-btn" data-idx="3">Su libro de 1944 argumentando que la planificación económica central lleva inevitablemente al totalitarismo</button></li></ul><p class="q-fb ok">Correcto. Publicado en 1944 — el año de Bretton Woods. Hayek argumentó que incluso el socialismo democrático bienintencionado tiende a concentrar el poder de forma incompatible con la libertad individual.</p><p class="q-fb fail">El camino de servidumbre (1944) es el libro más influyente de Hayek. Argumenta que la planificación económica central — incluso con buenas intenciones — concentra el poder de forma que destruye la libertad política.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta IV</span><p class="q-text">¿Cuál fue la posición de Hayek ante la Gran Depresión de los años 30?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Apoyó el New Deal de Roosevelt como respuesta necesaria</button></li><li><button class="opt-btn" data-idx="1">Defendió que había que dejar que la crisis siguiera su curso para purgar las inversiones malas — una posición que resultó políticamente inviable</button></li><li><button class="opt-btn" data-idx="2">Propuso que el banco central expandiera el crédito para reflacionar la economía</button></li><li><button class="opt-btn" data-idx="3">Argumentó que la depresión era culpa del proteccionismo comercial</button></li></ul><p class="q-fb ok">Correcto. Hayek argumentó que la depresión era la corrección inevitable de los excesos de los 20. Dejar que siguiera su curso sería doloroso pero necesario. Esta posición era económicamente coherente y políticamente suicida.</p><p class="q-fb fail">Hayek defendió dejar que la crisis se corrigiera sola. Era la consecuencia lógica de su teoría del ciclo: la recesión es la cura del boom artificial. La historia juzgó esta posición como equivocada en la práctica.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta V</span><p class="q-text">¿Qué demostraron los «Treinta Gloriosos» (1945–1975) sobre el debate?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que Hayek tenía razón y el Estado debía mantenerse mínimo</button></li><li><button class="opt-btn" data-idx="1">Que la planificación central era viable en condiciones de posguerra</button></li><li><button class="opt-btn" data-idx="2">Que el capitalismo keynesiano podía generar prosperidad sostenida y reducir desigualdad — algo que Hayek no había predicho</button></li><li><button class="opt-btn" data-idx="3">Que el libre comercio era más importante que la política fiscal</button></li></ul><p class="q-fb ok">Correcto. Treinta años de pleno empleo, crecimiento y expansión de la clase media contradijeron la predicción hayekiana de que el Estado de bienestar llevaría inevitablemente a la servidumbre.</p><p class="q-fb fail">Los Treinta Gloriosos demostraron que el capitalismo keynesiano podía generar prosperidad amplia y reducir desigualdad. La predicción hayekiana de que el Estado de bienestar llevaría a la servidumbre no se cumplió.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VI</span><p class="q-text">¿Qué fue la stagflation y por qué validó a Hayek?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Inflación y desempleo altos a la vez — algo que el modelo keynesiano no predecía y que confirmó las advertencias hayekianas sobre el exceso monetario</button></li><li><button class="opt-btn" data-idx="1">Un período de crecimiento estancado que Hayek había predicho como consecuencia del libre comercio</button></li><li><button class="opt-btn" data-idx="2">La combinación de tipos altos y desempleo que Hayek propuso para sanear la economía</button></li><li><button class="opt-btn" data-idx="3">El proceso de privatización de empresas públicas que Hayek había recomendado</button></li></ul><p class="q-fb ok">Correcto. El modelo keynesiano predecía un trade-off entre inflación y desempleo — no podían darse juntos. La stagflation rompió esa relación y validó las advertencias hayekianas sobre los efectos del exceso monetario.</p><p class="q-fb fail">La stagflation — inflación y desempleo simultáneos — era impredecible en el modelo keynesiano. Validó las advertencias de Hayek sobre el exceso de gasto y creación monetaria, y abrió la puerta al thatcherismo y reaganismo.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta VII</span><p class="q-text">¿Aceptó Hayek alguna forma de red de seguridad social?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">No — se opuso a cualquier intervención del Estado en el bienestar</button></li><li><button class="opt-btn" data-idx="1">Solo aceptó la educación pública como excepción</button></li><li><button class="opt-btn" data-idx="2">Solo aceptó la sanidad pública en caso de emergencias</button></li><li><button class="opt-btn" data-idx="3">Sí — aceptó una red de protección básica que garantizara un mínimo a todos, aunque se opuso al Estado de bienestar extenso</button></li></ul><p class="q-fb ok">Correcto. Hayek no era un anarcocapitalista. Aceptó que el Estado garantizara un mínimo de subsistencia a todos. Se opuso a la expansión del Estado de bienestar más allá de ese mínimo — no a su existencia.</p><p class="q-fb fail">Hayek aceptó una red de protección básica garantizada por el Estado. Lo que rechazaba era el Estado de bienestar extenso que crea dependencias y expande indefinidamente el poder estatal. El matiz es importante.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta VIII</span><p class="q-text">¿Qué valida el colapso soviético de 1989 del argumento de Hayek?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que el comunismo era moralmente inferior al capitalismo</button></li><li><button class="opt-btn" data-idx="1">Que la planificación central es imposible en principio porque sin precios libres el planificador no puede calcular qué producir eficientemente</button></li><li><button class="opt-btn" data-idx="2">Que las economías grandes necesitan democracia para funcionar</button></li><li><button class="opt-btn" data-idx="3">Que el libre comercio produce más riqueza que las economías cerradas</button></li></ul><p class="q-fb ok">Correcto. El argumento de Hayek no era moral sino epistemológico: sin precios libres, el planificador carece de la información necesaria para asignar recursos eficientemente. La URSS no fracasó por mal ejecutada — fracasó porque era imposible por diseño.</p><p class="q-fb fail">Hayek argumentó que la planificación central es imposible en principio: sin precios libres, no hay información sobre escasez relativa. El colapso soviético validó ese argumento epistemológico, no solo político o moral.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta IX</span><p class="q-text">¿Qué respuesta común ante la crisis de 2008 ilustra la vigencia de Keynes?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Todos los gobiernos aplicaron austeridad para restaurar la disciplina fiscal</button></li><li><button class="opt-btn" data-idx="1">Los bancos centrales subieron tipos para controlar la inflación que la crisis generó</button></li><li><button class="opt-btn" data-idx="2">Todos los gobiernos del G20 — incluidos los más hayekianos — aplicaron estímulos keynesianos de emergencia</button></li><li><button class="opt-btn" data-idx="3">Los mercados se corrigieron solos sin necesidad de intervención estatal</button></li></ul><p class="q-fb ok">Correcto. En 2008-09, ningún gobierno siguió la prescripción hayekiana de dejar que la crisis siguiera su curso. Todos aplicaron rescates y estímulos. La ideología cedió ante la urgencia.</p><p class="q-fb fail">En 2008-09, todos los G20 aplicaron keynesianismo de emergencia — incluyendo a los más ideológicamente contrarios a la intervención. Ningún gobierno siguió la prescripción hayekiana de dejar que la crisis se corrigiera sola.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta X</span><p class="q-text">¿Qué paradoja muestra el caso escandinavo respecto al debate?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que alta redistribución y mercados competitivos pueden coexistir — algo que ni Keynes ni Hayek predijeron claramente</button></li><li><button class="opt-btn" data-idx="1">Que el socialismo nórdico es más eficiente que el capitalismo anglosajón</button></li><li><button class="opt-btn" data-idx="2">Que los países pequeños pueden planificar mejor que los grandes</button></li><li><button class="opt-btn" data-idx="3">Que la redistribución siempre destruye los incentivos a largo plazo como Hayek predijo</button></li></ul><p class="q-fb ok">Correcto. Noruega, Suecia y Dinamarca combinan un Estado de bienestar extenso con economías de mercado muy competitivas. Ni Keynes había predicho esta síntesis ni Hayek que fuera sostenible.</p><p class="q-fb fail">El caso escandinavo muestra que redistribución y competitividad de mercado pueden coexistir. Hayek predijo que el Estado de bienestar llevaría a la servidumbre — Escandinavia demuestra que no es automático.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta XI</span><p class="q-text">Según la lectura hayekiana, ¿qué causó la inflación post-COVID de 2021-23?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La guerra de Ucrania y los cuellos de botella en las cadenas de suministro</button></li><li><button class="opt-btn" data-idx="1">La avaricia empresarial que subió precios aprovechando la escasez</button></li><li><button class="opt-btn" data-idx="2">La escasez de materias primas producida por la desindustrialización occidental</button></li><li><button class="opt-btn" data-idx="3">El exceso de creación monetaria de 2020-21 — demasiado dinero persiguiendo demasiado pocos bienes</button></li></ul><p class="q-fb ok">Correcto. Para la lectura hayekiana, los billones inyectados en 2020-21 crearon el boom monetario que Hayek siempre predijo como precursor de la inflación y posterior corrección.</p><p class="q-fb fail">La lectura hayekiana de la inflación post-COVID: los bancos centrales crearon demasiado dinero en 2020-21. Los cuellos de botella existían, pero fueron amplificados por el exceso monetario previo.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta XII</span><p class="q-text">¿Qué tienen en común Hayek y Smith que los distancia de los keynesianos?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que ambos se opusieron al libre comercio internacional</button></li><li><button class="opt-btn" data-idx="1">Que ambos desconfían de la capacidad del Estado para mejorar los resultados del mercado competitivo en condiciones normales</button></li><li><button class="opt-btn" data-idx="2">Que ambos defendieron el patrón oro como base del sistema monetario</button></li><li><button class="opt-btn" data-idx="3">Que ambos fueron críticos del capitalismo industrial y sus efectos sobre los trabajadores</button></li></ul><p class="q-fb ok">Correcto. Smith y Hayek comparten la desconfianza del Estado como gestor de la economía en condiciones normales. La diferencia: Smith aceptó más excepciones (bienes públicos, regulación) que el Hayek más radical.</p><p class="q-fb fail">Smith y Hayek comparten la base de desconfianza al Estado como mejor asignador de recursos que el mercado competitivo. Eso los une frente al keynesianismo — aunque Smith tenía más matices que el neoliberalismo que invoca a ambos.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta XIII</span><p class="q-text">¿Cuándo tiene más sentido aplicar políticas keynesianas según el propio debate?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">En recesiones profundas con capacidad ociosa, desempleo masivo y tipos de interés cerca de cero</button></li><li><button class="opt-btn" data-idx="1">En todas las circunstancias, ya que el Estado siempre mejora al mercado</button></li><li><button class="opt-btn" data-idx="2">Solo cuando hay riesgo de deflación en economías abiertas</button></li><li><button class="opt-btn" data-idx="3">Principalmente en países en desarrollo sin mercados financieros desarrollados</button></li></ul><p class="q-fb ok">Correcto. El propio Keynes no defendía intervención permanente — la defendía en condiciones específicas de fallo del mercado. Aplicar keynesianismo en una economía a plena capacidad produce inflación, no empleo.</p><p class="q-fb fail">Keynes defendía intervención en condiciones específicas: recesión profunda, desempleo masivo, trampa de liquidez. No defendía intervención permanente. Aplicar keynesianismo siempre es tan dogmático como no aplicarlo nunca.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta XIV</span><p class="q-text">¿Qué síntesis proponen los mejores economistas actuales sobre el debate?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que Keynes tenía razón en todo y Hayek estaba equivocado</button></li><li><button class="opt-btn" data-idx="1">Que Hayek tenía razón en todo y el keynesianismo debe abandonarse</button></li><li><button class="opt-btn" data-idx="2">Que cada uno describe correctamente distintos contextos: Hayek los mecanismos del mercado en condiciones normales, Keynes las crisis agudas de demanda</button></li><li><button class="opt-btn" data-idx="3">Que la economía conductual ha superado a ambos y el debate es irrelevante</button></li></ul><p class="q-fb ok">Correcto. La sofisticación está en saber cuándo aplica cada uno. Dogmatismo hayekiano en una recesión o keynesianismo permanente en expansión — ambos producen errores de política económica.</p><p class="q-fb fail">La síntesis madura: Hayek describe mejor el mercado en condiciones normales y los riesgos del exceso intervencionista; Keynes describe mejor las crisis agudas y el papel estabilizador del Estado. Usar uno como dogma en todas las circunstancias es el error.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta XV</span><p class="q-text">¿Cuál sería la posición hayekiana ante el cambio climático?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que el mercado resolverá el cambio climático sin intervención porque los empresarios innovarán</button></li><li><button class="opt-btn" data-idx="1">Que el cambio climático es demasiado complejo para que el mercado lo resuelva y requiere planificación central</button></li><li><button class="opt-btn" data-idx="2">Que el Estado debe subvencionar directamente las tecnologías renovables que el mercado no financia</button></li><li><button class="opt-btn" data-idx="3">Que un precio al carbono que internalice las externalidades en el sistema de precios es preferible a la planificación de qué tecnologías apoyar</button></li></ul><p class="q-fb ok">Correcto. Hayek no niega las externalidades — reconoce que el mercado falla cuando los precios no reflejan costes reales. La solución hayekiana es corregir el precio (impuesto al carbono) y dejar que el mercado elija las tecnologías.</p><p class="q-fb fail">La posición hayekiana coherente ante el clima: un precio al carbono que corrija la externalidad sin que el Estado elija qué tecnologías ganadoras. Distinto del Green New Deal keynesiano que invierte directamente en tecnologías concretas.</p></div>
+
+    <div class="score-box" id="score-box">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">Respuestas correctas de 15</span>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía &amp; Política</div><nav class="footer-nav"><a href="index.html">Inicio</a><a href="fase4.html">Fase IV</a><a href="keynes.html">Keynes</a></nav></div></footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})});
+let answered=0,score=0;const total=15;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,5,'El debate sigue vivo. Vuelve a las pestañas — ninguno tiene razón en todo.'],[6,9,'Buen comienzo. Ya distingues cuándo aplica cada uno.'],[10,12,'Sólido. Entiendes el debate sin dogmatismo — que es la única forma correcta de entenderlo.'],[13,15,'Excelente. Applies both frameworks where they work. That is real economic literacy.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>
