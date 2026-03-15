@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo X — Mill · Filosofía & Política</title>
+  <meta name="description" content="John Stuart Mill: libertad individual, utilitarismo, principio del daño y liberalismo moderno aplicado a los dilemas del siglo XXI."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:#0e0c0a;--bg-mid:#141210;--bg-card:#1a1714;--surface:#221e1a;
+      --border:#3a3028;--border-light:#4e4238;
+      --red:#9e2020;--red-mid:#c02828;--red-light:#d94040;
+      --amber:#c48820;--amber-light:#d8a030;--amber-dim:#8a6018;
+      --teal:#1a7a6a;--teal-mid:#20967e;--teal-light:#2ab89a;--teal-pale:#60d4ba;
+      --ink:#f0e8d8;--ink-mid:#c0b8a8;--ink-dim:#807868;
+      --text:#e0d8c8;--text-muted:#9a9080;
+      --correct:#3a7a3a;--correct-bg:#131e13;--wrong:#9e2020;--wrong-bg:#1e1313;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:17px;line-height:1.75;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--teal-mid);z-index:999;width:0;transition:width .1s linear}
+    /* NAV */
+    .top-nav{background:rgba(14,12,10,.96);backdrop-filter:blur(12px);padding:.9rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+    .top-nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--teal-light)}
+    .nav-links{display:flex;align-items:center;gap:1.2rem}
+    .nav-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--amber)}
+    .nav-title{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--ink-dim)}
+    .nav-badge{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--teal-light);border:1px solid var(--teal);padding:.2rem .6rem;border-radius:1px}
+    /* HERO */
+    .hero{padding:4.5rem 2rem 0;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-mid) 100%)}
+    .hero::before{content:'';position:absolute;top:-20%;left:-10%;width:50vw;height:50vw;border-radius:50%;background:radial-gradient(circle,rgba(26,122,106,.08) 0%,transparent 60%);pointer-events:none}
+    .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+    .hero-eyebrow{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--teal-mid);display:block;margin-bottom:1rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,5.2rem);font-weight:400;color:var(--ink);line-height:1;margin-bottom:1.2rem}
+    .hero-title em{font-style:italic;color:var(--teal-light)}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-style:italic;color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:2.5rem}
+    .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);flex-wrap:wrap}
+    .stat-item{padding:1.3rem 2.2rem 1.3rem 0;margin-right:2.2rem;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--teal-light);display:block;line-height:1}
+    .stat-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.14em;color:var(--ink-dim);display:block;margin-top:.3rem}
+    /* TABS */
+    .tab-nav{background:var(--bg-mid);position:sticky;top:48px;z-index:150;border-bottom:1px solid var(--border);padding:.6rem 0}
+    .tab-nav-inner{max-width:960px;margin:0 auto;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding:0 2rem}.tab-nav-inner::-webkit-scrollbar{display:none}
+    .tab-btn{font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.6rem 1.3rem;cursor:pointer;white-space:nowrap;transition:all .25s;flex-shrink:0}
+    .tab-btn:hover{color:var(--ink-mid);background:var(--border)}
+    .tab-btn.active{color:#fff;background:var(--teal);border-color:var(--teal-mid)}
+    /* CONTENT */
+    .content-area{max-width:960px;margin:0 auto;padding:0 2rem 5rem;position:relative;z-index:1}
+    .tab-panel{display:none}.tab-panel.active{display:block;animation:panelIn .4s ease both}
+    @keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .panel-header{padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+    .panel-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;color:var(--ink);line-height:1.2}
+    .panel-header h2 em{color:var(--teal-mid);font-style:italic}
+    .panel-lead{margin-top:.8rem;font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted);line-height:1.8}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--amber-dim);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+    /* CARDS */
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:1.7rem 1.9rem}
+    .card.full{grid-column:1/-1}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ink);margin-bottom:.6rem}
+    .card p,.card li{font-size:.98rem;color:var(--text-muted);line-height:1.8}
+    .card ul{padding-left:1.2rem}.card li{margin-bottom:.3rem}
+    .card-icon{font-size:1.4rem;display:block;margin-bottom:.6rem}
+    /* HIGHLIGHT */
+    .highlight-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:2px;padding:2rem 2.4rem;margin-bottom:2.5rem}
+    .highlight-card .hc-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-mid);display:block;margin-bottom:.7rem}
+    .highlight-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--ink);margin-bottom:.7rem}
+    .highlight-card p{font-size:.98rem;color:var(--text-muted);line-height:1.85;margin-bottom:.65rem}.highlight-card p:last-child{margin-bottom:0}
+    .highlight-card strong{color:var(--ink);font-weight:500}
+    /* PULL QUOTE */
+    .pull-quote{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--amber);padding:1.8rem 2.4rem;margin:2.5rem 0;border-radius:2px}
+    .pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--ink-mid);line-height:1.65}
+    .pull-quote cite{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;color:var(--amber-dim);display:block;margin-top:.7rem}
+    /* TIMELINE */
+    .timeline{position:relative;padding-left:2rem;margin-bottom:2.5rem}
+    .timeline::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:1.8rem}
+    .tl-dot{position:absolute;left:-1.65rem;top:.3rem;width:9px;height:9px;background:var(--teal);border-radius:0;transform:rotate(45deg)}
+    .tl-date{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--teal-mid);display:block;margin-bottom:.2rem}
+    .tl-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.2rem}
+    .tl-desc{font-size:.93rem;color:var(--text-muted);line-height:1.75}
+    /* DILEMMA — the distinctive Mill component */
+    .dilemma-block{margin-bottom:2.5rem}
+    .dilemma-concept{background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:2px 2px 0 0;padding:1.6rem 2rem}
+    .dilemma-concept .dc-label{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-mid);display:block;margin-bottom:.5rem}
+    .dilemma-concept h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:.6rem}
+    .dilemma-concept p{font-size:.97rem;color:var(--text-muted);line-height:1.8}
+    .dilemma-concept strong{color:var(--ink);font-weight:500}
+    .dilemma-today{background:var(--surface);border:1px solid var(--border);border-top:none;border-bottom:3px solid var(--amber);border-radius:0 0 2px 2px;padding:1.4rem 2rem}
+    .dilemma-today .dt-label{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--amber-dim);display:block;margin-bottom:.5rem}
+    .dilemma-today p{font-size:.93rem;color:var(--text-muted);line-height:1.8}
+    .dilemma-today strong{color:var(--amber-light);font-weight:500}
+    /* ACCORDION */
+    .accordion{margin-bottom:2.5rem}
+    .acc-item{border:1px solid var(--border);border-radius:2px;margin-bottom:.5rem;overflow:hidden}
+    .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:background .2s}
+    .acc-trigger:hover{background:var(--surface)}.acc-trigger.open{background:var(--teal)}
+    .acc-term{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink)}
+    .acc-trigger.open .acc-term{color:#fff}
+    .acc-arrow{font-size:.85rem;color:var(--ink-dim);transition:transform .3s;flex-shrink:0;margin-left:1rem}
+    .acc-trigger.open .acc-arrow{transform:rotate(180deg);color:var(--amber-light)}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 1.4rem;background:var(--bg-mid)}
+    .acc-body.open{max-height:700px;padding:1.3rem 1.4rem}
+    .acc-body p{font-size:.97rem;color:var(--text-muted);line-height:1.85;margin-bottom:.6rem}.acc-body p:last-child{margin-bottom:0}
+    .acc-body strong{color:var(--ink);font-weight:500}
+    /* LEGACY GRID */
+    .legacy-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.1rem;margin-bottom:2.5rem}
+    .legacy-card{background:var(--bg-card);border:1px solid var(--border);border-bottom:3px solid var(--teal);padding:1.5rem;border-radius:2px}
+    .legacy-era{font-family:'Manrope',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-mid);display:block;margin-bottom:.4rem}
+    .legacy-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:.4rem}
+    .legacy-desc{font-size:.9rem;color:var(--text-muted);line-height:1.75}
+    /* TEST */
+    .test-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:2px;padding:2.5rem 2.8rem}
+    .test-intro{font-size:.98rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8}
+    .q-block{margin-bottom:2.3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}.q-block:last-of-type{border-bottom:none}
+    .q-number{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;color:var(--teal-mid);display:block;margin-bottom:.4rem}
+    .q-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:.9rem;line-height:1.5}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    .opt-btn{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:.8rem 1.1rem;font-family:'Manrope',sans-serif;font-size:.93rem;color:var(--text-muted);cursor:pointer;text-align:left;width:100%;transition:border-color .2s,color .2s,background .2s}
+    .opt-btn:hover:not(:disabled){border-color:var(--teal);color:var(--ink);background:var(--bg-mid)}
+    .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct);color:var(--correct)}
+    .opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong);color:#e87070}
+    .opt-btn.reveal{background:var(--correct-bg);border-color:var(--correct);color:var(--correct);opacity:.6}
+    .opt-btn:disabled{cursor:default}
+    .q-fb{margin-top:.7rem;font-size:.9rem;line-height:1.7;display:none}.q-fb.show{display:block}
+    .q-fb.ok{color:var(--correct)}.q-fb.fail{color:#e87070}
+    .score-box{background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:2.4rem;text-align:center;margin-top:2rem;display:none}
+    .score-box.show{display:block;animation:panelIn .4s ease both}
+    .score-num{font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;color:var(--teal-light);display:block;line-height:1}
+    .score-lbl{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.22em;color:var(--ink-dim);display:block;margin-top:.4rem;margin-bottom:1rem}
+    .score-msg{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--text-muted)}
+    .retry-btn{margin-top:1.4rem;background:none;border:1px solid var(--teal);color:var(--teal-light);font-family:'Manrope',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.15em;padding:.65rem 1.5rem;cursor:pointer;border-radius:1px;transition:background .2s,color .2s}
+    .retry-btn:hover{background:var(--teal);color:#fff}
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}
+    .footer-brand strong{color:var(--ink);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}
+    .footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--amber)}
+    @media(max-width:640px){.card-grid,.legacy-grid{grid-template-columns:1fr}.card.full{grid-column:1}.test-wrap{padding:1.5rem 1.2rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.74rem;padding:.5rem .9rem}}
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-back">← Portal principal</a>
+    <div class="nav-links">
+      <a href="fase3.html" class="nav-link">Fase III</a>
+      <span class="nav-title">Filosofía & Política</span>
+      <span class="nav-badge">Módulo X</span>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Módulo X · Liberalismo clásico</span>
+    <h1 class="hero-title">Mill y <em>la libertad</em></h1>
+    <p class="hero-subtitle">El pensador que construyó el liberalismo moderno desde dentro. No como abstracción — como respuesta práctica a la pregunta más difícil: ¿hasta dónde puede llegar el individuo antes de que la sociedad tenga derecho a frenarlo?</p>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">1806–1873</span><span class="stat-label">Londres, Reino Unido</span></div>
+      <div class="stat-item"><span class="stat-num">1859</span><span class="stat-label">Sobre la libertad</span></div>
+      <div class="stat-item"><span class="stat-num">1863</span><span class="stat-label">El utilitarismo</span></div>
+      <div class="stat-item"><span class="stat-num">1869</span><span class="stat-label">La sujeción de la mujer</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="quien">Quién fue</button>
+    <button class="tab-btn" data-tab="libertad">La libertad</button>
+    <button class="tab-btn" data-tab="utilitarismo">Utilitarismo</button>
+    <button class="tab-btn" data-tab="dilemas">Dilemas hoy</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+  </div>
+</nav>
+
+<main class="content-area">
+
+<!-- QUIÉN FUE -->
+<div class="tab-panel active" id="tab-quien">
+  <div class="panel-header">
+    <h2>John Stuart Mill: <em>el liberal que no era ingenuo</em></h2>
+    <p class="panel-lead">El niño más precoz de la historia de la filosofía. Leyó griego a los tres años, lógica a los ocho, economía política a los doce. Y a pesar de esa formación hiperracionalista, acabó siendo el pensador que más defendió el valor de lo individual, lo emocional y lo disidente.</p>
+  </div>
+
+  <p class="section-label">Contexto</p>
+  <div class="card-grid">
+    <div class="card full">
+      <span class="card-icon">🏭</span>
+      <h3>El liberalismo ante sus propias contradicciones</h3>
+      <p>Mill escribe en la Inglaterra victoriana del pleno capitalismo industrial. El liberalismo clásico había ganado: mercados libres, parlamento, derechos formales. Y sin embargo, la mayoría de la población vivía en condiciones miserables, las mujeres no podían votar ni firmar contratos, y la presión social ahogaba cualquier pensamiento disidente. Mill vio que la libertad formal no era suficiente — y dedicó su vida intelectual a entender por qué y a qué se debía hacer al respecto.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">👨‍👦</span>
+      <h3>El experimento educativo</h3>
+      <p>Su padre, James Mill, lo sometió al experimento pedagógico más intensivo de la historia. Sin infancia normal, sin amigos de su edad, solo estudio sistemático. El resultado fue un prodigio intelectual que a los veinte años sufrió una crisis depresiva profunda. La recuperación, a través de la poesía de Wordsworth, le hizo comprender que la razón sin emoción es incompleta. Esa lección personal marcó toda su filosofía.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">💑</span>
+      <h3>Harriet Taylor y el feminismo</h3>
+      <p>Su relación intelectual y sentimental con Harriet Taylor, con quien se casó en 1851 tras la muerte del marido de ella, fue transformadora. Taylor influyó decisivamente en su pensamiento sobre la igualdad de género. <em>La sujeción de la mujer</em> (1869) es uno de los primeros textos filosóficos que defiende con rigor la igualdad política y civil de las mujeres — y Mill fue el primer parlamentario británico en proponer el sufragio femenino.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Cronología</p>
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1806</span><span class="tl-title">Nace en Pentonville, Londres</span><span class="tl-desc">Hijo de James Mill, filósofo utilitarista y economista. Su padrino intelectual es Jeremy Bentham, fundador del utilitarismo. Su educación comienza inmediatamente.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1826</span><span class="tl-title">Crisis mental y recuperación</span><span class="tl-desc">A los veinte años entra en una crisis depresiva severa. La recuperación a través de la poesía le revela que el racionalismo puro es insuficiente para la vida humana. Una lección que impregna toda su obra posterior.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1843</span><span class="tl-title">Sistema de lógica</span><span class="tl-desc">Su primera gran obra filosófica. Establece los fundamentos del método científico empirista. La base epistemológica sobre la que construirá toda su filosofía política y moral.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1859</span><span class="tl-title">Sobre la libertad</span><span class="tl-desc">Su obra más influyente. El principio del daño como fundamento de la libertad individual. Uno de los textos más leídos de la filosofía política anglosajona.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1865</span><span class="tl-title">Parlamentario por Westminster</span><span class="tl-desc">Uno de los pocos filósofos en ejercer cargo político. Propone desde el parlamento el sufragio femenino — rechazado. Su actuación parlamentaria es la aplicación práctica de sus teorías.</span></div>
+    <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">1873</span><span class="tl-title">Muere en Aviñón, Francia</span><span class="tl-desc">Junto a la tumba de Harriet Taylor, a quien consideró siempre su igual intelectual. Sus últimas palabras: «He hecho mi trabajo.»</span></div>
+  </div>
+</div>
+
+<!-- LA LIBERTAD -->
+<div class="tab-panel" id="tab-libertad">
+  <div class="panel-header">
+    <h2>La libertad según Mill: <em>el principio del daño</em></h2>
+    <p class="panel-lead">Mill no dice que todo está permitido. Dice que hay un criterio claro y racional para distinguir lo que la sociedad puede regular de lo que no puede tocar. Ese criterio es más exigente — y más protector — de lo que parece.</p>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">El concepto nuclear</span>
+    <h3>El principio del daño</h3>
+    <p>La formulación de Mill es precisa: <strong>«El único propósito por el que el poder puede ejercerse legítimamente sobre cualquier miembro de una comunidad civilizada, en contra de su voluntad, es el de prevenir daño a otros.»</strong></p>
+    <p>El corolario es igual de importante: su propio bien, físico o moral, no es justificación suficiente. La sociedad puede persuadir, argumentar, suplicar — pero no coaccionar. Cada individuo es soberano sobre sí mismo y su propio cuerpo.</p>
+    <p>Esto no es anarquismo. Mill acepta que el Estado regule lo que causa daño a terceros. El punto es que <strong>la carga de la prueba está en quien quiere restringir la libertad</strong>, no en quien la ejerce.</p>
+  </div>
+
+  <p class="section-label">Tres dimensiones de la libertad</p>
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Libertad de pensamiento y expresión</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body">
+        <p>Mill hace el argumento más sólido de la historia a favor de la libertad de expresión — y no se basa en la tolerancia sino en la <strong>epistemología</strong>. Necesitamos escuchar opiniones que consideramos falsas o peligrosas por cuatro razones: (1) podemos estar equivocados; (2) incluso si tenemos razón, sin el desafío nuestra opinión se convierte en dogma muerto; (3) la verdad completa suele estar distribuida entre posiciones opuestas; (4) silenciar una opinión es asumir que somos infalibles.</p>
+        <p>La «tiranía de la opinión prevalente» — la presión social que ahoga el pensamiento disidente — le preocupa tanto como la censura gubernamental. Ambas son igualmente destructivas para el progreso humano.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Libertad de gustos y modos de vida</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body">
+        <p>Mientras no dañe a otros, cada persona debe poder llevar la vida que considere buena para sí misma — aunque esa vida parezca absurda, excéntrica o moralmente reprobable a la mayoría. Mill defiende la <strong>individualidad</strong> como valor en sí mismo: no solo como derecho sino como condición del progreso social. Las sociedades que aplastan la originalidad se estancan.</p>
+        <p>Aquí Mill es profundamente antivictoriano en una época victoriana: el conformismo social que rodea no le parece una virtud sino un peligro.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">Libertad de asociación</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body">
+        <p>Los individuos deben poder unirse libremente para cualquier propósito que no dañe a otros. Mill ve la asociación libre como la escuela práctica de la democracia: es donde los ciudadanos aprenden a deliberar, negociar y cooperar. Sin ese tejido asociativo, la democracia formal es una cáscara vacía.</p>
+        <p>Este argumento conecta directamente con Tocqueville, que observó en América cómo las asociaciones civiles eran el verdadero motor de la democracia real.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)"><span class="acc-term">La tiranía de la mayoría</span><span class="acc-arrow">▼</span></button>
+      <div class="acc-body">
+        <p>Mill heredó de Tocqueville la preocupación por la tiranía de la mayoría. La democracia no garantiza la libertad individual — puede aplastarla con la misma eficacia que un déspota. <strong>La minoría necesita protección frente a la mayoría</strong> tanto como frente al Estado.</p>
+        <p>Este es uno de los argumentos más actuales de Mill: en una era de redes sociales donde la presión del grupo puede destruir carreras y reputaciones sin proceso judicial, la «tiranía de la opinión prevalente» que Mill temía ha encontrado un amplificador sin precedentes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"Si toda la humanidad menos uno fuera de una misma opinión, la humanidad no estaría más justificada en silenciar a esa persona que ella en silenciar a toda la humanidad."</blockquote>
+    <cite>— Mill, Sobre la libertad, 1859</cite>
+  </div>
+</div>
+
+<!-- UTILITARISMO -->
+<div class="tab-panel" id="tab-utilitarismo">
+  <div class="panel-header">
+    <h2>El utilitarismo de Mill: <em>la mayor felicidad, pero no a cualquier precio</em></h2>
+    <p class="panel-lead">Mill heredó el utilitarismo de Bentham pero lo transformó profundamente. Donde Bentham contaba placeres con aritmética, Mill introdujo la diferencia entre placeres superiores e inferiores — y con ello salvó al utilitarismo de sus propias limitaciones.</p>
+  </div>
+
+  <div class="highlight-card">
+    <span class="hc-label">El principio fundamental</span>
+    <h3>La mayor felicidad para el mayor número — pero no todos los placeres son iguales</h3>
+    <p>Bentham dijo: la acción correcta es la que maximiza la felicidad total. Un placer es un placer, independientemente de su naturaleza. Empuja el alfilero es tan valioso como la poesía si produce la misma cantidad de placer.</p>
+    <p>Mill lo corrigió: <strong>«Es mejor ser Sócrates insatisfecho que un necio satisfecho.»</strong> Hay placeres cualitativamente superiores — los intelectuales, los morales, los estéticos — que no pueden reducirse a unidades de placer medibles. Quien ha experimentado ambos siempre prefiere los superiores, incluso si implican más sufrimiento.</p>
+  </div>
+
+  <p class="section-label">Conceptos clave del utilitarismo milliano</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Utilidad y felicidad</h3>
+      <p>La utilidad no es el interés egoísta estrecho. Para Mill, incluye el bienestar de todos los afectados por una acción. El agente moral ideal considera las consecuencias para el conjunto — no solo para sí mismo. El utilitarismo es una ética de responsabilidad colectiva.</p>
+    </div>
+    <div class="card">
+      <h3>El problema de la justicia</h3>
+      <p>El mayor desafío al utilitarismo: ¿y si torturar a un inocente maximiza la felicidad del grupo? Mill responde introduciendo la justicia como componente de la utilidad a largo plazo — las sociedades que violan derechos individuales producen más infelicidad en el largo plazo que la que ahorran a corto.</p>
+    </div>
+    <div class="card full">
+      <h3>Utilitarismo vs. deontología kantiana</h3>
+      <p>El debate filosófico central del siglo XIX y XX. Kant: actúa según el deber, independientemente de las consecuencias. Mill: actúa para maximizar el bienestar. El médico que miente a un paciente terminal para protegerlo: Kant lo condena (mentir es mentir), Mill lo evalúa según las consecuencias. En la práctica, la mayoría de los sistemas éticos y jurídicos mezclan ambas lógicas — con la tensión no resuelta entre ellas.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DILEMAS HOY -->
+<div class="tab-panel" id="tab-dilemas">
+  <div class="panel-header">
+    <h2>Mill en 2025: <em>cada concepto, un dilema real</em></h2>
+    <p class="panel-lead">Mill es el filósofo más citado en los debates políticos contemporáneos — a menudo por bandos opuestos. Aquí cada concepto milliano frente al dilema actual que lo activa.</p>
+  </div>
+
+  <div class="dilemma-block">
+    <div class="dilemma-concept">
+      <span class="dc-label">Principio del daño</span>
+      <h3>¿Puede el Estado obligar a vacunarse?</h3>
+      <p>Mill dice que el Estado solo puede coaccionar para prevenir daño a <strong>otros</strong>. Si no vacunarse solo te perjudica a ti, el Estado no puede obligarte. Si perjudica a los inmunodeprimidos que no pueden vacunarse, el principio del daño se activa.</p>
+    </div>
+    <div class="dilemma-today">
+      <span class="dt-label">El dilema hoy — COVID-19 y vacunas obligatorias</span>
+      <p>La pandemia fue el experimento milliano más grande de los últimos cien años. Varios países implementaron vacunación obligatoria o pasaportes sanitarios. La pregunta milliana exacta: ¿el no vacunado daña a otros suficientemente como para justificar la coerción? <strong>Mill probablemente diría que sí en el pico pandémico, y que no en condiciones endémicas.</strong> El umbral de daño importa.</p>
+    </div>
+  </div>
+
+  <div class="dilemma-block">
+    <div class="dilemma-concept">
+      <span class="dc-label">Libertad de expresión</span>
+      <h3>¿Debe regularse el discurso de odio en redes sociales?</h3>
+      <p>Mill defiende la libertad de expresión más ampliamente que casi cualquier otro filósofo. Pero su argumento depende de que el discurso libre sirve a la búsqueda de la verdad. Cuando el discurso no busca la verdad sino <strong>intimidar o deshumanizar</strong>, el argumento milliano se debilita.</p>
+    </div>
+    <div class="dilemma-today">
+      <span class="dt-label">El dilema hoy — moderación en plataformas digitales</span>
+      <p>¿Debería X/Twitter, Meta o TikTok eliminar contenido de odio? Mill diría: el problema no es que el Estado censure — las plataformas son privadas. El problema es que <strong>cuando cuatro plataformas controlan el discurso público global, su decisión de moderar equivale funcionalmente a censura estatal.</strong> Mill habría exigido transparencia en los criterios y derecho de apelación, como mínimo.</p>
+    </div>
+  </div>
+
+  <div class="dilemma-block">
+    <div class="dilemma-concept">
+      <span class="dc-label">Tiranía de la mayoría</span>
+      <h3>¿Es legítimo un referéndum que elimina derechos de una minoría?</h3>
+      <p>Si la mayoría vota para restringir los derechos de una minoría — religiosa, étnica, sexual — ¿es ese resultado democrático legítimo? Mill dice que no: la democracia sin límites puede ser tan tiránica como un déspota. <strong>Los derechos individuales no se votan.</strong></p>
+    </div>
+    <div class="dilemma-today">
+      <span class="dt-label">El dilema hoy — democracias iliberales</span>
+      <p>Hungría, Polonia, y varios otros países han utilizado mayorías parlamentarias para restringir derechos de minorías con plena legitimidad electoral. Mill tenía un nombre para esto: <strong>«tiranía de la mayoría»</strong>. El liberalismo constitucional moderno — con tribunales constitucionales que pueden anular leyes mayoritarias — es la respuesta institucional al problema que Mill identificó.</p>
+    </div>
+  </div>
+
+  <div class="dilemma-block">
+    <div class="dilemma-concept">
+      <span class="dc-label">Utilitarismo</span>
+      <h3>¿Debe la IA optimizar para la felicidad del mayor número?</h3>
+      <p>Los sistemas de recomendación de contenido maximizan el engagement — que es una proxy del placer a corto plazo. El resultado: desinformación viral, polarización, adicción digital. El utilitarismo benthamiano aplicado a escala masiva produce consecuencias que Mill habría reconocido como patológicas.</p>
+    </div>
+    <div class="dilemma-today">
+      <span class="dt-label">El dilema hoy — algoritmos y bienestar real</span>
+      <p>Mill diría que los algoritmos están maximizando <strong>placeres inferiores</strong> (la estimulación inmediata del scroll) en detrimento de los superiores (reflexión, deliberación, información de calidad). La distinción cualitativa entre placeres — su gran aportación frente a Bentham — es exactamente lo que falta en el diseño actual de las plataformas digitales.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div class="tab-panel" id="tab-test">
+  <div class="panel-header">
+    <h2>Pon a prueba <em>tu comprensión</em></h2>
+    <p class="panel-lead">15 preguntas sobre Mill, el liberalismo y sus aplicaciones contemporáneas.</p>
+  </div>
+  <div class="test-wrap" id="quiz">
+    <p class="test-intro">Selecciona la respuesta correcta en cada pregunta.</p>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta I</span><p class="q-text">¿En qué consiste el principio del daño de Mill?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">El Estado puede intervenir siempre que lo considere beneficioso para el individuo</button></li><li><button class="opt-btn" data-idx="1">Todo daño entre personas debe ser penalizado por ley</button></li><li><button class="opt-btn" data-idx="2">El Estado solo puede coaccionar a un individuo para prevenir daño a otros, no para su propio bien</button></li><li><button class="opt-btn" data-idx="3">Los individuos tienen derecho a causar cualquier daño mientras sea consentido</button></li></ul><p class="q-fb ok">Correcto. La carga de la prueba está en quien quiere restringir la libertad. El bien propio del individuo no justifica la coerción.</p><p class="q-fb fail">El principio del daño dice: el Estado solo puede coaccionar legítimamente para prevenir daño a otros. El bien propio del individuo no es suficiente justificación.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta II</span><p class="q-text">¿Qué diferencia introdujo Mill respecto al utilitarismo de Bentham?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Mill rechazó el utilitarismo completamente y abrazó la ética kantiana</button></li><li><button class="opt-btn" data-idx="1">Mill distinguió entre placeres cualitativamente superiores e inferiores, no todos los placeres valen igual</button></li><li><button class="opt-btn" data-idx="2">Mill añadió que solo los placeres físicos cuentan en el cálculo utilitarista</button></li><li><button class="opt-btn" data-idx="3">Mill limitó el utilitarismo a decisiones colectivas, no individuales</button></li></ul><p class="q-fb ok">Correcto. «Es mejor ser Sócrates insatisfecho que un necio satisfecho.» Los placeres intelectuales y morales son cualitativamente superiores a los físicos.</p><p class="q-fb fail">Mill transformó el utilitarismo introduciendo la diferencia cualitativa: no todos los placeres son iguales. Los intelectuales y morales son superiores a los físicos.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta III</span><p class="q-text">¿Por qué Mill defiende la libertad de expresión incluso para ideas que considera falsas?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Porque podemos estar equivocados, y sin el desafío nuestras ideas se vuelven dogmas muertos</button></li><li><button class="opt-btn" data-idx="1">Porque toda idea tiene el mismo valor independientemente de su veracidad</button></li><li><button class="opt-btn" data-idx="2">Porque el Estado no tiene capacidad para distinguir lo verdadero de lo falso</button></li><li><button class="opt-btn" data-idx="3">Porque la libertad de expresión es un derecho natural anterior a la sociedad</button></li></ul><p class="q-fb ok">Correcto. El argumento milliano es epistemológico: silenciar una opinión asume infalibilidad propia. Sin desafío, la verdad se convierte en dogma inerte.</p><p class="q-fb fail">Mill defiende la expresión de ideas falsas porque: podemos estar equivocados, sin desafío nuestras ideas se petrifican, y la verdad completa suele estar distribuida entre posiciones opuestas.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta IV</span><p class="q-text">¿Qué es la «tiranía de la mayoría» para Mill?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">El dominio de los partidos mayoritarios sobre los minoritarios en el parlamento</button></li><li><button class="opt-btn" data-idx="1">El abuso de poder del Estado sobre los ciudadanos</button></li><li><button class="opt-btn" data-idx="2">La tendencia de las democracias a elegir gobiernos mediocres</button></li><li><button class="opt-btn" data-idx="3">La presión social y política que una mayoría puede ejercer para suprimir la libertad individual de las minorías</button></li></ul><p class="q-fb ok">Correcto. Mill temía tanto la tiranía del gobierno como la de la opinión social dominante. Ambas pueden aplastar la libertad individual con igual eficacia.</p><p class="q-fb fail">La tiranía de la mayoría es la presión social y política que aplasta la libertad individual de las minorías. Mill la temía tanto como la tiranía del Estado.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta V</span><p class="q-text">¿Cuál fue la posición de Mill sobre el sufragio femenino?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Se opuso por considerar que las mujeres aún no estaban preparadas</button></li><li><button class="opt-btn" data-idx="1">No se pronunció — consideraba que era un asunto privado</button></li><li><button class="opt-btn" data-idx="2">Fue el primer parlamentario británico en proponer formalmente el sufragio femenino</button></li><li><button class="opt-btn" data-idx="3">Lo apoyó en teoría pero nunca actuó políticamente en ese sentido</button></li></ul><p class="q-fb ok">Correcto. En 1866, siendo diputado por Westminster, Mill presentó la primera petición parlamentaria por el sufragio femenino en la historia del Reino Unido.</p><p class="q-fb fail">Mill fue el primer parlamentario británico en proponer formalmente el sufragio femenino, en 1866. Su obra La sujeción de la mujer (1869) es uno de los primeros textos filosóficos rigorosos sobre igualdad de género.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta VI</span><p class="q-text">¿Qué papel tuvo Harriet Taylor en la obra de Mill?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Fue su mecenas que financió su carrera filosófica</button></li><li><button class="opt-btn" data-idx="1">Fue su igual intelectual que influyó profundamente en su pensamiento, especialmente sobre igualdad de género</button></li><li><button class="opt-btn" data-idx="2">Fue su editora que corrigió y publicó sus obras principales</button></li><li><button class="opt-btn" data-idx="3">Fue una adversaria intelectual cuyas críticas le llevaron a revisar sus posiciones</button></li></ul><p class="q-fb ok">Correcto. Mill consideró a Taylor su igual intelectual y reconoció explícitamente su influencia en sus obras. Se casaron en 1851 y colaboraron hasta la muerte de Taylor en 1858.</p><p class="q-fb fail">Harriet Taylor fue la igual intelectual de Mill y ejerció una influencia decisiva en su pensamiento, especialmente sobre igualdad de género. Mill la reconoció públicamente como coautora intelectual de muchas de sus ideas.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta VII</span><p class="q-text">¿Cuándo publicó Mill su obra más influyente, Sobre la libertad?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">1859</button></li><li><button class="opt-btn" data-idx="1">1843</button></li><li><button class="opt-btn" data-idx="2">1848</button></li><li><button class="opt-btn" data-idx="3">1871</button></li></ul><p class="q-fb ok">Correcto. 1859, el mismo año que El origen de las especies de Darwin. Un año extraordinario para el pensamiento occidental.</p><p class="q-fb fail">Sobre la libertad se publicó en 1859 — el mismo año que El origen de las especies de Darwin. Mill lo dedicó a la memoria de Harriet Taylor, fallecida el año anterior.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta VIII</span><p class="q-text">¿Qué dijo Mill sobre los individuos excéntricos?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Que necesitaban tratamiento para reintegrarse a la norma social</button></li><li><button class="opt-btn" data-idx="1">Que eran un peligro para la estabilidad social</button></li><li><button class="opt-btn" data-idx="2">Que debían tolerarse en privado pero no celebrarse públicamente</button></li><li><button class="opt-btn" data-idx="3">Que la sociedad necesita la originalidad y la excentricidad para progresar</button></li></ul><p class="q-fb ok">Correcto. Mill veía la excentricidad no como una rareza a tolerar sino como una condición del progreso: las sociedades que aplanan la individualidad se estancan.</p><p class="q-fb fail">Para Mill, la excentricidad y la originalidad no son solo tolerables — son necesarias. Las sociedades que suprimen la individualidad sacrifican el progreso.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta IX</span><p class="q-text">¿Qué relación tiene el utilitarismo de Mill con los derechos individuales?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Los derechos individuales deben sacrificarse siempre que maximicen la utilidad colectiva</button></li><li><button class="opt-btn" data-idx="1">Los derechos individuales no tienen cabida en el marco utilitarista</button></li><li><button class="opt-btn" data-idx="2">Respetar los derechos individuales produce mayor utilidad a largo plazo que violarlos</button></li><li><button class="opt-btn" data-idx="3">Los derechos individuales son un límite absoluto previo a cualquier cálculo utilitarista</button></li></ul><p class="q-fb ok">Correcto. Mill reconcilia utilitarismo y derechos argumentando que las sociedades que respetan los derechos individuales producen más bienestar a largo plazo que las que los sacrifican.</p><p class="q-fb fail">Mill reconcilia el utilitarismo con los derechos: respetar los derechos individuales no contradice el principio de utilidad — produce más bienestar a largo plazo que violarlos.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta X</span><p class="q-text">¿De qué experiencia personal aprendió Mill la insuficiencia del racionalismo puro?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">De su experiencia como parlamentario al ver la irracionalidad de la política real</button></li><li><button class="opt-btn" data-idx="1">De la crisis depresiva que sufrió a los veinte años y su recuperación a través de la poesía</button></li><li><button class="opt-btn" data-idx="2">De sus viajes a Francia donde observó las consecuencias emocionales de la Revolución</button></li><li><button class="opt-btn" data-idx="3">De su relación con Harriet Taylor, que le mostró la dimensión emocional de la ética</button></li></ul><p class="q-fb ok">Correcto. A los 20 años sufrió una crisis depresiva profunda. La recuperación a través de Wordsworth le reveló que la razón sin emoción es incompleta — una lección que marcó toda su filosofía posterior.</p><p class="q-fb fail">La crisis depresiva de los 20 años y su recuperación a través de la poesía de Wordsworth le mostraron que el racionalismo puro de su educación era insuficiente. La razón necesita la emoción.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta XI</span><p class="q-text">¿Qué es para Mill la relación entre libertad de pensamiento y progreso social?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Sin libertad de pensamiento y expresión, el progreso intelectual y social es imposible</button></li><li><button class="opt-btn" data-idx="1">El progreso social requiere cierta restricción del pensamiento disruptivo</button></li><li><button class="opt-btn" data-idx="2">La libertad de pensamiento es valiosa pero no necesaria para el progreso</button></li><li><button class="opt-btn" data-idx="3">El progreso depende de la calidad de los líderes, no de la libertad colectiva</button></li></ul><p class="q-fb ok">Correcto. Para Mill, la libre discusión no es solo un derecho — es la condición del progreso. Sin el choque de ideas, la verdad se fosiliza en dogma.</p><p class="q-fb fail">Para Mill, la libertad de pensamiento y la libre discusión son la condición del progreso humano. Sin ellas, las ideas correctas se petrifican en dogmas inútiles.</p></div>
+
+    <div class="q-block" data-correct="3"><span class="q-number">Pregunta XII</span><p class="q-text">¿Cómo define Mill el principio de utilidad o «mayor felicidad»?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">La maximización del placer personal del agente moral</button></li><li><button class="opt-btn" data-idx="1">La suma matemática de los placeres y dolores de una sociedad</button></li><li><button class="opt-btn" data-idx="2">El interés del Estado como representante del bien colectivo</button></li><li><button class="opt-btn" data-idx="3">Las acciones son correctas en la medida en que promueven la felicidad de todos los afectados, incorrectas en la medida en que producen lo contrario</button></li></ul><p class="q-fb ok">Correcto. La utilidad en Mill incluye a todos los afectados, no solo al agente. Es una ética de responsabilidad colectiva, no de egoísmo ilustrado.</p><p class="q-fb fail">El principio de utilidad de Mill: las acciones son correctas si promueven la felicidad de todos los afectados. «Todos» incluye al propio agente, pero también a todos los demás impactados por la acción.</p></div>
+
+    <div class="q-block" data-correct="2"><span class="q-number">Pregunta XIII</span><p class="q-text">¿Qué obra de Mill trata explícitamente la igualdad entre hombres y mujeres?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Sobre la libertad (1859)</button></li><li><button class="opt-btn" data-idx="1">El utilitarismo (1863)</button></li><li><button class="opt-btn" data-idx="2">La sujeción de la mujer (1869)</button></li><li><button class="opt-btn" data-idx="3">Consideraciones sobre el gobierno representativo (1861)</button></li></ul><p class="q-fb ok">Correcto. La sujeción de la mujer (1869) es uno de los primeros tratados filosóficos que argumenta sistemáticamente a favor de la igualdad legal y política entre géneros.</p><p class="q-fb fail">La sujeción de la mujer (1869) es la obra donde Mill argumenta con rigor filosófico la igualdad legal y política entre hombres y mujeres — uno de los primeros textos de este tipo en la historia.</p></div>
+
+    <div class="q-block" data-correct="1"><span class="q-number">Pregunta XIV</span><p class="q-text">¿Cuál es la diferencia fundamental entre el liberalismo de Mill y el de Locke?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">Locke defiende más derechos que Mill</button></li><li><button class="opt-btn" data-idx="1">Locke funda la libertad en derechos naturales; Mill la funda en la utilidad y el progreso social</button></li><li><button class="opt-btn" data-idx="2">Mill acepta más intervención estatal que Locke</button></li><li><button class="opt-btn" data-idx="3">Locke es más igualitario que Mill en cuestiones de género</button></li></ul><p class="q-fb ok">Correcto. Locke: tienes libertad porque tienes derechos naturales. Mill: tienes libertad porque la sociedad que la garantiza es más próspera, más creativa y más feliz que la que la suprime.</p><p class="q-fb fail">La diferencia es de fundamento: Locke apela a derechos naturales, Mill apela a la utilidad. La libertad en Mill no es un derecho absoluto sino el sistema que mejor maximiza el bienestar a largo plazo.</p></div>
+
+    <div class="q-block" data-correct="0"><span class="q-number">Pregunta XV</span><p class="q-text">¿Qué frase resume la posición de Mill sobre los placeres superiores?</p><ul class="opts"><li><button class="opt-btn" data-idx="0">«Es mejor ser Sócrates insatisfecho que un necio satisfecho»</button></li><li><button class="opt-btn" data-idx="1">«El mayor bien para el mayor número»</button></li><li><button class="opt-btn" data-idx="2">«La libertad de uno termina donde empieza la del otro»</button></li><li><button class="opt-btn" data-idx="3">«Atrévete a saber»</button></li></ul><p class="q-fb ok">Correcto. Esta frase captura la gran corrección de Mill a Bentham: no todos los placeres son equivalentes. Quien ha experimentado los placeres superiores los prefiere, aunque conlleven más sufrimiento.</p><p class="q-fb fail">«Es mejor ser Sócrates insatisfecho que un necio satisfecho» es la frase que resume la diferencia de Mill respecto a Bentham: los placeres cualitativamente superiores valen más que cualquier cantidad de placeres inferiores.</p></div>
+
+    <div class="score-box" id="score-box">
+      <span class="score-num" id="score-num"></span>
+      <span class="score-lbl">Respuestas correctas de 15</span>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="retry-btn" onclick="resetQuiz()">Reintentar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Inicio</a><a href="fase3.html">Fase III</a></nav></div></footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})});
+function toggleAcc(t){const b=t.nextElementSibling,o=t.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.acc-body').forEach(x=>x.classList.remove('open'));if(!o){t.classList.add('open');b.classList.add('open')}}
+let answered=0,score=0;const total=15;
+document.querySelectorAll('.q-block').forEach(block=>{const c=parseInt(block.dataset.correct),btns=block.querySelectorAll('.opt-btn'),ok=block.querySelector('.q-fb.ok'),fail=block.querySelector('.q-fb.fail');btns.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;btns.forEach(b=>b.disabled=true);const i=parseInt(btn.dataset.idx);if(i===c){btn.classList.add('correct');ok.classList.add('show');score++}else{btn.classList.add('wrong');btns[c].classList.add('reveal');fail.classList.add('show')}answered++;if(answered===total)showScore()})})});
+function showScore(){document.getElementById('score-num').textContent=score;const m=[[0,5,'Mill diría: sal de tu minoría de edad intelectual. El módulo está ahí para releerlo.'],[6,9,'Buen comienzo. El principio del daño está claro. Profundiza en los dilemas contemporáneos.'],[10,12,'Sólido. Distingues el Mill real del liberal de manual.'],[13,15,'Excelente. Aplicas el pensamiento milliano, no solo lo recitas.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+</script>
+</body>
+</html>
