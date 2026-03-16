@@ -4,491 +4,139 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fase III — Siglo XIX: Ideologías y Revolución · Filosofía & Política</title>
-  <meta name="description" content="Del idealismo a la revolución: Hegel, Marx, Mill, Tocqueville y Nietzsche. El siglo en que las ideas bajaron a la calle y cambiaron el mundo."/>
+  <meta name="description" content="Del idealismo a la revolución: Hegel, Marx, Mill, Tocqueville y Nietzsche."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --bg:           #0e0c0a;
-      --bg-mid:       #141210;
-      --bg-card:      #1a1714;
-      --surface:      #221e1a;
-      --border:       #3a3028;
-      --border-light: #4e4238;
-      --red:          #9e2020;
-      --red-mid:      #c02828;
-      --red-light:    #d94040;
-      --red-pale:     #e87070;
-      --ink:          #f0e8d8;
-      --ink-mid:      #c0b8a8;
-      --ink-dim:      #807868;
-      --amber:        #c48820;
-      --amber-light:  #d8a030;
-      --amber-dim:    #8a6018;
-      --text:         #e0d8c8;
-      --text-muted:   #9a9080;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Manrope', sans-serif;
-      font-weight: 400;
-      font-size: 17px;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-
-    /* Grain texture */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0;
-    }
-
-    /* Diagonal stripe pattern - like old newspaper */
-    body::after {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 40px,
-        rgba(158,32,32,.015) 40px,
-        rgba(158,32,32,.015) 41px
-      );
-      pointer-events: none; z-index: 0;
-    }
-
-    /* ── NAV ── */
-    .top-nav {
-      background: rgba(14,12,10,.96);
-      backdrop-filter: blur(12px);
-      padding: 1rem 2rem;
-      position: sticky; top: 0; z-index: 200;
-      border-bottom: 1px solid var(--border);
-    }
-    .top-nav-inner {
-      max-width: 960px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-back {
-      font-family: 'Manrope', sans-serif;
-      font-size: .85rem; font-weight: 500;
-      letter-spacing: .06em;
-      color: var(--ink-mid); text-decoration: none;
-      display: flex; align-items: center; gap: .5rem;
-      transition: color .2s;
-    }
-    .nav-back:hover { color: var(--red-light); }
-    .nav-links {
-      display: flex; align-items: center; gap: 1.5rem;
-    }
-    .nav-link {
-      font-family: 'Manrope', sans-serif;
-      font-size: .78rem; font-weight: 500;
-      letter-spacing: .08em;
-      color: var(--ink-dim); text-decoration: none;
-      transition: color .2s;
-    }
-    .nav-link:hover { color: var(--amber); }
-    .nav-phase {
-      font-family: 'Playfair Display', serif;
-      font-size: .9rem; font-weight: 500;
-      color: var(--amber);
-      letter-spacing: .04em;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      padding: 5.5rem 2rem 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Big decorative "XIX" behind the title */
-    .hero::before {
-      content: 'XIX';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(14rem, 30vw, 22rem);
-      font-weight: 700;
-      color: rgba(158,32,32,.04);
-      letter-spacing: -.02em;
-      pointer-events: none;
-      white-space: nowrap;
-      z-index: 0;
-      line-height: 1;
-    }
-
-    .hero-inner {
-      max-width: 720px; margin: 0 auto;
-      position: relative; z-index: 1;
-      text-align: center;
-    }
-
-    .hero-label {
-      font-family: 'Manrope', sans-serif;
-      font-size: .72rem; font-weight: 600;
-      letter-spacing: .4em; text-transform: uppercase;
-      color: var(--red-mid);
-      margin-bottom: 1.5rem; display: block;
-    }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      font-weight: 400; color: var(--ink);
-      line-height: 1.1; margin-bottom: 1rem;
-    }
-    .hero-title em { font-style: italic; color: var(--red-light); }
-
-    .hero-rule {
-      display: flex; align-items: center; gap: 1rem;
-      max-width: 320px; margin: 0 auto 1.8rem;
-    }
-    .hero-rule::before, .hero-rule::after {
-      content: ''; flex: 1; height: 1px;
-      background: var(--border-light);
-    }
-    .hero-rule-mark {
-      width: 28px; height: 1px;
-      background: var(--red);
-      position: relative;
-    }
-    .hero-rule-mark::before {
-      content: '';
-      position: absolute; left: 50%; top: 50%;
-      transform: translate(-50%,-50%);
-      width: 6px; height: 6px;
-      background: var(--red-mid);
-      border-radius: 50%;
-    }
-
-    .hero-subtitle {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 1.1rem; font-style: italic;
-      color: var(--text-muted);
-      max-width: 580px; margin: 0 auto 1.5rem;
-      line-height: 1.8;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 580px; margin: 0 auto;
-      line-height: 1.85;
-    }
-
-    /* ── MANIFESTO BAND ── */
-    .manifesto-band {
-      background: var(--red);
-      padding: 1.2rem 2rem;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-    .manifesto-band::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 60px,
-        rgba(0,0,0,.08) 60px,
-        rgba(0,0,0,.08) 61px
-      );
-    }
-    .manifesto-inner {
-      max-width: 960px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: center;
-      gap: 2rem; flex-wrap: wrap;
-      position: relative; z-index: 1;
-    }
-    .manifesto-item {
-      font-family: 'Playfair Display', serif;
-      font-size: .9rem; font-style: italic;
-      color: rgba(255,255,255,.85);
-      letter-spacing: .02em;
-    }
-    .manifesto-sep {
-      width: 4px; height: 4px;
-      background: rgba(255,255,255,.4);
-      border-radius: 50%;
-    }
-
-    /* ── CONTENT ── */
-    .content {
-      max-width: 960px; margin: 0 auto;
-      padding: 3.5rem 2rem 5rem;
-      position: relative; z-index: 1;
-    }
-
-    .section-label {
-      font-family: 'Manrope', sans-serif;
-      font-size: .72rem; font-weight: 600;
-      letter-spacing: .32em; text-transform: uppercase;
-      color: var(--amber-dim);
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .section-label::after {
-      content: ''; flex: 1; height: 1px;
-      background: var(--border);
-    }
-
-    /* ── MODULE CARD ── */
-    .mod-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--border);
-      border-radius: 2px;
-      padding: 2.2rem 2.8rem;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 0 2rem;
-      align-items: start;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
-      transition: border-color .3s, border-left-color .3s, box-shadow .3s, transform .2s;
-      margin-bottom: 1rem;
-    }
-    .mod-card:hover {
-      border-color: var(--border-light);
-      border-left-color: var(--red-mid);
-      box-shadow: 0 6px 28px rgba(158,32,32,.1), 0 2px 8px rgba(0,0,0,.25);
-      transform: translateX(4px);
-    }
-
-    .mod-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem; font-weight: 400;
-      color: var(--border-light);
-      line-height: 1;
-      transition: color .3s;
-      min-width: 2.5rem;
-    }
-    .mod-card:hover .mod-num { color: var(--red-mid); }
-
-    .mod-tag {
-      font-family: 'Manrope', sans-serif;
-      font-size: .68rem; font-weight: 600;
-      letter-spacing: .25em; text-transform: uppercase;
-      color: var(--amber-dim);
-      margin-bottom: .4rem; display: block;
-      transition: color .3s;
-    }
-    .mod-card:hover .mod-tag { color: var(--amber); }
-
-    .mod-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem; font-weight: 500;
-      color: var(--ink);
-      line-height: 1.2; margin-bottom: .6rem;
-    }
-
-    .mod-desc {
-      font-size: .98rem; color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    .mod-topics {
-      margin-top: .9rem;
-      display: flex; flex-wrap: wrap; gap: .4rem;
-    }
-    .mod-pill {
-      font-family: 'Manrope', sans-serif;
-      font-size: .65rem; font-weight: 500;
-      letter-spacing: .08em;
-      color: var(--ink-dim);
-      border: 1px solid var(--border);
-      padding: .25rem .65rem;
-      border-radius: 1px;
-      transition: border-color .3s, color .3s;
-    }
-    .mod-card:hover .mod-pill {
-      border-color: var(--border-light);
-      color: var(--ink-mid);
-    }
-
-    .mod-arrow {
-      align-self: center;
-      font-size: 1.3rem; color: var(--border-light);
-      transition: transform .3s, color .3s;
-    }
-    .mod-card:hover .mod-arrow {
-      transform: translateX(6px);
-      color: var(--red-mid);
-    }
-
-    .mod-badge {
-      position: absolute; top: 1rem; right: 1.2rem;
-      font-family: 'Manrope', sans-serif;
-      font-size: .58rem; font-weight: 700;
-      letter-spacing: .22em; text-transform: uppercase;
-      padding: .22rem .6rem;
-      border-radius: 1px;
-    }
-    .mod-badge.available { color: var(--amber); border: 1px solid var(--amber-dim); }
-    .mod-badge.new       { color: var(--red-light); border: 1px solid var(--red); }
-    .mod-badge.soon      { color: var(--border-light); border: 1px solid var(--border); }
-
-    /* ── DISABLED ── */
-    .mod-card-disabled {
-      background: var(--bg-mid);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--border);
-      border-radius: 2px;
-      padding: 1.6rem 2.8rem;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 0 2rem;
-      align-items: center;
-      opacity: .38;
-      cursor: default;
-      margin-bottom: 1rem;
-    }
-    .mod-card-disabled .mod-num { color: var(--border); font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 400; line-height: 1; }
-    .mod-card-disabled .mod-tag { font-family: 'Manrope', sans-serif; font-size: .68rem; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; color: var(--border-light); margin-bottom: .3rem; display: block; }
-    .mod-card-disabled .mod-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 400; color: var(--border-light); }
-    .badge-soon { font-family: 'Manrope', sans-serif; font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--border-light); border: 1px solid var(--border); padding: .22rem .6rem; border-radius: 1px; }
-
-    /* ── QUOTE DIVIDER ── */
-    .quote-divider {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 2rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    .quote-divider blockquote {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; font-style: italic;
-      color: var(--ink-mid);
-      line-height: 1.65;
-      max-width: 640px; margin: 0 auto .8rem;
-    }
-    .quote-divider cite {
-      font-family: 'Manrope', sans-serif;
-      font-size: .7rem; font-weight: 600;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: var(--red-mid);
-    }
-
-    /* ── BACK LINK ── */
-    .back-section {
-      padding: 0 0 4rem;
-      text-align: center;
-      display: flex; justify-content: center;
-      gap: 1rem; flex-wrap: wrap;
-    }
-    .back-link {
-      font-family: 'Manrope', sans-serif;
-      font-size: .82rem; font-weight: 500;
-      letter-spacing: .1em;
-      color: var(--ink-dim);
-      text-decoration: none;
-      border: 1px solid var(--border);
-      padding: .7rem 1.8rem;
-      border-radius: 1px;
-      transition: all .2s;
-      display: inline-flex; align-items: center; gap: .5rem;
-    }
-    .back-link:hover {
-      border-color: var(--amber-dim);
-      color: var(--amber);
-    }
-    .back-link.forward {
-      background: var(--red);
-      border-color: var(--red-mid);
-      color: #fff;
-    }
-    .back-link.forward:hover {
-      background: var(--red-mid);
-      color: #fff;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      background: var(--bg);
-    }
-    .footer-inner {
-      max-width: 960px; margin: 0 auto;
-      display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-brand {
-      font-family: 'Libre Baskerville', serif;
-      font-size: .9rem; color: var(--text-muted);
-    }
-    .footer-brand strong { color: var(--ink); font-weight: 400; }
-    .footer-nav { display: flex; gap: 1.5rem; }
-    .footer-nav a {
-      font-family: 'Manrope', sans-serif;
-      font-size: .7rem; font-weight: 500;
-      letter-spacing: .15em;
-      color: var(--ink-dim); text-decoration: none;
-      transition: color .2s;
-    }
-    .footer-nav a:hover { color: var(--amber); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .anim-1 { animation: fadeUp .5s ease both; }
-    .anim-2 { animation: fadeUp .5s .08s ease both; }
-    .anim-3 { animation: fadeUp .5s .16s ease both; }
-    .anim-4 { animation: fadeUp .5s .24s ease both; }
-    .anim-5 { animation: fadeUp .5s .32s ease both; }
-    .anim-6 { animation: fadeUp .5s .4s ease both; }
-    .anim-7 { animation: fadeUp .5s .48s ease both; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      .mod-card, .mod-card-disabled { grid-template-columns: auto 1fr; padding: 1.6rem 1.2rem; }
-      .mod-arrow { display: none; }
-      .mod-badge { position: static; margin-bottom: .5rem; display: inline-block; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .manifesto-inner { gap: 1rem; }
-    }
+    :root{--bg:#0e0c0a;--bg-mid:#141210;--bg-card:#1a1714;--surface:#221e1a;--border:#3a3028;--border-light:#4e4238;--red:#9e2020;--red-mid:#c02828;--red-light:#d94040;--ink:#f0e8d8;--ink-mid:#c0b8a8;--ink-dim:#807868;--amber:#c48820;--amber-light:#d8a030;--amber-dim:#8a6018;--text:#e0d8c8;--text-muted:#9a9080}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-weight:400;font-size:17px;line-height:1.7;min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    body::after{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(158,32,32,.015) 40px,rgba(158,32,32,.015) 41px);pointer-events:none;z-index:0}
 
     /* ── NAV GLOBAL ── */
     .top-nav{background:rgba(14,12,10,.96);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
     .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
-    .nav-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--gold,#c48820);text-decoration:none;display:flex;align-items:center;letter-spacing:.02em;flex-shrink:0}
-    .nav-brand:hover{color:var(--gold-light,#d8a030)}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--amber);text-decoration:none;display:flex;align-items:center;letter-spacing:.02em;flex-shrink:0}
+    .nav-brand:hover{color:var(--amber-light)}
     .nav-menu{display:flex;align-items:stretch;gap:0}
     .nav-item{position:relative;display:flex;align-items:stretch}
-    .nav-item-btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%}
-    .nav-item-btn:hover,.nav-item-btn.active{color:var(--gold,#c48820)}
+    .nav-item-btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--amber)}
     .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
     .nav-item-btn.open .arrow{transform:rotate(180deg)}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,18,16,.98);border:1px solid var(--border,#3a3028);border-top:none;min-width:260px;z-index:300;display:none;backdrop-filter:blur(12px)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,18,16,.98);border:1px solid var(--border);border-top:none;min-width:260px;z-index:300;display:none;backdrop-filter:blur(12px)}
     .nav-dropdown.open{display:block;animation:dropIn .15s ease}
     @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
     .nav-drop-section{padding:.5rem 0}
-    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--border,#3a3028)}
-    .nav-drop-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim,#8a6018);padding:.4rem 1.2rem .2rem;display:block}
-    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-mid,#c0b8a8);text-decoration:none;transition:background .15s,color .15s}
-    .nav-drop-link:hover{background:var(--surface,#221e1a);color:var(--gold,#c48820)}
-    .nav-drop-link.disabled{color:var(--ink-dim,#807868);cursor:default;opacity:.45;pointer-events:none}
-    .nav-drop-badge{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim,#8a6018);background:rgba(196,136,32,.1);padding:.1rem .4rem;border-radius:1px}
-    .nav-autor-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
-    .nav-autor-link:hover,.nav-autor-link.active{color:var(--gold,#c48820)}
-    @media(max-width:700px){.nav-menu{display:none}}
+    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--border)}
+    .nav-drop-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--amber-dim);padding:.4rem 1.2rem .2rem;display:block}
+    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-mid);text-decoration:none;transition:background .15s,color .15s}
+    .nav-drop-link:hover{background:var(--surface);color:var(--amber)}
+    .nav-drop-link.disabled{color:var(--ink-dim);cursor:default;opacity:.45;pointer-events:none}
+    .nav-drop-badge{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--amber-dim);background:rgba(196,136,32,.1);padding:.1rem .4rem;border-radius:1px}
+    .nav-autor-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
+    .nav-autor-link:hover{color:var(--amber)}
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
+    .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--amber);border-radius:1px;transition:transform .25s,opacity .25s}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .nav-hamburger.open span:nth-child(2){opacity:0}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-drawer{display:none;position:fixed;top:52px;left:0;right:0;bottom:0;background:rgba(20,18,16,.98);z-index:199;overflow-y:auto;padding:1rem 0 2rem;border-top:1px solid var(--border);transform:translateY(-8px);opacity:0;transition:opacity .2s,transform .2s;pointer-events:none}
+    .mobile-drawer.open{opacity:1;transform:translateY(0);pointer-events:all}
+    .mobile-phase-label{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--amber-dim);padding:.8rem 1.6rem .3rem;display:block;border-top:1px solid var(--border);margin-top:.5rem}
+    .mobile-phase-label:first-child{border-top:none;margin-top:0}
+    .mobile-nav-link{display:block;padding:.65rem 1.6rem;font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:400;color:var(--ink-mid);text-decoration:none;transition:color .15s,background .15s}
+    .mobile-nav-link:hover{color:var(--amber);background:var(--surface)}
+    .mobile-nav-link.disabled{color:var(--ink-dim);pointer-events:none;opacity:.5}
+    @media(max-width:700px){.nav-menu{display:none}.nav-hamburger{display:flex}.mobile-drawer{display:block}}
+
+    /* ── HERO ── */
+    .hero{padding:5.5rem 2rem 3.5rem;position:relative;overflow:hidden}
+    .hero::before{content:'XIX';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:clamp(14rem,30vw,22rem);font-weight:700;color:rgba(158,32,32,.04);letter-spacing:-.02em;pointer-events:none;white-space:nowrap;z-index:0;line-height:1}
+    .hero-inner{max-width:720px;margin:0 auto;position:relative;z-index:1;text-align:center}
+    .hero-label{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--red-mid);margin-bottom:1.5rem;display:block}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6vw,4.2rem);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:1rem}
+    .hero-title em{font-style:italic;color:var(--red-light)}
+    .hero-rule{display:flex;align-items:center;gap:1rem;max-width:320px;margin:0 auto 1.8rem}
+    .hero-rule::before,.hero-rule::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .hero-rule-mark{width:28px;height:1px;background:var(--red);position:relative}
+    .hero-rule-mark::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6px;height:6px;background:var(--red-mid);border-radius:50%}
+    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-style:italic;color:var(--text-muted);max-width:580px;margin:0 auto 1.5rem;line-height:1.8}
+    .hero-desc{font-size:1rem;color:var(--text-muted);max-width:580px;margin:0 auto;line-height:1.85}
+
+    /* ── MANIFESTO BAND ── */
+    .manifesto-band{background:var(--red);padding:1.2rem 2rem;position:relative;overflow:hidden;z-index:1}
+    .manifesto-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(0,0,0,.08) 60px,rgba(0,0,0,.08) 61px)}
+    .manifesto-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;position:relative;z-index:1}
+    .manifesto-item{font-family:'Playfair Display',serif;font-size:.9rem;font-style:italic;color:rgba(255,255,255,.85);letter-spacing:.02em}
+    .manifesto-sep{width:4px;height:4px;background:rgba(255,255,255,.4);border-radius:50%}
+
+    /* ── CONTENT ── */
+    .content{max-width:960px;margin:0 auto;padding:3.5rem 2rem 5rem;position:relative;z-index:1}
+    .section-label{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--amber-dim);display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+    /* ── MODULE CARD ── */
+    .mod-card{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--border);border-radius:2px;padding:2.2rem 2.8rem;display:grid;grid-template-columns:auto 1fr auto;gap:0 2rem;align-items:start;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .3s,border-left-color .3s,box-shadow .3s,transform .2s;margin-bottom:1rem}
+    .mod-card:hover{border-color:var(--border-light);border-left-color:var(--red-mid);box-shadow:0 6px 28px rgba(158,32,32,.1),0 2px 8px rgba(0,0,0,.25);transform:translateX(4px)}
+    .mod-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:400;color:var(--border-light);line-height:1;transition:color .3s;min-width:2.5rem}
+    .mod-card:hover .mod-num{color:var(--red-mid)}
+    .mod-tag{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:.4rem;display:block;transition:color .3s}
+    .mod-card:hover .mod-tag{color:var(--amber)}
+    .mod-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:500;color:var(--ink);line-height:1.2;margin-bottom:.6rem}
+    .mod-desc{font-size:.98rem;color:var(--text-muted);line-height:1.8}
+    .mod-topics{margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.4rem}
+    .mod-pill{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.08em;color:var(--ink-dim);border:1px solid var(--border);padding:.25rem .65rem;border-radius:1px;transition:border-color .3s,color .3s}
+    .mod-card:hover .mod-pill{border-color:var(--border-light);color:var(--ink-mid)}
+    .mod-arrow{align-self:center;font-size:1.3rem;color:var(--border-light);transition:transform .3s,color .3s}
+    .mod-card:hover .mod-arrow{transform:translateX(6px);color:var(--red-mid)}
+    .mod-badge{position:absolute;top:1rem;right:1.2rem;font-family:'Manrope',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:.22rem .6rem;border-radius:1px}
+    .mod-badge.available{color:var(--amber);border:1px solid var(--amber-dim)}
+    .mod-badge.new{color:var(--red-light);border:1px solid var(--red)}
+
+    /* ── QUOTE DIVIDER ── */
+    .quote-divider{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 2rem;margin:3rem 0;text-align:center}
+    .quote-divider blockquote{font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;color:var(--ink-mid);line-height:1.65;max-width:640px;margin:0 auto .8rem}
+    .quote-divider cite{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red-mid)}
+
+    /* ── BACK ── */
+    .back-section{padding:0 0 4rem;text-align:center;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+    .back-link{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.1em;color:var(--ink-dim);text-decoration:none;border:1px solid var(--border);padding:.7rem 1.8rem;border-radius:1px;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+    .back-link:hover{border-color:var(--amber-dim);color:var(--amber)}
+    .back-link.forward{background:var(--red);border-color:var(--red-mid);color:#fff}
+    .back-link.forward:hover{background:var(--red-mid);color:#fff}
+
+    /* ── FOOTER ── */
+    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}
+    .footer-brand strong{color:var(--ink);font-weight:400}
+    .footer-nav{display:flex;gap:1.5rem}
+    .footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}
+    .footer-nav a:hover{color:var(--amber)}
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    .anim-1{animation:fadeUp .5s ease both}
+    .anim-2{animation:fadeUp .5s .08s ease both}
+    .anim-3{animation:fadeUp .5s .16s ease both}
+    .anim-4{animation:fadeUp .5s .24s ease both}
+    .anim-5{animation:fadeUp .5s .32s ease both}
+    .anim-6{animation:fadeUp .5s .4s ease both}
+    .anim-7{animation:fadeUp .5s .48s ease both}
+
+    @media(max-width:640px){
+      .mod-card{grid-template-columns:auto 1fr;padding:1.6rem 1.2rem}
+      .mod-arrow{display:none}
+      .mod-badge{position:static;margin-bottom:.5rem;display:inline-block}
+      .footer-inner{flex-direction:column;text-align:center}
+      .manifesto-inner{gap:1rem}
+    }
   </style>
 </head>
 <body>
@@ -505,7 +153,8 @@
             <span class="nav-drop-label">Antigüedad griega</span>
             <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
             <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
-            <a href="#" class="nav-drop-link disabled">Cicerón <span class="nav-drop-badge">Próx.</span></a>
+            <a href="estoicismo.html" class="nav-drop-link">El Estoicismo</a>
+            <a href="tomas-de-aquino.html" class="nav-drop-link">Tomás de Aquino</a>
           </div>
         </div>
       </div>
@@ -552,160 +201,144 @@
       </div>
       <a href="autor.html" class="nav-autor-link">Sobre el autor</a>
     </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <span class="mobile-phase-label">Fase I — Antigüedad</span>
+  <a href="grecia-socrates-platon.html" class="mobile-nav-link">Sócrates &amp; Platón</a>
+  <a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a>
+  <a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a>
+  <a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
+  <span class="mobile-phase-label">Fase II — Renacimiento &amp; Modernidad</span>
+  <a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a>
+  <a href="hobbes.html" class="mobile-nav-link">Hobbes y el Leviatán</a>
+  <a href="locke.html" class="mobile-nav-link">Locke y los derechos naturales</a>
+  <a href="rousseau.html" class="mobile-nav-link">Rousseau</a>
+  <a href="kant.html" class="mobile-nav-link">Kant y la razón universal</a>
+  <span class="mobile-phase-label">Fase III — Siglo XIX · Ideologías</span>
+  <a href="marx.html" class="mobile-nav-link">Marx y el Capital</a>
+  <a href="mill.html" class="mobile-nav-link">Mill y la libertad</a>
+  <a href="tocqueville.html" class="mobile-nav-link">Tocqueville y la democracia</a>
+  <a href="nietzsche.html" class="mobile-nav-link">Nietzsche y el martillo</a>
+  <a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo — Las sombras del XIX</a>
+  <span class="mobile-phase-label">Fase IV — Economía Política</span>
+  <a href="smith.html" class="mobile-nav-link">Adam Smith</a>
+  <a href="keynes.html" class="mobile-nav-link">Keynes</a>
+  <a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a>
+  <a href="#" class="mobile-nav-link disabled">Globalización · próximamente</a>
+  <a href="#" class="mobile-nav-link disabled">El nuevo desorden mundial · próximamente</a>
+  <span class="mobile-phase-label">Más</span>
+  <a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
+</div>
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-label anim-1">Fase III · Filosofía & Política</span>
+    <span class="hero-label anim-1">Fase III · Filosofía &amp; Política</span>
     <h1 class="hero-title anim-2">Siglo XIX: <em>Ideologías</em><br>y Revolución</h1>
     <div class="hero-rule anim-3"><div class="hero-rule-mark"></div></div>
-    <p class="hero-subtitle anim-3">
-      Las ideas bajan a la calle. La filosofía se convierte en programa político,
-      y los programas políticos mueven ejércitos.
-    </p>
-    <p class="hero-desc anim-4">
-      De Hegel a Nietzsche, pasando por Marx, Mill y Tocqueville: el siglo que
-      inventó el comunismo, el liberalismo moderno y la crítica radical de la
-      civilización occidental. Todo lo que agita el siglo XXI tiene raíces aquí.
-    </p>
+    <p class="hero-subtitle anim-3">Las ideas bajan a la calle. La filosofía se convierte en programa político, y los programas políticos mueven ejércitos.</p>
+    <p class="hero-desc anim-4">De Hegel a Nietzsche, pasando por Marx, Mill y Tocqueville: el siglo que inventó el comunismo, el liberalismo moderno y la crítica radical de la civilización occidental. Todo lo que agita el siglo XXI tiene raíces aquí.</p>
   </div>
 </section>
 
 <!-- ══════════ MANIFESTO BAND ══════════ -->
 <div class="manifesto-band">
   <div class="manifesto-inner">
-    <span class="manifesto-item">Dialéctica</span>
-    <span class="manifesto-sep"></span>
-    <span class="manifesto-item">Lucha de clases</span>
-    <span class="manifesto-sep"></span>
-    <span class="manifesto-item">Voluntad de poder</span>
-    <span class="manifesto-sep"></span>
-    <span class="manifesto-item">Libertad individual</span>
-    <span class="manifesto-sep"></span>
-    <span class="manifesto-item">Democracia observada</span>
-    <span class="manifesto-sep"></span>
+    <span class="manifesto-item">Dialéctica</span><span class="manifesto-sep"></span>
+    <span class="manifesto-item">Lucha de clases</span><span class="manifesto-sep"></span>
+    <span class="manifesto-item">Voluntad de poder</span><span class="manifesto-sep"></span>
+    <span class="manifesto-item">Libertad individual</span><span class="manifesto-sep"></span>
+    <span class="manifesto-item">Democracia observada</span><span class="manifesto-sep"></span>
     <span class="manifesto-item">Materialismo histórico</span>
   </div>
 </div>
 
 <!-- ══════════ MODULES ══════════ -->
 <div class="content">
-
   <p class="section-label anim-5">Módulos de la Fase III</p>
 
-  <!-- MÓDULO IX — MARX -->
-  <a href="marx.html" class="mod-card anim-5" aria-label="Ir al módulo sobre Marx">
+  <a href="marx.html" class="mod-card anim-5">
     <span class="mod-badge available">Disponible</span>
     <span class="mod-num">01</span>
     <div>
       <span class="mod-tag">Módulo IX · Materialismo histórico</span>
       <h2 class="mod-title">Marx y el Capital</h2>
       <p class="mod-desc">El pensador con más consecuencias prácticas de la historia moderna. Materialismo histórico, lucha de clases, plusvalía, alienación. No como dogma — como disección de cómo funciona realmente el poder económico.</p>
-      <div class="mod-topics">
-        <span class="mod-pill">Materialismo histórico</span>
-        <span class="mod-pill">Lucha de clases</span>
-        <span class="mod-pill">Plusvalía</span>
-        <span class="mod-pill">Alienación</span>
-        <span class="mod-pill">El Manifiesto</span>
-      </div>
+      <div class="mod-topics"><span class="mod-pill">Materialismo histórico</span><span class="mod-pill">Lucha de clases</span><span class="mod-pill">Plusvalía</span><span class="mod-pill">Alienación</span><span class="mod-pill">El Manifiesto</span></div>
     </div>
-    <span class="mod-arrow" aria-hidden="true">→</span>
+    <span class="mod-arrow">→</span>
   </a>
 
-  <!-- MÓDULO X — MILL -->
-  <a href="mill.html" class="mod-card anim-5" aria-label="Ir al módulo sobre Mill">
+  <a href="mill.html" class="mod-card anim-5">
     <span class="mod-badge available">Disponible</span>
     <span class="mod-num">02</span>
     <div>
       <span class="mod-tag">Módulo X · Liberalismo clásico</span>
       <h2 class="mod-title">Mill y la libertad</h2>
       <p class="mod-desc">El pensador que construyó el liberalismo moderno desde dentro. El principio del daño, la tiranía de la mayoría, el utilitarismo y cuatro dilemas reales del siglo XXI que Mill no conoció pero que habría reconocido perfectamente.</p>
-      <div class="mod-topics">
-        <span class="mod-pill">Principio del daño</span>
-        <span class="mod-pill">Libertad de expresión</span>
-        <span class="mod-pill">Utilitarismo</span>
-        <span class="mod-pill">Tiranía de la mayoría</span>
-      </div>
+      <div class="mod-topics"><span class="mod-pill">Principio del daño</span><span class="mod-pill">Libertad de expresión</span><span class="mod-pill">Utilitarismo</span><span class="mod-pill">Tiranía de la mayoría</span></div>
     </div>
-    <span class="mod-arrow" aria-hidden="true">→</span>
+    <span class="mod-arrow">→</span>
   </a>
 
-  <!-- MÓDULO XI — TOCQUEVILLE -->
-  <a href="tocqueville.html" class="mod-card anim-5" aria-label="Ir al módulo sobre Tocqueville">
+  <a href="tocqueville.html" class="mod-card anim-5">
     <span class="mod-badge available">Disponible</span>
     <span class="mod-num">03</span>
     <div>
       <span class="mod-tag">Módulo XI · Democracia liberal</span>
       <h2 class="mod-title">Tocqueville y la democracia</h2>
       <p class="mod-desc">Un aristócrata francés viajó a América en 1831. Sus observaciones sobre el despotismo blando, la tiranía de la mayoría y el individualismo democrático describen el siglo XXI con más precisión que la mayoría de análisis contemporáneos.</p>
-      <div class="mod-topics">
-        <span class="mod-pill">Despotismo blando</span>
-        <span class="mod-pill">Tiranía de la mayoría</span>
-        <span class="mod-pill">Asociaciones civiles</span>
-        <span class="mod-pill">1835 · 2025</span>
-      </div>
+      <div class="mod-topics"><span class="mod-pill">Despotismo blando</span><span class="mod-pill">Tiranía de la mayoría</span><span class="mod-pill">Asociaciones civiles</span><span class="mod-pill">1835 · 2025</span></div>
     </div>
-    <span class="mod-arrow" aria-hidden="true">→</span>
+    <span class="mod-arrow">→</span>
   </a>
 
-  <!-- MÓDULO XII — NIETZSCHE -->
-  <a href="nietzsche.html" class="mod-card anim-6" aria-label="Ir al módulo sobre Nietzsche">
+  <a href="nietzsche.html" class="mod-card anim-6">
     <span class="mod-badge available">Disponible</span>
     <span class="mod-num">04</span>
     <div>
       <span class="mod-tag">Módulo XII · Crítica radical</span>
       <h2 class="mod-title">Nietzsche y el martillo</h2>
       <p class="mod-desc">El filósofo más malinterpretado de la historia occidental. La muerte de Dios, la voluntad de poder, el Superhombre y el eterno retorno — y el relato de cómo sus ideas fueron robadas y falsificadas para justificar exactamente lo que él abominó.</p>
-      <div class="mod-topics">
-        <span class="mod-pill">Muerte de Dios</span>
-        <span class="mod-pill">Voluntad de poder</span>
-        <span class="mod-pill">Superhombre</span>
-        <span class="mod-pill">El legado robado</span>
-      </div>
+      <div class="mod-topics"><span class="mod-pill">Muerte de Dios</span><span class="mod-pill">Voluntad de poder</span><span class="mod-pill">Superhombre</span><span class="mod-pill">El legado robado</span></div>
     </div>
-    <span class="mod-arrow" aria-hidden="true">→</span>
+    <span class="mod-arrow">→</span>
   </a>
 
-  <!-- EPÍLOGO -->
-  <a href="epilogo-fase3.html" class="mod-card anim-6" aria-label="Ir al epílogo de la Fase III">
+  <a href="epilogo-fase3.html" class="mod-card anim-6">
     <span class="mod-badge new">Nuevo</span>
     <span class="mod-num">✦</span>
     <div>
       <span class="mod-tag">Epílogo · Fase III</span>
       <h2 class="mod-title">Las sombras del siglo XIX</h2>
-      <p class="mod-desc">Cómo las ideas más poderosas del XIX se convirtieron en el combustible de los totalitarismos del XX. Marx y el estalinismo. Nietzsche y el fascismo. Hannah Arendt y la banalidad del mal. El puente hacia la Fase IV.</p>
-      <div class="mod-topics">
-        <span class="mod-pill">Totalitarismo</span>
-        <span class="mod-pill">Fascismo</span>
-        <span class="mod-pill">Estalinismo</span>
-        <span class="mod-pill">Hannah Arendt</span>
-      </div>
+      <p class="mod-desc">Cómo las ideas más poderosas del XIX se convirtieron en el combustible de los totalitarismos del XX. Marx y el estalinismo. Nietzsche y el fascismo. Hannah Arendt y la banalidad del mal.</p>
+      <div class="mod-topics"><span class="mod-pill">Totalitarismo</span><span class="mod-pill">Fascismo</span><span class="mod-pill">Estalinismo</span><span class="mod-pill">Hannah Arendt</span></div>
     </div>
-    <span class="mod-arrow" aria-hidden="true">→</span>
+    <span class="mod-arrow">→</span>
   </a>
 
-  <!-- QUOTE DIVIDER -->
   <div class="quote-divider anim-7">
-    <blockquote>
-      "Un espectro recorre Europa — el espectro del comunismo."
-    </blockquote>
-    <cite>— Marx & Engels, Manifiesto del Partido Comunista, 1848</cite>
+    <blockquote>"Un espectro recorre Europa — el espectro del comunismo."</blockquote>
+    <cite>— Marx &amp; Engels, Manifiesto del Partido Comunista, 1848</cite>
   </div>
 
   <div class="back-section">
     <a href="index.html" class="back-link">← Portal principal</a>
-    <a href="fase2.html" class="back-link">← Fase II · Renacimiento & Modernidad</a>
+    <a href="fase2.html" class="back-link">← Fase II · Renacimiento &amp; Modernidad</a>
     <a href="fase4.html" class="back-link forward">Fase IV · Economía Política →</a>
   </div>
-
 </div>
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
+    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía &amp; Política</div>
     <nav class="footer-nav">
       <a href="index.html">Inicio</a>
       <a href="fase2.html">Fase II</a>
@@ -722,16 +355,30 @@ function toggleDrop(id){
   const isOpen=target.classList.contains('open');
   all.forEach(d=>d.classList.remove('open'));
   allBtns.forEach(b=>b.classList.remove('open'));
-  if(!isOpen){
-    target.classList.add('open');
-    target.previousElementSibling.classList.add('open');
-  }
+  if(!isOpen){target.classList.add('open');target.previousElementSibling.classList.add('open')}
 }
 document.addEventListener('click',e=>{
   if(!e.target.closest('.nav-item')){
     document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
     document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
   }
+});
+const hamburger=document.getElementById('hamburger');
+const drawer=document.getElementById('mobile-drawer');
+hamburger.addEventListener('click',()=>{
+  const isOpen=drawer.classList.contains('open');
+  drawer.classList.toggle('open',!isOpen);
+  hamburger.classList.toggle('open',!isOpen);
+  hamburger.setAttribute('aria-expanded',String(!isOpen));
+  drawer.setAttribute('aria-hidden',String(isOpen));
+  document.body.style.overflow=isOpen?'':'hidden';
+});
+drawer.querySelectorAll('.mobile-nav-link:not(.disabled)').forEach(link=>{
+  link.addEventListener('click',()=>{
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow='';
+  });
 });
 </script>
 </body>
