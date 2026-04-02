@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo XVII — Globalización y Crisis · Filosofía & Política</title>
+  <meta name="description" content="La globalización financiera, sus promesas, sus crisis sistémicas y el debate abierto sobre sus límites."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+SC:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#0c1018;--bg-card:#141a24;--bg-card-hover:#1a2230;
+      --accent:#5b8fa8;--accent-dim:#3d6a80;--accent-bright:#7eb8d4;
+      --silver:#c8cdd4;--silver-soft:#8a929e;
+      --gold:#c9a84c;--gold-dim:#a08530;
+      --ivory:#e8eaed;--ivory-soft:#b0b5be;--ivory-muted:#6b7280;
+      --border:rgba(91,143,168,.18);--border-hover:rgba(91,143,168,.4);
+      --danger:#c0392b;--success:#27ae60;
+    }
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ivory);line-height:1.7;font-weight:300}
+
+    /* ── NAV ── */
+    .top-nav{position:sticky;top:0;z-index:200;background:rgba(12,16,24,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+    .top-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--accent);text-decoration:none;font-style:italic;letter-spacing:.04em}
+    .nav-brand:hover{color:var(--accent-bright)}
+    .nav-menu{display:flex;align-items:stretch;gap:0;height:52px}
+    .nav-item{position:relative;display:flex;align-items:stretch}
+    .nav-item-btn{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.18em;color:var(--ivory-muted);background:none;border:none;cursor:pointer;padding:0 .9rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;text-transform:uppercase;height:100%}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--accent)}
+    .nav-item-btn .arrow{font-size:.55rem;transition:transform .2s}
+    .nav-item-btn.open .arrow{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,26,36,.98);border:1px solid var(--border);border-top:none;min-width:260px;z-index:300;display:none}
+    .nav-dropdown.open{display:block;animation:dropIn .15s ease}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+    .nav-dropdown a{display:block;padding:.6rem 1.1rem;color:var(--ivory-soft);text-decoration:none;font-size:.85rem;border-bottom:1px solid var(--border);transition:all .15s}
+    .nav-dropdown a:last-child{border-bottom:none}
+    .nav-dropdown a:hover{background:rgba(91,143,168,.1);color:var(--accent-bright)}
+    .nav-dropdown .dd-label{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.18em;color:var(--accent-dim);padding:.7rem 1.1rem .25rem;text-transform:uppercase;cursor:default}
+    .nav-dropdown .dd-label:hover{background:none}
+    .nav-author{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.15em;color:var(--ivory-muted);text-decoration:none;padding:0 .5rem;transition:color .2s;text-transform:uppercase}
+    .nav-author:hover{color:var(--accent)}
+
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:301}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--accent);margin:5px 0;transition:all .3s}
+    .hamburger[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .hamburger[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .mobile-drawer{display:none;position:fixed;inset:0;top:52px;background:rgba(12,16,24,.98);z-index:250;overflow-y:auto;padding:1.5rem 2rem 4rem;flex-direction:column;gap:.2rem}
+    .mobile-drawer.open{display:flex;animation:fadeIn .2s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .mobile-phase-label{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.22em;color:var(--accent-dim);text-transform:uppercase;padding:1rem 0 .3rem;border-top:1px solid var(--border);margin-top:.4rem}
+    .mobile-phase-label:first-child{border-top:none;margin-top:0}
+    .mobile-nav-link{color:var(--ivory-soft);text-decoration:none;font-size:.92rem;padding:.5rem 0;display:block;transition:color .2s}
+    .mobile-nav-link:hover{color:var(--accent)}
+    .mobile-nav-link.disabled{color:var(--ivory-muted);font-style:italic;pointer-events:none}
+    @media(max-width:800px){.nav-menu,.nav-author{display:none}.hamburger{display:block}}
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar{position:fixed;top:52px;left:0;height:2px;background:var(--accent);z-index:199;transition:width .1s}
+
+    /* ── HERO ── */
+    .hero{min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(91,143,168,.06) 0%,transparent 70%);pointer-events:none}
+    .hero-label{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.35em;color:var(--accent-dim);text-transform:uppercase;margin-bottom:1rem;opacity:0;animation:fadeUp .8s .2s ease forwards}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,5vw,3.5rem);color:var(--ivory);line-height:1.15;max-width:700px;margin-bottom:1rem;opacity:0;animation:fadeUp .8s .4s ease forwards}
+    .hero-title em{font-style:italic;color:var(--accent)}
+    .hero-sub{font-size:1rem;color:var(--ivory-soft);max-width:520px;opacity:0;animation:fadeUp .8s .6s ease forwards}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+    /* ── CONTENT ── */
+    .content{max-width:780px;margin:0 auto;padding:0 2rem 4rem}
+    .section-label{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.3em;color:var(--accent-dim);text-transform:uppercase;margin:3.5rem 0 1.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+    h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.6rem;color:var(--ivory);margin-bottom:1rem;line-height:1.3}
+    h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.25rem;color:var(--accent-bright);margin:2rem 0 .8rem}
+    p{margin-bottom:1rem;color:var(--ivory-soft);font-size:.95rem}
+    p strong{color:var(--ivory);font-weight:500}
+
+    /* timeline cards */
+    .crisis-timeline{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:2rem 0}
+    .crisis-card{background:var(--bg-card);padding:1.4rem 1.5rem;display:grid;grid-template-columns:80px 1fr;gap:1.2rem;align-items:start}
+    .crisis-year{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--accent);line-height:1}
+    .crisis-label{font-family:'Cormorant SC',serif;font-size:.8rem;letter-spacing:.1em;color:var(--ivory);margin-bottom:.3rem}
+    .crisis-text{font-size:.85rem;color:var(--ivory-muted);line-height:1.6}
+    @media(max-width:500px){.crisis-card{grid-template-columns:1fr}.crisis-year{font-size:1.2rem}}
+
+    /* concept boxes */
+    .concept-box{border:1px solid var(--border);padding:1.5rem;margin:1.5rem 0;background:var(--bg-card)}
+    .concept-box-title{font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:.8rem}
+    .concept-box p{margin-bottom:.6rem;font-size:.9rem}
+
+    /* debate cards */
+    .debate{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:2rem 0}
+    .debate-side{background:var(--bg-card);padding:1.5rem}
+    .debate-side h4{font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.15em;color:var(--accent);margin-bottom:.8rem;text-transform:uppercase}
+    .debate-side p{font-size:.85rem;color:var(--ivory-muted);line-height:1.6;margin-bottom:.6rem}
+    @media(max-width:500px){.debate{grid-template-columns:1fr}}
+
+    blockquote{border-left:2px solid var(--accent-dim);padding:1rem 1.5rem;margin:1.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ivory-soft)}
+    blockquote cite{display:block;margin-top:.5rem;font-size:.78rem;font-style:normal;color:var(--accent-dim);font-family:'Cormorant SC',serif;letter-spacing:.1em}
+
+    /* ── QUIZ ── */
+    .quiz{border-top:1px solid var(--border);margin-top:3rem;padding-top:2rem}
+    .q-block{margin-bottom:2rem;padding:1.2rem;border:1px solid var(--border);background:var(--bg-card)}
+    .q-num{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.15em;color:var(--accent-dim);text-transform:uppercase;margin-bottom:.5rem}
+    .q-text{font-size:.95rem;color:var(--ivory);margin-bottom:1rem;font-weight:400}
+    .opt-btn{display:block;width:100%;text-align:left;padding:.7rem 1rem;margin-bottom:.3rem;background:transparent;border:1px solid var(--border);color:var(--ivory-soft);font-size:.88rem;cursor:pointer;transition:all .15s;font-family:'Jost',sans-serif}
+    .opt-btn:hover:not(:disabled){background:rgba(91,143,168,.08);border-color:var(--border-hover)}
+    .opt-btn.correct{background:rgba(39,174,96,.12);border-color:var(--success);color:var(--success)}
+    .opt-btn.wrong{background:rgba(192,57,43,.1);border-color:var(--danger);color:var(--danger)}
+    .opt-btn.reveal{border-color:var(--success);color:var(--success);opacity:.5}
+    .q-fb{font-size:.82rem;color:var(--ivory-muted);margin-top:.5rem;display:none;line-height:1.5;padding:.5rem .8rem;border-left:2px solid var(--accent-dim)}
+    .q-fb.show{display:block}
+
+    .score-box{text-align:center;padding:2rem;border:1px solid var(--border);margin-top:2rem;display:none}
+    .score-box.show{display:block}
+    .score-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--accent)}
+    .score-msg{font-size:.9rem;color:var(--ivory-soft);margin-top:.5rem}
+    .btn-reset{margin-top:1.2rem;padding:.6rem 1.8rem;background:none;border:1px solid var(--accent-dim);color:var(--accent);font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.15em;cursor:pointer;text-transform:uppercase;transition:all .2s}
+    .btn-reset:hover{background:var(--accent);color:var(--bg)}
+
+    .footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);margin-top:2rem}
+    .footer p{font-size:.75rem;color:var(--ivory-muted)}
+    .footer a{color:var(--ivory-muted);text-decoration:none}
+    .footer a:hover{color:var(--accent)}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
+    <div class="nav-menu">
+      <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase I <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Antigüedad</span><a href="grecia-socrates-platon.html">Sócrates &amp; Platón</a><a href="aristoteles-politica.html">Aristóteles</a><a href="estoicismo.html">El Estoicismo</a><a href="tomas-de-aquino.html">Tomás de Aquino</a></div></div>
+      <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase II <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Renacimiento &amp; Modernidad</span><a href="maquiavelo.html">Maquiavelo</a><a href="hobbes.html">Hobbes</a><a href="locke.html">Locke</a><a href="rousseau.html">Rousseau</a><a href="kant.html">Kant</a></div></div>
+      <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase III <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Siglo XIX</span><a href="marx.html">Marx</a><a href="mill.html">Mill</a><a href="tocqueville.html">Tocqueville</a><a href="nietzsche.html">Nietzsche</a><a href="epilogo-fase3.html">✦ Epílogo</a></div></div>
+      <div class="nav-item"><button class="nav-item-btn active" onclick="toggleDD(this)">Fase IV <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Economía Política</span><a href="smith.html">Adam Smith</a><a href="keynes.html">Keynes</a><a href="hayek-keynes.html">Hayek vs. Keynes</a><a href="globalizacion.html">Globalización</a><a href="nuevo-desorden.html">El nuevo desorden</a></div></div>
+    </div>
+    <a href="autor.html" class="nav-author">Autor</a>
+    <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <span class="mobile-phase-label">Fase I — Antigüedad</span>
+  <a href="grecia-socrates-platon.html" class="mobile-nav-link">Sócrates &amp; Platón</a><a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a><a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a><a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
+  <span class="mobile-phase-label">Fase II — Renacimiento &amp; Modernidad</span>
+  <a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a><a href="hobbes.html" class="mobile-nav-link">Hobbes</a><a href="locke.html" class="mobile-nav-link">Locke</a><a href="rousseau.html" class="mobile-nav-link">Rousseau</a><a href="kant.html" class="mobile-nav-link">Kant</a>
+  <span class="mobile-phase-label">Fase III — Siglo XIX</span>
+  <a href="marx.html" class="mobile-nav-link">Marx</a><a href="mill.html" class="mobile-nav-link">Mill</a><a href="tocqueville.html" class="mobile-nav-link">Tocqueville</a><a href="nietzsche.html" class="mobile-nav-link">Nietzsche</a><a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo</a>
+  <span class="mobile-phase-label">Fase IV — Economía Política</span>
+  <a href="smith.html" class="mobile-nav-link">Adam Smith</a><a href="keynes.html" class="mobile-nav-link">Keynes</a><a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a><a href="globalizacion.html" class="mobile-nav-link">Globalización</a><a href="nuevo-desorden.html" class="mobile-nav-link">El nuevo desorden</a>
+  <span class="mobile-phase-label">Más</span>
+  <a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
+</div>
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-label">Fase IV · Módulo XVII</p>
+  <h1 class="hero-title">Globalización <em>y crisis</em></h1>
+  <p class="hero-sub">El mundo se hizo uno. Y descubrimos que cuando todo está conectado, todo puede caer a la vez.</p>
+</section>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <p class="section-label">Contexto</p>
+  <h2>¿Qué es la globalización?</h2>
+  <p>No es un fenómeno nuevo — las rutas de la seda ya eran globalización. Pero lo que ocurrió entre <strong>1980 y 2008</strong> no tiene precedente: la integración simultánea de mercados financieros, cadenas de producción, flujos de información y migraciones, todo acelerado por la tecnología digital y la caída del Muro de Berlín.</p>
+  <p>La promesa era clara: mercados abiertos traen crecimiento, crecimiento trae democracia, democracia trae paz. Fue el argumento que unió a economistas de Chicago, políticos de Washington y tecnólogos de Silicon Valley. Y funcionó — hasta que dejó de funcionar.</p>
+
+  <div class="concept-box">
+    <p class="concept-box-title">El Consenso de Washington</p>
+    <p>Diez políticas que el FMI y el Banco Mundial promovieron como receta universal en los 90: liberalización comercial, privatización, disciplina fiscal, desregulación financiera, tipo de cambio competitivo, protección de propiedad intelectual, entre otras.</p>
+    <p>No era un documento secreto ni una conspiración — era la ortodoxia económica dominante. El problema no fue su intención sino su aplicación <strong>uniforme</strong> a economías radicalmente diferentes.</p>
+  </div>
+
+  <p class="section-label">Las crisis</p>
+  <h2>Cronología del contagio</h2>
+  <p>Cada crisis reveló una falla diferente del sistema globalizado. Ninguna fue local — todas viajaron.</p>
+
+  <div class="crisis-timeline">
+    <div class="crisis-card"><span class="crisis-year">1994</span><div><p class="crisis-label">Crisis del Tequila · México</p><p class="crisis-text">Devaluación del peso tras una burbuja de crédito. El «efecto tequila» contagió a Argentina, Brasil y toda Latinoamérica. Primera demostración de que los mercados emergentes eran vasos comunicantes.</p></div></div>
+    <div class="crisis-card"><span class="crisis-year">1997</span><div><p class="crisis-label">Crisis asiática</p><p class="crisis-text">Tailandia, Indonesia, Corea del Sur. Burbujas inmobiliarias financiadas con deuda en dólares. Cuando se retiraron los capitales, economías enteras colapsaron en semanas. El FMI impuso austeridad — y empeoró el desastre.</p></div></div>
+    <div class="crisis-card"><span class="crisis-year">1998</span><div><p class="crisis-label">Default ruso + LTCM</p><p class="crisis-text">Rusia suspendió pagos. Long-Term Capital Management — un hedge fund con dos premios Nobel en su junta — tuvo que ser rescatado por la Fed para evitar un colapso sistémico. La sofisticación financiera no inmunizaba contra el pánico.</p></div></div>
+    <div class="crisis-card"><span class="crisis-year">2001</span><div><p class="crisis-label">Argentina</p><p class="crisis-text">Diez años de convertibilidad (1 peso = 1 dólar) terminaron en corralito, default de 100.000 millones y una crisis social que derribó cinco presidentes en dos semanas.</p></div></div>
+    <div class="crisis-card"><span class="crisis-year">2008</span><div><p class="crisis-label">Crisis financiera global</p><p class="crisis-text">Hipotecas subprime en EE.UU. empaquetadas en derivados que nadie entendía, vendidas al mundo entero, calificadas como AAA. Lehman Brothers, AIG, los rescates bancarios, la Gran Recesión. La crisis que cambió la conversación sobre capitalismo.</p></div></div>
+    <div class="crisis-card"><span class="crisis-year">2010</span><div><p class="crisis-label">Crisis de deuda europea</p><p class="crisis-text">Grecia, Irlanda, Portugal, España, Italia. El euro — una moneda sin Estado fiscal — mostró su fragilidad. Austeridad impuesta desde Bruselas y Frankfurt. La pregunta que sigue abierta: ¿quién manda en Europa?</p></div></div>
+  </div>
+
+  <p class="section-label">Conceptos clave</p>
+  <h2>El vocabulario de la globalización financiera</h2>
+
+  <h3>Riesgo sistémico</h3>
+  <p>Cuando una entidad o mercado es tan grande y tan conectado que su caída arrastra al sistema entero. La expresión <strong>«too big to fail»</strong> nace aquí: si dejas caer a un banco sistémico, caen todos. Si lo rescatas, premias la irresponsabilidad. Dilema sin solución limpia.</p>
+
+  <h3>Moral hazard</h3>
+  <p>Cuando alguien toma más riesgos porque sabe que otro pagará las consecuencias. El banquero que vende hipotecas basura no asume el riesgo — lo transfiere al inversor, al contribuyente, al sistema. Hayek lo habría llamado el fallo del intervencionismo; Keynes, la razón para regularlo.</p>
+
+  <h3>Financiarización</h3>
+  <p>La economía real (fábricas, trabajadores, servicios) queda subordinada a la economía financiera (derivados, especulación, flujos de capital). En 2007, el mercado de derivados valía <strong>10 veces el PIB mundial</strong>. La cola movía al perro.</p>
+
+  <h3>Cadenas globales de valor</h3>
+  <p>Un iPhone se diseña en California, sus chips se fabrican en Taiwán, se ensambla en China, se vende en Europa. Eficiencia máxima — y fragilidad máxima. COVID y la guerra de Ucrania mostraron que «just in time» puede convertirse en «just too late».</p>
+
+  <div class="concept-box">
+    <p class="concept-box-title">Conexión con tu realidad · Pagos y banca</p>
+    <p>SEPA, SWIFT, TARGET2 — toda la infraestructura de pagos europea existe porque la globalización financiera la hizo necesaria. Las sanciones a Rusia (desconexión de SWIFT) demostraron que los rieles de pago son también armas geopolíticas. Bizum funciona en un ecosistema que depende de estándares globales (ISO 20022) creados para un mundo que asumía que la integración era irreversible.</p>
+  </div>
+
+  <p class="section-label">El debate abierto</p>
+  <h2>¿Más globalización o menos?</h2>
+
+  <div class="debate">
+    <div class="debate-side">
+      <h4>Defensa de la globalización</h4>
+      <p>Sacó a 1.000 millones de personas de la pobreza extrema entre 1990 y 2020 (dato del Banco Mundial).</p>
+      <p>Las crisis son fallos de regulación, no del comercio libre. La solución es mejor gobernanza global, no proteccionismo.</p>
+      <p>La tecnología y la interdependencia son irreversibles — la pregunta no es si globalizar, sino cómo.</p>
+    </div>
+    <div class="debate-side">
+      <h4>Crítica de la globalización</h4>
+      <p>Los beneficios se concentraron arriba: el 1% capturó más crecimiento que el 50% inferior (Piketty, Milanovic).</p>
+      <p>Destruyó tejido industrial en países desarrollados sin ofrecer alternativa. El «cinturón de óxido» votó Trump.</p>
+      <p>Las instituciones globales (FMI, OMC) no son democráticas — deciden sin rendir cuentas a los afectados.</p>
+    </div>
+  </div>
+
+  <blockquote>
+    «La globalización ha hecho más rica a la humanidad en conjunto. Pero la humanidad en conjunto no vota.»
+    <cite>Branko Milanovic</cite>
+  </blockquote>
+
+  <p class="section-label">Hoy</p>
+  <h2>La globalización después de la globalización</h2>
+  <p>Desde 2016 vivimos lo que algunos llaman <strong>«slowbalisation»</strong> — la globalización no se ha revertido, pero se ha fragmentado. Tres fuerzas la reconfiguran:</p>
+  <p><strong>Geopolítica:</strong> Las sanciones a Rusia, la guerra comercial EE.UU.-China, y la política industrial de la UE (chips, baterías, IA) marcan una era de bloques, no de mercado único global.</p>
+  <p><strong>Nearshoring / friendshoring:</strong> Las empresas ya no buscan el proveedor más barato — buscan el más seguro. México, India, Vietnam y Europa del Este se benefician.</p>
+  <p><strong>Monedas digitales:</strong> El Euro Digital, el yuan digital y las stablecoins privadas compiten por redefinir los rieles de pago internacionales. SWIFT ya no es el único juego en la ciudad.</p>
+
+  <!-- QUIZ -->
+  <div class="quiz">
+    <p class="section-label" style="border:none;margin-top:0;padding-top:0">Test · 15 preguntas</p>
+    <h2>¿Cuánto has entendido?</h2>
+
+    <div class="q-block" data-correct="2">
+      <p class="q-num">Pregunta 1 de 15</p>
+      <p class="q-text">¿Qué fue el Consenso de Washington?</p>
+      <button class="opt-btn" data-i="0">Un tratado de libre comercio entre EE.UU. y la UE</button>
+      <button class="opt-btn" data-i="1">Un acuerdo secreto entre bancos centrales</button>
+      <button class="opt-btn" data-i="2">Un conjunto de políticas económicas promovidas por el FMI y el Banco Mundial</button>
+      <button class="opt-btn" data-i="3">La declaración fundacional de la OMC</button>
+      <p class="q-fb">Fueron diez políticas (liberalización, privatización, disciplina fiscal...) aplicadas como receta universal a economías muy diferentes.</p>
+    </div>
+
+    <div class="q-block" data-correct="1">
+      <p class="q-num">Pregunta 2 de 15</p>
+      <p class="q-text">¿Qué demostró la crisis del Tequila de 1994?</p>
+      <button class="opt-btn" data-i="0">Que México necesitaba dolarizar su economía</button>
+      <button class="opt-btn" data-i="1">Que los mercados emergentes funcionaban como vasos comunicantes</button>
+      <button class="opt-btn" data-i="2">Que el NAFTA era un error</button>
+      <button class="opt-btn" data-i="3">Que la deuda soberana no tiene riesgo</button>
+      <p class="q-fb">El contagio de México a Argentina y Brasil mostró por primera vez que una crisis local podía desestabilizar toda una región.</p>
+    </div>
+
+    <div class="q-block" data-correct="3">
+      <p class="q-num">Pregunta 3 de 15</p>
+      <p class="q-text">¿Qué fue LTCM?</p>
+      <button class="opt-btn" data-i="0">Un banco de inversión europeo</button>
+      <button class="opt-btn" data-i="1">Un programa del FMI para Latinoamérica</button>
+      <button class="opt-btn" data-i="2">Una agencia de calificación crediticia</button>
+      <button class="opt-btn" data-i="3">Un hedge fund cuyo rescate fue necesario para evitar un colapso sistémico</button>
+      <p class="q-fb">Long-Term Capital Management tenía dos premios Nobel en su junta directiva y casi provocó una crisis financiera global en 1998.</p>
+    </div>
+
+    <div class="q-block" data-correct="0">
+      <p class="q-num">Pregunta 4 de 15</p>
+      <p class="q-text">¿Qué significa «too big to fail»?</p>
+      <button class="opt-btn" data-i="0">Que una entidad es tan sistémica que su caída arrastraría al sistema entero</button>
+      <button class="opt-btn" data-i="1">Que las grandes empresas nunca quiebran</button>
+      <button class="opt-btn" data-i="2">Que los gobiernos siempre rescatan a los bancos</button>
+      <button class="opt-btn" data-i="3">Que la diversificación elimina el riesgo</button>
+      <p class="q-fb">Es el dilema central de la regulación financiera: si rescatas, premias la irresponsabilidad; si no rescatas, se cae todo.</p>
+    </div>
+
+    <div class="q-block" data-correct="2">
+      <p class="q-num">Pregunta 5 de 15</p>
+      <p class="q-text">¿Qué es el moral hazard?</p>
+      <button class="opt-btn" data-i="0">Un tipo de fraude financiero</button>
+      <button class="opt-btn" data-i="1">La tendencia de los mercados a sobrerreaccionar</button>
+      <button class="opt-btn" data-i="2">Tomar más riesgos porque otro pagará las consecuencias</button>
+      <button class="opt-btn" data-i="3">La influencia de la moral religiosa en la economía</button>
+      <p class="q-fb">Cuando el banquero que vende hipotecas basura no asume el riesgo — lo transfiere al inversor o al contribuyente.</p>
+    </div>
+
+    <div class="q-block" data-correct="1">
+      <p class="q-num">Pregunta 6 de 15</p>
+      <p class="q-text">¿Qué significa «financiarización»?</p>
+      <button class="opt-btn" data-i="0">El aumento del crédito al consumo</button>
+      <button class="opt-btn" data-i="1">La subordinación de la economía real a la economía financiera</button>
+      <button class="opt-btn" data-i="2">La digitalización de los pagos</button>
+      <button class="opt-btn" data-i="3">El crecimiento de la banca de inversión</button>
+      <p class="q-fb">En 2007 el mercado de derivados valía 10 veces el PIB mundial. La economía de papel dominaba sobre la de fábricas y trabajadores.</p>
+    </div>
+
+    <div class="q-block" data-correct="3">
+      <p class="q-num">Pregunta 7 de 15</p>
+      <p class="q-text">¿Qué provocó la crisis financiera de 2008?</p>
+      <button class="opt-btn" data-i="0">La guerra de Irak</button>
+      <button class="opt-btn" data-i="1">La quiebra del euro</button>
+      <button class="opt-btn" data-i="2">Un ataque cibernético al sistema bancario</button>
+      <button class="opt-btn" data-i="3">Hipotecas subprime empaquetadas en derivados opacos con calificación AAA</button>
+      <p class="q-fb">Productos financieros que nadie entendía realmente, vendidos como seguros al mundo entero, crearon la mayor crisis desde 1929.</p>
+    </div>
+
+    <div class="q-block" data-correct="0">
+      <p class="q-num">Pregunta 8 de 15</p>
+      <p class="q-text">¿Cuál fue la principal fragilidad que reveló la crisis del euro?</p>
+      <button class="opt-btn" data-i="0">Una moneda compartida sin unión fiscal</button>
+      <button class="opt-btn" data-i="1">Tipos de interés demasiado bajos</button>
+      <button class="opt-btn" data-i="2">La falta de un ejército europeo</button>
+      <button class="opt-btn" data-i="3">El exceso de regulación bancaria</button>
+      <p class="q-fb">El euro unificó la política monetaria pero dejó la fiscal en manos nacionales — asimetría que se hizo insostenible con la crisis de deuda griega.</p>
+    </div>
+
+    <div class="q-block" data-correct="2">
+      <p class="q-num">Pregunta 9 de 15</p>
+      <p class="q-text">¿Qué dato de la desigualdad global usan los críticos de la globalización?</p>
+      <button class="opt-btn" data-i="0">El PIB de China superó al de EE.UU.</button>
+      <button class="opt-btn" data-i="1">La clase media europea se redujo a la mitad</button>
+      <button class="opt-btn" data-i="2">El 1% capturó más crecimiento que el 50% inferior</button>
+      <button class="opt-btn" data-i="3">Los salarios industriales subieron en todos los países</button>
+      <p class="q-fb">Economistas como Piketty y Milanovic documentaron que los beneficios de la globalización se distribuyeron de forma muy desigual.</p>
+    </div>
+
+    <div class="q-block" data-correct="1">
+      <p class="q-num">Pregunta 10 de 15</p>
+      <p class="q-text">¿Qué reveló el COVID sobre las cadenas globales de valor?</p>
+      <button class="opt-btn" data-i="0">Que la automatización había eliminado la dependencia de China</button>
+      <button class="opt-btn" data-i="1">Que «just in time» puede convertirse en «just too late»</button>
+      <button class="opt-btn" data-i="2">Que Europa era autosuficiente en semiconductores</button>
+      <button class="opt-btn" data-i="3">Que la globalización ya había terminado antes de la pandemia</button>
+      <p class="q-fb">La eficiencia máxima de las cadenas globales demostró ser también fragilidad máxima cuando las disrupciones cortaron el suministro.</p>
+    </div>
+
+    <div class="q-block" data-correct="0">
+      <p class="q-num">Pregunta 11 de 15</p>
+      <p class="q-text">¿Qué es el «friendshoring»?</p>
+      <button class="opt-btn" data-i="0">Mover producción a países aliados en vez de al más barato</button>
+      <button class="opt-btn" data-i="1">Un acuerdo comercial entre la UE y EE.UU.</button>
+      <button class="opt-btn" data-i="2">La deslocalización de servicios financieros</button>
+      <button class="opt-btn" data-i="3">Una política migratoria de fronteras abiertas</button>
+      <p class="q-fb">Tras el COVID y la guerra de Ucrania, las empresas priorizan proveedores en países políticamente alineados sobre los más baratos.</p>
+    </div>
+
+    <div class="q-block" data-correct="3">
+      <p class="q-num">Pregunta 12 de 15</p>
+      <p class="q-text">¿Qué demostró la desconexión de Rusia de SWIFT?</p>
+      <button class="opt-btn" data-i="0">Que SWIFT es un banco central mundial</button>
+      <button class="opt-btn" data-i="1">Que Rusia no dependía del sistema financiero global</button>
+      <button class="opt-btn" data-i="2">Que la UE controla todos los flujos financieros</button>
+      <button class="opt-btn" data-i="3">Que la infraestructura de pagos es también un arma geopolítica</button>
+      <p class="q-fb">Los rieles de pago, diseñados como infraestructura neutral, se revelaron como instrumento de presión política entre bloques.</p>
+    </div>
+
+    <div class="q-block" data-correct="2">
+      <p class="q-num">Pregunta 13 de 15</p>
+      <p class="q-text">¿Qué es la «slowbalisation»?</p>
+      <button class="opt-btn" data-i="0">El fin total del comercio internacional</button>
+      <button class="opt-btn" data-i="1">La aceleración de la globalización digital</button>
+      <button class="opt-btn" data-i="2">La fragmentación de la globalización en bloques y la ralentización de la integración</button>
+      <button class="opt-btn" data-i="3">Un modelo económico chino de crecimiento lento</button>
+      <p class="q-fb">Desde 2016, la globalización no se ha revertido pero se ha fragmentado en bloques geopolíticos con lógicas propias.</p>
+    </div>
+
+    <div class="q-block" data-correct="1">
+      <p class="q-num">Pregunta 14 de 15</p>
+      <p class="q-text">¿Qué argumento usan los defensores de la globalización?</p>
+      <button class="opt-btn" data-i="0">Que eliminó completamente la pobreza</button>
+      <button class="opt-btn" data-i="1">Que sacó a mil millones de personas de la pobreza extrema</button>
+      <button class="opt-btn" data-i="2">Que igualó los salarios en todo el mundo</button>
+      <button class="opt-btn" data-i="3">Que democratizó todos los países participantes</button>
+      <p class="q-fb">Es el dato más robusto a favor — según el Banco Mundial, la pobreza extrema cayó del 36% al 10% entre 1990 y 2015 gracias en gran parte al comercio.</p>
+    </div>
+
+    <div class="q-block" data-correct="0">
+      <p class="q-num">Pregunta 15 de 15</p>
+      <p class="q-text">¿Qué compiten por redefinir el Euro Digital, el yuan digital y las stablecoins?</p>
+      <button class="opt-btn" data-i="0">Los rieles de pago internacionales</button>
+      <button class="opt-btn" data-i="1">El precio del petróleo</button>
+      <button class="opt-btn" data-i="2">Las tasas de interés globales</button>
+      <button class="opt-btn" data-i="3">La regulación bancaria doméstica</button>
+      <p class="q-fb">Las monedas digitales de banco central y las privadas compiten por definir la infraestructura por la que fluirá el dinero del siglo XXI.</p>
+    </div>
+
+    <div class="score-box" id="score-box">
+      <p class="score-num"><span id="score-val">0</span>/15</p>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="btn-reset" onclick="resetQuiz()">Repetir test</button>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>© Rodrigo Vidal · <a href="index.html">Filosofía &amp; Política</a> · 2024–2026</p>
+</footer>
+
+<script>
+function toggleDD(btn){const w=btn.classList.contains('open');document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});if(!w){btn.classList.add('open');btn.nextElementSibling.classList.add('open')}}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')})});
+const hBtn=document.getElementById('hamburger-btn'),drawer=document.getElementById('mobile-drawer');
+hBtn.addEventListener('click',()=>{const o=drawer.classList.toggle('open');hBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');hBtn.setAttribute('aria-expanded','false');document.body.style.overflow=''}));
+
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+
+let answered=0,score=0;
+document.querySelectorAll('.q-block').forEach(block=>{
+  const correct=+block.dataset.correct;
+  block.querySelectorAll('.opt-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      if(btn.disabled)return;
+      block.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
+      const picked=+btn.dataset.i;
+      if(picked===correct){btn.classList.add('correct');score++}
+      else{btn.classList.add('wrong');block.querySelectorAll('.opt-btn')[correct].classList.add('reveal')}
+      block.querySelector('.q-fb').classList.add('show');
+      answered++;if(answered===15)showScore();
+    });
+  });
+});
+function showScore(){
+  document.getElementById('score-val').textContent=score;
+  const m=[[0,5,'La globalización es compleja — vale la pena repasar.'],[6,9,'Buen nivel. Distingues las crisis y sus mecanismos.'],[10,12,'Sólido. Entiendes el sistema y sus fragilidades.'],[13,15,'Excelente. Lees la globalización como un profesional de pagos debería.']];
+  document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];
+  document.getElementById('score-box').classList.add('show');
+}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+</script>
+</body>
+</html>
