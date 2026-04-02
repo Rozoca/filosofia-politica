@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo XVIII — El nuevo desorden mundial · Filosofía & Política</title>
+  <meta name="description" content="El orden liberal se agrieta. Populismo, autoritarismo digital, fragmentación geopolítica y el fin de la hegemonía unipolar."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+SC:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#12100e;--bg-card:#1c1916;--bg-card-hover:#252019;
+      --accent:#a0522d;--accent-dim:#7a3e22;--accent-bright:#c47245;
+      --ash:#c4bfb6;--ash-dim:#7d7870;
+      --gold:#c9a84c;--gold-dim:#a08530;
+      --ivory:#ede8df;--ivory-soft:#b5afa3;--ivory-muted:#6e6960;
+      --border:rgba(160,82,45,.18);--border-hover:rgba(160,82,45,.4);
+      --danger:#c0392b;--success:#27ae60;
+    }
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ivory);line-height:1.7;font-weight:300}
+
+    /* NAV — same structure, sienna palette */
+    .top-nav{position:sticky;top:0;z-index:200;background:rgba(18,16,14,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+    .top-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--accent);text-decoration:none;font-style:italic;letter-spacing:.04em}
+    .nav-brand:hover{color:var(--accent-bright)}
+    .nav-menu{display:flex;align-items:stretch;gap:0;height:52px}
+    .nav-item{position:relative;display:flex;align-items:stretch}
+    .nav-item-btn{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.18em;color:var(--ivory-muted);background:none;border:none;cursor:pointer;padding:0 .9rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;text-transform:uppercase;height:100%}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--accent)}
+    .nav-item-btn .arrow{font-size:.55rem;transition:transform .2s}
+    .nav-item-btn.open .arrow{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(28,25,22,.98);border:1px solid var(--border);border-top:none;min-width:260px;z-index:300;display:none}
+    .nav-dropdown.open{display:block;animation:dropIn .15s ease}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+    .nav-dropdown a{display:block;padding:.6rem 1.1rem;color:var(--ivory-soft);text-decoration:none;font-size:.85rem;border-bottom:1px solid var(--border);transition:all .15s}
+    .nav-dropdown a:last-child{border-bottom:none}
+    .nav-dropdown a:hover{background:rgba(160,82,45,.1);color:var(--accent-bright)}
+    .nav-dropdown .dd-label{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.18em;color:var(--accent-dim);padding:.7rem 1.1rem .25rem;text-transform:uppercase;cursor:default}
+    .nav-dropdown .dd-label:hover{background:none}
+    .nav-author{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.15em;color:var(--ivory-muted);text-decoration:none;padding:0 .5rem;transition:color .2s;text-transform:uppercase}
+    .nav-author:hover{color:var(--accent)}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:301}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--accent);margin:5px 0;transition:all .3s}
+    .hamburger[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .hamburger[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .mobile-drawer{display:none;position:fixed;inset:0;top:52px;background:rgba(18,16,14,.98);z-index:250;overflow-y:auto;padding:1.5rem 2rem 4rem;flex-direction:column;gap:.2rem}
+    .mobile-drawer.open{display:flex}
+    .mobile-phase-label{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.22em;color:var(--accent-dim);text-transform:uppercase;padding:1rem 0 .3rem;border-top:1px solid var(--border);margin-top:.4rem}
+    .mobile-phase-label:first-child{border-top:none;margin-top:0}
+    .mobile-nav-link{color:var(--ivory-soft);text-decoration:none;font-size:.92rem;padding:.5rem 0;display:block;transition:color .2s}
+    .mobile-nav-link:hover{color:var(--accent)}
+    .mobile-nav-link.disabled{color:var(--ivory-muted);font-style:italic;pointer-events:none}
+    @media(max-width:800px){.nav-menu,.nav-author{display:none}.hamburger{display:block}}
+
+    .progress-bar{position:fixed;top:52px;left:0;height:2px;background:var(--accent);z-index:199;transition:width .1s}
+
+    /* HERO */
+    .hero{min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(160,82,45,.06) 0%,transparent 70%);pointer-events:none}
+    .hero-label{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.35em;color:var(--accent-dim);text-transform:uppercase;margin-bottom:1rem;opacity:0;animation:fadeUp .8s .2s ease forwards}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,5vw,3.5rem);color:var(--ivory);line-height:1.15;max-width:700px;margin-bottom:1rem;opacity:0;animation:fadeUp .8s .4s ease forwards}
+    .hero-title em{font-style:italic;color:var(--accent)}
+    .hero-sub{font-size:1rem;color:var(--ivory-soft);max-width:540px;opacity:0;animation:fadeUp .8s .6s ease forwards}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+    /* CONTENT */
+    .content{max-width:780px;margin:0 auto;padding:0 2rem 4rem}
+    .section-label{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.3em;color:var(--accent-dim);text-transform:uppercase;margin:3.5rem 0 1.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+    h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.6rem;color:var(--ivory);margin-bottom:1rem;line-height:1.3}
+    h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.25rem;color:var(--accent-bright);margin:2rem 0 .8rem}
+    p{margin-bottom:1rem;color:var(--ivory-soft);font-size:.95rem}
+    p strong{color:var(--ivory);font-weight:500}
+
+    /* fault lines */
+    .fault-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:2rem 0}
+    .fault-card{background:var(--bg-card);padding:1.4rem}
+    .fault-card h4{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.15em;color:var(--accent);margin-bottom:.6rem;text-transform:uppercase}
+    .fault-card p{font-size:.85rem;color:var(--ivory-muted);line-height:1.6;margin-bottom:.4rem}
+    @media(max-width:500px){.fault-grid{grid-template-columns:1fr}}
+
+    .concept-box{border:1px solid var(--border);padding:1.5rem;margin:1.5rem 0;background:var(--bg-card)}
+    .concept-box-title{font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:.8rem}
+    .concept-box p{margin-bottom:.6rem;font-size:.9rem}
+
+    blockquote{border-left:2px solid var(--accent-dim);padding:1rem 1.5rem;margin:1.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ivory-soft)}
+    blockquote cite{display:block;margin-top:.5rem;font-size:.78rem;font-style:normal;color:var(--accent-dim);font-family:'Cormorant SC',serif;letter-spacing:.1em}
+
+    /* actors */
+    .actors{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:2rem 0}
+    .actor-row{background:var(--bg-card);padding:1.3rem 1.5rem;display:grid;grid-template-columns:100px 1fr;gap:1rem;align-items:start}
+    .actor-name{font-family:'Cormorant SC',serif;font-size:.85rem;letter-spacing:.1em;color:var(--accent)}
+    .actor-text{font-size:.85rem;color:var(--ivory-muted);line-height:1.6}
+    @media(max-width:500px){.actor-row{grid-template-columns:1fr}}
+
+    /* QUIZ */
+    .quiz{border-top:1px solid var(--border);margin-top:3rem;padding-top:2rem}
+    .q-block{margin-bottom:2rem;padding:1.2rem;border:1px solid var(--border);background:var(--bg-card)}
+    .q-num{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.15em;color:var(--accent-dim);text-transform:uppercase;margin-bottom:.5rem}
+    .q-text{font-size:.95rem;color:var(--ivory);margin-bottom:1rem;font-weight:400}
+    .opt-btn{display:block;width:100%;text-align:left;padding:.7rem 1rem;margin-bottom:.3rem;background:transparent;border:1px solid var(--border);color:var(--ivory-soft);font-size:.88rem;cursor:pointer;transition:all .15s;font-family:'Jost',sans-serif}
+    .opt-btn:hover:not(:disabled){background:rgba(160,82,45,.08);border-color:var(--border-hover)}
+    .opt-btn.correct{background:rgba(39,174,96,.12);border-color:var(--success);color:var(--success)}
+    .opt-btn.wrong{background:rgba(192,57,43,.1);border-color:var(--danger);color:var(--danger)}
+    .opt-btn.reveal{border-color:var(--success);color:var(--success);opacity:.5}
+    .q-fb{font-size:.82rem;color:var(--ivory-muted);margin-top:.5rem;display:none;line-height:1.5;padding:.5rem .8rem;border-left:2px solid var(--accent-dim)}
+    .q-fb.show{display:block}
+    .score-box{text-align:center;padding:2rem;border:1px solid var(--border);margin-top:2rem;display:none}
+    .score-box.show{display:block}
+    .score-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--accent)}
+    .score-msg{font-size:.9rem;color:var(--ivory-soft);margin-top:.5rem}
+    .btn-reset{margin-top:1.2rem;padding:.6rem 1.8rem;background:none;border:1px solid var(--accent-dim);color:var(--accent);font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.15em;cursor:pointer;text-transform:uppercase;transition:all .2s}
+    .btn-reset:hover{background:var(--accent);color:var(--bg)}
+
+    .footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);margin-top:2rem}
+    .footer p{font-size:.75rem;color:var(--ivory-muted)}
+    .footer a{color:var(--ivory-muted);text-decoration:none}.footer a:hover{color:var(--accent)}
+  </style>
+</head>
+<body>
+
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
+  <div class="nav-menu">
+    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase I <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Antigüedad</span><a href="grecia-socrates-platon.html">Sócrates &amp; Platón</a><a href="aristoteles-politica.html">Aristóteles</a><a href="estoicismo.html">El Estoicismo</a><a href="tomas-de-aquino.html">Tomás de Aquino</a></div></div>
+    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase II <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Renacimiento &amp; Modernidad</span><a href="maquiavelo.html">Maquiavelo</a><a href="hobbes.html">Hobbes</a><a href="locke.html">Locke</a><a href="rousseau.html">Rousseau</a><a href="kant.html">Kant</a></div></div>
+    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase III <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Siglo XIX</span><a href="marx.html">Marx</a><a href="mill.html">Mill</a><a href="tocqueville.html">Tocqueville</a><a href="nietzsche.html">Nietzsche</a><a href="epilogo-fase3.html">✦ Epílogo</a></div></div>
+    <div class="nav-item"><button class="nav-item-btn active" onclick="toggleDD(this)">Fase IV <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Economía Política</span><a href="smith.html">Adam Smith</a><a href="keynes.html">Keynes</a><a href="hayek-keynes.html">Hayek vs. Keynes</a><a href="globalizacion.html">Globalización</a><a href="nuevo-desorden.html">El nuevo desorden</a></div></div>
+  </div>
+  <a href="autor.html" class="nav-author">Autor</a>
+  <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-label="Menú"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <span class="mobile-phase-label">Fase I — Antigüedad</span><a href="grecia-socrates-platon.html" class="mobile-nav-link">Sócrates &amp; Platón</a><a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a><a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a><a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
+  <span class="mobile-phase-label">Fase II — Renacimiento &amp; Modernidad</span><a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a><a href="hobbes.html" class="mobile-nav-link">Hobbes</a><a href="locke.html" class="mobile-nav-link">Locke</a><a href="rousseau.html" class="mobile-nav-link">Rousseau</a><a href="kant.html" class="mobile-nav-link">Kant</a>
+  <span class="mobile-phase-label">Fase III — Siglo XIX</span><a href="marx.html" class="mobile-nav-link">Marx</a><a href="mill.html" class="mobile-nav-link">Mill</a><a href="tocqueville.html" class="mobile-nav-link">Tocqueville</a><a href="nietzsche.html" class="mobile-nav-link">Nietzsche</a><a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo</a>
+  <span class="mobile-phase-label">Fase IV — Economía Política</span><a href="smith.html" class="mobile-nav-link">Adam Smith</a><a href="keynes.html" class="mobile-nav-link">Keynes</a><a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a><a href="globalizacion.html" class="mobile-nav-link">Globalización</a><a href="nuevo-desorden.html" class="mobile-nav-link">El nuevo desorden</a>
+  <span class="mobile-phase-label">Más</span><a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
+</div>
+<div class="progress-bar" id="progress-bar"></div>
+
+<section class="hero">
+  <p class="hero-label">Fase IV · Módulo XVIII</p>
+  <h1 class="hero-title">El nuevo <em>desorden</em> mundial</h1>
+  <p class="hero-sub">El orden liberal de posguerra se agrieta. Lo que viene no es caos — es un mundo multipolar sin reglas consensuadas.</p>
+</section>
+
+<div class="content">
+
+  <p class="section-label">Contexto</p>
+  <h2>¿Qué orden se está rompiendo?</h2>
+  <p>Entre 1945 y 2008 funcionó — con crisis, con fallos, con hipocresías — un sistema basado en tres pilares: <strong>instituciones multilaterales</strong> (ONU, FMI, Banco Mundial, OMC), <strong>hegemonía estadounidense</strong> como garante militar, y una <strong>confianza compartida</strong> en que el comercio libre, la democracia liberal y los derechos humanos eran el destino natural de la humanidad.</p>
+  <p>Francis Fukuyama lo llamó «el fin de la historia» en 1989. Samuel Huntington lo contradijo con «el choque de civilizaciones» en 1996. Treinta años después, Huntington parece más profético que Fukuyama.</p>
+
+  <p class="section-label">Las fracturas</p>
+  <h2>Cinco líneas de falla</h2>
+
+  <div class="fault-grid">
+    <div class="fault-card">
+      <h4>1. Geopolítica</h4>
+      <p>China no quiere sustituir a EE.UU. — quiere un mundo donde nadie mande solo. Rusia eligió la confrontación directa. India juega su propia partida.</p>
+    </div>
+    <div class="fault-card">
+      <h4>2. Democracia</h4>
+      <p>Las democracias liberales retroceden globalmente desde 2010. El modelo más exitoso del siglo XXI es el autoritarismo eficiente (Singapur, Ruanda, China).</p>
+    </div>
+    <div class="fault-card">
+      <h4>3. Tecnología</h4>
+      <p>IA, ciberseguridad, chips. Quien controla la tecnología controla la economía. La batalla EE.UU.-China por los semiconductores es la nueva carrera espacial.</p>
+    </div>
+    <div class="fault-card">
+      <h4>4. Energía y clima</h4>
+      <p>La transición verde es también una transición de poder. Los países del litio, cobalto y tierras raras son los nuevos Arabia Saudí.</p>
+    </div>
+  </div>
+
+  <h3>5. El populismo como síntoma</h3>
+  <p>Trump, Brexit, Bolsonaro, Meloni, Milei no son la enfermedad — son el síntoma. La clase media de los países ricos lleva dos décadas sin mejorar. Los que perdieron con la globalización encontraron voz en líderes que prometían protección contra un mundo que ya no entendían.</p>
+  <p>El populismo no tiene una ideología fija — puede ser de izquierdas o de derechas. Lo que sí tiene es una estructura: <strong>nosotros (el pueblo) contra ellos (las élites)</strong>. Y esa estructura se alimenta de la desconfianza en las instituciones — una desconfianza que, en muchos casos, está justificada.</p>
+
+  <p class="section-label">Los actores</p>
+  <h2>¿Quién manda en el nuevo mundo?</h2>
+
+  <div class="actors">
+    <div class="actor-row"><span class="actor-name">EE.UU.</span><p class="actor-text">Sigue siendo la primera potencia militar y tecnológica, pero ya no quiere (ni puede) ser el policía del mundo. El aislacionismo no es nuevo — es su estado natural interrumpido brevemente por la Guerra Fría.</p></div>
+    <div class="actor-row"><span class="actor-name">China</span><p class="actor-text">Segunda economía, primera en manufactura. La Ruta de la Seda (BRI) es el mayor proyecto de infraestructura de la historia. No exporta democracia — exporta préstamos, carreteras y dependencia.</p></div>
+    <div class="actor-row"><span class="actor-name">UE</span><p class="actor-text">Poder regulatorio sin poder militar. El GDPR, el MiCA, la taxonomía verde — Europa manda escribiendo reglas. Pero sin ejército propio y sin autonomía energética, depende de EE.UU. para la seguridad y del Golfo para la energía.</p></div>
+    <div class="actor-row"><span class="actor-name">Rusia</span><p class="actor-text">Potencia en declive demográfico y económico que eligió la disrupción como estrategia. Ucrania es su apuesta — y el resultado definirá los límites del uso de la fuerza en el siglo XXI.</p></div>
+    <div class="actor-row"><span class="actor-name">Sur Global</span><p class="actor-text">India, Brasil, Indonesia, Nigeria. No quieren elegir bando. Los BRICS no son un bloque coherente — son un club de países que quieren más voz sin aceptar más reglas.</p></div>
+  </div>
+
+  <div class="concept-box">
+    <p class="concept-box-title">Conexión con pagos y banca</p>
+    <p>La fragmentación geopolítica tiene consecuencias directas en infraestructura financiera. El Euro Digital es, entre otras cosas, una respuesta a la amenaza del yuan digital. Las sanciones usan SWIFT como arma. ISO 20022 no es solo un estándar técnico — es una decisión sobre quién define el lenguaje del dinero global. El nuevo desorden mundial no es abstracto: pasa por los rieles de pago que tú gestionas cada día.</p>
+  </div>
+
+  <p class="section-label">Ideas clave</p>
+  <h2>Conceptos para leer el desorden</h2>
+
+  <h3>Trampa de Tucídides</h3>
+  <p>Graham Allison estudió 16 casos históricos en los que una potencia emergente desafió a la dominante. En 12 de ellos, el resultado fue guerra. EE.UU. y China son el caso 17. El concepto no predice guerra — predice que la probabilidad de conflicto es estructuralmente alta.</p>
+
+  <h3>Autoritarismo digital</h3>
+  <p>China demostró que la tecnología no necesariamente democratiza — también puede perfeccionar el control. Reconocimiento facial, crédito social, censura algorítmica. El modelo se exporta: cámaras chinas vigilan calles de Nairobi a Caracas.</p>
+
+  <h3>Weaponización de la interdependencia</h3>
+  <p>Usar las redes de interdependencia global como arma: sanciones financieras, bloqueo de chips, restricción de gas, cierre de rutas marítimas. La interdependencia que prometía paz se convierte en herramienta de coerción.</p>
+
+  <h3>Policrisis</h3>
+  <p>Término acuñado por Adam Tooze: no vivimos una crisis — vivimos múltiples crisis simultáneas e interconectadas (climática, energética, migratoria, democrática, tecnológica) donde cada una amplifica a las demás.</p>
+
+  <blockquote>
+    «El viejo mundo se muere. El nuevo tarda en aparecer. Y en ese claroscuro surgen los monstruos.»
+    <cite>Antonio Gramsci</cite>
+  </blockquote>
+
+  <p class="section-label">Escenarios</p>
+  <h2>¿Hacia dónde va esto?</h2>
+  <p>Nadie lo sabe. Pero hay tres escenarios que los analistas de relaciones internacionales manejan:</p>
+  <p><strong>Bipolaridad 2.0:</strong> EE.UU. y China como los dos polos, el resto obligado a elegir. Similar a la Guerra Fría pero con mucha más interdependencia económica.</p>
+  <p><strong>Mundo multipolar:</strong> Varios centros de poder (EE.UU., China, UE, India) con alianzas fluidas y cambiantes. Más complejo, más impredecible, pero más representativo.</p>
+  <p><strong>Fragmentación:</strong> Sin orden claro. Bloques regionales, monedas competidoras, estándares incompatibles, conflictos localizados que nadie resuelve. No es caos — es desorden administrado.</p>
+
+  <!-- QUIZ -->
+  <div class="quiz">
+    <p class="section-label" style="border:none;margin-top:0;padding-top:0">Test · 15 preguntas</p>
+    <h2>¿Cuánto has entendido?</h2>
+
+    <div class="q-block" data-correct="1"><p class="q-num">Pregunta 1 de 15</p><p class="q-text">¿Cuáles eran los tres pilares del orden liberal de posguerra?</p><button class="opt-btn" data-i="0">ONU, OTAN y Pacto de Varsovia</button><button class="opt-btn" data-i="1">Instituciones multilaterales, hegemonía estadounidense y confianza en democracia liberal</button><button class="opt-btn" data-i="2">FMI, Banco Mundial y Naciones Unidas</button><button class="opt-btn" data-i="3">Libre comercio, Estado de bienestar y descolonización</button><p class="q-fb">El sistema se basaba en instituciones globales, EE.UU. como garante y la creencia de que comercio libre + democracia = paz.</p></div>
+
+    <div class="q-block" data-correct="3"><p class="q-num">Pregunta 2 de 15</p><p class="q-text">¿Quién formuló la tesis del «fin de la historia»?</p><button class="opt-btn" data-i="0">Samuel Huntington</button><button class="opt-btn" data-i="1">Henry Kissinger</button><button class="opt-btn" data-i="2">Zbigniew Brzezinski</button><button class="opt-btn" data-i="3">Francis Fukuyama</button><p class="q-fb">Fukuyama argumentó en 1989 que la democracia liberal era el destino final de la evolución política. Los hechos lo han complicado bastante.</p></div>
+
+    <div class="q-block" data-correct="0"><p class="q-num">Pregunta 3 de 15</p><p class="q-text">¿Qué es la «Trampa de Tucídides»?</p><button class="opt-btn" data-i="0">El riesgo de conflicto cuando una potencia emergente desafía a la dominante</button><button class="opt-btn" data-i="1">La tendencia de los imperios a expandirse hasta colapsar</button><button class="opt-btn" data-i="2">La imposibilidad de mantener la democracia en tiempos de guerra</button><button class="opt-btn" data-i="3">El dilema entre seguridad y libertad</button><p class="q-fb">Graham Allison estudió 16 casos históricos: en 12, el resultado fue guerra. EE.UU.-China es el caso 17.</p></div>
+
+    <div class="q-block" data-correct="2"><p class="q-num">Pregunta 4 de 15</p><p class="q-text">¿Qué caracteriza al populismo según el módulo?</p><button class="opt-btn" data-i="0">Es siempre de extrema derecha</button><button class="opt-btn" data-i="1">Es una ideología económica específica</button><button class="opt-btn" data-i="2">Una estructura: «nosotros el pueblo» contra «ellos las élites»</button><button class="opt-btn" data-i="3">Es exclusivo de los países en desarrollo</button><p class="q-fb">El populismo no tiene ideología fija — puede ser de izquierdas o derechas. Lo que comparte es la estructura pueblo vs. élites.</p></div>
+
+    <div class="q-block" data-correct="1"><p class="q-num">Pregunta 5 de 15</p><p class="q-text">¿Qué es el «autoritarismo digital»?</p><button class="opt-btn" data-i="0">La censura de internet en países democráticos</button><button class="opt-btn" data-i="1">El uso de tecnología para perfeccionar el control estatal</button><button class="opt-btn" data-i="2">El poder de las Big Tech sobre los gobiernos</button><button class="opt-btn" data-i="3">La vigilancia masiva por parte de la NSA</button><p class="q-fb">China demostró que la tecnología puede usarse para controlar, no solo para liberar: reconocimiento facial, crédito social, censura algorítmica.</p></div>
+
+    <div class="q-block" data-correct="0"><p class="q-num">Pregunta 6 de 15</p><p class="q-text">¿Qué significa «weaponización de la interdependencia»?</p><button class="opt-btn" data-i="0">Usar las redes de interdependencia como herramienta de coerción</button><button class="opt-btn" data-i="1">La carrera armamentista nuclear</button><button class="opt-btn" data-i="2">Las guerras comerciales entre aliados</button><button class="opt-btn" data-i="3">El espionaje industrial entre empresas globales</button><p class="q-fb">Sanciones, bloqueo de chips, corte de gas — la interdependencia que prometía paz se convierte en arma.</p></div>
+
+    <div class="q-block" data-correct="3"><p class="q-num">Pregunta 7 de 15</p><p class="q-text">¿Qué rol tiene la UE en el nuevo orden según el módulo?</p><button class="opt-btn" data-i="0">Primera potencia militar del mundo</button><button class="opt-btn" data-i="1">Aliada incondicional de China</button><button class="opt-btn" data-i="2">Potencia energética autosuficiente</button><button class="opt-btn" data-i="3">Poder regulatorio sin poder militar propio</button><p class="q-fb">Europa manda escribiendo reglas (GDPR, MiCA, taxonomía verde) pero depende de EE.UU. para seguridad y del Golfo para energía.</p></div>
+
+    <div class="q-block" data-correct="2"><p class="q-num">Pregunta 8 de 15</p><p class="q-text">¿Qué es una «policrisis»?</p><button class="opt-btn" data-i="0">Una crisis política dentro de un gobierno</button><button class="opt-btn" data-i="1">Una crisis económica que dura más de una década</button><button class="opt-btn" data-i="2">Múltiples crisis simultáneas e interconectadas que se amplifican mutuamente</button><button class="opt-btn" data-i="3">Un conflicto entre la policía y la sociedad civil</button><p class="q-fb">Adam Tooze acuñó el término: clima, energía, migración, democracia, tecnología — cada crisis amplifica a las demás.</p></div>
+
+    <div class="q-block" data-correct="1"><p class="q-num">Pregunta 9 de 15</p><p class="q-text">¿Qué quiere China según el módulo?</p><button class="opt-btn" data-i="0">Sustituir a EE.UU. como potencia hegemónica</button><button class="opt-btn" data-i="1">Un mundo donde nadie mande solo</button><button class="opt-btn" data-i="2">Expandir su territorio como el Imperio Británico</button><button class="opt-btn" data-i="3">Aislarse del sistema global</button><p class="q-fb">China no busca reemplazar la hegemonía americana — busca un orden multipolar donde tenga más peso y menos restricciones.</p></div>
+
+    <div class="q-block" data-correct="0"><p class="q-num">Pregunta 10 de 15</p><p class="q-text">¿Qué son los BRICS según el módulo?</p><button class="opt-btn" data-i="0">Un club de países que quieren más voz sin aceptar más reglas</button><button class="opt-btn" data-i="1">Una alianza militar contra la OTAN</button><button class="opt-btn" data-i="2">Un bloque comercial con moneda común</button><button class="opt-btn" data-i="3">Los cinco países más ricos del mundo</button><p class="q-fb">No son un bloque coherente — son países que comparten el deseo de reformar las instituciones globales sin necesariamente coincidir en cómo.</p></div>
+
+    <div class="q-block" data-correct="3"><p class="q-num">Pregunta 11 de 15</p><p class="q-text">¿Por qué el Euro Digital es también una respuesta geopolítica?</p><button class="opt-btn" data-i="0">Porque elimina el efectivo</button><button class="opt-btn" data-i="1">Porque reduce el coste de las transacciones</button><button class="opt-btn" data-i="2">Porque compite con Bitcoin</button><button class="opt-btn" data-i="3">Porque responde a la amenaza del yuan digital sobre los rieles de pago</button><p class="q-fb">Las CBDCs no son solo tecnología financiera — son instrumentos de soberanía monetaria en un mundo de monedas digitales competidoras.</p></div>
+
+    <div class="q-block" data-correct="2"><p class="q-num">Pregunta 12 de 15</p><p class="q-text">¿Qué escenario describe un mundo con varios centros de poder y alianzas fluidas?</p><button class="opt-btn" data-i="0">Bipolaridad 2.0</button><button class="opt-btn" data-i="1">Fragmentación total</button><button class="opt-btn" data-i="2">Mundo multipolar</button><button class="opt-btn" data-i="3">Nuevo Consenso de Washington</button><p class="q-fb">Múltiples polos de poder (EE.UU., China, UE, India) con alianzas cambiantes — más complejo pero más representativo.</p></div>
+
+    <div class="q-block" data-correct="1"><p class="q-num">Pregunta 13 de 15</p><p class="q-text">¿Qué define la nueva carrera por la tecnología?</p><button class="opt-btn" data-i="0">Quién tiene más usuarios de redes sociales</button><button class="opt-btn" data-i="1">IA, ciberseguridad y semiconductores — quien controla la tecnología controla la economía</button><button class="opt-btn" data-i="2">La cantidad de patentes registradas por país</button><button class="opt-btn" data-i="3">El número de startups unicornio</button><p class="q-fb">La batalla EE.UU.-China por los chips es la nueva carrera espacial: no es por prestigio, es por el control de la economía.</p></div>
+
+    <div class="q-block" data-correct="0"><p class="q-num">Pregunta 14 de 15</p><p class="q-text">¿Qué estrategia eligió Rusia según el módulo?</p><button class="opt-btn" data-i="0">La disrupción como estrategia, ante su declive demográfico y económico</button><button class="opt-btn" data-i="1">La integración gradual con la UE</button><button class="opt-btn" data-i="2">La neutralidad estratégica</button><button class="opt-btn" data-i="3">La alianza incondicional con China</button><p class="q-fb">Potencia en declive que apuesta por la disrupción — Ucrania es el test de si esa apuesta funciona o acelera su caída.</p></div>
+
+    <div class="q-block" data-correct="3"><p class="q-num">Pregunta 15 de 15</p><p class="q-text">La cita de Gramsci que cierra el módulo dice que «en el claroscuro entre el viejo mundo y el nuevo...»</p><button class="opt-btn" data-i="0">...nacen las revoluciones</button><button class="opt-btn" data-i="1">...triunfa el más fuerte</button><button class="opt-btn" data-i="2">...surge la democracia</button><button class="opt-btn" data-i="3">...surgen los monstruos</button><p class="q-fb">Gramsci describía los períodos de transición como espacios de incertidumbre donde lo peor puede emerger antes que lo mejor.</p></div>
+
+    <div class="score-box" id="score-box">
+      <p class="score-num"><span id="score-val">0</span>/15</p>
+      <p class="score-msg" id="score-msg"></p>
+      <button class="btn-reset" onclick="resetQuiz()">Repetir test</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer"><p>© Rodrigo Vidal · <a href="index.html">Filosofía &amp; Política</a> · 2024–2026</p></footer>
+
+<script>
+function toggleDD(btn){const w=btn.classList.contains('open');document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});if(!w){btn.classList.add('open');btn.nextElementSibling.classList.add('open')}}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')})});
+const hBtn=document.getElementById('hamburger-btn'),drawer=document.getElementById('mobile-drawer');
+hBtn.addEventListener('click',()=>{const o=drawer.classList.toggle('open');hBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');hBtn.setAttribute('aria-expanded','false');document.body.style.overflow=''}));
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+
+let answered=0,score=0;
+document.querySelectorAll('.q-block').forEach(block=>{const correct=+block.dataset.correct;block.querySelectorAll('.opt-btn').forEach(btn=>{btn.addEventListener('click',()=>{if(btn.disabled)return;block.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);const picked=+btn.dataset.i;if(picked===correct){btn.classList.add('correct');score++}else{btn.classList.add('wrong');block.querySelectorAll('.opt-btn')[correct].classList.add('reveal')}block.querySelector('.q-fb').classList.add('show');answered++;if(answered===15)showScore()})})});
+function showScore(){document.getElementById('score-val').textContent=score;const m=[[0,5,'El nuevo desorden es complejo — vale la pena repasar.'],[6,9,'Buen nivel. Identificas las fracturas del orden global.'],[10,12,'Sólido. Distingues actores, fuerzas y escenarios.'],[13,15,'Excelente. Lees geopolítica como si estuvieras en el grupo de trabajo del Euro Digital.']];document.getElementById('score-msg').textContent=m.find(x=>score>=x[0]&&score<=x[1])[2];document.getElementById('score-box').classList.add('show')}
+function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
+</script>
+</body>
+</html>
