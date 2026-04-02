@@ -3,329 +3,176 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fase IV — Economía Política · Filosofía & Política</title>
-  <meta name="description" content="De Adam Smith al nuevo desorden mundial: cómo se organiza la riqueza, quién decide y para quién, y por qué el orden global que conocíamos está rompiéndose."/>
+  <title>Fase IV · Economía Política · Filosofía & Política</title>
+  <meta name="description" content="De Adam Smith al nuevo desorden mundial. Cómo el poder organiza la riqueza y cómo la riqueza organiza el poder."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+SC:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --bg:#080e0a;--bg-mid:#0c1410;--bg-card:#111a14;--surface:#182018;
-      --border:#263426;--border-light:#384838;
-      --green:#1a5a2a;--green-mid:#227832;--green-light:#30a044;--green-pale:#60c870;
-      --copper:#b06820;--copper-light:#d08030;--copper-dim:#7a4810;
-      --ink:#e8f0e0;--ink-mid:#a8c0a0;--ink-dim:#607058;
-      --text:#d8e8d0;--text-muted:#889880;
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#0a120e;--bg-card:#121e17;--bg-card-hover:#182820;
+      --accent:#4a7c5c;--accent-dim:#2f5a3d;--accent-bright:#6aaa7e;
+      --copper:#b87333;--copper-dim:#8a5525;
+      --ivory:#e8ede9;--ivory-soft:#a8b5ab;--ivory-muted:#5e6d63;
+      --border:rgba(74,124,92,.2);--border-hover:rgba(74,124,92,.4);
     }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:17px;line-height:1.7;min-height:100vh}
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
-    body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(26,90,42,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(26,90,42,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
-    .top-nav{background:rgba(8,14,10,.96);backdrop-filter:blur(12px);padding:1rem 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
-    .top-nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    .nav-back{font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink-mid);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}.nav-back:hover{color:var(--green-pale)}
-    .nav-links{display:flex;align-items:center;gap:1.5rem}
-    .nav-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.08em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.nav-link:hover{color:var(--copper-light)}
-    .nav-phase{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:500;color:var(--copper);letter-spacing:.04em}
-    .hero{padding:5.5rem 2rem 3.5rem;position:relative;overflow:hidden;text-align:center}
-    .hero::before{content:'£ $ €';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:clamp(8rem,20vw,14rem);font-weight:400;color:rgba(26,90,42,.05);letter-spacing:.2em;pointer-events:none;white-space:nowrap;z-index:0;line-height:1}
-    .hero-inner{max-width:740px;margin:0 auto;position:relative;z-index:1}
-    .hero-label{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.5rem;display:block}
-    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6vw,4.2rem);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:1rem}
-    .hero-title em{font-style:italic;color:var(--green-pale)}
-    .hero-rule{display:flex;align-items:center;gap:1rem;max-width:280px;margin:0 auto 1.8rem}
-    .hero-rule::before,.hero-rule::after{content:'';flex:1;height:1px;background:var(--border-light)}
-    .hero-rule-mark{width:24px;height:1px;background:var(--green-mid);position:relative}
-    .hero-rule-mark::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:5px;height:5px;background:var(--copper);border-radius:50%}
-    .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-style:italic;color:var(--text-muted);max-width:600px;margin:0 auto 1.5rem;line-height:1.8}
-    .hero-desc{font-size:1rem;color:var(--text-muted);max-width:600px;margin:0 auto;line-height:1.85}
-    /* TICKER */
-    .ticker-band{background:var(--green);padding:1rem 0;overflow:hidden;position:relative;z-index:1}
-    .ticker-track{display:flex;gap:3rem;animation:ticker 35s linear infinite;white-space:nowrap}
-    .ticker-item{font-family:'Manrope',sans-serif;font-size:.73rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.75);flex-shrink:0}
-    .ticker-sep{color:rgba(255,255,255,.3);flex-shrink:0}
-    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    /* CONTENT */
-    .content{max-width:960px;margin:0 auto;padding:3.5rem 2rem 5rem;position:relative;z-index:1}
-    .section-label{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--copper-dim);display:flex;align-items:center;gap:1rem;margin-bottom:2rem}.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
-    .mod-card{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--border);border-radius:2px;padding:2.2rem 2.8rem;display:grid;grid-template-columns:auto 1fr auto;gap:0 2rem;align-items:start;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .3s,border-left-color .3s,box-shadow .3s,transform .2s;margin-bottom:1rem}
-    .mod-card:hover{border-color:var(--border-light);border-left-color:var(--green-mid);box-shadow:0 6px 28px rgba(26,90,42,.12),0 2px 8px rgba(0,0,0,.3);transform:translateX(4px)}
-    .mod-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:400;color:var(--border-light);line-height:1;transition:color .3s;min-width:2.5rem}
-    .mod-card:hover .mod-num{color:var(--green-mid)}
-    .mod-tag{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--copper-dim);margin-bottom:.4rem;display:block;transition:color .3s}
-    .mod-card:hover .mod-tag{color:var(--copper)}
-    .mod-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:500;color:var(--ink);line-height:1.2;margin-bottom:.6rem}
-    .mod-desc{font-size:.98rem;color:var(--text-muted);line-height:1.8}
-    .mod-topics{margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.4rem}
-    .mod-pill{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.08em;color:var(--ink-dim);border:1px solid var(--border);padding:.25rem .65rem;border-radius:1px;transition:border-color .3s,color .3s}
-    .mod-card:hover .mod-pill{border-color:var(--border-light);color:var(--ink-mid)}
-    .mod-arrow{align-self:center;font-size:1.3rem;color:var(--border-light);transition:transform .3s,color .3s}
-    .mod-card:hover .mod-arrow{transform:translateX(6px);color:var(--green-mid)}
-    .mod-badge{position:absolute;top:1rem;right:1.2rem;font-family:'Manrope',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:.22rem .6rem;border-radius:1px}
-    .mod-badge.available{color:var(--copper);border:1px solid var(--copper-dim)}
-    .mod-badge.new{color:var(--green-pale);border:1px solid var(--green-mid)}
-    .mod-card-disabled{background:var(--bg-mid);border:1px solid var(--border);border-left:3px solid var(--border);border-radius:2px;padding:1.6rem 2.8rem;display:grid;grid-template-columns:auto 1fr auto;gap:0 2rem;align-items:center;opacity:.35;cursor:default;margin-bottom:1rem}
-    .mod-card-disabled .mod-num{color:var(--border);font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:400;line-height:1}
-    .mod-card-disabled .mod-tag{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--border-light);margin-bottom:.3rem;display:block}
-    .mod-card-disabled .mod-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:400;color:var(--border-light)}
-    .badge-soon{font-family:'Manrope',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--border-light);border:1px solid var(--border);padding:.22rem .6rem;border-radius:1px}
-    .quote-divider{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 2rem;margin:3rem 0;text-align:center}
-    .quote-divider blockquote{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--ink-mid);line-height:1.65;max-width:640px;margin:0 auto .8rem}
-    .quote-divider cite{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-mid)}
-    .nav-section{padding:0 0 4rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:3rem}
-    .nav-btn{font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.1em;color:var(--ink-dim);text-decoration:none;border:1px solid var(--border);padding:.7rem 1.8rem;border-radius:2px;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
-    .nav-btn:hover{border-color:var(--copper-dim);color:var(--copper)}
-    footer{border-top:1px solid var(--border);padding:2rem;background:var(--bg)}
-    .footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-    .footer-brand{font-family:'Libre Baskerville',serif;font-size:.9rem;color:var(--text-muted)}.footer-brand strong{color:var(--ink);font-weight:400}
-    .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;color:var(--ink-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--copper)}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-    .anim-1{animation:fadeUp .5s ease both}.anim-2{animation:fadeUp .5s .08s ease both}.anim-3{animation:fadeUp .5s .16s ease both}.anim-4{animation:fadeUp .5s .24s ease both}.anim-5{animation:fadeUp .5s .32s ease both}.anim-6{animation:fadeUp .5s .4s ease both}.anim-7{animation:fadeUp .5s .48s ease both}
-    @media(max-width:640px){.mod-card,.mod-card-disabled{grid-template-columns:auto 1fr;padding:1.6rem 1.2rem}.mod-arrow{display:none}.mod-badge{position:static;margin-bottom:.5rem;display:inline-block}.footer-inner{flex-direction:column;text-align:center}.nav-section{flex-direction:column;align-items:center}.ticker-band{display:none}}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ivory);line-height:1.7;font-weight:300}
 
-    /* ── NAV GLOBAL ── */
-    .top-nav{background:rgba(14,12,10,.96);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
-    .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
-    .nav-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--gold,#c48820);text-decoration:none;display:flex;align-items:center;letter-spacing:.02em;flex-shrink:0}
-    .nav-brand:hover{color:var(--gold-light,#d8a030)}
-    .nav-menu{display:flex;align-items:stretch;gap:0}
+    .top-nav{position:sticky;top:0;z-index:200;background:rgba(10,18,14,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+    .top-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--accent);text-decoration:none;font-style:italic;letter-spacing:.04em}
+    .nav-brand:hover{color:var(--accent-bright)}
+    .nav-menu{display:flex;align-items:stretch;height:52px}
     .nav-item{position:relative;display:flex;align-items:stretch}
-    .nav-item-btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%}
-    .nav-item-btn:hover,.nav-item-btn.active{color:var(--gold,#c48820)}
-    .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
+    .nav-item-btn{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.18em;color:var(--ivory-muted);background:none;border:none;cursor:pointer;padding:0 .9rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;text-transform:uppercase;height:100%}
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--accent)}
+    .nav-item-btn .arrow{font-size:.55rem;transition:transform .2s}
     .nav-item-btn.open .arrow{transform:rotate(180deg)}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(20,18,16,.98);border:1px solid var(--border,#3a3028);border-top:none;min-width:260px;z-index:300;display:none;backdrop-filter:blur(12px)}
-    .nav-dropdown.open{display:block;animation:dropIn .15s ease}
-    @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-    .nav-drop-section{padding:.5rem 0}
-    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--border,#3a3028)}
-    .nav-drop-label{font-family:'Manrope',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dim,#8a6018);padding:.4rem 1.2rem .2rem;display:block}
-    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-mid,#c0b8a8);text-decoration:none;transition:background .15s,color .15s}
-    .nav-drop-link:hover{background:var(--surface,#221e1a);color:var(--gold,#c48820)}
-    .nav-drop-link.disabled{color:var(--ink-dim,#807868);cursor:default;opacity:.45;pointer-events:none}
-    .nav-drop-badge{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim,#8a6018);background:rgba(196,136,32,.1);padding:.1rem .4rem;border-radius:1px}
-    .nav-autor-link{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--ink-dim,#807868);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
-    .nav-autor-link:hover,.nav-autor-link.active{color:var(--gold,#c48820)}
-    @media(max-width:700px){.nav-menu{display:none}}
+    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(18,30,23,.98);border:1px solid var(--border);border-top:none;min-width:260px;z-index:300;display:none}
+    .nav-dropdown.open{display:block}
+    .nav-dropdown a{display:block;padding:.6rem 1.1rem;color:var(--ivory-soft);text-decoration:none;font-size:.85rem;border-bottom:1px solid var(--border);transition:all .15s}
+    .nav-dropdown a:last-child{border-bottom:none}
+    .nav-dropdown a:hover{background:rgba(74,124,92,.1);color:var(--accent-bright)}
+    .nav-dropdown .dd-label{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.18em;color:var(--accent-dim);padding:.7rem 1.1rem .25rem;text-transform:uppercase;cursor:default}
+    .nav-dropdown .dd-label:hover{background:none}
+    .nav-author{font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.15em;color:var(--ivory-muted);text-decoration:none;padding:0 .5rem;transition:color .2s;text-transform:uppercase}
+    .nav-author:hover{color:var(--accent)}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:301}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--accent);margin:5px 0;transition:all .3s}
+    .hamburger[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .hamburger[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .mobile-drawer{display:none;position:fixed;inset:0;top:52px;background:rgba(10,18,14,.98);z-index:250;overflow-y:auto;padding:1.5rem 2rem 4rem;flex-direction:column;gap:.2rem}
+    .mobile-drawer.open{display:flex}
+    .mobile-phase-label{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.22em;color:var(--accent-dim);text-transform:uppercase;padding:1rem 0 .3rem;border-top:1px solid var(--border);margin-top:.4rem}
+    .mobile-phase-label:first-child{border-top:none;margin-top:0}
+    .mobile-nav-link{color:var(--ivory-soft);text-decoration:none;font-size:.92rem;padding:.5rem 0;display:block}
+    .mobile-nav-link:hover{color:var(--accent)}
+    @media(max-width:800px){.nav-menu,.nav-author{display:none}.hamburger{display:block}}
+
+    .hero{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 50% at 50% 40%,rgba(74,124,92,.07) 0%,transparent 70%);pointer-events:none}
+    .hero-label{font-family:'Cormorant SC',serif;font-size:.8rem;letter-spacing:.4em;color:var(--accent-dim);text-transform:uppercase;margin-bottom:1.2rem;opacity:0;animation:fadeUp .8s .2s ease forwards}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,5vw,3.8rem);color:var(--ivory);line-height:1.15;margin-bottom:1.2rem;opacity:0;animation:fadeUp .8s .4s ease forwards}
+    .hero-title em{font-style:italic;color:var(--accent-bright)}
+    .hero-sub{font-size:1rem;color:var(--ivory-soft);max-width:560px;line-height:1.75;opacity:0;animation:fadeUp .8s .6s ease forwards}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+    .ticker{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.6rem 0;margin-bottom:3rem}
+    .ticker-inner{display:flex;gap:3rem;animation:scroll 30s linear infinite;white-space:nowrap}
+    .ticker-inner span{font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.2em;color:var(--accent-dim);text-transform:uppercase}
+    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    .content{max-width:800px;margin:0 auto;padding:0 2rem 4rem}
+    .section-label{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.3em;color:var(--accent-dim);text-transform:uppercase;margin-bottom:1.5rem}
+
+    .mod-card{display:block;text-decoration:none;border:1px solid var(--border);padding:1.8rem;margin-bottom:1rem;background:var(--bg-card);transition:all .25s;position:relative}
+    .mod-card:hover{background:var(--bg-card-hover);border-color:var(--border-hover);transform:translateX(4px)}
+    .mod-card:hover .mod-arrow{opacity:1;transform:translateX(0)}
+    .mod-num{font-family:'Cormorant Garamond',serif;font-size:.8rem;color:var(--accent-dim);margin-bottom:.3rem}
+    .mod-tag{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+    .mod-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--ivory);margin:.4rem 0}
+    .mod-desc{font-size:.88rem;color:var(--ivory-muted);line-height:1.6}
+    .mod-arrow{position:absolute;top:1.8rem;right:1.8rem;font-size:1rem;color:var(--accent);opacity:0;transform:translateX(-6px);transition:all .25s}
+    .mod-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+    .mod-pill{font-size:.72rem;padding:.25rem .7rem;border:1px solid var(--border);color:var(--ivory-muted);font-family:'Jost',sans-serif;letter-spacing:.03em}
+
+    .footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);margin-top:2rem}
+    .footer p{font-size:.75rem;color:var(--ivory-muted)}
+    .footer a{color:var(--ivory-muted);text-decoration:none}.footer a:hover{color:var(--accent)}
   </style>
 </head>
 <body>
 
-<nav class="top-nav">
-  <div class="top-nav-inner">
-    <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
-    <div class="nav-menu">
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d1')">Fase I <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d1">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Antigüedad griega</span>
-            <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
-            <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
-            <a href="#" class="nav-drop-link disabled">Cicerón <span class="nav-drop-badge">Próx.</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d2')">Fase II <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d2">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Renacimiento &amp; Modernidad</span>
-            <a href="maquiavelo.html" class="nav-drop-link">Maquiavelo</a>
-            <a href="hobbes.html" class="nav-drop-link">Hobbes y el Leviatán</a>
-            <a href="locke.html" class="nav-drop-link">Locke y los derechos naturales</a>
-            <a href="rousseau.html" class="nav-drop-link">Rousseau</a>
-            <a href="kant.html" class="nav-drop-link">Kant y la razón universal</a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d3')">Fase III <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d3">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Siglo XIX · Ideologías</span>
-            <a href="marx.html" class="nav-drop-link">Marx y el Capital</a>
-            <a href="mill.html" class="nav-drop-link">Mill y la libertad</a>
-            <a href="tocqueville.html" class="nav-drop-link">Tocqueville y la democracia</a>
-            <a href="nietzsche.html" class="nav-drop-link">Nietzsche y el martillo</a>
-          </div>
-          <div class="nav-drop-section">
-            <a href="epilogo-fase3.html" class="nav-drop-link">✦ Epílogo — Las sombras del XIX</a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-item-btn active" onclick="toggleDrop('d4')">Fase IV <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d4">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Economía Política</span>
-            <a href="smith.html" class="nav-drop-link">Adam Smith</a>
-            <a href="keynes.html" class="nav-drop-link">Keynes</a>
-            <a href="hayek-keynes.html" class="nav-drop-link">Hayek vs. Keynes</a>
-            <a href="#" class="nav-drop-link disabled">Globalización <span class="nav-drop-badge">Próx.</span></a>
-            <a href="#" class="nav-drop-link disabled">El nuevo desorden mundial <span class="nav-drop-badge">Próx.</span></a>
-          </div>
-        </div>
-      </div>
-      <a href="autor.html" class="nav-autor-link">Sobre el autor</a>
-    </div>
+<nav class="top-nav"><div class="top-nav-inner">
+  <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
+  <div class="nav-menu">
+    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase I <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Antigüedad</span><a href="grecia-socrates-platon.html">Sócrates &amp; Platón</a><a href="aristoteles-politica.html">Aristóteles</a><a href="estoicismo.html">El Estoicismo</a><a href="tomas-de-aquino.html">Tomás de Aquino</a></div></div>
+    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase II <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Renacimiento &amp; Modernidad</span><a href="maquiavelo.html">Maquiavelo</a><a href="hobbes.html">Hobbes</a><a href="locke.html">Locke</a><a href="rousseau.html">Rousseau</a><a href="kant.html">Kant</a></div></div>
+    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDD(this)">Fase III <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Siglo XIX</span><a href="marx.html">Marx</a><a href="mill.html">Mill</a><a href="tocqueville.html">Tocqueville</a><a href="nietzsche.html">Nietzsche</a><a href="epilogo-fase3.html">✦ Epílogo</a></div></div>
+    <div class="nav-item"><button class="nav-item-btn active" onclick="toggleDD(this)">Fase IV <span class="arrow">▾</span></button><div class="nav-dropdown"><span class="dd-label">Economía Política</span><a href="smith.html">Adam Smith</a><a href="keynes.html">Keynes</a><a href="hayek-keynes.html">Hayek vs. Keynes</a><a href="globalizacion.html">Globalización</a><a href="nuevo-desorden.html">El nuevo desorden</a></div></div>
   </div>
-</nav>
+  <a href="autor.html" class="nav-author">Autor</a>
+  <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-label="Menú"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <span class="mobile-phase-label">Fase I — Antigüedad</span><a href="grecia-socrates-platon.html" class="mobile-nav-link">Sócrates &amp; Platón</a><a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a><a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a><a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
+  <span class="mobile-phase-label">Fase II — Renacimiento &amp; Modernidad</span><a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a><a href="hobbes.html" class="mobile-nav-link">Hobbes</a><a href="locke.html" class="mobile-nav-link">Locke</a><a href="rousseau.html" class="mobile-nav-link">Rousseau</a><a href="kant.html" class="mobile-nav-link">Kant</a>
+  <span class="mobile-phase-label">Fase III — Siglo XIX</span><a href="marx.html" class="mobile-nav-link">Marx</a><a href="mill.html" class="mobile-nav-link">Mill</a><a href="tocqueville.html" class="mobile-nav-link">Tocqueville</a><a href="nietzsche.html" class="mobile-nav-link">Nietzsche</a><a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo</a>
+  <span class="mobile-phase-label">Fase IV — Economía Política</span><a href="smith.html" class="mobile-nav-link">Adam Smith</a><a href="keynes.html" class="mobile-nav-link">Keynes</a><a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a><a href="globalizacion.html" class="mobile-nav-link">Globalización</a><a href="nuevo-desorden.html" class="mobile-nav-link">El nuevo desorden</a>
+  <span class="mobile-phase-label">Más</span><a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
+</div>
 
 <section class="hero">
-  <div class="hero-inner">
-    <span class="hero-label anim-1">Fase IV · Filosofía & Política</span>
-    <h1 class="hero-title anim-2">Economía <em>Política</em></h1>
-    <div class="hero-rule anim-3"><div class="hero-rule-mark"></div></div>
-    <p class="hero-subtitle anim-3">Cómo se organiza la riqueza, quién decide y para quién. Y por qué el orden global que construimos en el siglo XX está rompiéndose ante nuestros ojos.</p>
-    <p class="hero-desc anim-4">De Adam Smith al nuevo desorden mundial, pasando por Keynes, Hayek y la globalización: los sistemas económicos no son neutros — son estructuras de poder con ganadores y perdedores. Entenderlos es la condición para no ser gobernado por ellos sin saberlo.</p>
-  </div>
+  <p class="hero-label">Fase IV · Filosofía &amp; Política</p>
+  <h1 class="hero-title">Economía <em>Política</em></h1>
+  <p class="hero-sub">Cómo el poder organiza la riqueza — y cómo la riqueza organiza el poder. De Adam Smith al nuevo desorden mundial.</p>
 </section>
 
-<div class="ticker-band">
-  <div class="ticker-track">
-    <span class="ticker-item">Mano invisible</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Demanda agregada</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Orden espontáneo</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Globalización</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Desglobalización</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Cadenas de suministro</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Instituciones internacionales</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Nuevo desorden mundial</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Tipos de interés</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Inflación</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Materias primas</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Geopolítica</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Mano invisible</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Demanda agregada</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Orden espontáneo</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Globalización</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Desglobalización</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Cadenas de suministro</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Instituciones internacionales</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Nuevo desorden mundial</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Tipos de interés</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Inflación</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Materias primas</span><span class="ticker-sep">·</span>
-    <span class="ticker-item">Geopolítica</span><span class="ticker-sep">·</span>
-  </div>
-</div>
+<div class="ticker"><div class="ticker-inner">
+  <span>Mano invisible</span><span>·</span><span>Demanda agregada</span><span>·</span><span>Orden espontáneo</span><span>·</span><span>Financiarización</span><span>·</span><span>Too big to fail</span><span>·</span><span>Policrisis</span><span>·</span>
+  <span>Mano invisible</span><span>·</span><span>Demanda agregada</span><span>·</span><span>Orden espontáneo</span><span>·</span><span>Financiarización</span><span>·</span><span>Too big to fail</span><span>·</span><span>Policrisis</span><span>·</span>
+</div></div>
 
 <div class="content">
+  <p class="section-label">Módulos de la Fase IV</p>
 
-  <p class="section-label anim-5">Módulos de la Fase IV</p>
-
-  <a href="smith.html" class="mod-card anim-5">
-    <span class="mod-badge new">Nuevo</span>
+  <a href="smith.html" class="mod-card">
     <span class="mod-num">01</span>
-    <div>
-      <span class="mod-tag">Módulo XIII · Liberalismo económico</span>
-      <h2 class="mod-title">Adam Smith y la mano invisible</h2>
-      <p class="mod-desc">El padre de la economía moderna. El mercado como mecanismo de coordinación espontánea, la división del trabajo y la riqueza de las naciones. Y lo que Smith realmente escribió — muy distinto de lo que sus herederos neoliberales afirman.</p>
-      <div class="mod-topics">
-        <span class="mod-pill">Mano invisible</span>
-        <span class="mod-pill">División del trabajo</span>
-        <span class="mod-pill">Riqueza de las naciones</span>
-        <span class="mod-pill">Límites del mercado</span>
-      </div>
-    </div>
+    <span class="mod-tag">Módulo XIV · Liberalismo clásico</span>
+    <h2 class="mod-title">Adam Smith</h2>
+    <p class="mod-desc">El padre de la economía política. La mano invisible, la división del trabajo y por qué su pensamiento es mucho más complejo que el eslogan neoliberal.</p>
+    <div class="mod-pills"><span class="mod-pill">Mano invisible</span><span class="mod-pill">División del trabajo</span><span class="mod-pill">Sentimientos morales</span></div>
     <span class="mod-arrow">→</span>
   </a>
 
-  <a href="keynes.html" class="mod-card anim-5">
-    <span class="mod-badge available">Disponible</span>
+  <a href="keynes.html" class="mod-card">
     <span class="mod-num">02</span>
-    <div>
-      <span class="mod-tag">Módulo XIV · Keynesianismo</span>
-      <h2 class="mod-title">Keynes y el Estado que actúa</h2>
-      <p class="mod-desc">Cuando los mercados colapsan, Keynes demostró que esperar a que se corrijan solos puede ser una sentencia de muerte. Demanda agregada, multiplicador fiscal, espíritus animales — y por qué su pensamiento vuelve en cada gran crisis.</p>
-      <div class="mod-topics">
-        <span class="mod-pill">Demanda agregada</span>
-        <span class="mod-pill">Multiplicador fiscal</span>
-        <span class="mod-pill">Trampa de liquidez</span>
-        <span class="mod-pill">Espíritus animales</span>
-      </div>
-    </div>
+    <span class="mod-tag">Módulo XV · Intervencionismo</span>
+    <h2 class="mod-title">Keynes y la demanda</h2>
+    <p class="mod-desc">El hombre que convenció al mundo de que el Estado debía actuar cuando el mercado fallaba. Demanda agregada, multiplicador fiscal y el fin del laissez-faire.</p>
+    <div class="mod-pills"><span class="mod-pill">Demanda agregada</span><span class="mod-pill">Multiplicador</span><span class="mod-pill">Animal spirits</span></div>
     <span class="mod-arrow">→</span>
   </a>
 
-  <a href="hayek-keynes.html" class="mod-card anim-5">
-    <span class="mod-badge available">Disponible</span>
+  <a href="hayek-keynes.html" class="mod-card">
     <span class="mod-num">03</span>
-    <div>
-      <span class="mod-tag">Módulo XV · El gran debate</span>
-      <h2 class="mod-title">Hayek vs. Keynes</h2>
-      <p class="mod-desc">El debate más influyente de la economía moderna. El mercado que sabe frente al Estado que actúa. Ronda por ronda, quién ganó cada era histórica — y por qué ninguno tiene razón en todo.</p>
-      <div class="mod-topics">
-        <span class="mod-pill">Sistema de precios</span>
-        <span class="mod-pill">El camino de servidumbre</span>
-        <span class="mod-pill">Stagflation</span>
-        <span class="mod-pill">Síntesis posible</span>
-      </div>
-    </div>
+    <span class="mod-tag">Módulo XVI · El gran debate</span>
+    <h2 class="mod-title">Hayek vs. Keynes</h2>
+    <p class="mod-desc">El debate del siglo XX que sigue abierto. ¿Quién asigna mejor los recursos: el mercado libre o el Estado inteligente?</p>
+    <div class="mod-pills"><span class="mod-pill">Orden espontáneo</span><span class="mod-pill">Mont Pèlerin</span><span class="mod-pill">Neoliberalismo</span></div>
     <span class="mod-arrow">→</span>
   </a>
 
-  <div class="mod-card-disabled">
-    <span class="badge-soon">Próximamente</span>
+  <a href="globalizacion.html" class="mod-card">
     <span class="mod-num">04</span>
-    <div>
-      <span class="mod-tag">Módulo XVI · Economía global</span>
-      <p class="mod-title">Globalización y desglobalización</p>
-    </div>
-  </div>
+    <span class="mod-tag">Módulo XVII · Crisis sistémicas</span>
+    <h2 class="mod-title">Globalización y crisis</h2>
+    <p class="mod-desc">El mundo se hizo uno — y descubrimos que cuando todo está conectado, todo puede caer a la vez. Del Tequila a Lehman Brothers.</p>
+    <div class="mod-pills"><span class="mod-pill">Riesgo sistémico</span><span class="mod-pill">Financiarización</span><span class="mod-pill">Slowbalisation</span></div>
+    <span class="mod-arrow">→</span>
+  </a>
 
-  <div class="mod-card-disabled">
-    <span class="badge-soon">Próximamente</span>
+  <a href="nuevo-desorden.html" class="mod-card">
     <span class="mod-num">05</span>
-    <div>
-      <span class="mod-tag">Módulo XVII · Orden mundial</span>
-      <p class="mod-title">El nuevo desorden mundial</p>
-    </div>
-  </div>
-
-  <div class="quote-divider anim-7">
-    <blockquote>"No es de la benevolencia del carnicero, del cervecero o del panadero de donde esperamos nuestra cena, sino de su atención a sus propios intereses."</blockquote>
-    <cite>— Adam Smith, La riqueza de las naciones, 1776</cite>
-  </div>
-
-  <div class="nav-section anim-7">
-    <a href="fase3.html" class="nav-btn">← Fase III · Siglo XIX</a>
-  </div>
-
+    <span class="mod-tag">Módulo XVIII · Geopolítica económica</span>
+    <h2 class="mod-title">El nuevo desorden mundial</h2>
+    <p class="mod-desc">El orden liberal se agrieta. Populismo, autoritarismo digital, fragmentación en bloques. El claroscuro de Gramsci en el siglo XXI.</p>
+    <div class="mod-pills"><span class="mod-pill">Policrisis</span><span class="mod-pill">Trampa de Tucídides</span><span class="mod-pill">Weaponización</span></div>
+    <span class="mod-arrow">→</span>
+  </a>
 </div>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
-    <nav class="footer-nav">
-      <a href="index.html">Inicio</a>
-      <a href="fase3.html">Fase III</a>
-      <a href="https://github.com/Rozoca" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </nav>
-  </div>
-</footer>
+<footer class="footer"><p>© Rodrigo Vidal · <a href="index.html">Filosofía &amp; Política</a> · 2024–2026</p></footer>
 
 <script>
-function toggleDrop(id){
-  const all=document.querySelectorAll('.nav-dropdown');
-  const allBtns=document.querySelectorAll('.nav-item-btn');
-  const target=document.getElementById(id);
-  const isOpen=target.classList.contains('open');
-  all.forEach(d=>d.classList.remove('open'));
-  allBtns.forEach(b=>b.classList.remove('open'));
-  if(!isOpen){
-    target.classList.add('open');
-    target.previousElementSibling.classList.add('open');
-  }
-}
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.nav-item')){
-    document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
-    document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
-  }
-});
+function toggleDD(btn){const w=btn.classList.contains('open');document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});if(!w){btn.classList.add('open');btn.nextElementSibling.classList.add('open')}}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')})});
+const hBtn=document.getElementById('hamburger-btn'),drawer=document.getElementById('mobile-drawer');
+hBtn.addEventListener('click',()=>{const o=drawer.classList.toggle('open');hBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');hBtn.setAttribute('aria-expanded','false');document.body.style.overflow=''}));
 </script>
 </body>
 </html>
