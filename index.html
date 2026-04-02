@@ -1,639 +1,399 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filosofía & Política — Rodrigo Vidal</title>
-  <meta name="description" content="Un recorrido razonado por las ideas que moldean el poder, la justicia y la comunidad política. Por Rodrigo Vidal." />
-  <meta property="og:title" content="Filosofía & Política" />
-  <meta property="og:description" content="Un recorrido razonado por las ideas que moldean el poder, la justicia y la comunidad política." />
-  <meta property="og:type" content="website" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Cormorant+SC:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Filosofía & Política — Portal de pensamiento</title>
+  <meta name="description" content="Portal educativo de filosofía y política para adultos. De Sócrates a Hayek, sin jerga, sin muros de pago. Aprende a pensar, no a repetir."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --parchment:   #f4ead8;
-      --papyrus:     #ede0c4;
-      --marble:      #e8dcc8;
-      --card-bg:     #efe5ce;
-      --card-border: #c8b48a;
-      --terra:       #8c3a1e;
-      --terra-mid:   #b04d28;
-      --terra-dim:   #c47a50;
-      --ink:         #1e1408;
-      --ink-muted:   #5a4530;
-      --disabled-bg: #ddd4bc;
-      --disabled-text:#9a8a6e;
+    /* ═══════════════════════════════════════════
+       FILOSOFÍA & POLÍTICA — INDEX
+       Design: The Athenaeum · Dark editorial
+    ═══════════════════════════════════════════ */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+    :root{
+      --bg:#0f0e0c;
+      --bg-card:#1a1815;
+      --bg-card-hover:#211f1a;
+      --gold:#c9a84c;
+      --gold-dim:#a08530;
+      --gold-bright:#e2c76a;
+      --ivory:#f0ead6;
+      --ivory-soft:#d4cbae;
+      --ivory-muted:#9e9580;
+      --terra:#b8755d;
+      --aegean:#4a7c72;
+      --wine:#7a3b4e;
+      --navy:#2c3e5a;
+      --ink:#f0ead6;
+      --ink-muted:#9e9580;
+      --border:rgba(201,168,76,.15);
+      --border-hover:rgba(201,168,76,.35);
+      --radius:2px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-weight:300;overflow-x:hidden}
 
-    body {
-      background-color: var(--parchment);
-      color: var(--ink);
-      font-family: 'Jost', sans-serif;
-      font-weight: 400;
-      font-size: 17px;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
+    /* ── GRAIN OVERLAY ── */
+    body::after{
+      content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity:.03;mix-blend-mode:overlay
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
+    /* ── NAV ── */
+    .top-nav{
+      position:sticky;top:0;z-index:200;
+      background:rgba(15,14,12,.92);backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+      padding:0 2rem
     }
-
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(180,120,60,.06) 0%, transparent 65%);
-      pointer-events: none;
-      z-index: 0;
+    .top-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-brand{
+      font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;
+      color:var(--gold);text-decoration:none;letter-spacing:.06em;font-style:italic;
+      display:flex;align-items:center;gap:.6rem
     }
+    .nav-brand:hover{color:var(--gold-bright)}
+    .nav-brand svg{width:20px;height:20px;fill:var(--gold);opacity:.7}
 
-    /* ── NAV GLOBAL ── */
-    .top-nav{background:rgba(244,234,216,.97);backdrop-filter:blur(12px);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--card-border)}
-    .top-nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;height:52px}
-    .nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--terra);text-decoration:none;display:flex;align-items:center;letter-spacing:.04em;flex-shrink:0;font-style:italic}
-    .nav-brand:hover{color:var(--terra-mid)}
-    .nav-menu{display:flex;align-items:stretch;gap:0}
+    .nav-menu{display:flex;align-items:stretch;gap:0;height:56px}
     .nav-item{position:relative;display:flex;align-items:stretch}
-    .nav-item-btn{font-family:'Cormorant SC',serif;font-size:.82rem;font-weight:400;letter-spacing:.18em;color:var(--ink-muted);background:none;border:none;cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;white-space:nowrap;height:100%;text-transform:uppercase}
-    .nav-item-btn:hover,.nav-item-btn.active{color:var(--terra)}
-    .nav-item-btn .arrow{font-size:.6rem;transition:transform .2s}
+    .nav-item-btn{
+      font-family:'Cormorant SC',serif;font-size:.8rem;font-weight:400;
+      letter-spacing:.2em;color:var(--ivory-muted);background:none;border:none;
+      cursor:pointer;padding:0 1rem;display:flex;align-items:center;gap:.3rem;
+      transition:color .25s;text-transform:uppercase;height:100%
+    }
+    .nav-item-btn:hover,.nav-item-btn.active{color:var(--gold)}
+    .nav-item-btn .arrow{font-size:.55rem;transition:transform .2s}
     .nav-item-btn.open .arrow{transform:rotate(180deg)}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:rgba(244,234,216,.99);border:1px solid var(--card-border);border-top:none;min-width:260px;z-index:300;display:none}
+
+    .nav-dropdown{
+      position:absolute;top:100%;left:0;
+      background:rgba(26,24,21,.98);backdrop-filter:blur(16px);
+      border:1px solid var(--border);border-top:none;
+      min-width:280px;z-index:300;display:none
+    }
     .nav-dropdown.open{display:block;animation:dropIn .15s ease}
-    @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-    .nav-drop-section{padding:.5rem 0}
-    .nav-drop-section+.nav-drop-section{border-top:1px solid var(--card-border)}
-    .nav-drop-label{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--terra-dim);padding:.4rem 1.2rem .2rem;display:block}
-    .nav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.2rem;font-family:'Jost',sans-serif;font-size:.82rem;font-weight:400;color:var(--ink-muted);text-decoration:none;transition:background .15s,color .15s}
-    .nav-drop-link:hover{background:var(--papyrus);color:var(--terra)}
-    .nav-drop-link.disabled{color:var(--disabled-text);cursor:default;opacity:.5;pointer-events:none}
-    .nav-drop-badge{font-size:.65rem;font-family:'Cormorant SC',serif;letter-spacing:.12em;color:var(--terra-dim);background:rgba(140,58,30,.08);padding:.1rem .4rem;border-radius:1px}
-    .nav-autor-link{font-family:'Cormorant SC',serif;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;padding:0 1rem;display:flex;align-items:center;transition:color .2s}
-    .nav-autor-link:hover{color:var(--terra)}
-    /* ── HAMBURGER ── */
-    .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
-    .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--terra);border-radius:1px;transition:transform .25s, opacity .25s}
-    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-    .nav-hamburger.open span:nth-child(2){opacity:0}
-    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+    .nav-dropdown a{
+      display:block;padding:.65rem 1.2rem;color:var(--ivory-soft);
+      text-decoration:none;font-size:.88rem;border-bottom:1px solid var(--border);
+      transition:all .15s
+    }
+    .nav-dropdown a:last-child{border-bottom:none}
+    .nav-dropdown a:hover{background:rgba(201,168,76,.08);color:var(--gold)}
+    .nav-dropdown .dd-label{
+      font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.2em;
+      color:var(--gold-dim);padding:.8rem 1.2rem .3rem;text-transform:uppercase;
+      cursor:default
+    }
+    .nav-dropdown .dd-label:hover{background:none}
 
-    /* Mobile drawer */
-    .mobile-drawer{display:none;position:fixed;top:52px;left:0;right:0;bottom:0;background:rgba(244,234,216,.98);z-index:199;overflow-y:auto;padding:1rem 0 2rem;border-top:1px solid var(--card-border);transform:translateY(-8px);opacity:0;transition:opacity .2s, transform .2s;pointer-events:none}
-    .mobile-drawer.open{opacity:1;transform:translateY(0);pointer-events:all}
-    .mobile-phase-label{font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--terra-mid);padding:.8rem 1.6rem .3rem;display:block;border-top:1px solid var(--card-border);margin-top:.5rem}
+    .nav-author{
+      font-family:'Cormorant SC',serif;font-size:.8rem;letter-spacing:.15em;
+      color:var(--ivory-muted);text-decoration:none;display:flex;align-items:center;
+      padding:0 .6rem;transition:color .25s;text-transform:uppercase
+    }
+    .nav-author:hover{color:var(--gold)}
+
+    /* hamburger */
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:301}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--gold);margin:5px 0;transition:all .3s;border-radius:1px}
+    .hamburger[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .hamburger[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+    .mobile-drawer{
+      display:none;position:fixed;inset:0;top:56px;
+      background:rgba(15,14,12,.98);backdrop-filter:blur(20px);
+      z-index:250;overflow-y:auto;padding:1.5rem 2rem 4rem;
+      flex-direction:column;gap:.2rem
+    }
+    .mobile-drawer.open{display:flex;animation:drawerIn .2s ease}
+    @keyframes drawerIn{from{opacity:0}to{opacity:1}}
+    .mobile-phase-label{
+      font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.25em;
+      color:var(--gold-dim);text-transform:uppercase;padding:1.2rem 0 .3rem;
+      border-top:1px solid var(--border);margin-top:.5rem
+    }
     .mobile-phase-label:first-child{border-top:none;margin-top:0}
-    .mobile-nav-link{display:block;padding:.65rem 1.6rem;font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;color:var(--ink-muted);text-decoration:none;transition:color .15s,background .15s}
-    .mobile-nav-link:hover{color:var(--terra);background:var(--papyrus)}
-    .mobile-nav-link.disabled{color:var(--disabled-text);pointer-events:none;opacity:.5}
-
-    @media(max-width:700px){
-      .nav-menu{display:none}
-      .nav-hamburger{display:flex}
-      .mobile-drawer{display:block}
+    .mobile-nav-link{
+      color:var(--ivory-soft);text-decoration:none;font-size:.95rem;
+      padding:.55rem 0;transition:color .2s;display:block
     }
+    .mobile-nav-link:hover,.mobile-nav-link:active{color:var(--gold)}
+    .mobile-nav-link.disabled{color:var(--ivory-muted);font-style:italic;pointer-events:none}
 
-    .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
-
-    .meander {
-      width: 100%;
-      height: 18px;
-      display: block;
-      opacity: .6;
+    @media(max-width:800px){
+      .nav-menu,.nav-author{display:none}
+      .hamburger{display:block}
     }
 
-    .column-svg {
-      width: 38px;
-      opacity: .55;
-      flex-shrink: 0;
+    /* ── GREEK KEY LINE ── */
+    .greek-line{
+      width:100%;height:12px;opacity:.2;
+      background:url("data:image/svg+xml,%3Csvg width='48' height='12' viewBox='0 0 48 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6h6v6h12v-6h6V0H12v6H6V0H0z' fill='%23c9a84c' fill-opacity='1'/%3E%3Cpath d='M24 6h6v6h12v-6h6V0H36v6h-6V0h-6z' fill='%23c9a84c' fill-opacity='1'/%3E%3C/svg%3E") repeat-x center
     }
 
-    .wrapper {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 1;
+    /* ── HERO ── */
+    .hero{
+      min-height:85vh;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      text-align:center;padding:4rem 2rem;
+      position:relative;overflow:hidden
+    }
+    .hero::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 60% 50% at 50% 40%, rgba(201,168,76,.06) 0%, transparent 70%);
+      pointer-events:none
     }
 
-    header {
-      padding: 5rem 0 3.5rem;
-      text-align: center;
-      position: relative;
+    /* owl SVG */
+    .hero-owl{
+      width:80px;height:80px;margin-bottom:2rem;opacity:0;
+      animation:owlIn 1.2s .2s ease forwards
+    }
+    @keyframes owlIn{from{opacity:0;transform:translateY(12px) scale(.9)}to{opacity:.6;transform:none}}
+
+    .hero-label{
+      font-family:'Cormorant SC',serif;font-size:.85rem;letter-spacing:.4em;
+      color:var(--gold-dim);text-transform:uppercase;margin-bottom:1.5rem;
+      opacity:0;animation:fadeUp .8s .4s ease forwards
+    }
+    .hero-title{
+      font-family:'Cormorant Garamond',serif;font-weight:300;
+      font-size:clamp(2.8rem,6vw,5rem);line-height:1.12;
+      color:var(--ivory);letter-spacing:-.01em;
+      max-width:800px;margin-bottom:1.5rem;
+      opacity:0;animation:fadeUp .8s .6s ease forwards
+    }
+    .hero-title em{font-style:italic;color:var(--gold);font-weight:300}
+    .hero-rule{
+      width:60px;height:1px;background:var(--gold);margin:0 auto 2rem;
+      opacity:0;animation:fadeUp .8s .8s ease forwards
+    }
+    .hero-subtitle{
+      font-family:'Jost',sans-serif;font-size:1.05rem;font-weight:300;
+      color:var(--ivory-soft);max-width:560px;line-height:1.75;
+      opacity:0;animation:fadeUp .8s 1s ease forwards
+    }
+    .hero-scroll{
+      margin-top:3rem;opacity:0;animation:fadeUp .8s 1.4s ease forwards
+    }
+    .hero-scroll svg{width:24px;height:24px;stroke:var(--gold-dim);animation:bobDown 2s ease-in-out infinite}
+    @keyframes bobDown{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+    /* ── PROPÓSITO ── */
+    .proposito{
+      max-width:720px;margin:0 auto;padding:5rem 2rem;
+      text-align:center
+    }
+    .proposito-label{
+      font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.35em;
+      color:var(--gold-dim);text-transform:uppercase;margin-bottom:1.5rem
+    }
+    .proposito p{
+      font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;
+      color:var(--ivory-soft);line-height:1.85;margin-bottom:1.2rem;
+      font-style:italic
+    }
+    .proposito p strong{font-weight:500;color:var(--ivory);font-style:normal}
+
+    /* 4 pillars */
+    .pillars{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+      max-width:900px;margin:3rem auto 0;
+      border:1px solid var(--border);background:var(--border)
+    }
+    .pillar{
+      background:var(--bg);padding:1.8rem 1.4rem;text-align:center
+    }
+    .pillar-icon{font-size:1.4rem;margin-bottom:.8rem;display:block;opacity:.7}
+    .pillar-title{
+      font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.2em;
+      color:var(--gold);text-transform:uppercase;margin-bottom:.6rem
+    }
+    .pillar-text{font-size:.82rem;color:var(--ivory-muted);line-height:1.6}
+
+    @media(max-width:600px){
+      .pillars{grid-template-columns:repeat(2,1fr)}
     }
 
-    .header-columns {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 2.5rem;
-      margin-bottom: 2rem;
+    /* ── PHASES ── */
+    .phases{max-width:1000px;margin:0 auto;padding:2rem 2rem 6rem}
+    .phases-header{text-align:center;margin-bottom:4rem}
+    .phases-header-label{
+      font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.35em;
+      color:var(--gold-dim);text-transform:uppercase;margin-bottom:1rem
+    }
+    .phases-header h2{
+      font-family:'Cormorant Garamond',serif;font-weight:300;
+      font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--ivory)
     }
 
-    .header-text { flex: 1; max-width: 620px; }
+    .phase-block{margin-bottom:4rem}
+    .phase-label-row{
+      display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;
+      padding-bottom:.8rem;border-bottom:1px solid var(--border)
+    }
+    .phase-num{
+      font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;
+      color:var(--gold);line-height:1;min-width:40px
+    }
+    .phase-info{flex:1}
+    .phase-name{
+      font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;
+      color:var(--ivory);margin-bottom:.2rem
+    }
+    .phase-desc{font-size:.85rem;color:var(--ivory-muted);line-height:1.5}
+    .phase-link{
+      font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.2em;
+      color:var(--gold-dim);text-decoration:none;text-transform:uppercase;
+      transition:color .2s;white-space:nowrap
+    }
+    .phase-link:hover{color:var(--gold)}
 
-    .portal-eyebrow {
-      font-family: 'Cormorant SC', serif;
-      font-size: 1rem;
-      letter-spacing: .38em;
-      color: var(--terra-mid);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      display: block;
+    .mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border)}
+    .mod-cell{
+      background:var(--bg-card);padding:1.3rem 1.2rem;
+      text-decoration:none;color:var(--ivory-soft);
+      transition:all .25s;position:relative;display:block
     }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.4rem, 7vw, 5.4rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--ink);
-      letter-spacing: -.01em;
+    .mod-cell:hover{background:var(--bg-card-hover);color:var(--ivory)}
+    .mod-cell:hover .mod-arrow{opacity:1;transform:translateX(0)}
+    .mod-cell-num{
+      font-family:'Cormorant Garamond',serif;font-size:.8rem;font-weight:300;
+      color:var(--gold-dim);margin-bottom:.3rem
     }
-
-    h1 .amp {
-      color: var(--terra);
-      font-style: italic;
-      font-weight: 400;
+    .mod-cell-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;line-height:1.4}
+    .mod-arrow{
+      position:absolute;top:1.3rem;right:1.2rem;
+      font-size:.8rem;color:var(--gold);opacity:0;
+      transform:translateX(-4px);transition:all .25s
     }
-
-    .header-rule {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 1.6rem auto;
-      max-width: 340px;
-    }
-    .header-rule::before,
-    .header-rule::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--terra-dim));
-    }
-    .header-rule::after {
-      background: linear-gradient(to left, transparent, var(--terra-dim));
-    }
-    .rule-diamond {
-      width: 6px; height: 6px;
-      background: var(--terra-mid);
-      transform: rotate(45deg);
-      flex-shrink: 0;
+    .mod-cell.disabled{pointer-events:none}
+    .mod-cell.disabled .mod-cell-title{color:var(--ivory-muted);font-style:italic}
+    .mod-cell.disabled::after{
+      content:'próximamente';position:absolute;top:1rem;right:1rem;
+      font-size:.65rem;color:var(--gold-dim);font-style:italic;
+      font-family:'Jost',sans-serif;letter-spacing:.05em
     }
 
-    .header-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--ink-muted);
-      line-height: 1.65;
-      max-width: 560px;
-      margin: 0 auto 0.5rem;
+    /* phase color accents */
+    .phase-block[data-phase="1"] .phase-num{color:var(--terra)}
+    .phase-block[data-phase="1"] .mod-cell:hover{border-left:2px solid var(--terra)}
+    .phase-block[data-phase="2"] .phase-num{color:var(--gold)}
+    .phase-block[data-phase="2"] .mod-cell:hover{border-left:2px solid var(--gold)}
+    .phase-block[data-phase="3"] .phase-num{color:var(--wine)}
+    .phase-block[data-phase="3"] .mod-cell:hover{border-left:2px solid var(--wine)}
+    .phase-block[data-phase="4"] .phase-num{color:var(--aegean)}
+    .phase-block[data-phase="4"] .mod-cell:hover{border-left:2px solid var(--aegean)}
+    .phase-block[data-phase="5"] .phase-num{color:var(--navy)}
+
+    /* ── QUOTE BAND ── */
+    .quote-band{
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+      padding:4rem 2rem;text-align:center;
+      background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,.03) 0%, transparent 70%)
     }
-    .quote-attr {
-      font-family: 'Cormorant SC', serif;
-      font-size: .92rem;
-      letter-spacing: .2em;
-      color: var(--terra-dim);
-      display: block;
-      margin-top: .5rem;
+    .quote-band blockquote{
+      font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,1.6rem);
+      font-weight:300;font-style:italic;color:var(--ivory-soft);
+      max-width:700px;margin:0 auto 1rem;line-height:1.65
+    }
+    .quote-band cite{
+      font-family:'Cormorant SC',serif;font-size:.75rem;letter-spacing:.2em;
+      color:var(--gold-dim);font-style:normal;text-transform:uppercase
     }
 
-    .header-quote--bauman {
-      margin-top: 1.4rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid var(--card-border);
+    /* ── FOOTER ── */
+    .footer{
+      text-align:center;padding:3rem 2rem;
+      border-top:1px solid var(--border)
     }
+    .footer-brand{
+      font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;
+      color:var(--ivory-muted);font-style:italic;margin-bottom:.5rem
+    }
+    .footer-copy{font-size:.75rem;color:var(--ivory-muted);opacity:.6}
+    .footer-copy a{color:var(--ivory-muted);text-decoration:none}
+    .footer-copy a:hover{color:var(--gold)}
 
-    .header-tagline {
-      margin-top: 1.8rem;
-      font-size: 1.18rem;
-      color: var(--ink-muted);
-      line-height: 1.85;
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      letter-spacing: .01em;
-    }
-
-    .header-description {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: var(--ink-muted);
-      line-height: 1.85;
-      max-width: 580px;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-    }
-
-    .section-label {
-      font-family: 'Cormorant SC', serif;
-      font-size: .92rem;
-      letter-spacing: .3em;
-      color: var(--terra-mid);
-      text-transform: uppercase;
-      margin-bottom: 1.6rem;
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--card-border);
-    }
-
-
-
-    /* ── CIERRE BAUMAN ── */
-    .bauman-section {
-      padding: 2.5rem 0 3rem;
-      text-align: center;
-      border-top: 1px solid var(--card-border);
-    }
-    .bauman-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--ink-muted);
-      line-height: 1.7;
-      max-width: 580px;
-      margin: 0 auto .6rem;
-    }
-    .bauman-attr {
-      font-family: 'Cormorant SC', serif;
-      font-size: .88rem;
-      letter-spacing: .2em;
-      color: var(--terra-dim);
-      display: block;
-      margin-top: .5rem;
-    }
-    /* ── MANIFESTO ── */
-    .manifesto-section {
-      padding: 2.5rem 0 2.5rem;
-      border-top: 1px solid var(--card-border);
-      border-bottom: 1px solid var(--card-border);
-      margin-bottom: 2.5rem;
-    }
-    .manifesto-lead {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.8;
-      max-width: 680px;
-      margin: 0 auto 1.8rem;
-      text-align: center;
-    }
-    .manifesto-lead em {
-      color: var(--terra);
-      font-style: italic;
-    }
-    .manifesto-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .8rem;
-      justify-content: center;
-    }
-    .manifesto-pill {
-      font-family: 'Cormorant SC', serif;
-      font-size: .82rem;
-      letter-spacing: .15em;
-      color: var(--terra-dim);
-      border: 1px solid var(--card-border);
-      padding: .35rem .9rem;
-      border-radius: 1px;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
-    .manifesto-pill span { font-size: 1rem; }
-    .modules-section { padding: 1rem 0 3rem; }
-
-    .card-active {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 2px;
-      padding: 2.4rem 2.8rem;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 0 2.2rem;
-      align-items: start;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
-      transition: border-color .35s ease, box-shadow .35s ease, transform .25s ease;
-      margin-bottom: 1rem;
-    }
-
-    .card-active::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(140,58,30,.04) 0%, transparent 55%);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity .35s;
-    }
-
-    .card-active:hover {
-      border-color: var(--terra-mid);
-      box-shadow: 0 4px 24px rgba(140,58,30,.10), 0 1px 4px rgba(0,0,0,.06);
-      transform: translateY(-2px);
-    }
-    .card-active:hover::before { opacity: 1; }
-
-    .card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.2rem;
-      font-weight: 300;
-      color: var(--terra-dim);
-      line-height: 1;
-      padding-top: .15rem;
-      letter-spacing: -.03em;
-      transition: color .3s;
-    }
-    .card-active:hover .card-num { color: var(--terra); }
-
-    .card-module-tag {
-      font-family: 'Cormorant SC', serif;
-      font-size: .9rem;
-      letter-spacing: .22em;
-      color: var(--terra-dim);
-      text-transform: uppercase;
-      margin-bottom: .5rem;
-      display: block;
-      transition: color .3s;
-    }
-    .card-active:hover .card-module-tag { color: var(--terra); }
-
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.3rem;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.15;
-      margin-bottom: .8rem;
-    }
-
-    .card-desc {
-      font-size: 1.1rem;
-      color: var(--ink-muted);
-      line-height: 1.8;
-    }
-
-    .card-topics {
-      margin-top: 1.1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .4rem;
-    }
-    .topic-pill {
-      font-family: 'Cormorant SC', serif;
-      font-size: .85rem;
-      letter-spacing: .12em;
-      color: var(--terra-dim);
-      border: 1px solid var(--card-border);
-      padding: .3rem .75rem;
-      border-radius: 1px;
-      transition: border-color .3s, color .3s;
-    }
-    .card-active:hover .topic-pill {
-      border-color: var(--terra-dim);
-      color: var(--terra-mid);
-    }
-
-    .card-arrow {
-      align-self: center;
-      font-size: 1.3rem;
-      color: var(--terra-dim);
-      transition: transform .3s, color .3s;
-    }
-    .card-active:hover .card-arrow {
-      transform: translateX(5px);
-      color: var(--terra);
-    }
-
-    .card-badge-active {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
-      font-family: 'Cormorant SC', serif;
-      font-size: .7rem;
-      letter-spacing: .18em;
-      color: var(--terra-mid);
-      border: 1px solid var(--terra-dim);
-      padding: .25rem .6rem;
-      border-radius: 1px;
-    }
-
-    .coming-section { padding: 0 0 4rem; }
-
-    .card-disabled {
-      background: var(--disabled-bg);
-      border: 1px solid #c8b898;
-      border-radius: 2px;
-      padding: 1.8rem 2.8rem;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 0 2.2rem;
-      align-items: center;
-      opacity: .55;
-      cursor: default;
-    }
-
-    .card-disabled .card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.2rem;
-      font-weight: 300;
-      color: var(--disabled-text);
-      line-height: 1;
-    }
-
-    .card-disabled .card-module-tag {
-      font-family: 'Cormorant SC', serif;
-      font-size: .9rem;
-      letter-spacing: .22em;
-      color: var(--disabled-text);
-      text-transform: uppercase;
-      margin-bottom: .3rem;
-      display: block;
-    }
-
-    .card-disabled .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.7rem;
-      font-weight: 300;
-      color: var(--disabled-text);
-      line-height: 1.2;
-    }
-
-    .badge-soon {
-      font-family: 'Cormorant SC', serif;
-      font-size: .72rem;
-      letter-spacing: .18em;
-      color: var(--disabled-text);
-      border: 1px solid #bba880;
-      padding: .25rem .6rem;
-      border-radius: 1px;
-    }
-
-    footer {
-      border-top: 1px solid var(--card-border);
-      padding: 2.5rem 0 3rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.08rem;
-      color: var(--ink-muted);
-    }
-    .footer-brand strong {
-      color: var(--ink);
-      font-weight: 400;
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
-      font-family: 'Cormorant SC', serif;
-      font-size: .85rem;
-      letter-spacing: .18em;
-      color: var(--ink-muted);
-      text-decoration: none;
-      transition: color .25s;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
-    .footer-links a:hover { color: var(--terra); }
-
-    .gh-icon { width: 14px; height: 14px; fill: currentColor; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .anim-1 { animation: fadeUp .7s ease both; }
-    .anim-2 { animation: fadeUp .7s .12s ease both; }
-    .anim-3 { animation: fadeUp .7s .22s ease both; }
-    .anim-4 { animation: fadeUp .7s .32s ease both; }
-    .anim-5 { animation: fadeUp .7s .44s ease both; }
-    .anim-6 { animation: fadeUp .7s .56s ease both; }
-    .anim-7 { animation: fadeUp .7s .68s ease both; }
-
-    @media (max-width: 600px) {
-      .column-svg { display: none; }
-      .header-columns { gap: 0; }
-      .card-active, .card-disabled {
-        grid-template-columns: auto 1fr;
-        padding: 1.8rem 1.4rem;
-      }
-      .card-arrow { display: none; }
-      .card-badge-active { position: static; margin-bottom: .6rem; display: inline-block; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal{opacity:0;transform:translateY(20px);transition:all .7s ease}
+    .reveal.visible{opacity:1;transform:none}
   </style>
 </head>
 <body>
 
-<!-- ══════════ NAV GLOBAL ══════════ -->
+<!-- ══════════ NAV ══════════ -->
 <nav class="top-nav">
   <div class="top-nav-inner">
-    <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      Filosofía &amp; Política
+    </a>
+
     <div class="nav-menu">
+      <!-- Fase I -->
       <div class="nav-item">
-        <button class="nav-item-btn active" onclick="toggleDrop('d1')">Fase I <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d1">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Antigüedad griega</span>
-            <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
-            <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
-            <a href="estoicismo.html" class="nav-drop-link">El Estoicismo</a>
-            <a href="tomas-de-aquino.html" class="nav-drop-link">Tomás de Aquino</a>
-          </div>
+        <button class="nav-item-btn" onclick="toggleDD(this)">Fase I <span class="arrow">▾</span></button>
+        <div class="nav-dropdown">
+          <span class="dd-label">Antigüedad Clásica</span>
+          <a href="grecia-socrates-platon.html">Sócrates &amp; Platón</a>
+          <a href="aristoteles-politica.html">Aristóteles</a>
+          <a href="estoicismo.html">El Estoicismo</a>
+          <a href="tomas-de-aquino.html">Tomás de Aquino</a>
         </div>
       </div>
+      <!-- Fase II -->
       <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d2')">Fase II <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d2">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Renacimiento &amp; Modernidad</span>
-            <a href="maquiavelo.html" class="nav-drop-link">Maquiavelo</a>
-            <a href="hobbes.html" class="nav-drop-link">Hobbes y el Leviatán</a>
-            <a href="locke.html" class="nav-drop-link">Locke y los derechos naturales</a>
-            <a href="rousseau.html" class="nav-drop-link">Rousseau</a>
-            <a href="kant.html" class="nav-drop-link">Kant y la razón universal</a>
-          </div>
+        <button class="nav-item-btn" onclick="toggleDD(this)">Fase II <span class="arrow">▾</span></button>
+        <div class="nav-dropdown">
+          <span class="dd-label">Renacimiento &amp; Modernidad</span>
+          <a href="maquiavelo.html">Maquiavelo</a>
+          <a href="hobbes.html">Hobbes</a>
+          <a href="locke.html">Locke</a>
+          <a href="rousseau.html">Rousseau</a>
+          <a href="kant.html">Kant</a>
         </div>
       </div>
+      <!-- Fase III -->
       <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d3')">Fase III <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d3">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Siglo XIX · Ideologías</span>
-            <a href="marx.html" class="nav-drop-link">Marx y el Capital</a>
-            <a href="mill.html" class="nav-drop-link">Mill y la libertad</a>
-            <a href="tocqueville.html" class="nav-drop-link">Tocqueville y la democracia</a>
-            <a href="nietzsche.html" class="nav-drop-link">Nietzsche y el martillo</a>
-          </div>
-          <div class="nav-drop-section">
-            <a href="epilogo-fase3.html" class="nav-drop-link">✦ Epílogo — Las sombras del XIX</a>
-          </div>
+        <button class="nav-item-btn" onclick="toggleDD(this)">Fase III <span class="arrow">▾</span></button>
+        <div class="nav-dropdown">
+          <span class="dd-label">Siglo XIX · Ideologías</span>
+          <a href="marx.html">Marx</a>
+          <a href="mill.html">Mill</a>
+          <a href="tocqueville.html">Tocqueville</a>
+          <a href="nietzsche.html">Nietzsche</a>
+          <a href="epilogo-fase3.html">✦ Epílogo</a>
         </div>
       </div>
+      <!-- Fase IV -->
       <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d4')">Fase IV <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d4">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Economía Política</span>
-            <a href="smith.html" class="nav-drop-link">Adam Smith</a>
-            <a href="keynes.html" class="nav-drop-link">Keynes</a>
-            <a href="hayek-keynes.html" class="nav-drop-link">Hayek vs. Keynes</a>
-            <a href="#" class="nav-drop-link disabled">Globalización <span class="nav-drop-badge">Próx.</span></a>
-            <a href="#" class="nav-drop-link disabled">El nuevo desorden mundial <span class="nav-drop-badge">Próx.</span></a>
-          </div>
+        <button class="nav-item-btn" onclick="toggleDD(this)">Fase IV <span class="arrow">▾</span></button>
+        <div class="nav-dropdown">
+          <span class="dd-label">Economía Política</span>
+          <a href="smith.html">Adam Smith</a>
+          <a href="keynes.html">Keynes</a>
+          <a href="hayek-keynes.html">Hayek vs. Keynes</a>
         </div>
       </div>
-      <a href="autor.html" class="nav-autor-link">Sobre el autor</a>
     </div>
-    <!-- Hamburger button (mobile only) -->
-    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+
+    <a href="autor.html" class="nav-author">Autor</a>
+
+    <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -646,319 +406,262 @@
   <a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a>
   <a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a>
   <a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
-
   <span class="mobile-phase-label">Fase II — Renacimiento &amp; Modernidad</span>
   <a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a>
   <a href="hobbes.html" class="mobile-nav-link">Hobbes y el Leviatán</a>
   <a href="locke.html" class="mobile-nav-link">Locke y los derechos naturales</a>
   <a href="rousseau.html" class="mobile-nav-link">Rousseau</a>
   <a href="kant.html" class="mobile-nav-link">Kant y la razón universal</a>
-
   <span class="mobile-phase-label">Fase III — Siglo XIX · Ideologías</span>
   <a href="marx.html" class="mobile-nav-link">Marx y el Capital</a>
   <a href="mill.html" class="mobile-nav-link">Mill y la libertad</a>
   <a href="tocqueville.html" class="mobile-nav-link">Tocqueville y la democracia</a>
   <a href="nietzsche.html" class="mobile-nav-link">Nietzsche y el martillo</a>
   <a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo — Las sombras del XIX</a>
-
   <span class="mobile-phase-label">Fase IV — Economía Política</span>
   <a href="smith.html" class="mobile-nav-link">Adam Smith</a>
   <a href="keynes.html" class="mobile-nav-link">Keynes</a>
   <a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a>
-  <a href="#" class="mobile-nav-link disabled">Globalización · próximamente</a>
-  <a href="#" class="mobile-nav-link disabled">El nuevo desorden mundial · próximamente</a>
-
   <span class="mobile-phase-label">Más</span>
   <a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
 </div>
 
-<!-- ══ SVG Assets ══ -->
-<svg class="svg-defs" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <pattern id="meander-pat" x="0" y="0" width="40" height="18" patternUnits="userSpaceOnUse">
-      <path d="M0,9 L4,9 L4,4 L12,4 L12,14 L8,14 L8,9 L16,9 L16,4 L20,4 L20,14 L24,14 L24,9 L28,9 L28,4 L36,4 L36,14 L32,14 L32,9 L40,9"
-            fill="none" stroke="%238c3a1e" stroke-width="1.2"/>
-    </pattern>
-  </defs>
-</svg>
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
 
-<div class="wrapper">
+  <!-- Owl of Athena SVG -->
+  <svg class="hero-owl" viewBox="0 0 100 100" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- head -->
+    <circle cx="50" cy="32" r="18"/>
+    <!-- eyes -->
+    <circle cx="43" cy="30" r="5"/><circle cx="57" cy="30" r="5"/>
+    <circle cx="43" cy="30" r="2" fill="var(--gold)"/><circle cx="57" cy="30" r="2" fill="var(--gold)"/>
+    <!-- beak -->
+    <path d="M48 35 L50 38 L52 35"/>
+    <!-- ear tufts -->
+    <path d="M35 18 L38 26"/><path d="M65 18 L62 26"/>
+    <!-- body -->
+    <path d="M35 46 Q35 72 50 78 Q65 72 65 46"/>
+    <!-- wings -->
+    <path d="M35 50 Q22 55 28 70 Q32 65 35 60"/>
+    <path d="M65 50 Q78 55 72 70 Q68 65 65 60"/>
+    <!-- feet -->
+    <path d="M44 78 L42 84 M44 78 L46 84"/><path d="M56 78 L54 84 M56 78 L58 84"/>
+    <!-- feather lines -->
+    <path d="M42 52 Q50 58 58 52" opacity=".5"/>
+    <path d="M40 60 Q50 66 60 60" opacity=".4"/>
+    <path d="M42 68 Q50 73 58 68" opacity=".3"/>
+  </svg>
 
-  <!-- ══════════ HEADER ══════════ -->
-  <header>
-    <div class="header-columns">
+  <p class="hero-label">Portal de pensamiento</p>
+  <h1 class="hero-title">Filosofía <em>&amp;</em> Política</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-subtitle">
+    De Sócrates a Hayek. Sin jerga, sin muros de pago, sin atajos.<br>
+    Un portal para quien quiere aprender a pensar — no a repetir.
+  </p>
 
-      <svg class="column-svg anim-1" viewBox="0 0 38 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="0" width="28" height="8" fill="#8c3a1e"/>
-        <rect x="8" y="8" width="22" height="5" fill="#b04d28"/>
-        <rect x="10" y="13" width="18" height="3" fill="#8c3a1e"/>
-        <rect x="14" y="16" width="10" height="118" fill="#a06040"/>
-        <rect x="10" y="134" width="18" height="3" fill="#8c3a1e"/>
-        <rect x="8" y="137" width="22" height="4" fill="#b04d28"/>
-        <rect x="5" y="141" width="28" height="8" fill="#8c3a1e"/>
-        <rect x="2" y="149" width="34" height="5" fill="#b04d28"/>
-        <rect x="0" y="154" width="38" height="6" fill="#8c3a1e"/>
-      </svg>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
 
-      <div class="header-text">
-        <span class="portal-eyebrow anim-1">Portal de estudio</span>
+<div class="greek-line"></div>
 
-        <h1 class="anim-2">
-          Filosofía<br/><span class="amp">&</span> Política
-        </h1>
+<!-- ══════════ PROPÓSITO ══════════ -->
+<section class="proposito reveal">
+  <p class="proposito-label">Por qué existe este portal</p>
+  <p>
+    Nació de una decisión personal: aprender filosofía y política con rigor, 
+    <strong>sin necesitar un título para hacerlo</strong>. Lo que empezó como un ejercicio 
+    autodidacta se convirtió en esto — un espacio pensado para adultos con curiosidad 
+    pero sin tiempo de leer cuatro tomos.
+  </p>
+  <p>
+    Cada módulo traduce siglos de pensamiento en algo que se puede <strong>leer, entender 
+    y cuestionar</strong> en una tarde. No es arqueología intelectual — es una caja de 
+    herramientas para leer lo que pasa hoy.
+  </p>
 
-        <div class="header-rule anim-3">
-          <span class="rule-diamond"></span>
-        </div>
-
-        <blockquote class="header-quote anim-3">
-          "El hombre es, por naturaleza, un animal político."
-          <cite class="quote-attr">— Aristóteles, Política · s. IV a.C.</cite>
-        </blockquote>
-
-        <p class="header-tagline anim-4">
-          En la era de la Inteligencia Artificial, pensar sigue siendo el acto más radical.<br/>
-          Este espacio existe para no dejar de hacerlo.
-        </p>
-
-        <p class="header-description anim-4">
-          Un recorrido razonado por las ideas que moldean el poder, la justicia y la comunidad política —
-          desde la Atenas clásica hasta los debates urgentes de una era en la que las máquinas piensan,
-          pero los ciudadanos no pueden dejar de hacerlo.
-        </p>
-      </div>
-
-      <svg class="column-svg anim-1" viewBox="0 0 38 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="0" width="28" height="8" fill="#8c3a1e"/>
-        <rect x="8" y="8" width="22" height="5" fill="#b04d28"/>
-        <rect x="10" y="13" width="18" height="3" fill="#8c3a1e"/>
-        <rect x="14" y="16" width="10" height="118" fill="#a06040"/>
-        <rect x="10" y="134" width="18" height="3" fill="#8c3a1e"/>
-        <rect x="8" y="137" width="22" height="4" fill="#b04d28"/>
-        <rect x="5" y="141" width="28" height="8" fill="#8c3a1e"/>
-        <rect x="2" y="149" width="34" height="5" fill="#b04d28"/>
-        <rect x="0" y="154" width="38" height="6" fill="#8c3a1e"/>
-      </svg>
-
+  <div class="pillars">
+    <div class="pillar">
+      <span class="pillar-icon">🏛️</span>
+      <p class="pillar-title">Para no especialistas</p>
+      <p class="pillar-text">Sin jerga innecesaria. Sin asumir que ya lo sabes.</p>
     </div>
-
-    <svg class="meander anim-5" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <rect width="100%" height="100%" fill="url(#meander-pat)"/>
-    </svg>
-  </header>
-
-  <!-- ══════════ MANIFIESTO ══════════ -->
-  <section class="manifesto-section anim-5">
-    <p class="manifesto-lead">
-      Un portal para <em>aprender filosofía y política sin necesitar un título</em> para hacerlo.
-      Para quien tiene curiosidad pero no tiempo de leer cuatro tomos.<br/>
-      Para quien quiere entender a Marx sin convertirse en marxista —
-      y necesita conocer el pasado para leer lo que ocurre hoy.<br/>
-      Para <em>mentes inquietas</em>, para futuros estudiantes de ciencias sociales, política o economía,
-      y para curiosos que saben que las grandes preguntas no tienen fecha de caducidad.
-    </p>
-    <div class="manifesto-pills">
-      <span class="manifesto-pill"><span>🏛️</span> Para no especialistas</span>
-      <span class="manifesto-pill"><span>🔗</span> Conectado al presente</span>
-      <span class="manifesto-pill"><span>🌐</span> Acceso libre</span>
-      <span class="manifesto-pill"><span>📐</span> En construcción permanente</span>
+    <div class="pillar">
+      <span class="pillar-icon">🔗</span>
+      <p class="pillar-title">Conectado al presente</p>
+      <p class="pillar-text">Cada pensador tiene un espejo en 2025.</p>
     </div>
-  </section>
-
-  <!-- ══════════ MODULES ══════════ -->
-  <section class="modules-section anim-5">
-    <p class="section-label">Módulos disponibles</p>
-
-    <a href="grecia-socrates-platon.html" class="card-active" aria-label="Ir al Módulo 1: Sócrates y Platón">
-      <span class="card-badge-active">Disponible</span>
-      <span class="card-num">01</span>
-      <div class="card-body">
-        <span class="card-module-tag">Módulo I · Grecia Clásica</span>
-        <h2 class="card-title">Sócrates y Platón</h2>
-        <p class="card-desc">
-          El nacimiento de la filosofía política occidental. La ciudad justa, el filósofo-rey,
-          el problema del conocimiento como fundamento del poder y la muerte de Sócrates
-          como acto político.
-        </p>
-        <div class="card-topics">
-          <span class="topic-pill">La República</span>
-          <span class="topic-pill">El método socrático</span>
-          <span class="topic-pill">Epistemología política</span>
-          <span class="topic-pill">Justicia & alma</span>
-        </div>
-      </div>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-
-    <a href="aristoteles-politica.html" class="card-active" aria-label="Ir al Módulo 2: Aristóteles y la Política">
-      <span class="card-badge-active">Disponible</span>
-      <span class="card-num">02</span>
-      <div class="card-body">
-        <span class="card-module-tag">Módulo II · Grecia Clásica</span>
-        <h2 class="card-title">Aristóteles y la Política</h2>
-        <p class="card-desc">
-          El hombre que clasificó todo el conocimiento humano. La eudaimonía, el zoon politikon,
-          la constitución mixta y el papel de la clase media — y por qué sigue siendo
-          el pensador más influyente de Occidente.
-        </p>
-        <div class="card-topics">
-          <span class="topic-pill">Zoon politikon</span>
-          <span class="topic-pill">Eudaimonía</span>
-          <span class="topic-pill">Los seis regímenes</span>
-          <span class="topic-pill">Platón vs Aristóteles</span>
-        </div>
-      </div>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-
-    <a href="estoicismo.html" class="card-active" aria-label="Ir al Módulo 3: El Estoicismo">
-      <span class="card-badge-active">Disponible</span>
-      <span class="card-num">03</span>
-      <div class="card-body">
-        <span class="card-module-tag">Módulo III · Roma & Helenismo</span>
-        <h2 class="card-title">El Estoicismo</h2>
-        <p class="card-desc">
-          La filosofía que bajó del cielo a la calle. Epicteto, Séneca y Marco Aurelio:
-          tres vidas radicalmente distintas, una misma disciplina — distinguir lo que depende
-          de ti de lo que no, y actuar en consecuencia. Resiliencia, ética y conducta
-          para la vida práctica, desde Roma hasta hoy.
-        </p>
-        <div class="card-topics">
-          <span class="topic-pill">Dicotomía del control</span>
-          <span class="topic-pill">Virtud (areté)</span>
-          <span class="topic-pill">Resiliencia</span>
-          <span class="topic-pill">Legado en la TCC</span>
-        </div>
-      </div>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-
-    <a href="tomas-de-aquino.html" class="card-active" aria-label="Ir al Módulo 4: Tomás de Aquino">
-      <span class="card-badge-active">Nuevo</span>
-      <span class="card-num">04</span>
-      <div class="card-body">
-        <span class="card-module-tag">Módulo IV · La Síntesis Medieval</span>
-        <h2 class="card-title">Tomás de Aquino</h2>
-        <p class="card-desc">
-          El hombre que demostró que fe y razón no son enemigas. Las Cinco Vías para probar
-          a Dios mediante la lógica, la ley natural, y el puente intelectual más ambicioso
-          entre ciencia y religión — un puente que sigue en pie 750 años después.
-        </p>
-        <div class="card-topics">
-          <span class="topic-pill">Fe & Razón</span>
-          <span class="topic-pill">Las Cinco Vías</span>
-          <span class="topic-pill">Ley natural</span>
-          <span class="topic-pill">Aristóteles + Cristianismo</span>
-        </div>
-      </div>
-      <span class="card-arrow" aria-hidden="true">→</span>
-    </a>
-  </section>
-
-  <!-- ══════════ CONTINUAR ══════════ -->
-  <section class="coming-section anim-7" style="text-align:center; padding: 2rem 0 4rem;">
-    <p class="section-label">Continuar</p>
-    <a href="fase2.html" style="
-      display: inline-flex; align-items: center; gap: .6rem;
-      font-family: 'Cormorant SC', serif;
-      font-size: 1.05rem; letter-spacing: .2em;
-      color: var(--terra); text-decoration: none;
-      border: 1px solid var(--terra-dim);
-      padding: .9rem 2.2rem; border-radius: 2px;
-      transition: all .25s;
-    " onmouseover="this.style.background='var(--terra)';this.style.color='var(--parchment)';this.style.borderColor='var(--terra)'"
-       onmouseout="this.style.background='transparent';this.style.color='var(--terra)';this.style.borderColor='var(--terra-dim)'">
-      Fase II → Renacimiento &amp; Modernidad
-    </a>
-  </section>
-
-  <!-- ══════════ CITAS CIERRE ══════════ -->
-  <section class="bauman-section anim-7">
-
-    <blockquote class="bauman-quote">
-      "Sapere aude. Ten el valor de servirte de tu propia razón."
-    </blockquote>
-    <cite class="bauman-attr">— Immanuel Kant · ¿Qué es la Ilustración? · 1784</cite>
-
-    <blockquote class="bauman-quote" style="margin-top:2rem;">
-      "Es mejor ser Sócrates insatisfecho que un necio satisfecho."
-    </blockquote>
-    <cite class="bauman-attr">— John Stuart Mill · El utilitarismo · 1863</cite>
-
-    <blockquote class="bauman-quote" style="margin-top:2rem;">
-      "En un mundo líquido, quienes abandonan el pensamiento crítico quedan a merced de las corrientes."
-    </blockquote>
-    <cite class="bauman-attr">— Zygmunt Bauman · Modernidad Líquida</cite>
-
-  </section>
-
-
-</div>
-
-<!-- ══════════ FOOTER ══════════ -->
-<footer>
-  <div class="wrapper">
-    <svg class="meander" style="margin-bottom:2rem;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <rect width="100%" height="100%" fill="url(#meander-pat)"/>
-    </svg>
-
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <strong>Rodrigo Vidal</strong> · Filosofía &amp; Política
-      </div>
-      <nav class="footer-links" aria-label="Enlaces externos">
-        <a href="autor.html">Sobre el autor</a>
-        <a href="https://github.com/Rozoca" target="_blank" rel="noopener noreferrer">
-          <svg class="gh-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-          </svg>
-          GitHub
-        </a>
-      </nav>
+    <div class="pillar">
+      <span class="pillar-icon">🌐</span>
+      <p class="pillar-title">Acceso libre</p>
+      <p class="pillar-text">Sin suscripción. Sin muro de pago.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">📐</span>
+      <p class="pillar-title">En construcción</p>
+      <p class="pillar-text">El portal crece con cada módulo nuevo.</p>
     </div>
   </div>
+</section>
+
+<div class="greek-line"></div>
+
+<!-- ══════════ FASES ══════════ -->
+<section class="phases">
+  <div class="phases-header reveal">
+    <p class="phases-header-label">Itinerario</p>
+    <h2>Cuatro fases, diecisiete módulos, una quinta en camino</h2>
+  </div>
+
+  <!-- FASE I -->
+  <div class="phase-block reveal" data-phase="1">
+    <div class="phase-label-row">
+      <span class="phase-num">I</span>
+      <div class="phase-info">
+        <p class="phase-name">Antigüedad Clásica</p>
+        <p class="phase-desc">Donde nace la pregunta: ¿cómo debemos vivir juntos?</p>
+      </div>
+      <a href="fase1.html" class="phase-link" aria-label="Ver Fase I">Ver fase →</a>
+    </div>
+    <div class="mod-grid">
+      <a href="grecia-socrates-platon.html" class="mod-cell"><span class="mod-cell-num">I</span><p class="mod-cell-title">Sócrates &amp; Platón</p><span class="mod-arrow">→</span></a>
+      <a href="aristoteles-politica.html" class="mod-cell"><span class="mod-cell-num">II</span><p class="mod-cell-title">Aristóteles y la Política</p><span class="mod-arrow">→</span></a>
+      <a href="estoicismo.html" class="mod-cell"><span class="mod-cell-num">III</span><p class="mod-cell-title">El Estoicismo</p><span class="mod-arrow">→</span></a>
+      <a href="tomas-de-aquino.html" class="mod-cell"><span class="mod-cell-num">IV</span><p class="mod-cell-title">Tomás de Aquino</p><span class="mod-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- FASE II -->
+  <div class="phase-block reveal" data-phase="2">
+    <div class="phase-label-row">
+      <span class="phase-num">II</span>
+      <div class="phase-info">
+        <p class="phase-name">Renacimiento &amp; Modernidad</p>
+        <p class="phase-desc">El poder deja de justificarse por Dios. Nace la ciencia política.</p>
+      </div>
+      <a href="fase2.html" class="phase-link" aria-label="Ver Fase II">Ver fase →</a>
+    </div>
+    <div class="mod-grid">
+      <a href="maquiavelo.html" class="mod-cell"><span class="mod-cell-num">V</span><p class="mod-cell-title">Maquiavelo</p><span class="mod-arrow">→</span></a>
+      <a href="hobbes.html" class="mod-cell"><span class="mod-cell-num">VI</span><p class="mod-cell-title">Hobbes y el Leviatán</p><span class="mod-arrow">→</span></a>
+      <a href="locke.html" class="mod-cell"><span class="mod-cell-num">VII</span><p class="mod-cell-title">Locke y los derechos naturales</p><span class="mod-arrow">→</span></a>
+      <a href="rousseau.html" class="mod-cell"><span class="mod-cell-num">VIII</span><p class="mod-cell-title">Rousseau y el contrato social</p><span class="mod-arrow">→</span></a>
+      <a href="kant.html" class="mod-cell"><span class="mod-cell-num">IX</span><p class="mod-cell-title">Kant y la razón universal</p><span class="mod-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- FASE III -->
+  <div class="phase-block reveal" data-phase="3">
+    <div class="phase-label-row">
+      <span class="phase-num">III</span>
+      <div class="phase-info">
+        <p class="phase-name">Siglo XIX · Ideologías y Revolución</p>
+        <p class="phase-desc">Las ideas bajan a la calle. La filosofía se convierte en programa político.</p>
+      </div>
+      <a href="fase3.html" class="phase-link" aria-label="Ver Fase III">Ver fase →</a>
+    </div>
+    <div class="mod-grid">
+      <a href="marx.html" class="mod-cell"><span class="mod-cell-num">X</span><p class="mod-cell-title">Marx y el Capital</p><span class="mod-arrow">→</span></a>
+      <a href="mill.html" class="mod-cell"><span class="mod-cell-num">XI</span><p class="mod-cell-title">Mill y la libertad individual</p><span class="mod-arrow">→</span></a>
+      <a href="tocqueville.html" class="mod-cell"><span class="mod-cell-num">XII</span><p class="mod-cell-title">Tocqueville y la democracia</p><span class="mod-arrow">→</span></a>
+      <a href="nietzsche.html" class="mod-cell"><span class="mod-cell-num">XIII</span><p class="mod-cell-title">Nietzsche y la voluntad de poder</p><span class="mod-arrow">→</span></a>
+      <a href="epilogo-fase3.html" class="mod-cell"><span class="mod-cell-num">✦</span><p class="mod-cell-title">Epílogo — Las sombras del XIX</p><span class="mod-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- FASE IV -->
+  <div class="phase-block reveal" data-phase="4">
+    <div class="phase-label-row">
+      <span class="phase-num">IV</span>
+      <div class="phase-info">
+        <p class="phase-name">Economía Política</p>
+        <p class="phase-desc">Cómo el poder organiza la riqueza — y cómo la riqueza organiza el poder.</p>
+      </div>
+      <a href="fase4.html" class="phase-link" aria-label="Ver Fase IV">Ver fase →</a>
+    </div>
+    <div class="mod-grid">
+      <a href="smith.html" class="mod-cell"><span class="mod-cell-num">XIV</span><p class="mod-cell-title">Adam Smith</p><span class="mod-arrow">→</span></a>
+      <a href="keynes.html" class="mod-cell"><span class="mod-cell-num">XV</span><p class="mod-cell-title">Keynes y la demanda</p><span class="mod-arrow">→</span></a>
+      <a href="hayek-keynes.html" class="mod-cell"><span class="mod-cell-num">XVI</span><p class="mod-cell-title">Hayek vs. Keynes</p><span class="mod-arrow">→</span></a>
+      <div class="mod-cell disabled"><span class="mod-cell-num">XVII</span><p class="mod-cell-title">Globalización y crisis</p></div>
+      <div class="mod-cell disabled"><span class="mod-cell-num">XVIII</span><p class="mod-cell-title">El nuevo desorden mundial</p></div>
+    </div>
+  </div>
+
+  <!-- FASE V — teaser -->
+  <div class="phase-block reveal" data-phase="5">
+    <div class="phase-label-row">
+      <span class="phase-num">V</span>
+      <div class="phase-info">
+        <p class="phase-name">Estrategia e Inteligencia</p>
+        <p class="phase-desc">Cómo piensan los Estados y las organizaciones cuando el entorno es incierto.</p>
+      </div>
+      <span class="phase-link" style="color:var(--ivory-muted);cursor:default;font-style:italic">En preparación</span>
+    </div>
+    <div class="mod-grid">
+      <div class="mod-cell disabled"><span class="mod-cell-num">XIX</span><p class="mod-cell-title">Sun Tzu &amp; Clausewitz</p></div>
+      <div class="mod-cell disabled"><span class="mod-cell-num">XX</span><p class="mod-cell-title">Geopolítica</p></div>
+      <div class="mod-cell disabled"><span class="mod-cell-num">XXI</span><p class="mod-cell-title">Inteligencia como poder</p></div>
+      <div class="mod-cell disabled"><span class="mod-cell-num">XXII</span><p class="mod-cell-title">Estrategia empresarial</p></div>
+      <div class="mod-cell disabled"><span class="mod-cell-num">XXIII</span><p class="mod-cell-title">El sistema híbrido</p></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════ CITA CIERRE ══════════ -->
+<section class="quote-band">
+  <blockquote>
+    «Sapere aude. Ten el valor de servirte de tu propia razón.»
+  </blockquote>
+  <cite>Immanuel Kant · ¿Qué es la Ilustración? · 1784</cite>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <p class="footer-brand">Filosofía &amp; Política</p>
+  <p class="footer-copy">
+    © Rodrigo Vidal · 2024–2026 · 
+    <a href="https://rozoca.github.io/filosofia-politica/">rozoca.github.io/filosofia-politica</a>
+  </p>
 </footer>
 
 <script>
-// Desktop dropdowns
-function toggleDrop(id){
-  const all=document.querySelectorAll('.nav-dropdown');
-  const allBtns=document.querySelectorAll('.nav-item-btn');
-  const target=document.getElementById(id);
-  const isOpen=target.classList.contains('open');
-  all.forEach(d=>d.classList.remove('open'));
-  allBtns.forEach(b=>b.classList.remove('open'));
-  if(!isOpen){
-    target.classList.add('open');
-    target.previousElementSibling.classList.add('open');
-  }
+/* ── Dropdown nav ── */
+function toggleDD(btn){
+  const wasOpen=btn.classList.contains('open');
+  document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
+  if(!wasOpen){btn.classList.add('open');btn.nextElementSibling.classList.add('open')}
 }
 document.addEventListener('click',e=>{
   if(!e.target.closest('.nav-item')){
-    document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
-    document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
+    document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
   }
 });
 
-// Mobile hamburger
-const hamburger = document.getElementById('hamburger');
-const drawer = document.getElementById('mobile-drawer');
-hamburger.addEventListener('click', () => {
-  const isOpen = drawer.classList.contains('open');
-  drawer.classList.toggle('open', !isOpen);
-  hamburger.classList.toggle('open', !isOpen);
-  hamburger.setAttribute('aria-expanded', String(!isOpen));
-  drawer.setAttribute('aria-hidden', String(isOpen));
-  document.body.style.overflow = isOpen ? '' : 'hidden';
+/* ── Hamburger ── */
+const hBtn=document.getElementById('hamburger-btn');
+const drawer=document.getElementById('mobile-drawer');
+hBtn.addEventListener('click',()=>{
+  const open=drawer.classList.toggle('open');
+  hBtn.setAttribute('aria-expanded',open);
+  drawer.setAttribute('aria-hidden',!open);
+  document.body.style.overflow=open?'hidden':'';
 });
-// Close drawer when a link is tapped
-drawer.querySelectorAll('.mobile-nav-link:not(.disabled)').forEach(link => {
-  link.addEventListener('click', () => {
-    drawer.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  drawer.classList.remove('open');hBtn.setAttribute('aria-expanded','false');
+  drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';
+}));
+
+/* ── Scroll reveal ── */
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+
 </body>
 </html>
