@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Filosofía & Política — Portal de pensamiento</title>
-  <meta name="description" content="Portal educativo de filosofía y política para adultos. De Sócrates a Hayek, sin jerga, sin muros de pago. Aprende a pensar, no a repetir."/>
+  <meta name="description" content="Portal educativo de filosofía y política. Un portal para entender de dónde vienen las ideas que gobiernan el mundo."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -16,23 +16,23 @@
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
     :root{
-      --bg:#0f0e0c;
-      --bg-card:#1a1815;
-      --bg-card-hover:#211f1a;
+      --bg:#1e1b16;
+      --bg-card:#28241d;
+      --bg-card-hover:#322d24;
       --gold:#c9a84c;
       --gold-dim:#a08530;
       --gold-bright:#e2c76a;
       --ivory:#f0ead6;
       --ivory-soft:#d4cbae;
-      --ivory-muted:#9e9580;
+      --ivory-muted:#a89e88;
       --terra:#b8755d;
       --aegean:#4a7c72;
       --wine:#7a3b4e;
       --navy:#2c3e5a;
       --ink:#f0ead6;
-      --ink-muted:#9e9580;
-      --border:rgba(201,168,76,.15);
-      --border-hover:rgba(201,168,76,.35);
+      --ink-muted:#a89e88;
+      --border:rgba(201,168,76,.18);
+      --border-hover:rgba(201,168,76,.4);
       --radius:2px;
     }
 
@@ -49,7 +49,7 @@
     /* ── NAV ── */
     .top-nav{
       position:sticky;top:0;z-index:200;
-      background:rgba(15,14,12,.92);backdrop-filter:blur(20px);
+      background:rgba(30,27,22,.94);backdrop-filter:blur(20px);
       border-bottom:1px solid var(--border);
       padding:0 2rem
     }
@@ -76,7 +76,7 @@
 
     .nav-dropdown{
       position:absolute;top:100%;left:0;
-      background:rgba(26,24,21,.98);backdrop-filter:blur(16px);
+      background:rgba(40,36,29,.98);backdrop-filter:blur(16px);
       border:1px solid var(--border);border-top:none;
       min-width:280px;z-index:300;display:none
     }
@@ -92,9 +92,9 @@
     .nav-dropdown .dd-label{
       font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.2em;
       color:var(--gold-dim);padding:.8rem 1.2rem .3rem;text-transform:uppercase;
-      cursor:default
+      cursor:pointer;text-decoration:none;display:block;border-bottom:1px solid var(--border);transition:color .2s
     }
-    .nav-dropdown .dd-label:hover{background:none}
+    .nav-dropdown .dd-label:hover{background:rgba(201,168,76,.06);color:var(--gold)}
 
     .nav-author{
       font-family:'Cormorant SC',serif;font-size:.8rem;letter-spacing:.15em;
@@ -112,7 +112,7 @@
 
     .mobile-drawer{
       display:none;position:fixed;inset:0;top:56px;
-      background:rgba(15,14,12,.98);backdrop-filter:blur(20px);
+      background:rgba(30,27,22,.98);backdrop-filter:blur(20px);
       z-index:250;overflow-y:auto;padding:1.5rem 2rem 4rem;
       flex-direction:column;gap:.2rem
     }
@@ -348,7 +348,7 @@
       <div class="nav-item">
         <button class="nav-item-btn" onclick="toggleDD(this)">Fase I <span class="arrow">▾</span></button>
         <div class="nav-dropdown">
-          <span class="dd-label">Antigüedad Clásica</span>
+          <a href="index.html#fase1" class="dd-label">Fase I · Antigüedad Clásica →</a>
           <a href="grecia-socrates-platon.html">Sócrates &amp; Platón</a>
           <a href="aristoteles-politica.html">Aristóteles</a>
           <a href="estoicismo.html">El Estoicismo</a>
@@ -359,7 +359,7 @@
       <div class="nav-item">
         <button class="nav-item-btn" onclick="toggleDD(this)">Fase II <span class="arrow">▾</span></button>
         <div class="nav-dropdown">
-          <span class="dd-label">Renacimiento &amp; Modernidad</span>
+          <a href="fase2.html" class="dd-label">Fase II · Renacimiento &amp; Modernidad →</a>
           <a href="maquiavelo.html">Maquiavelo</a>
           <a href="hobbes.html">Hobbes</a>
           <a href="locke.html">Locke</a>
@@ -371,7 +371,7 @@
       <div class="nav-item">
         <button class="nav-item-btn" onclick="toggleDD(this)">Fase III <span class="arrow">▾</span></button>
         <div class="nav-dropdown">
-          <span class="dd-label">Siglo XIX · Ideologías</span>
+          <a href="fase3.html" class="dd-label">Fase III · Siglo XIX · Ideologías →</a>
           <a href="marx.html">Marx</a>
           <a href="mill.html">Mill</a>
           <a href="tocqueville.html">Tocqueville</a>
@@ -383,10 +383,12 @@
       <div class="nav-item">
         <button class="nav-item-btn" onclick="toggleDD(this)">Fase IV <span class="arrow">▾</span></button>
         <div class="nav-dropdown">
-          <span class="dd-label">Economía Política</span>
+          <a href="fase4.html" class="dd-label">Fase IV · Economía Política →</a>
           <a href="smith.html">Adam Smith</a>
           <a href="keynes.html">Keynes</a>
           <a href="hayek-keynes.html">Hayek vs. Keynes</a>
+          <a href="globalizacion.html">Globalización</a>
+          <a href="nuevo-desorden.html">El nuevo desorden</a>
         </div>
       </div>
     </div>
@@ -401,27 +403,31 @@
 
 <!-- Mobile drawer -->
 <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-  <span class="mobile-phase-label">Fase I — Antigüedad</span>
+  <a href="index.html" class="mobile-phase-label" style="text-decoration:none">Fase I — Antigüedad</a>
   <a href="grecia-socrates-platon.html" class="mobile-nav-link">Sócrates &amp; Platón</a>
   <a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a>
   <a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a>
   <a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
-  <span class="mobile-phase-label">Fase II — Renacimiento &amp; Modernidad</span>
+  <a href="fase2.html" class="mobile-phase-label" style="text-decoration:none">Fase II — Renacimiento &amp; Modernidad</a>
   <a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a>
   <a href="hobbes.html" class="mobile-nav-link">Hobbes y el Leviatán</a>
   <a href="locke.html" class="mobile-nav-link">Locke y los derechos naturales</a>
   <a href="rousseau.html" class="mobile-nav-link">Rousseau</a>
   <a href="kant.html" class="mobile-nav-link">Kant y la razón universal</a>
-  <span class="mobile-phase-label">Fase III — Siglo XIX · Ideologías</span>
+  <a href="fase3.html" class="mobile-phase-label" style="text-decoration:none">Fase III — Siglo XIX · Ideologías</a>
   <a href="marx.html" class="mobile-nav-link">Marx y el Capital</a>
   <a href="mill.html" class="mobile-nav-link">Mill y la libertad</a>
   <a href="tocqueville.html" class="mobile-nav-link">Tocqueville y la democracia</a>
   <a href="nietzsche.html" class="mobile-nav-link">Nietzsche y el martillo</a>
   <a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo — Las sombras del XIX</a>
-  <span class="mobile-phase-label">Fase IV — Economía Política</span>
+  <a href="fase4.html" class="mobile-phase-label" style="text-decoration:none">Fase IV — Economía Política</a>
   <a href="smith.html" class="mobile-nav-link">Adam Smith</a>
   <a href="keynes.html" class="mobile-nav-link">Keynes</a>
   <a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a>
+  <a href="globalizacion.html" class="mobile-nav-link">Globalización y crisis</a>
+  <a href="nuevo-desorden.html" class="mobile-nav-link">El nuevo desorden mundial</a>
+  <a href="fase5.html" class="mobile-phase-label" style="text-decoration:none">Fase V — Estrategia e Inteligencia</a>
+  <span class="mobile-nav-link disabled">Próximamente</span>
   <span class="mobile-phase-label">Más</span>
   <a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
 </div>
@@ -457,8 +463,7 @@
   <h1 class="hero-title">Filosofía <em>&amp;</em> Política</h1>
   <div class="hero-rule"></div>
   <p class="hero-subtitle">
-    De Sócrates a Hayek. Sin jerga, sin muros de pago, sin atajos.<br>
-    Un portal para quien quiere aprender a pensar — no a repetir.
+    Un portal para entender de dónde vienen las ideas que gobiernan el mundo.
   </p>
 
   <div class="hero-scroll">
@@ -586,8 +591,8 @@
       <a href="smith.html" class="mod-cell"><span class="mod-cell-num">XIV</span><p class="mod-cell-title">Adam Smith</p><span class="mod-arrow">→</span></a>
       <a href="keynes.html" class="mod-cell"><span class="mod-cell-num">XV</span><p class="mod-cell-title">Keynes y la demanda</p><span class="mod-arrow">→</span></a>
       <a href="hayek-keynes.html" class="mod-cell"><span class="mod-cell-num">XVI</span><p class="mod-cell-title">Hayek vs. Keynes</p><span class="mod-arrow">→</span></a>
-      <div class="mod-cell disabled"><span class="mod-cell-num">XVII</span><p class="mod-cell-title">Globalización y crisis</p></div>
-      <div class="mod-cell disabled"><span class="mod-cell-num">XVIII</span><p class="mod-cell-title">El nuevo desorden mundial</p></div>
+      <a href="globalizacion.html" class="mod-cell"><span class="mod-cell-num">XVII</span><p class="mod-cell-title">Globalización y crisis</p><span class="mod-arrow">→</span></a>
+      <a href="nuevo-desorden.html" class="mod-cell"><span class="mod-cell-num">XVIII</span><p class="mod-cell-title">El nuevo desorden mundial</p><span class="mod-arrow">→</span></a>
     </div>
   </div>
 
@@ -599,7 +604,7 @@
         <p class="phase-name">Estrategia e Inteligencia</p>
         <p class="phase-desc">Cómo piensan los Estados y las organizaciones cuando el entorno es incierto.</p>
       </div>
-      <span class="phase-link" style="color:var(--ivory-muted);cursor:default;font-style:italic">En preparación</span>
+      <a href="fase5.html" class="phase-link" aria-label="Ver Fase V" style="font-style:italic">Ver fase →</a>
     </div>
     <div class="mod-grid">
       <div class="mod-cell disabled"><span class="mod-cell-num">XIX</span><p class="mod-cell-title">Sun Tzu &amp; Clausewitz</p></div>
