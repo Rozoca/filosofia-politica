@@ -123,35 +123,21 @@
     .anim-1{animation:fadeUp .6s ease both}.anim-2{animation:fadeUp .6s .1s ease both}.anim-3{animation:fadeUp .6s .2s ease both}.anim-4{animation:fadeUp .6s .3s ease both}.anim-5{animation:fadeUp .6s .4s ease both}.anim-6{animation:fadeUp .6s .5s ease both}
     @media(max-width:640px){.mod-card{grid-template-columns:auto 1fr;padding:1.8rem 1.4rem}.mod-arrow{display:none}.mod-badge{position:static;margin-bottom:.5rem;display:inline-block}.footer-inner{flex-direction:column;text-align:center}.nav-section{flex-direction:column;align-items:center}}
   </style>
+<link rel="stylesheet" href="assets/css/portal.css">
+<script type="module" src="assets/js/common.js"></script>
+
+
+
+<link rel="stylesheet" href="assets/css/legacy-contrast.css">
+
+<!-- FP:META:START --><meta name="author" content="Rodrigo Vidal"><meta name="theme-color" content="#1e1b16"><link rel="canonical" href="https://rozoca.github.io/filosofia-politica/fase2.html"><meta property="og:type" content="website"><meta property="og:title" content="Fase II — Renacimiento &amp; Modernidad · Filosofía &amp; Política"><meta property="og:description" content="Del Renacimiento a la Ilustración: Maquiavelo, Hobbes, Locke, Rousseau y el nacimiento de la ciencia política moderna."><meta property="og:url" content="https://rozoca.github.io/filosofia-politica/fase2.html"><meta property="og:locale" content="es_ES"><!-- FP:META:END -->
 </head>
-<body>
+<body data-document="fase2.html">
+<!-- FP:NAV:START --><a class="fp-skip" href="#contenido">Saltar al contenido</a><nav class="fp-nav" aria-label="Navegación principal"><a class="fp-brand" href="index.html">Filosofía &amp; Política</a><button class="fp-menu" aria-expanded="false" aria-controls="fp-links">Menú</button><div class="fp-links" id="fp-links"><a href="index.html#aprender">Aprender</a><a href="explorar.html">Explorar</a><a href="laboratorio.html">Laboratorio</a><a href="poder.html">Poder &amp; influencia</a><a href="progreso.html">Mi progreso</a><a href="autor.html">Autor</a></div></nav><!-- FP:NAV:END --><main id="contenido">
 
-<nav class="top-nav"><div class="top-nav-inner">
-  <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
-  <div class="nav-menu">
-    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDrop('d1')">Fase I <span class="arrow">▾</span></button><div class="nav-dropdown" id="d1"><div class="nav-drop-section"><a href="index.html" class="nav-drop-label">Fase I · Antigüedad →</a><a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a><a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a><a href="estoicismo.html" class="nav-drop-link">El Estoicismo</a><a href="tomas-de-aquino.html" class="nav-drop-link">Tomás de Aquino</a></div></div></div>
-    <div class="nav-item"><button class="nav-item-btn active" onclick="toggleDrop('d2')">Fase II <span class="arrow">▾</span></button><div class="nav-dropdown" id="d2"><div class="nav-drop-section"><a href="fase2.html" class="nav-drop-label">Fase II · Renacimiento &amp; Modernidad →</a><a href="maquiavelo.html" class="nav-drop-link">Maquiavelo</a><a href="hobbes.html" class="nav-drop-link">Hobbes y el Leviatán</a><a href="locke.html" class="nav-drop-link">Locke y los derechos naturales</a><a href="rousseau.html" class="nav-drop-link">Rousseau</a><a href="kant.html" class="nav-drop-link">Kant y la razón universal</a></div></div></div>
-    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDrop('d3')">Fase III <span class="arrow">▾</span></button><div class="nav-dropdown" id="d3"><div class="nav-drop-section"><a href="fase3.html" class="nav-drop-label">Fase III · Siglo XIX →</a><a href="marx.html" class="nav-drop-link">Marx y el Capital</a><a href="mill.html" class="nav-drop-link">Mill y la libertad</a><a href="tocqueville.html" class="nav-drop-link">Tocqueville</a><a href="nietzsche.html" class="nav-drop-link">Nietzsche</a></div><div class="nav-drop-section"><a href="epilogo-fase3.html" class="nav-drop-link">✦ Epílogo</a></div></div></div>
-    <div class="nav-item"><button class="nav-item-btn" onclick="toggleDrop('d4')">Fase IV <span class="arrow">▾</span></button><div class="nav-dropdown" id="d4"><div class="nav-drop-section"><a href="fase4.html" class="nav-drop-label">Fase IV · Economía Política →</a><a href="smith.html" class="nav-drop-link">Adam Smith</a><a href="keynes.html" class="nav-drop-link">Keynes</a><a href="hayek-keynes.html" class="nav-drop-link">Hayek vs. Keynes</a><a href="globalizacion.html" class="nav-drop-link">Globalización</a><a href="nuevo-desorden.html" class="nav-drop-link">El nuevo desorden</a></div></div></div>
-    <a href="autor.html" class="nav-autor-link">Autor</a>
-  </div>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
-</div></nav>
 
-<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-  <a href="index.html" class="mobile-phase-label">Fase I — Antigüedad</a>
-  <a href="grecia-socrates-platon.html" class="mobile-nav-link">Sócrates &amp; Platón</a><a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a><a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a><a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
-  <a href="fase2.html" class="mobile-phase-label">Fase II — Renacimiento &amp; Modernidad</a>
-  <a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a><a href="hobbes.html" class="mobile-nav-link">Hobbes</a><a href="locke.html" class="mobile-nav-link">Locke</a><a href="rousseau.html" class="mobile-nav-link">Rousseau</a><a href="kant.html" class="mobile-nav-link">Kant</a>
-  <a href="fase3.html" class="mobile-phase-label">Fase III — Siglo XIX</a>
-  <a href="marx.html" class="mobile-nav-link">Marx</a><a href="mill.html" class="mobile-nav-link">Mill</a><a href="tocqueville.html" class="mobile-nav-link">Tocqueville</a><a href="nietzsche.html" class="mobile-nav-link">Nietzsche</a><a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo</a>
-  <a href="fase4.html" class="mobile-phase-label">Fase IV — Economía Política</a>
-  <a href="smith.html" class="mobile-nav-link">Adam Smith</a><a href="keynes.html" class="mobile-nav-link">Keynes</a><a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a><a href="globalizacion.html" class="mobile-nav-link">Globalización</a><a href="nuevo-desorden.html" class="mobile-nav-link">El nuevo desorden</a>
-  <a href="fase5.html" class="mobile-phase-label">Fase V — Estrategia e Inteligencia</a>
-  <span class="mobile-nav-link disabled">Próximamente</span>
-  <span class="mobile-phase-label">Más</span>
-  <a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
-</div>
+
+
 
 <section class="hero"><div class="hero-inner">
   <span class="hero-label anim-1">Fase II · Filosofía & Política</span>
@@ -190,17 +176,9 @@
   </div>
 </div>
 
-<footer><div class="footer-inner">
-  <div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div>
-  <nav class="footer-nav"><a href="index.html">Inicio</a><a href="fase3.html">Fase III</a><a href="https://github.com/Rozoca" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
-</div></footer>
 
-<script>
-function toggleDrop(id){const all=document.querySelectorAll('.nav-dropdown');const allBtns=document.querySelectorAll('.nav-item-btn');const target=document.getElementById(id);const isOpen=target.classList.contains('open');all.forEach(d=>d.classList.remove('open'));allBtns.forEach(b=>b.classList.remove('open'));if(!isOpen){target.classList.add('open');target.previousElementSibling.classList.add('open')}}
-document.addEventListener('click',e=>{if(!e.target.closest('.nav-item')){document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'))}});
-const hamburger=document.getElementById('hamburger'),drawer=document.getElementById('mobile-drawer');
-hamburger.addEventListener('click',()=>{const isOpen=drawer.classList.contains('open');drawer.classList.toggle('open',!isOpen);hamburger.classList.toggle('open',!isOpen);hamburger.setAttribute('aria-expanded',String(!isOpen));document.body.style.overflow=isOpen?'':'hidden'});
-drawer.querySelectorAll('.mobile-nav-link:not(.disabled),a.mobile-phase-label').forEach(link=>{link.addEventListener('click',()=>{drawer.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow=''})});
-</script>
+
+
+</main><!-- FP:FOOTER:START --><footer class="fp-footer"><p>Filosofía &amp; Política · Proyecto de aprendizaje de Rodrigo Vidal</p><p><a href="retos.html">Reto y pregunta del mes</a> · <a href="presente.html">Teoría ↔ Presente</a> · <a href="https://rozoca.github.io/">Perfil profesional ↗</a></p><p>Aprender no para acumular respuestas, sino para mejorar las preguntas.</p></footer><!-- FP:FOOTER:END -->
 </body>
 </html>
