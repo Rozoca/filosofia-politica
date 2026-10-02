@@ -1,0 +1,461 @@
+[
+  {
+    "id": "crisis",
+    "kind": "caso",
+    "title": "El mando único en una crisis",
+    "scenario": "Una cooperativa sufre una interrupción grave del servicio. Durante un mes, su consejo concede a una persona decisiones sin consulta. La medida reduce tiempos, pero nadie ha fijado cómo termina ni cómo se revisan los errores.",
+    "questions": [
+      "¿Qué problema de coordinación pretende resolver?",
+      "¿Qué derechos y controles deberían mantenerse?",
+      "Diseña una cláusula de finalización y una vía de recurso."
+    ],
+    "perspectives": [
+      {
+        "author": "Hobbes",
+        "analysis": "Una autoridad común puede reducir incertidumbre y conflictos. La empresa ya está bajo leyes: no es un estado de naturaleza literal."
+      },
+      {
+        "author": "Locke",
+        "analysis": "Un encargo limitado no autoriza arbitrariedad; examina finalidad, consentimiento y rendición de cuentas."
+      },
+      {
+        "author": "Maquiavelo",
+        "analysis": "La eficacia inicial no garantiza estabilidad: humillación y pérdida de confianza pueden destruir apoyo."
+      },
+      {
+        "author": "Tomás de Aquino",
+        "analysis": "El mandato debe orientarse al bien común y a la razón: autoridad de origen y justicia de ejercicio no son equivalentes."
+      }
+    ],
+    "modules": [
+      "hobbes",
+      "locke",
+      "maquiavelo",
+      "tomas-de-aquino"
+    ],
+    "transfer": "¿Cambiaría tu respuesta en un hospital o en un club deportivo? Explica qué variable cambia.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "experta",
+    "kind": "caso",
+    "title": "La experta sin cargo",
+    "scenario": "En un equipo, una analista sin responsabilidad formal orienta casi todas las decisiones porque conoce el sistema antiguo. Algunas personas la consultan por confianza; otras temen contradecirla y perder su ayuda.",
+    "questions": [
+      "Separa conocimiento, confianza y dependencia.",
+      "¿Qué evidencia distinguiría persuasión y presión?",
+      "Propón compartir conocimiento sin desautorizar a la analista."
+    ],
+    "perspectives": [
+      {
+        "author": "French y Raven",
+        "analysis": "El poder experto y referente puede convivir con dependencia. La conducta observada no basta para atribuir intenciones."
+      },
+      {
+        "author": "Arendt",
+        "analysis": "Pregunta si la capacidad de actuar juntos crece o se concentra en una persona."
+      }
+    ],
+    "modules": [
+      "epilogo-fase3",
+      "tocqueville"
+    ],
+    "transfer": "Observa una situación comparable sin registrar nombres ni información confidencial.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "algoritmo",
+    "kind": "caso",
+    "title": "La recomendación que decide",
+    "scenario": "Una plataforma educativa recomienda lecturas por popularidad. Aumenta el uso, pero las perspectivas minoritarias casi desaparecen. No hay prueba de una intención de censura.",
+    "questions": [
+      "¿Qué diferencia hay entre intención y efecto?",
+      "¿Qué medirías además del tiempo de uso?",
+      "Diseña una alternativa que preserve elección y diversidad."
+    ],
+    "perspectives": [
+      {
+        "author": "Mill",
+        "analysis": "La exposición al disenso ayuda a someter convicciones a examen; popularidad no equivale a verdad."
+      },
+      {
+        "author": "Tocqueville",
+        "analysis": "La presión mayoritaria puede operar sin prohibición formal."
+      },
+      {
+        "author": "Foucault",
+        "analysis": "Examina cómo clasificar y hacer visible organiza lo que se puede conocer, sin reducir todo a una conspiración."
+      }
+    ],
+    "modules": [
+      "mill",
+      "tocqueville"
+    ],
+    "transfer": "¿Sucede algo parecido con la agenda de una reunión? Identifica el mecanismo compartido.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "incentivos",
+    "kind": "caso",
+    "title": "Un indicador que desplaza el objetivo",
+    "scenario": "Una oficina premia expedientes cerrados. El número aumenta, pero se reabren más casos y los complejos se posponen. La dirección interpreta el aumento como mejora.",
+    "questions": [
+      "Distingue indicador y finalidad.",
+      "¿Qué explicaciones alternativas debes descartar?",
+      "Propón una medida de calidad y un periodo de revisión."
+    ],
+    "perspectives": [
+      {
+        "author": "Aristóteles",
+        "analysis": "Preguntar por el fin de la práctica permite juzgar si la actividad cumple su propósito."
+      },
+      {
+        "author": "Smith",
+        "analysis": "Los incentivos individuales no aseguran el resultado común cuando las reglas premian efectos contraproducentes."
+      },
+      {
+        "author": "Estoicismo",
+        "analysis": "Distingue la calidad de la acción responsable de un resultado que depende también de circunstancias externas. No abandones la medición: evita identificarla con la virtud."
+      }
+    ],
+    "modules": [
+      "aristoteles-politica",
+      "smith",
+      "estoicismo"
+    ],
+    "transfer": "Diseña una métrica personal que no te empuje a sacrificar lo que realmente quieres aprender.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "ahorro",
+    "kind": "caso",
+    "title": "Todos reducen su gasto",
+    "scenario": "En una ciudad imaginaria, hogares y comercios reducen gasto por incertidumbre. Se cancelan inversiones y cae el empleo. El presupuesto público es limitado.",
+    "questions": [
+      "Explica el mecanismo de retroalimentación.",
+      "¿Qué información falta antes de intervenir?",
+      "Compara una respuesta temporal con sus costes y criterios de retirada."
+    ],
+    "perspectives": [
+      {
+        "author": "Keynes",
+        "analysis": "La caída conjunta del gasto puede debilitar ingresos y empleo; examina capacidad ociosa y expectativas."
+      },
+      {
+        "author": "Hayek",
+        "analysis": "Pregunta qué información local se pierde y qué distorsiones puede crear la intervención."
+      }
+    ],
+    "modules": [
+      "keynes",
+      "hayek-keynes"
+    ],
+    "transfer": "¿Por qué esta lógica macroeconómica no se traslada sin cambios al presupuesto de una familia?",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "mayoria",
+    "kind": "caso",
+    "title": "La mayoría y la voz minoritaria",
+    "scenario": "Una asociación aprueba por mayoría que solo quienes apoyaron a la junta puedan proponer temas. La regla agiliza reuniones, pero excluye a un tercio de socios.",
+    "questions": [
+      "¿Qué legitima el procedimiento y qué limita su resultado?",
+      "Defiende la mejor razón de quienes apoyan la regla antes de criticarla.",
+      "Propón un procedimiento alternativo."
+    ],
+    "perspectives": [
+      {
+        "author": "Rousseau",
+        "analysis": "La suma de intereses de una facción no asegura voluntad general."
+      },
+      {
+        "author": "Mill",
+        "analysis": "La discusión y la individualidad requieren protección frente a la presión colectiva."
+      },
+      {
+        "author": "Tocqueville",
+        "analysis": "La mayoría puede concentrar poder social además de poder decisorio."
+      }
+    ],
+    "modules": [
+      "rousseau",
+      "mill",
+      "tocqueville"
+    ],
+    "transfer": "¿Cómo garantizarías disenso útil en un equipo que necesita decidir rápido?",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "contrato",
+    "kind": "caso",
+    "title": "Consentimiento con pocas alternativas",
+    "scenario": "Una trabajadora acepta horarios imprevisibles porque es su única oferta. La empresa cumple las reglas pactadas; faltan datos sobre alternativas reales y costes de organización.",
+    "questions": [
+      "¿Qué demuestra y qué no demuestra la firma?",
+      "Distingue legalidad, legitimidad y justicia.",
+      "Propón dos cambios y explica quién asume sus costes."
+    ],
+    "perspectives": [
+      {
+        "author": "Locke",
+        "analysis": "Analiza límites del consentimiento y protección de derechos sin equiparar todo contrato laboral al pacto político."
+      },
+      {
+        "author": "Marx",
+        "analysis": "Examina dependencia material y poder de negociación estructural."
+      },
+      {
+        "author": "Kant",
+        "analysis": "Pregunta si la persona puede decidir de manera autónoma o es tratada meramente como recurso."
+      }
+    ],
+    "modules": [
+      "locke",
+      "marx",
+      "kant"
+    ],
+    "transfer": "¿Cambiaría tu evaluación si existieran diez ofertas equivalentes? Razona por qué.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "cadena",
+    "kind": "caso",
+    "title": "Eficiencia y dependencia",
+    "scenario": "Una institución obtiene un servicio esencial de un proveedor barato y fiable. Migrar cuesta dos años. Un cambio contractual duplica la tarifa. No existe incumplimiento demostrado.",
+    "questions": [
+      "Distingue dependencia, abuso y mera ventaja negociadora.",
+      "¿Qué alternativas reducen el riesgo y a qué coste?",
+      "Separa hechos, hipótesis e información pendiente."
+    ],
+    "perspectives": [
+      {
+        "author": "Smith",
+        "analysis": "Competencia efectiva y facilidad de entrada importan más que la mera existencia de un contrato."
+      },
+      {
+        "author": "Estrategia",
+        "analysis": "La sustituibilidad y el control de un recurso condicionan el poder; crear alternativas puede tener costes de transición."
+      }
+    ],
+    "modules": [
+      "smith",
+      "globalizacion",
+      "nuevo-desorden"
+    ],
+    "transfer": "¿Dónde dependes tú de una herramienta? Diseña una salida viable sin buscar independencia absoluta.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "vigilancia",
+    "kind": "dilema",
+    "title": "Seguridad y vigilancia",
+    "scenario": "En un escenario hipotético, un sistema de vigilancia podría reducir un riesgo grave, pero recopilaría datos de toda la población. Su eficacia y sus errores aún son inciertos.",
+    "questions": [
+      "¿Qué umbral de evidencia exigirías?",
+      "¿Qué límites no aceptarías cruzar y por qué?",
+      "¿Quién revisaría errores, duración y usos secundarios?"
+    ],
+    "perspectives": [
+      {
+        "author": "Hobbes",
+        "analysis": "La protección de la vida es un problema central, pero la promesa de seguridad necesita credibilidad."
+      },
+      {
+        "author": "Locke",
+        "analysis": "Los poderes confiados deben proteger derechos y permanecer limitados."
+      },
+      {
+        "author": "Mill",
+        "analysis": "Distingue daños comprobables de restricciones impuestas por mera preferencia colectiva."
+      },
+      {
+        "author": "Kant",
+        "analysis": "Examina si las personas conservan autonomía y si la regla respeta su dignidad."
+      }
+    ],
+    "modules": [
+      "hobbes",
+      "locke",
+      "mill",
+      "kant"
+    ],
+    "transfer": "Formula una decisión provisional y qué evidencia te haría revisarla.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "expresion",
+    "kind": "dilema",
+    "title": "Una voz incómoda",
+    "scenario": "Un foro debe decidir si mantiene un mensaje ofensivo que no contiene amenaza explícita. Hay preocupación por exclusión de participantes y por silenciar críticas legítimas.",
+    "questions": [
+      "Distingue ofensa, hostigamiento y daño.",
+      "¿Qué contexto modificaría tu respuesta?",
+      "Diseña una norma general aplicable también a tu propia postura."
+    ],
+    "perspectives": [
+      {
+        "author": "Mill",
+        "analysis": "Defiende el valor del disenso sin ignorar contexto y daño."
+      },
+      {
+        "author": "Kant",
+        "analysis": "Pregunta si las reglas y el trato respetan a cada participante como fin."
+      },
+      {
+        "author": "Tocqueville",
+        "analysis": "Examina si la sanción refleja justicia o conformidad mayoritaria."
+      }
+    ],
+    "modules": [
+      "mill",
+      "kant",
+      "tocqueville"
+    ],
+    "transfer": "Aplica la misma norma a una opinión con la que estés de acuerdo.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "democracia",
+    "kind": "socratico",
+    "title": "¿La democracia produce gobiernos más justos?",
+    "scenario": "No contestes todavía sí o no. Examina qué tendría que significar la afirmación para poder defenderla.",
+    "questions": [
+      "Define democracia y justicia sin usar la misma palabra en la definición.",
+      "¿La mayoría puede decidir injustamente? Ofrece un contraejemplo.",
+      "¿Qué derechos quedarían fuera de una votación?",
+      "¿Qué evidencia debilitaría tu tesis?"
+    ],
+    "perspectives": [
+      {
+        "author": "Rousseau",
+        "analysis": "La soberanía popular plantea la orientación al interés común."
+      },
+      {
+        "author": "Mill",
+        "analysis": "La individualidad exige límites al poder social."
+      },
+      {
+        "author": "Tocqueville",
+        "analysis": "Las instituciones y costumbres pueden contener o reforzar la tiranía mayoritaria."
+      }
+    ],
+    "modules": [
+      "rousseau",
+      "mill",
+      "tocqueville"
+    ],
+    "transfer": "Reescribe la afirmación con condiciones y límites explícitos.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "merito",
+    "kind": "socratico",
+    "title": "¿Quien se esfuerza merece más?",
+    "scenario": "La afirmación parece intuitiva, pero esfuerzo, resultado y merecimiento no significan lo mismo.",
+    "questions": [
+      "¿Cómo medirías esfuerzo y en qué condiciones iniciales?",
+      "¿Qué ocurre con el trabajo de cuidados?",
+      "¿Qué contraejemplo obligaría a matizar tu tesis?",
+      "¿Qué distribución defenderías si desconocieras tu posición?"
+    ],
+    "perspectives": [
+      {
+        "author": "Aristóteles",
+        "analysis": "La justicia distributiva exige explicitar el criterio relevante de proporción."
+      },
+      {
+        "author": "Marx",
+        "analysis": "Examina cómo propiedad y estructura condicionan oportunidades y recompensas."
+      },
+      {
+        "author": "Sócrates y Nietzsche",
+        "analysis": "El examen de definiciones y la investigación del origen de nuestros valores son métodos distintos para cuestionar qué entendemos por mérito."
+      }
+    ],
+    "modules": [
+      "aristoteles-politica",
+      "marx",
+      "nietzsche",
+      "grecia-socrates-platon"
+    ],
+    "transfer": "Distingue reconocer un esfuerzo y decidir una distribución institucional.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "leviatan",
+    "kind": "transferencia",
+    "title": "Un Leviatán dentro de la organización",
+    "scenario": "Transfiere la función de garantía de acuerdos a un conflicto entre departamentos.",
+    "questions": [
+      "Describe qué acuerdos necesitan garantía.",
+      "¿Qué autoridad puede resolver la disputa y quién la controla?",
+      "Señala tres diferencias respecto de un Estado soberano."
+    ],
+    "perspectives": [
+      {
+        "author": "Hobbes",
+        "analysis": "Una garantía común puede reducir desconfianza, pero una empresa no está fuera del derecho ni recibe todos los derechos de sus miembros."
+      }
+    ],
+    "modules": [
+      "hobbes",
+      "locke"
+    ],
+    "transfer": "Aplica ahora el modelo a una familia: explica dónde deja de ser adecuado.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "coordinacion",
+    "kind": "transferencia",
+    "title": "Coordinar sin un director único",
+    "scenario": "Un grupo de voluntarios organiza tareas locales con información que cambia cada día.",
+    "questions": [
+      "¿Qué decisiones pueden descentralizarse?",
+      "¿Qué información necesitan compartir?",
+      "¿Qué fallos requieren reglas comunes?"
+    ],
+    "perspectives": [
+      {
+        "author": "Smith",
+        "analysis": "Los incentivos y reglas condicionan los efectos no intencionales."
+      },
+      {
+        "author": "Hayek",
+        "analysis": "El conocimiento local puede hacer valiosa la descentralización; no elimina conflictos ni externalidades."
+      }
+    ],
+    "modules": [
+      "smith",
+      "hayek-keynes"
+    ],
+    "transfer": "Compara el caso con una emergencia que exige respuesta inmediata.",
+    "duration": "15–20 minutos"
+  },
+  {
+    "id": "equipo",
+    "kind": "transferencia",
+    "title": "¿Una voluntad general del equipo?",
+    "scenario": "Un equipo redacta su propósito colectivo. Unos miembros tienen más poder para hablar que otros.",
+    "questions": [
+      "¿Qué condiciones permitirían deliberar sobre un interés común?",
+      "¿Cómo distinguirías acuerdo auténtico y conformidad?",
+      "¿Qué derechos no deberían depender del consenso?"
+    ],
+    "perspectives": [
+      {
+        "author": "Rousseau",
+        "analysis": "Un interés común no se identifica con la suma de preferencias privadas."
+      },
+      {
+        "author": "Mill",
+        "analysis": "Preserva espacio de desacuerdo y límites a la presión del grupo."
+      }
+    ],
+    "modules": [
+      "rousseau",
+      "mill"
+    ],
+    "transfer": "Redacta una norma de reunión que permita disentir sin castigo.",
+    "duration": "15–20 minutos"
+  }
+]

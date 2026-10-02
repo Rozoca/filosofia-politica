@@ -1,0 +1,33 @@
+{
+  "edition": "2026-10",
+  "question": "¿Cuándo se convierte la persuasión en manipulación?",
+  "challenge": {
+    "id": "reto-2026-10",
+    "kind": "reto",
+    "title": "Observar el poder sin cargo",
+    "duration": "7 días · 10 minutos al día",
+    "scenario": "Objetivo: distinguir autoridad formal e influencia real. Registra tres situaciones cotidianas sin nombres ni datos sensibles. Describe conductas observables antes de atribuir intenciones.",
+    "questions": [
+      "¿Quién podía cambiar una decisión sin tener la última firma?",
+      "¿Su influencia provenía de conocimiento, reputación, relaciones, recursos, recompensa o amenaza?",
+      "¿Qué evidencia respalda tu interpretación y qué alternativa existe?",
+      "¿La otra persona podía rechazar la propuesta sin coste desproporcionado?"
+    ],
+    "perspectives": [
+      {
+        "author": "French y Raven",
+        "analysis": "Distingue bases de poder experto, referente, legítimo, de recompensa y coercitivo. La información se desarrolló como base adicional posteriormente."
+      },
+      {
+        "author": "Reflexión final",
+        "analysis": "Compara las tres situaciones. Explica qué cambió en tu forma de observar y qué no puedes concluir sin preguntar a las personas."
+      }
+    ],
+    "modules": [
+      "maquiavelo",
+      "tocqueville",
+      "epilogo-fase3"
+    ],
+    "transfer": "En tu siguiente reunión, utiliza una pregunta abierta que aumente la autonomía de otros."
+  }
+}

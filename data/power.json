@@ -1,0 +1,44 @@
+[
+  {
+    "question": "¿Por qué obedecemos?",
+    "author": "Max Weber",
+    "idea": "La dominación puede legitimarse por tradición, carisma o reglas consideradas válidas. Estos son tipos ideales que pueden mezclarse en la práctica.",
+    "practice": "Distingue que las personas crean legítimo un poder y que tú lo consideres moralmente justo. Observa si obedecen al cargo, a la costumbre o a la persona.",
+    "reference": "Economía y sociedad (1922), conceptos de dominación legítima."
+  },
+  {
+    "question": "¿De dónde sale la influencia sin cargo?",
+    "author": "French y Raven",
+    "idea": "Las bases de recompensa, coerción, legitimidad, conocimiento experto e identificación ayudan a describir relaciones de poder. El poder informativo se desarrolló después como base diferenciada.",
+    "practice": "Una misma persona puede combinar varias bases. Describe el recurso y la dependencia, sin diagnosticar intenciones por una sola conducta.",
+    "reference": "French y Raven, The Bases of Social Power (1959); Raven, The Bases of Power (1993)."
+  },
+  {
+    "question": "¿Poder es lo mismo que violencia?",
+    "author": "Hannah Arendt",
+    "idea": "Arendt vincula poder con la capacidad de actuar juntos y distingue esa capacidad del uso instrumental de la violencia.",
+    "practice": "Una amenaza puede obtener obediencia y a la vez erosionar el apoyo colectivo. No confundas esta definición con la de Weber: son marcos distintos.",
+    "reference": "Sobre la violencia (1970)."
+  },
+  {
+    "question": "¿Qué decide qué se puede ver y decir?",
+    "author": "Michel Foucault",
+    "idea": "Las prácticas de vigilancia, clasificación y normalización conectan poder y conocimiento. El poder opera también en relaciones y rutinas, no solo desde una cúpula.",
+    "practice": "Examina quién diseña una métrica y qué vuelve invisible. No deduzcas que toda clasificación sea maliciosa ni que no exista resistencia.",
+    "reference": "Vigilar y castigar (1975); Historia de la sexualidad I (1976)."
+  },
+  {
+    "question": "¿Cuándo persuadir respeta la autonomía?",
+    "author": "Robert Cialdini",
+    "idea": "Reciprocidad, prueba social y señales de autoridad pueden orientar decisiones. Conocer estos mecanismos ayuda a reconocer presiones y examinar razones.",
+    "practice": "Una señal no sustituye evidencia. Pregunta si la información es verdadera, si se ocultan alternativas y si se puede rechazar sin penalización indebida.",
+    "reference": "Influence (1984 y ediciones posteriores); materiales de Influence at Work."
+  },
+  {
+    "question": "¿Por qué cooperamos o nos bloqueamos?",
+    "author": "Teoría de juegos",
+    "idea": "Las decisiones dependen de expectativas sobre otros, incentivos, información y posibilidad de repetir la interacción. Un equilibrio no tiene por qué ser justo ni óptimo para todos.",
+    "practice": "Antes de culpar a una persona, identifica las reglas que vuelven razonable su conducta. El modelo simplifica: no predice mecánicamente una relación humana.",
+    "reference": "Schelling, The Strategy of Conflict (1960)."
+  }
+]

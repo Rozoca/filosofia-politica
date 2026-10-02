@@ -1,0 +1,290 @@
+[
+  {
+    "id": "grecia-socrates-platon",
+    "title": "Sócrates y Platón",
+    "phase": 1,
+    "authors": [
+      "Sócrates",
+      "Platón"
+    ],
+    "topics": [
+      "Justicia",
+      "Autoridad",
+      "Individuo"
+    ],
+    "url": "grecia-socrates-platon.html",
+    "kind": "module"
+  },
+  {
+    "id": "aristoteles-politica",
+    "title": "Aristóteles",
+    "phase": 1,
+    "authors": [
+      "Aristóteles"
+    ],
+    "topics": [
+      "Justicia",
+      "Estado",
+      "Poder"
+    ],
+    "url": "aristoteles-politica.html",
+    "kind": "module"
+  },
+  {
+    "id": "estoicismo",
+    "title": "Estoicismo",
+    "phase": 1,
+    "authors": [
+      "Epicteto",
+      "Marco Aurelio"
+    ],
+    "topics": [
+      "Libertad",
+      "Individuo"
+    ],
+    "url": "estoicismo.html",
+    "kind": "module"
+  },
+  {
+    "id": "tomas-de-aquino",
+    "title": "Tomás de Aquino",
+    "phase": 1,
+    "authors": [
+      "Tomás de Aquino"
+    ],
+    "topics": [
+      "Autoridad",
+      "Legitimidad",
+      "Justicia"
+    ],
+    "url": "tomas-de-aquino.html",
+    "kind": "module"
+  },
+  {
+    "id": "maquiavelo",
+    "title": "Maquiavelo",
+    "phase": 2,
+    "authors": [
+      "Maquiavelo"
+    ],
+    "topics": [
+      "Poder",
+      "Estrategia",
+      "Influencia"
+    ],
+    "url": "maquiavelo.html",
+    "kind": "module"
+  },
+  {
+    "id": "hobbes",
+    "title": "Hobbes",
+    "phase": 2,
+    "authors": [
+      "Hobbes"
+    ],
+    "topics": [
+      "Estado",
+      "Autoridad",
+      "Legitimidad"
+    ],
+    "url": "hobbes.html",
+    "kind": "module"
+  },
+  {
+    "id": "locke",
+    "title": "Locke",
+    "phase": 2,
+    "authors": [
+      "Locke"
+    ],
+    "topics": [
+      "Libertad",
+      "Legitimidad",
+      "Estado"
+    ],
+    "url": "locke.html",
+    "kind": "module"
+  },
+  {
+    "id": "rousseau",
+    "title": "Rousseau",
+    "phase": 2,
+    "authors": [
+      "Rousseau"
+    ],
+    "topics": [
+      "Legitimidad",
+      "Individuo",
+      "Estado"
+    ],
+    "url": "rousseau.html",
+    "kind": "module"
+  },
+  {
+    "id": "kant",
+    "title": "Kant",
+    "phase": 2,
+    "authors": [
+      "Kant"
+    ],
+    "topics": [
+      "Justicia",
+      "Libertad",
+      "Individuo"
+    ],
+    "url": "kant.html",
+    "kind": "module"
+  },
+  {
+    "id": "marx",
+    "title": "Marx",
+    "phase": 3,
+    "authors": [
+      "Marx"
+    ],
+    "topics": [
+      "Economía",
+      "Poder",
+      "Justicia"
+    ],
+    "url": "marx.html",
+    "kind": "module"
+  },
+  {
+    "id": "mill",
+    "title": "Mill",
+    "phase": 3,
+    "authors": [
+      "Mill"
+    ],
+    "topics": [
+      "Libertad",
+      "Individuo",
+      "Justicia"
+    ],
+    "url": "mill.html",
+    "kind": "module"
+  },
+  {
+    "id": "tocqueville",
+    "title": "Tocqueville",
+    "phase": 3,
+    "authors": [
+      "Tocqueville"
+    ],
+    "topics": [
+      "Autoridad",
+      "Influencia",
+      "Libertad"
+    ],
+    "url": "tocqueville.html",
+    "kind": "module"
+  },
+  {
+    "id": "nietzsche",
+    "title": "Nietzsche",
+    "phase": 3,
+    "authors": [
+      "Nietzsche"
+    ],
+    "topics": [
+      "Poder",
+      "Individuo",
+      "Influencia"
+    ],
+    "url": "nietzsche.html",
+    "kind": "module"
+  },
+  {
+    "id": "epilogo-fase3",
+    "title": "Epílogo: las sombras del XIX",
+    "phase": 3,
+    "authors": [
+      "Arendt",
+      "Marx",
+      "Nietzsche"
+    ],
+    "topics": [
+      "Poder",
+      "Autoridad",
+      "Legitimidad"
+    ],
+    "url": "epilogo-fase3.html",
+    "kind": "epilogue"
+  },
+  {
+    "id": "smith",
+    "title": "Adam Smith",
+    "phase": 4,
+    "authors": [
+      "Smith"
+    ],
+    "topics": [
+      "Economía",
+      "Justicia",
+      "Estado"
+    ],
+    "url": "smith.html",
+    "kind": "module"
+  },
+  {
+    "id": "keynes",
+    "title": "Keynes",
+    "phase": 4,
+    "authors": [
+      "Keynes"
+    ],
+    "topics": [
+      "Economía",
+      "Estado"
+    ],
+    "url": "keynes.html",
+    "kind": "module"
+  },
+  {
+    "id": "hayek-keynes",
+    "title": "Hayek y Keynes",
+    "phase": 4,
+    "authors": [
+      "Hayek",
+      "Keynes"
+    ],
+    "topics": [
+      "Economía",
+      "Libertad",
+      "Estado"
+    ],
+    "url": "hayek-keynes.html",
+    "kind": "module"
+  },
+  {
+    "id": "globalizacion",
+    "title": "Globalización y crisis",
+    "phase": 4,
+    "authors": [
+      "Análisis contemporáneo"
+    ],
+    "topics": [
+      "Economía",
+      "Poder",
+      "Estrategia"
+    ],
+    "url": "globalizacion.html",
+    "kind": "module"
+  },
+  {
+    "id": "nuevo-desorden",
+    "title": "El nuevo desorden mundial",
+    "phase": 4,
+    "authors": [
+      "Análisis contemporáneo"
+    ],
+    "topics": [
+      "Poder",
+      "Estrategia",
+      "Estado"
+    ],
+    "url": "nuevo-desorden.html",
+    "kind": "module"
+  }
+]
