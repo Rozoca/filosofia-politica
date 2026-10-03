@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Filosofía & Política — Portal de pensamiento</title>
-  <meta name="description" content="Portal educativo de filosofía y política. Un portal para entender de dónde vienen las ideas que gobiernan el mundo."/>
+  <meta name="description" content="Portal educativo de filosofía y política. Entender de dónde vienen las ideas para pensar mejor el presente."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -289,8 +289,8 @@
     }
 
     /* phase color accents */
-    .phase-block[data-phase="1"] .phase-num{color:var(--terra)}
-    .phase-block[data-phase="1"] .mod-cell:hover{border-left:2px solid var(--terra)}
+    .phase-block[data-phase="1" id="fase-1"] .phase-num{color:var(--terra)}
+    .phase-block[data-phase="1" id="fase-1"] .mod-cell:hover{border-left:2px solid var(--terra)}
     .phase-block[data-phase="2"] .phase-num{color:var(--gold)}
     .phase-block[data-phase="2"] .mod-cell:hover{border-left:2px solid var(--gold)}
     .phase-block[data-phase="3"] .phase-num{color:var(--wine)}
@@ -332,105 +332,23 @@
     .reveal{opacity:0;transform:translateY(20px);transition:all .7s ease}
     .reveal.visible{opacity:1;transform:none}
   </style>
+<link rel="stylesheet" href="assets/css/portal.css">
+<script type="module" src="assets/js/common.js"></script>
+
+
+
+<link rel="stylesheet" href="assets/css/legacy-contrast.css">
+
+<!-- FP:META:START --><meta name="author" content="Rodrigo Vidal"><meta name="theme-color" content="#1e1b16"><link rel="canonical" href="https://rozoca.github.io/filosofia-politica/"><meta property="og:type" content="website"><meta property="og:title" content="Filosofía &amp; Política — Portal de pensamiento"><meta property="og:description" content="Portal educativo de filosofía y política. Entender de dónde vienen las ideas para pensar mejor el presente."><meta property="og:url" content="https://rozoca.github.io/filosofia-politica/"><meta property="og:locale" content="es_ES"><!-- FP:META:END -->
 </head>
-<body>
+<body data-document="index.html">
+<!-- FP:NAV:START --><a class="fp-skip" href="#contenido">Saltar al contenido</a><nav class="fp-nav" aria-label="Navegación principal"><a class="fp-brand" href="index.html">Filosofía &amp; Política</a><button class="fp-menu" aria-expanded="false" aria-controls="fp-links">Menú</button><div class="fp-links" id="fp-links"><a href="index.html#aprender" aria-current="page">Aprender</a><a href="explorar.html">Explorar</a><a href="laboratorio.html">Laboratorio</a><a href="poder.html">Poder &amp; influencia</a><a href="progreso.html">Mi progreso</a><a href="autor.html">Autor</a></div></nav><!-- FP:NAV:END --><main id="contenido">
 
 <!-- ══════════ NAV ══════════ -->
-<nav class="top-nav">
-  <div class="top-nav-inner">
-    <a href="index.html" class="nav-brand">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-      Filosofía &amp; Política
-    </a>
 
-    <div class="nav-menu">
-      <!-- Fase I -->
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDD(this)">Fase I <span class="arrow">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="index.html#fase1" class="dd-label">Fase I · Antigüedad Clásica →</a>
-          <a href="grecia-socrates-platon.html">Sócrates &amp; Platón</a>
-          <a href="aristoteles-politica.html">Aristóteles</a>
-          <a href="estoicismo.html">El Estoicismo</a>
-          <a href="tomas-de-aquino.html">Tomás de Aquino</a>
-        </div>
-      </div>
-      <!-- Fase II -->
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDD(this)">Fase II <span class="arrow">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="fase2.html" class="dd-label">Fase II · Renacimiento &amp; Modernidad →</a>
-          <a href="maquiavelo.html">Maquiavelo</a>
-          <a href="hobbes.html">Hobbes</a>
-          <a href="locke.html">Locke</a>
-          <a href="rousseau.html">Rousseau</a>
-          <a href="kant.html">Kant</a>
-        </div>
-      </div>
-      <!-- Fase III -->
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDD(this)">Fase III <span class="arrow">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="fase3.html" class="dd-label">Fase III · Siglo XIX · Ideologías →</a>
-          <a href="marx.html">Marx</a>
-          <a href="mill.html">Mill</a>
-          <a href="tocqueville.html">Tocqueville</a>
-          <a href="nietzsche.html">Nietzsche</a>
-          <a href="epilogo-fase3.html">✦ Epílogo</a>
-        </div>
-      </div>
-      <!-- Fase IV -->
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDD(this)">Fase IV <span class="arrow">▾</span></button>
-        <div class="nav-dropdown">
-          <a href="fase4.html" class="dd-label">Fase IV · Economía Política →</a>
-          <a href="smith.html">Adam Smith</a>
-          <a href="keynes.html">Keynes</a>
-          <a href="hayek-keynes.html">Hayek vs. Keynes</a>
-          <a href="globalizacion.html">Globalización</a>
-          <a href="nuevo-desorden.html">El nuevo desorden</a>
-        </div>
-      </div>
-    </div>
-
-    <a href="autor.html" class="nav-author">Autor</a>
-
-    <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
 
 <!-- Mobile drawer -->
-<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-  <a href="index.html" class="mobile-phase-label" style="text-decoration:none">Fase I — Antigüedad</a>
-  <a href="grecia-socrates-platon.html" class="mobile-nav-link">Sócrates &amp; Platón</a>
-  <a href="aristoteles-politica.html" class="mobile-nav-link">Aristóteles</a>
-  <a href="estoicismo.html" class="mobile-nav-link">El Estoicismo</a>
-  <a href="tomas-de-aquino.html" class="mobile-nav-link">Tomás de Aquino</a>
-  <a href="fase2.html" class="mobile-phase-label" style="text-decoration:none">Fase II — Renacimiento &amp; Modernidad</a>
-  <a href="maquiavelo.html" class="mobile-nav-link">Maquiavelo</a>
-  <a href="hobbes.html" class="mobile-nav-link">Hobbes y el Leviatán</a>
-  <a href="locke.html" class="mobile-nav-link">Locke y los derechos naturales</a>
-  <a href="rousseau.html" class="mobile-nav-link">Rousseau</a>
-  <a href="kant.html" class="mobile-nav-link">Kant y la razón universal</a>
-  <a href="fase3.html" class="mobile-phase-label" style="text-decoration:none">Fase III — Siglo XIX · Ideologías</a>
-  <a href="marx.html" class="mobile-nav-link">Marx y el Capital</a>
-  <a href="mill.html" class="mobile-nav-link">Mill y la libertad</a>
-  <a href="tocqueville.html" class="mobile-nav-link">Tocqueville y la democracia</a>
-  <a href="nietzsche.html" class="mobile-nav-link">Nietzsche y el martillo</a>
-  <a href="epilogo-fase3.html" class="mobile-nav-link">✦ Epílogo — Las sombras del XIX</a>
-  <a href="fase4.html" class="mobile-phase-label" style="text-decoration:none">Fase IV — Economía Política</a>
-  <a href="smith.html" class="mobile-nav-link">Adam Smith</a>
-  <a href="keynes.html" class="mobile-nav-link">Keynes</a>
-  <a href="hayek-keynes.html" class="mobile-nav-link">Hayek vs. Keynes</a>
-  <a href="globalizacion.html" class="mobile-nav-link">Globalización y crisis</a>
-  <a href="nuevo-desorden.html" class="mobile-nav-link">El nuevo desorden mundial</a>
-  <a href="fase5.html" class="mobile-phase-label" style="text-decoration:none">Fase V — Estrategia e Inteligencia</a>
-  <span class="mobile-nav-link disabled">Próximamente</span>
-  <span class="mobile-phase-label">Más</span>
-  <a href="autor.html" class="mobile-nav-link">Sobre el autor</a>
-</div>
+
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero">
@@ -463,15 +381,15 @@
   <h1 class="hero-title">Filosofía <em>&amp;</em> Política</h1>
   <div class="hero-rule"></div>
   <p class="hero-subtitle">
-    Un portal para entender de dónde vienen las ideas que gobiernan el mundo.
+    Entender de dónde vienen las ideas para pensar mejor el presente.
   </p>
 
-  <div class="hero-scroll">
+  <div class="fp-actions"><a class="fp-button" href="#aprender">Empezar a aprender</a><a class="fp-button fp-secondary" href="laboratorio.html">Ponerme a prueba →</a></div><div class="hero-scroll">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
-<div class="greek-line"></div>
+<!-- FP:HOME:START --><section class="fp-home"><p class="fp-kicker">Tu siguiente paso</p><h2>Leer es el comienzo. Pensar se entrena.</h2><div class="fp-grid fp-grid-three"><div><h3>01 · Aprender</h3><p>18 módulos y un epílogo. Recorre las ideas en su contexto.</p><a href="#aprender">Seguir el itinerario →</a></div><div><h3>02 · Explorar</h3><p>Una misma pregunta, autores distintos: libertad, justicia, poder.</p><a href="explorar.html">Cruzar perspectivas →</a></div><div><h3>03 · Practicar</h3><p>40 preguntas y 8 casos. Recibe feedback y vuelve sobre tus lagunas.</p><a href="laboratorio.html">Entrar al Laboratorio →</a></div></div><div class="fp-actions"><a href="poder.html">Poder &amp; influencia</a><a href="retos.html">Reto del mes</a><a href="presente.html">Teoría ↔ Presente</a></div></section><!-- FP:HOME:END --><div class="greek-line"></div>
 
 <!-- ══════════ PROPÓSITO ══════════ -->
 <section class="proposito reveal">
@@ -497,7 +415,7 @@
     <div class="pillar">
       <span class="pillar-icon">🔗</span>
       <p class="pillar-title">Conectado al presente</p>
-      <p class="pillar-text">Cada pensador tiene un espejo en 2025.</p>
+      <p class="pillar-text">Ideas históricas para examinar problemas del presente.</p>
     </div>
     <div class="pillar">
       <span class="pillar-icon">🌐</span>
@@ -515,21 +433,21 @@
 <div class="greek-line"></div>
 
 <!-- ══════════ FASES ══════════ -->
-<section class="phases">
+<section class="phases" id="aprender">
   <div class="phases-header reveal">
     <p class="phases-header-label">Itinerario</p>
-    <h2>Cuatro fases, diecisiete módulos, una quinta en camino</h2>
+    <h2>Cuatro fases, dieciocho módulos y un epílogo, una quinta en camino</h2>
   </div>
 
   <!-- FASE I -->
-  <div class="phase-block reveal" data-phase="1">
+  <div class="phase-block reveal" data-phase="1" id="fase-1">
     <div class="phase-label-row">
       <span class="phase-num">I</span>
       <div class="phase-info">
-        <p class="phase-name">Antigüedad Clásica</p>
+        <p class="phase-name">Antigüedad y Edad Media</p>
         <p class="phase-desc">Donde nace la pregunta: ¿cómo debemos vivir juntos?</p>
       </div>
-      <a href="fase1.html" class="phase-link" aria-label="Ver Fase I">Ver fase →</a>
+      <a href="index.html#fase-1" class="phase-link" aria-label="Ver Fase I">Ver fase →</a>
     </div>
     <div class="mod-grid">
       <a href="grecia-socrates-platon.html" class="mod-cell"><span class="mod-cell-num">I</span><p class="mod-cell-title">Sócrates &amp; Platón</p><span class="mod-arrow">→</span></a>
@@ -626,47 +544,15 @@
 </section>
 
 <!-- ══════════ FOOTER ══════════ -->
-<footer class="footer">
-  <p class="footer-brand">Filosofía &amp; Política</p>
-  <p class="footer-copy">
-    © Rodrigo Vidal · 2024–2026 · 
-    <a href="https://rozoca.github.io/filosofia-politica/">rozoca.github.io/filosofia-politica</a>
-  </p>
-</footer>
 
-<script>
-/* ── Dropdown nav ── */
-function toggleDD(btn){
-  const wasOpen=btn.classList.contains('open');
-  document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
-  if(!wasOpen){btn.classList.add('open');btn.nextElementSibling.classList.add('open')}
-}
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.nav-item')){
-    document.querySelectorAll('.nav-item-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
-  }
-});
 
-/* ── Hamburger ── */
-const hBtn=document.getElementById('hamburger-btn');
-const drawer=document.getElementById('mobile-drawer');
-hBtn.addEventListener('click',()=>{
-  const open=drawer.classList.toggle('open');
-  hBtn.setAttribute('aria-expanded',open);
-  drawer.setAttribute('aria-hidden',!open);
-  document.body.style.overflow=open?'hidden':'';
-});
-drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  drawer.classList.remove('open');hBtn.setAttribute('aria-expanded','false');
-  drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';
-}));
-
-/* ── Scroll reveal ── */
+<script>/* ── Scroll reveal ── */
 const obs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
 },{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
+</main><!-- FP:FOOTER:START --><footer class="fp-footer"><p>Filosofía &amp; Política · Proyecto de aprendizaje de Rodrigo Vidal</p><p><a href="retos.html">Reto y pregunta del mes</a> · <a href="presente.html">Teoría ↔ Presente</a> · <a href="https://rozoca.github.io/">Perfil profesional ↗</a></p><p>Aprender no para acumular respuestas, sino para mejorar las preguntas.</p></footer><!-- FP:FOOTER:END -->
 </body>
 </html>

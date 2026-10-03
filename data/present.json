@@ -1,0 +1,54 @@
+[
+  {
+    "id": "instituciones",
+    "title": "Instituciones, prosperidad y poder",
+    "eventDate": "2024-10-14",
+    "reviewed": "2026-10-02",
+    "fact": "El premio de Economía de 2024 reconoció a Acemoglu, Johnson y Robinson por estudiar la formación de las instituciones y su relación con la prosperidad.",
+    "source": "https://www.nobelprize.org/prizes/economic-sciences/2024/press-release/",
+    "sourceName": "Real Academia Sueca de Ciencias · NobelPrize.org",
+    "interpretations": [
+      {
+        "author": "Locke",
+        "analysis": "Una lectura posible pregunta cómo limitar el poder arbitrario y dar estabilidad a los derechos."
+      },
+      {
+        "author": "Marx",
+        "analysis": "Otra examina quién controla los recursos y cómo intereses materiales influyen en las instituciones."
+      }
+    ],
+    "question": "¿Qué evidencia distinguiría una institución que sirve al conjunto de otra que protege privilegios?",
+    "limit": "El premio no valida automáticamente una teoría filosófica ni demuestra que una única variable explique todo desarrollo.",
+    "modules": [
+      "locke",
+      "marx",
+      "smith"
+    ]
+  },
+  {
+    "id": "ia",
+    "title": "IA y autonomía de las personas",
+    "eventDate": "2021-11-23",
+    "reviewed": "2026-10-02",
+    "fact": "La UNESCO adoptó una Recomendación sobre la ética de la inteligencia artificial en noviembre de 2021.",
+    "source": "https://www.unesco.org/es/articles/recomendacion-sobre-la-etica-de-la-inteligencia-artificial",
+    "sourceName": "UNESCO · Recomendación sobre ética de la IA",
+    "interpretations": [
+      {
+        "author": "Kant",
+        "analysis": "Un marco posible pregunta si una decisión automatizada respeta la autonomía y permite a la persona comprender y cuestionar su trato."
+      },
+      {
+        "author": "Mill",
+        "analysis": "Otro contrasta beneficios y daños, y pregunta cómo proteger libertad y diversidad frente a recomendaciones uniformes."
+      }
+    ],
+    "question": "¿Qué debería poder conocer y cuestionar una persona ante una recomendación que limita sus opciones?",
+    "limit": "Se presenta un hito contemporáneo documentado, no una noticia reciente ni una descripción de obligaciones jurídicas vigentes.",
+    "modules": [
+      "kant",
+      "mill",
+      "tocqueville"
+    ]
+  }
+]

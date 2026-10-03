@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Módulo XI — Tocqueville · Filosofía & Política</title>
+  <title>Módulo XII — Tocqueville · Filosofía & Política</title>
   <meta name="description" content="Alexis de Tocqueville: la democracia observada, el despotismo blando, la igualdad y sus peligros. Un francés en América, un espejo para hoy."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root{
-      --bg:#0c0e10;--bg-mid:#121518;--bg-card:#181c20;--surface:#202530;
+      --bg:#0c0e10;--bg-mid:#121518;--bg-card:#181c20;--surface:#el presente30;
       --border:#303848;--border-light:#404e60;
       --blue:#1a4a7a;--blue-mid:#2060a0;--blue-light:#4080c0;--blue-pale:#80b0e0;
       --amber:#c48820;--amber-light:#d8a030;--amber-dim:#8a6018;
@@ -153,73 +153,23 @@
     .nav-autor-link:hover,.nav-autor-link.active{color:var(--gold,#c48820)}
     @media(max-width:700px){.nav-menu{display:none}}
   </style>
+<link rel="stylesheet" href="assets/css/portal.css">
+<script type="module" src="assets/js/common.js"></script>
+
+
+
+<link rel="stylesheet" href="assets/css/legacy-contrast.css">
+
+<!-- FP:META:START --><meta name="author" content="Rodrigo Vidal"><meta name="theme-color" content="#1e1b16"><link rel="canonical" href="https://rozoca.github.io/filosofia-politica/tocqueville.html"><meta property="og:type" content="website"><meta property="og:title" content="Módulo XII — Tocqueville · Filosofía &amp; Política"><meta property="og:description" content="Alexis de Tocqueville: la democracia observada, el despotismo blando, la igualdad y sus peligros. Un francés en América, un espejo para hoy."><meta property="og:url" content="https://rozoca.github.io/filosofia-politica/tocqueville.html"><meta property="og:locale" content="es_ES"><!-- FP:META:END -->
 </head>
-<body>
+<body data-document="tocqueville.html" data-module="tocqueville">
+<!-- FP:NAV:START --><a class="fp-skip" href="#contenido">Saltar al contenido</a><nav class="fp-nav" aria-label="Navegación principal"><a class="fp-brand" href="index.html">Filosofía &amp; Política</a><button class="fp-menu" aria-expanded="false" aria-controls="fp-links">Menú</button><div class="fp-links" id="fp-links"><a href="index.html#aprender">Aprender</a><a href="explorar.html">Explorar</a><a href="laboratorio.html">Laboratorio</a><a href="poder.html">Poder &amp; influencia</a><a href="progreso.html">Mi progreso</a><a href="autor.html">Autor</a></div></nav><!-- FP:NAV:END -->
 <div class="progress-bar" id="progress-bar"></div>
-<nav class="top-nav">
-  <div class="top-nav-inner">
-    <a href="index.html" class="nav-brand">Filosofía &amp; Política</a>
-    <div class="nav-menu">
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d1')">Fase I <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d1">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Antigüedad griega</span>
-            <a href="grecia-socrates-platon.html" class="nav-drop-link">Sócrates &amp; Platón</a>
-            <a href="aristoteles-politica.html" class="nav-drop-link">Aristóteles</a>
-            <a href="#" class="nav-drop-link disabled">Cicerón <span class="nav-drop-badge">Próx.</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d2')">Fase II <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d2">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Renacimiento &amp; Modernidad</span>
-            <a href="maquiavelo.html" class="nav-drop-link">Maquiavelo</a>
-            <a href="hobbes.html" class="nav-drop-link">Hobbes y el Leviatán</a>
-            <a href="locke.html" class="nav-drop-link">Locke y los derechos naturales</a>
-            <a href="rousseau.html" class="nav-drop-link">Rousseau</a>
-            <a href="kant.html" class="nav-drop-link">Kant y la razón universal</a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-item-btn active" onclick="toggleDrop('d3')">Fase III <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d3">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Siglo XIX · Ideologías</span>
-            <a href="marx.html" class="nav-drop-link">Marx y el Capital</a>
-            <a href="mill.html" class="nav-drop-link">Mill y la libertad</a>
-            <a href="tocqueville.html" class="nav-drop-link">Tocqueville y la democracia</a>
-            <a href="nietzsche.html" class="nav-drop-link">Nietzsche y el martillo</a>
-          </div>
-          <div class="nav-drop-section">
-            <a href="epilogo-fase3.html" class="nav-drop-link">✦ Epílogo — Las sombras del XIX</a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-item-btn" onclick="toggleDrop('d4')">Fase IV <span class="arrow">▾</span></button>
-        <div class="nav-dropdown" id="d4">
-          <div class="nav-drop-section">
-            <span class="nav-drop-label">Economía Política</span>
-            <a href="smith.html" class="nav-drop-link">Adam Smith</a>
-            <a href="keynes.html" class="nav-drop-link">Keynes</a>
-            <a href="hayek-keynes.html" class="nav-drop-link">Hayek vs. Keynes</a>
-            <a href="#" class="nav-drop-link disabled">Globalización <span class="nav-drop-badge">Próx.</span></a>
-            <a href="#" class="nav-drop-link disabled">El nuevo desorden mundial <span class="nav-drop-badge">Próx.</span></a>
-          </div>
-        </div>
-      </div>
-      <a href="autor.html" class="nav-autor-link">Sobre el autor</a>
-    </div>
-  </div>
-</nav>
+
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Módulo XI · Democracia liberal</span>
+    <span class="hero-eyebrow">Módulo XII · Democracia liberal</span>
     <h1 class="hero-title">Tocqueville y <em>la democracia</em></h1>
     <p class="hero-subtitle">Un aristócrata francés viajó a América en 1831 para entender la democracia desde dentro. Lo que escribió sigue siendo el análisis más lúcido de sus virtudes y sus peligros — incluidos los que aún no habían ocurrido.</p>
     <div class="hero-stats">
@@ -236,12 +186,12 @@
     <button class="tab-btn active" data-tab="quien">Quién fue</button>
     <button class="tab-btn" data-tab="america">La democracia observada</button>
     <button class="tab-btn" data-tab="peligros">Los peligros</button>
-    <button class="tab-btn" data-tab="entonces">1835 · 2025</button>
+    <button class="tab-btn" data-tab="entonces">1835 · el presente</button>
     <button class="tab-btn" data-tab="test">Test</button>
   </div>
 </nav>
 
-<main class="content-area">
+<aside class="fp-note">Las conexiones contemporáneas de este módulo son interpretaciones didácticas, no noticias verificadas. Consulta <a href="presente.html">Teoría ↔ Presente</a> para análisis fechados y con fuentes.</aside><main id="contenido" class="content-area">
 
 <!-- QUIÉN FUE -->
 <div class="tab-panel active" id="tab-quien">
@@ -350,10 +300,10 @@
   </div>
 </div>
 
-<!-- 1835 · 2025 -->
+<!-- 1835 · el presente -->
 <div class="tab-panel" id="tab-entonces">
   <div class="panel-header">
-    <h2>1835 · 2025: <em>Tocqueville, aquí y ahora</em></h2>
+    <h2>1835 · el presente: <em>Tocqueville, aquí y ahora</em></h2>
     <p class="panel-lead">Cada observación de Tocqueville tiene un eco exacto en el presente. No porque sea profeta — sino porque identificó dinámicas estructurales que la democracia lleva consigo independientemente de la época.</p>
   </div>
 
@@ -361,7 +311,7 @@
     <div class="then-now-header"><h3>El despotismo blando</h3></div>
     <div class="then-now-cols">
       <div class="then-col"><span class="col-label">1840 — lo que Tocqueville escribió</span><p>Imaginó un poder que «no rompe las voluntades sino que las ablanda, las dobla y las dirige.» Un Estado que cubre a los ciudadanos de un velo de pequeñas reglas complicadas, que los prevé de todo, que les evita la molestia de pensar por sí mismos. <strong>Los ciudadanos son «un rebaño de animales tímidos e industriosos, cuyo pastor es el gobierno.»</strong></p></div>
-      <div class="now-col"><span class="col-label">2025 — el eco contemporáneo</span><p>El debate sobre el Estado del bienestar excesivo, la burocracia que regula hasta lo trivial, los algoritmos que «nos protegen» de contenido que podría perturbarnos. La pregunta de si la comodidad del ciudadano-consumidor ha reemplazado a la exigencia del ciudadano-político. <strong>El ciudadano que delega en el Estado, en la empresa, en el algoritmo — y pierde la práctica de decidir.</strong></p></div>
+      <div class="now-col"><span class="col-label">el presente — el eco contemporáneo</span><p>El debate sobre el Estado del bienestar excesivo, la burocracia que regula hasta lo trivial, los algoritmos que «nos protegen» de contenido que podría perturbarnos. La pregunta de si la comodidad del ciudadano-consumidor ha reemplazado a la exigencia del ciudadano-político. <strong>El ciudadano que delega en el Estado, en la empresa, en el algoritmo — y pierde la práctica de decidir.</strong></p></div>
     </div>
   </div>
 
@@ -369,7 +319,7 @@
     <div class="then-now-header"><h3>La tiranía de la mayoría y la opinión pública</h3></div>
     <div class="then-now-cols">
       <div class="then-col"><span class="col-label">1835 — lo que Tocqueville escribió</span><p>En América, la presión social para conformarse es tan fuerte que quien piensa diferente se autocensura. No hay ley que lo prohíba — no hace falta. La mayoría no persigue al disidente: lo excluye. <strong>El resultado es una sociedad donde se dice mucho y se piensa poco.</strong></p></div>
-      <div class="now-col"><span class="col-label">2025 — el eco contemporáneo</span><p>La cultura de la cancelación, el miedo al pilón digital, la autocensura en redes sociales. Estudios muestran que una fracción creciente de ciudadanos en democracias liberales oculta sus opiniones políticas por miedo a las consecuencias sociales. <strong>Tocqueville tenía un nombre para esto: tiranía de la opinión prevalente.</strong></p></div>
+      <div class="now-col"><span class="col-label">el presente — el eco contemporáneo</span><p>La cultura de la cancelación, el miedo al pilón digital, la autocensura en redes sociales. Como hipótesis de análisis, la presión social puede llevar a ocultar opiniones; su alcance requiere evidencia específica. <strong>Tocqueville tenía un nombre para esto: tiranía de la opinión prevalente.</strong></p></div>
     </div>
   </div>
 
@@ -377,7 +327,7 @@
     <div class="then-now-header"><h3>Las asociaciones civiles como contrapoder</h3></div>
     <div class="then-now-cols">
       <div class="then-col"><span class="col-label">1835 — lo que Tocqueville escribió</span><p>Sin las asociaciones civiles que obligan a los ciudadanos a pensar en algo más que en sí mismos, la democracia se disuelve en individualismo atomizado. Las asociaciones son <strong>el único antídoto contra el despotismo blando</strong> — obligan a cooperar, a deliberar, a actuar colectivamente.</p></div>
-      <div class="now-col"><span class="col-label">2025 — el eco contemporáneo</span><p>El declive de los partidos políticos, los sindicatos, las iglesias y los clubes cívicos en Occidente — lo que Robert Putnam llamó «Bowling Alone». La sociabilidad digital no los reemplaza: conectar en redes no es asociarse cívicamente. <strong>El aislamiento que Tocqueville temía ha encontrado su forma perfecta en el scroll solitario.</strong></p></div>
+      <div class="now-col"><span class="col-label">el presente — el eco contemporáneo</span><p>El declive de los partidos políticos, los sindicatos, las iglesias y los clubes cívicos en Occidente — lo que Robert Putnam llamó «Bowling Alone». La sociabilidad digital no los reemplaza: conectar en redes no es asociarse cívicamente. <strong>El aislamiento que Tocqueville temía ha encontrado su forma perfecta en el scroll solitario.</strong></p></div>
     </div>
   </div>
 
@@ -385,7 +335,7 @@
     <div class="then-now-header"><h3>La democracia y el cortoplacismo</h3></div>
     <div class="then-now-cols">
       <div class="then-col"><span class="col-label">1840 — lo que Tocqueville escribió</span><p>Los políticos democráticos piensan en el siguiente ciclo electoral. Los ciudadanos piensan en sus intereses inmediatos. <strong>Las democracias tienen dificultad estructural para tomar decisiones que cuestan ahora pero benefician en veinte años.</strong></p></div>
-      <div class="now-col"><span class="col-label">2025 — el eco contemporáneo</span><p>El cambio climático es el ejemplo perfecto: el coste de actuar es inmediato, el beneficio es a 50 años. Las pensiones, la deuda pública, la inversión en infraestructura. <strong>El horizonte del ciclo electoral de cuatro años es el marco temporal más corto de la historia política — y Tocqueville ya lo señaló como un defecto estructural de la democracia.</strong></p></div>
+      <div class="now-col"><span class="col-label">el presente — el eco contemporáneo</span><p>El cambio climático es el ejemplo perfecto: el coste de actuar es inmediato, el beneficio es a 50 años. Las pensiones, la deuda pública, la inversión en infraestructura. <strong>Los incentivos electorales pueden favorecer resultados inmediatos; esta aplicación contemporánea debe distinguirse del argumento histórico de Tocqueville.</strong></p></div>
     </div>
   </div>
 </div>
@@ -439,7 +389,7 @@
 </div>
 
 </main>
-<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Inicio</a><a href="fase3.html">Fase III</a></nav></div></footer>
+
 <script>
 document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})});
 function toggleAcc(t){const b=t.nextElementSibling,o=t.classList.contains('open');document.querySelectorAll('.acc-trigger').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.acc-body').forEach(x=>x.classList.remove('open'));if(!o){t.classList.add('open');b.classList.add('open')}}
@@ -449,25 +399,7 @@ function showScore(){document.getElementById('score-num').textContent=score;cons
 function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
 window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
 </script>
-<script>
-function toggleDrop(id){
-  const all=document.querySelectorAll('.nav-dropdown');
-  const allBtns=document.querySelectorAll('.nav-item-btn');
-  const target=document.getElementById(id);
-  const isOpen=target.classList.contains('open');
-  all.forEach(d=>d.classList.remove('open'));
-  allBtns.forEach(b=>b.classList.remove('open'));
-  if(!isOpen){
-    target.classList.add('open');
-    target.previousElementSibling.classList.add('open');
-  }
-}
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.nav-item')){
-    document.querySelectorAll('.nav-dropdown').forEach(d=>d.classList.remove('open'));
-    document.querySelectorAll('.nav-item-btn').forEach(b=>b.classList.remove('open'));
-  }
-});
-</script>
+
+<!-- FP:PRACTICE:START --><section class="fp-practice" aria-label="Practica lo aprendido"><p class="fp-kicker">Comprender → Comparar → Aplicar</p><h2>Practica lo aprendido</h2><p>Contrasta tu comprensión de Tocqueville. Después explica con tus palabras dónde sirve la teoría y dónde encuentra sus límites.</p><div class="fp-actions"><a class="fp-button" href="laboratorio.html?module=tocqueville">Test del módulo</a><a class="fp-button fp-secondary" href="casos.html?module=tocqueville">Casos y comparación</a><a href="laboratorio.html">Volver al Laboratorio →</a></div></section><!-- FP:PRACTICE:END --><!-- FP:FOOTER:START --><footer class="fp-footer"><p>Filosofía &amp; Política · Proyecto de aprendizaje de Rodrigo Vidal</p><p><a href="retos.html">Reto y pregunta del mes</a> · <a href="presente.html">Teoría ↔ Presente</a> · <a href="https://rozoca.github.io/">Perfil profesional ↗</a></p><p>Aprender no para acumular respuestas, sino para mejorar las preguntas.</p></footer><!-- FP:FOOTER:END -->
 </body>
 </html>

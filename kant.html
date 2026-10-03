@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Módulo VIII — Kant · Filosofía & Política</title>
+  <title>Módulo IX — Kant · Filosofía & Política</title>
   <meta name="description" content="Immanuel Kant: el imperativo categórico, la autonomía moral, la paz perpetua y la Ilustración como proyecto de emancipación racional."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -89,13 +89,22 @@
     .footer-nav{display:flex;gap:1.5rem}.footer-nav a{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.15em;color:var(--ivory-dim);text-decoration:none;transition:color .2s}.footer-nav a:hover{color:var(--indigo-light)}
     @media(max-width:640px){.card-grid,.legacy-grid{grid-template-columns:1fr}.card.full{grid-column:1}.test-wrap{padding:1.6rem 1.3rem}.hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0;margin-right:0}.tab-btn{font-size:.75rem;padding:.5rem 1rem}}
   </style>
+<link rel="stylesheet" href="assets/css/portal.css">
+<script type="module" src="assets/js/common.js"></script>
+
+
+
+<link rel="stylesheet" href="assets/css/legacy-contrast.css">
+
+<!-- FP:META:START --><meta name="author" content="Rodrigo Vidal"><meta name="theme-color" content="#1e1b16"><link rel="canonical" href="https://rozoca.github.io/filosofia-politica/kant.html"><meta property="og:type" content="website"><meta property="og:title" content="Módulo IX — Kant · Filosofía &amp; Política"><meta property="og:description" content="Immanuel Kant: el imperativo categórico, la autonomía moral, la paz perpetua y la Ilustración como proyecto de emancipación racional."><meta property="og:url" content="https://rozoca.github.io/filosofia-politica/kant.html"><meta property="og:locale" content="es_ES"><!-- FP:META:END -->
 </head>
-<body>
+<body data-document="kant.html" data-module="kant">
+<!-- FP:NAV:START --><a class="fp-skip" href="#contenido">Saltar al contenido</a><nav class="fp-nav" aria-label="Navegación principal"><a class="fp-brand" href="index.html">Filosofía &amp; Política</a><button class="fp-menu" aria-expanded="false" aria-controls="fp-links">Menú</button><div class="fp-links" id="fp-links"><a href="index.html#aprender">Aprender</a><a href="explorar.html">Explorar</a><a href="laboratorio.html">Laboratorio</a><a href="poder.html">Poder &amp; influencia</a><a href="progreso.html">Mi progreso</a><a href="autor.html">Autor</a></div></nav><!-- FP:NAV:END -->
 <div class="progress-bar" id="progress-bar"></div>
-<nav class="top-nav"><div class="top-nav-inner"><a href="fase2.html" class="nav-back">← Fase II</a><span class="nav-title">Filosofía & Política</span><span class="nav-badge">Módulo VIII</span></div></nav>
+
 
 <section class="hero"><div class="hero-inner">
-  <span class="hero-eyebrow">Módulo VIII · La Ilustración</span>
+  <span class="hero-eyebrow">Módulo IX · La Ilustración</span>
   <h1 class="hero-title">Kant y la <em>razón universal</em></h1>
   <p class="hero-subtitle">El filósofo que nunca salió de Königsberg pero redefinió todo: la moral, el conocimiento, la política y el significado de ser libre. La cumbre del pensamiento moderno.</p>
   <div class="hero-stats">
@@ -114,7 +123,7 @@
   <button class="tab-btn" data-tab="test">Test</button>
 </div></nav>
 
-<main class="content-area">
+<main id="contenido" class="content-area">
 
 <div class="tab-panel active" id="tab-quien">
   <div class="panel-header"><h2>Immanuel Kant: <em>el relojero del pensamiento</em></h2>
@@ -210,7 +219,7 @@
 </div>
 </main>
 
-<footer><div class="footer-inner"><div class="footer-brand"><strong>Rodrigo Vidal</strong> · Filosofía & Política</div><nav class="footer-nav"><a href="index.html">Fase I</a><a href="fase2.html">Fase II</a><a href="rousseau.html">Rousseau</a></nav></div></footer>
+
 
 <script>
 document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('tab-'+b.dataset.tab).classList.add('active')})});
@@ -221,5 +230,6 @@ function showScore(){document.getElementById('score-num').textContent=score;cons
 function resetQuiz(){answered=0;score=0;document.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong','reveal')});document.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));document.getElementById('score-box').classList.remove('show')}
 window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
 </script>
+<!-- FP:PRACTICE:START --><section class="fp-practice" aria-label="Practica lo aprendido"><p class="fp-kicker">Comprender → Comparar → Aplicar</p><h2>Practica lo aprendido</h2><p>Contrasta tu comprensión de Kant. Después explica con tus palabras dónde sirve la teoría y dónde encuentra sus límites.</p><div class="fp-actions"><a class="fp-button" href="laboratorio.html?module=kant">Test del módulo</a><a class="fp-button fp-secondary" href="casos.html?module=kant">Casos y comparación</a><a href="laboratorio.html">Volver al Laboratorio →</a></div></section><!-- FP:PRACTICE:END --><!-- FP:FOOTER:START --><footer class="fp-footer"><p>Filosofía &amp; Política · Proyecto de aprendizaje de Rodrigo Vidal</p><p><a href="retos.html">Reto y pregunta del mes</a> · <a href="presente.html">Teoría ↔ Presente</a> · <a href="https://rozoca.github.io/">Perfil profesional ↗</a></p><p>Aprender no para acumular respuestas, sino para mejorar las preguntas.</p></footer><!-- FP:FOOTER:END -->
 </body>
 </html>

@@ -1,0 +1,886 @@
+[
+  {
+    "id": "q001",
+    "question": "Alguien afirma que justicia es cumplir toda norma. ¿Qué pregunta inicia mejor un examen socrático?",
+    "options": [
+      "¿Una norma injusta también debe cumplirse para actuar justamente?",
+      "¿Cuántas normas existen?",
+      "¿Quién pronunció primero esa definición?",
+      "¿Cuánta gente está de acuerdo?"
+    ],
+    "answer": 0,
+    "explanation": "El contraejemplo obliga a precisar la definición y sus supuestos. La popularidad o la antigüedad no resuelven la contradicción. El examen no demuestra por sí solo cuál es la definición correcta.",
+    "difficulty": "Básico",
+    "level": 2,
+    "authors": [
+      "Sócrates"
+    ],
+    "phase": 1,
+    "topics": [
+      "Justicia"
+    ],
+    "module": "grecia-socrates-platon"
+  },
+  {
+    "id": "q002",
+    "question": "Un consejo de expertos reclama gobernar sin controles. ¿Qué tensión permite plantear Platón?",
+    "options": [
+      "Toda especialización vuelve ilegítima una decisión.",
+      "La competencia para conocer el bien frente al problema de controlar a quienes dicen conocerlo.",
+      "La mayoría identifica necesariamente la verdad.",
+      "Platón defiende repartir el gobierno por sorteo en la República."
+    ],
+    "answer": 1,
+    "explanation": "El gobierno filosófico vincula conocimiento y autoridad. La objeción sobre controles es una pregunta crítica al modelo, no una tesis democrática atribuible sin más a Platón.",
+    "difficulty": "Intermedio",
+    "level": 3,
+    "authors": [
+      "Platón"
+    ],
+    "phase": 1,
+    "topics": [
+      "Autoridad"
+    ],
+    "module": "grecia-socrates-platon"
+  },
+  {
+    "id": "q003",
+    "question": "Una dirección reparte recursos atendiendo solo al interés de quienes mandan. ¿Qué criterio aristotélico ayuda a juzgarla?",
+    "options": [
+      "Si todos reciben exactamente la misma cantidad.",
+      "Si el dirigente posee mucha riqueza.",
+      "Si gobierna para el bien común o para la ventaja particular.",
+      "Si la decisión produce alguna satisfacción inmediata."
+    ],
+    "answer": 2,
+    "explanation": "Aristóteles distingue formas rectas y desviadas por su orientación al interés común o particular. Trasladarlo a una empresa es una analogía: una empresa no es la polis.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Aristóteles"
+    ],
+    "phase": 1,
+    "topics": [
+      "Justicia"
+    ],
+    "module": "aristoteles-politica"
+  },
+  {
+    "id": "q004",
+    "question": "Un compañero llama virtud a evitar cualquier riesgo. ¿Cómo precisar el término medio?",
+    "options": [
+      "Siempre se elige la mitad del riesgo máximo.",
+      "La virtud consiste en no sentir miedo.",
+      "Cualquier elección moderada es justa.",
+      "La respuesta adecuada depende de la situación y del juicio práctico, no de una media aritmética."
+    ],
+    "answer": 3,
+    "explanation": "La valentía se sitúa entre temeridad y cobardía según circunstancias y prudencia. El término medio no convierte en virtuosa cualquier transacción ni justifica actos injustos.",
+    "difficulty": "Básico",
+    "level": 2,
+    "authors": [
+      "Aristóteles"
+    ],
+    "phase": 1,
+    "topics": [
+      "Individuo"
+    ],
+    "module": "aristoteles-politica"
+  },
+  {
+    "id": "q005",
+    "question": "Tu propuesta es rechazada. ¿Qué respuesta aplica mejor la distinción estoica del control?",
+    "options": [
+      "Revisar tus razones y tu conducta, sin exigir controlar la decisión ajena.",
+      "Renunciar a toda iniciativa para no sufrir.",
+      "Convencerte de que la decisión ajena depende de ti.",
+      "Negar que el rechazo haya ocurrido."
+    ],
+    "answer": 0,
+    "explanation": "Distinguir juicios y acciones propios de resultados externos permite actuar sin confundir responsabilidad con omnipotencia. No implica pasividad ni negar emociones.",
+    "difficulty": "Básico",
+    "level": 4,
+    "authors": [
+      "Epicteto"
+    ],
+    "phase": 1,
+    "topics": [
+      "Libertad"
+    ],
+    "module": "estoicismo"
+  },
+  {
+    "id": "q006",
+    "question": "¿Qué distingue aceptación estoica y conformismo ante una injusticia?",
+    "options": [
+      "El estoicismo obliga a obedecer siempre al superior.",
+      "Aceptar que el hecho existe no impide actuar justamente para cambiarlo.",
+      "El conformismo y la virtud son equivalentes.",
+      "La justicia es externa y por eso nunca importa."
+    ],
+    "answer": 1,
+    "explanation": "La virtud incluye justicia y deberes hacia otros. El éxito de una intervención puede escapar al control, pero deliberar y actuar responsablemente sigue siendo relevante.",
+    "difficulty": "Intermedio",
+    "level": 3,
+    "authors": [
+      "Epicteto",
+      "Marco Aurelio"
+    ],
+    "phase": 1,
+    "topics": [
+      "Individuo"
+    ],
+    "module": "estoicismo"
+  },
+  {
+    "id": "q007",
+    "question": "¿Basta que una orden proceda del gobernante para ser una ley justa según Tomás de Aquino?",
+    "options": [
+      "Sí: el poder convierte cualquier mandato en justo.",
+      "No: toda norma humana es ilegítima.",
+      "No: debe orientarse al bien común y ajustarse a la razón.",
+      "Sí: basta con que sea eficiente."
+    ],
+    "answer": 2,
+    "explanation": "La ley se entiende como ordenación de la razón al bien común promulgada por quien cuida la comunidad. La autoridad formal no agota su justificación moral.",
+    "difficulty": "Básico",
+    "level": 2,
+    "authors": [
+      "Tomás de Aquino"
+    ],
+    "phase": 1,
+    "topics": [
+      "Legitimidad"
+    ],
+    "module": "tomas-de-aquino"
+  },
+  {
+    "id": "q008",
+    "question": "¿Qué contraste entre Aquino y Hobbes está mejor formulado?",
+    "options": [
+      "Aquino rechaza toda razón y Hobbes toda obligación.",
+      "Ambos identifican justicia con cualquier deseo del gobernante.",
+      "Hobbes sostiene que la paz requiere eliminar las leyes civiles.",
+      "Aquino sitúa la ley humana bajo un orden moral; Hobbes enfatiza una autoridad común capaz de asegurar la paz."
+    ],
+    "answer": 3,
+    "explanation": "El contraste señala énfasis diferentes, no ausencia de moral en Hobbes: sus leyes de naturaleza también prescriben buscar la paz. Una comparación rigurosa evita borrar los matices.",
+    "difficulty": "Avanzado",
+    "level": 3,
+    "authors": [
+      "Tomás de Aquino"
+    ],
+    "phase": 1,
+    "topics": [
+      "Autoridad"
+    ],
+    "module": "tomas-de-aquino"
+  },
+  {
+    "id": "q009",
+    "question": "Un líder gana obediencia sembrando temor y humillación. ¿Qué advertencia de El Príncipe está omitiendo?",
+    "options": [
+      "El temor puede ser útil al poder, pero provocar odio amenaza su conservación.",
+      "Ser odiado garantiza lealtad estable.",
+      "La crueldad es siempre el fin de la política.",
+      "La reputación no influye en la estabilidad."
+    ],
+    "answer": 0,
+    "explanation": "Maquiavelo diferencia temor y odio; no recomienda una crueldad ilimitada. Comprender su análisis estratégico no obliga a aprobar moralmente las prácticas descritas.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Maquiavelo"
+    ],
+    "phase": 2,
+    "topics": [
+      "Estrategia"
+    ],
+    "module": "maquiavelo"
+  },
+  {
+    "id": "q010",
+    "question": "¿Qué comparación evita caricaturizar a Maquiavelo y Aristóteles?",
+    "options": [
+      "Aristóteles solo estudia ideas y nunca instituciones.",
+      "Maquiavelo examina condiciones de conservación del poder; Aristóteles evalúa regímenes también por su orientación al bien común.",
+      "Maquiavelo cree que cualquier violencia siempre funciona.",
+      "Ambos consideran irrelevantes los fines del gobierno."
+    ],
+    "answer": 1,
+    "explanation": "Es una diferencia de enfoque, no una oposición total entre realidad y moral. Maquiavelo también estudia instituciones republicanas y Aristóteles compara constituciones concretas.",
+    "difficulty": "Avanzado",
+    "level": 3,
+    "authors": [
+      "Maquiavelo"
+    ],
+    "phase": 2,
+    "topics": [
+      "Poder"
+    ],
+    "module": "maquiavelo"
+  },
+  {
+    "id": "q011",
+    "question": "Dos equipos incumplen acuerdos por miedo a que el otro incumpla primero. ¿Qué ilumina Hobbes?",
+    "options": [
+      "Toda cooperación exige que todos sean malvados.",
+      "La competencia desaparecerá si se prohíbe hablar del conflicto.",
+      "La inseguridad recíproca sin garantía común puede hacer racional anticiparse al otro.",
+      "El desacuerdo prueba que el contrato social es imposible."
+    ],
+    "answer": 2,
+    "explanation": "El problema no depende solo de maldad individual: la desconfianza y la falta de seguridad favorecen el conflicto. La analogía organizativa exige considerar normas y recursos ya existentes.",
+    "difficulty": "Básico",
+    "level": 4,
+    "authors": [
+      "Hobbes"
+    ],
+    "phase": 2,
+    "topics": [
+      "Estado"
+    ],
+    "module": "hobbes"
+  },
+  {
+    "id": "q012",
+    "question": "¿En qué difieren Hobbes y Locke al justificar el gobierno?",
+    "options": [
+      "Locke rechaza toda autoridad y Hobbes toda ley.",
+      "Ambos admiten únicamente monarquías hereditarias.",
+      "Hobbes convierte cualquier preferencia privada en derecho de resistencia.",
+      "Hobbes prioriza la seguridad mediante un poder común; Locke insiste en proteger derechos y limitar el gobierno."
+    ],
+    "answer": 3,
+    "explanation": "Ambos recurren al consentimiento y al contrato, pero sus diseños y límites difieren. Hobbes no elimina la autoconservación; Locke no elimina la autoridad política.",
+    "difficulty": "Intermedio",
+    "level": 3,
+    "authors": [
+      "Hobbes"
+    ],
+    "phase": 2,
+    "topics": [
+      "Legitimidad"
+    ],
+    "module": "hobbes"
+  },
+  {
+    "id": "q013",
+    "question": "Un gobierno elegido confisca bienes de adversarios sin garantías. ¿Qué objeción lockeana es más pertinente?",
+    "options": [
+      "El consentimiento inicial no autoriza un poder arbitrario contra los derechos que debía proteger.",
+      "La elección legitima automáticamente todas las decisiones posteriores.",
+      "La propiedad es el único derecho y anula cualquier ley.",
+      "La separación entre gobernantes y gobernados impide juzgar abusos."
+    ],
+    "answer": 0,
+    "explanation": "El gobierno es fiduciario: recibe un encargo limitado. La protección de vida, libertad y bienes, junto a leyes y consentimiento, no equivale a una licencia ilimitada.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Locke"
+    ],
+    "phase": 2,
+    "topics": [
+      "Legitimidad"
+    ],
+    "module": "locke"
+  },
+  {
+    "id": "q014",
+    "question": "¿Qué tensión surge al comparar la propiedad en Locke con la crítica de Marx?",
+    "options": [
+      "Ambos niegan que el trabajo importe.",
+      "La justificación de la apropiación y sus límites frente al análisis de relaciones de producción y dependencia.",
+      "Locke estudia exclusivamente salarios industriales del siglo XIX.",
+      "Marx se limita a denunciar la envidia individual."
+    ],
+    "answer": 1,
+    "explanation": "Locke argumenta desde trabajo, derechos y condiciones de apropiación; Marx examina estructuras históricas y explotación. No basta oponer egoísmo y generosidad.",
+    "difficulty": "Avanzado",
+    "level": 3,
+    "authors": [
+      "Locke"
+    ],
+    "phase": 2,
+    "topics": [
+      "Libertad"
+    ],
+    "module": "locke"
+  },
+  {
+    "id": "q015",
+    "question": "¿Por qué una mayoría puede no expresar la voluntad general?",
+    "options": [
+      "Porque la voluntad general es siempre la del gobernante.",
+      "Porque la unanimidad hace innecesaria toda deliberación.",
+      "Puede agregar intereses particulares sin deliberar sobre el interés común.",
+      "Porque Rousseau rechaza que el pueblo sea soberano."
+    ],
+    "answer": 2,
+    "explanation": "Voluntad general y suma de voluntades privadas no son equivalentes. El resultado numérico no garantiza por sí solo una orientación al bien común.",
+    "difficulty": "Básico",
+    "level": 2,
+    "authors": [
+      "Rousseau"
+    ],
+    "phase": 2,
+    "topics": [
+      "Legitimidad"
+    ],
+    "module": "rousseau"
+  },
+  {
+    "id": "q016",
+    "question": "Un equipo llama voluntad general a lo que desea su jefe. ¿Cuál es el límite principal de esa transferencia?",
+    "options": [
+      "La expresión solo sirve para votar el horario de trabajo.",
+      "Rousseau exige unanimidad en toda decisión cotidiana.",
+      "La voluntad general elimina la necesidad de discutir fines.",
+      "Confunde una decisión jerárquica con la autolegislación de una comunidad de iguales."
+    ],
+    "answer": 3,
+    "explanation": "La analogía debe examinar quién participa, en qué condiciones y con qué relación de dependencia. No todo objetivo corporativo es un interés común libremente construido.",
+    "difficulty": "Avanzado",
+    "level": 4,
+    "authors": [
+      "Rousseau"
+    ],
+    "phase": 2,
+    "topics": [
+      "Estado"
+    ],
+    "module": "rousseau"
+  },
+  {
+    "id": "q017",
+    "question": "Una organización oculta información para obtener un consentimiento rentable. ¿Qué objeción kantiana pesa más?",
+    "options": [
+      "Usa a las personas meramente como medios al impedir una decisión autónoma informada.",
+      "La acción es justa si aumenta cualquier beneficio agregado.",
+      "La acción solo es injusta si se descubre.",
+      "El consentimiento formal vuelve irrelevante el engaño."
+    ],
+    "answer": 0,
+    "explanation": "La fórmula de la humanidad exige respetar a las personas como fines. No prohíbe toda cooperación instrumental; cuestiona usar a alguien meramente como medio mediante engaño.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Kant"
+    ],
+    "phase": 2,
+    "topics": [
+      "Justicia"
+    ],
+    "module": "kant"
+  },
+  {
+    "id": "q018",
+    "question": "Kant y un análisis utilitarista discrepan sobre mentir para evitar un daño. ¿Qué hay que comparar?",
+    "options": [
+      "La nacionalidad de los autores.",
+      "La universalización y el respeto a la persona con las consecuencias para el bienestar.",
+      "La preferencia del actor como criterio común suficiente.",
+      "La ausencia de reglas en cualquier utilitarismo."
+    ],
+    "answer": 1,
+    "explanation": "Son criterios de justificación distintos. El utilitarismo puede valorar reglas por sus efectos; no debe caricaturizarse como cálculo impulsivo de ventajas personales.",
+    "difficulty": "Avanzado",
+    "level": 3,
+    "authors": [
+      "Kant"
+    ],
+    "phase": 2,
+    "topics": [
+      "Justicia"
+    ],
+    "module": "kant"
+  },
+  {
+    "id": "q019",
+    "question": "Una empresa paga el salario pactado. ¿Desaparece por ello la explotación en el análisis de Marx?",
+    "options": [
+      "Sí: explotación significa únicamente incumplir el contrato.",
+      "Sí: Marx solo critica los salarios ilegales.",
+      "No: su concepto se refiere a la apropiación de plusvalor en la relación de producción.",
+      "No: porque todo intercambio es necesariamente un robo físico."
+    ],
+    "answer": 2,
+    "explanation": "En su marco, fuerza de trabajo y valor producido son distintos. La explotación puede existir bajo contratos formalmente libres; explicar ese marco no prueba automáticamente su validez en cualquier caso.",
+    "difficulty": "Intermedio",
+    "level": 2,
+    "authors": [
+      "Marx"
+    ],
+    "phase": 3,
+    "topics": [
+      "Economía"
+    ],
+    "module": "marx"
+  },
+  {
+    "id": "q020",
+    "question": "Un trabajador acepta condiciones duras porque no dispone de alternativas materiales. ¿Qué añade una lectura marxiana?",
+    "options": [
+      "Concluir que todo consentimiento carece siempre de sentido.",
+      "Atribuir el problema exclusivamente a la personalidad del trabajador.",
+      "Suponer que eliminar un jefe elimina toda dependencia económica.",
+      "Examinar propiedad, dependencia y poder de negociación además del consentimiento formal."
+    ],
+    "answer": 3,
+    "explanation": "La relación estructural condiciona las opciones disponibles. El diagnóstico requiere evidencia sobre alternativas, propiedad y organización; no basta identificar un desacuerdo salarial.",
+    "difficulty": "Avanzado",
+    "level": 4,
+    "authors": [
+      "Marx"
+    ],
+    "phase": 3,
+    "topics": [
+      "Poder"
+    ],
+    "module": "marx"
+  },
+  {
+    "id": "q021",
+    "question": "Una opinión irrita a la mayoría sin constituir amenaza concreta. ¿Qué criterio de Mill es pertinente?",
+    "options": [
+      "La mera ofensa no basta por sí sola para justificar coacción; hay que examinar el daño a terceros y el contexto.",
+      "Toda expresión debe permitirse en cualquier contexto.",
+      "La mayoría puede prohibir lo que le desagrada.",
+      "Solo las opiniones verdaderas merecen protección."
+    ],
+    "answer": 0,
+    "explanation": "El principio del daño distingue desagrado y perjuicio. Mill considera relevante el contexto de una expresión; defender la libertad no equivale a negar toda responsabilidad.",
+    "difficulty": "Básico",
+    "level": 4,
+    "authors": [
+      "Mill"
+    ],
+    "phase": 3,
+    "topics": [
+      "Libertad"
+    ],
+    "module": "mill"
+  },
+  {
+    "id": "q022",
+    "question": "¿Qué tensión hay entre Mill y una apelación simplista a la voluntad general?",
+    "options": [
+      "Mill niega cualquier interés social.",
+      "La protección de individualidad y disenso frente a presentar toda decisión colectiva como expresión del bien común.",
+      "Rousseau equipara explícitamente voluntad general con deseo del jefe.",
+      "Ambos afirman que toda minoría siempre tiene razón."
+    ],
+    "answer": 1,
+    "explanation": "La comparación debe separar la idea de Rousseau de sus usos abusivos. Mill permite preguntar qué límites protegen al individuo frente a poderes sociales y políticos.",
+    "difficulty": "Intermedio",
+    "level": 3,
+    "authors": [
+      "Mill"
+    ],
+    "phase": 3,
+    "topics": [
+      "Individuo"
+    ],
+    "module": "mill"
+  },
+  {
+    "id": "q023",
+    "question": "Nadie prohíbe disentir, pero quien discrepa pierde toda relación social. ¿Qué peligro ilustra?",
+    "options": [
+      "La ausencia de leyes demuestra libertad completa.",
+      "Toda mayoría actúa necesariamente como tiranía.",
+      "La presión de la opinión mayoritaria puede restringir la libertad sin censura legal.",
+      "La igualdad jurídica elimina la presión social."
+    ],
+    "answer": 2,
+    "explanation": "Tocqueville analiza el poder social de la mayoría. El caso es hipotético: no demuestra por sí mismo la frecuencia de esa presión en una sociedad concreta.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Tocqueville"
+    ],
+    "phase": 3,
+    "topics": [
+      "Influencia"
+    ],
+    "module": "tocqueville"
+  },
+  {
+    "id": "q024",
+    "question": "¿Por qué las asociaciones pueden limitar el despotismo blando?",
+    "options": [
+      "Eliminan automáticamente cualquier desigualdad.",
+      "Sustituyen siempre todas las instituciones públicas.",
+      "Garantizan que nadie abuse del poder.",
+      "Ejercitan cooperación y responsabilidad cívica entre individuos y poder central."
+    ],
+    "answer": 3,
+    "explanation": "Las asociaciones crean hábitos y capacidades de acción compartida. Son un contrapeso posible, no garantía absoluta ni sustituto universal del Estado.",
+    "difficulty": "Básico",
+    "level": 2,
+    "authors": [
+      "Tocqueville"
+    ],
+    "phase": 3,
+    "topics": [
+      "Autoridad"
+    ],
+    "module": "tocqueville"
+  },
+  {
+    "id": "q025",
+    "question": "¿Qué lectura evita reducir la voluntad de poder a dominar a otros?",
+    "options": [
+      "También permite pensar la creación, la interpretación y la superación de sí, aunque su sentido es debatido.",
+      "Equivale a un programa administrativo de dictadura.",
+      "Significa obedecer toda moral heredada.",
+      "Es una fórmula psicológica que predice cualquier conducta sin excepciones."
+    ],
+    "answer": 0,
+    "explanation": "El concepto tiene usos y lecturas diversas. Convertirlo en receta para someter personas empobrece el texto y oculta el problema de la creación de valores.",
+    "difficulty": "Intermedio",
+    "level": 2,
+    "authors": [
+      "Nietzsche"
+    ],
+    "phase": 3,
+    "topics": [
+      "Poder"
+    ],
+    "module": "nietzsche"
+  },
+  {
+    "id": "q026",
+    "question": "Alguien rechaza una norma diciendo simplemente «creo mis valores». ¿Qué examen crítico falta?",
+    "options": [
+      "Contar cuántas personas le aplauden.",
+      "Investigar qué fuerzas, hábitos y resentimientos sostienen su valoración y qué forma de vida afirma.",
+      "Identificar cualquier deseo inmediato con una superación de sí.",
+      "Aceptar que cualquier capricho queda filosóficamente justificado."
+    ],
+    "answer": 1,
+    "explanation": "La crítica genealógica no es una dispensa para evitar razones. Cuestionar valores heredados exige también examinar los propios motivos y efectos.",
+    "difficulty": "Avanzado",
+    "level": 4,
+    "authors": [
+      "Nietzsche"
+    ],
+    "phase": 3,
+    "topics": [
+      "Individuo"
+    ],
+    "module": "nietzsche"
+  },
+  {
+    "id": "q027",
+    "question": "Un régimen invoca a un filósofo. ¿Qué conclusión histórica es más prudente?",
+    "options": [
+      "El filósofo causó necesariamente todo acto del régimen.",
+      "La apropiación prueba que ninguna idea tiene consecuencias.",
+      "Distinguir textos, interpretaciones, apropiaciones y condiciones históricas antes de atribuir causalidad.",
+      "La coincidencia de vocabulario demuestra identidad doctrinal."
+    ],
+    "answer": 2,
+    "explanation": "La responsabilidad intelectual no se decide por asociación verbal. Es preciso rastrear mediaciones y evidencias, sin borrar tensiones problemáticas de los textos.",
+    "difficulty": "Avanzado",
+    "level": 3,
+    "authors": [
+      "Arendt",
+      "Marx",
+      "Nietzsche"
+    ],
+    "phase": 3,
+    "topics": [
+      "Poder"
+    ],
+    "module": "epilogo-fase3"
+  },
+  {
+    "id": "q028",
+    "question": "¿Qué significa que la banalidad del mal no equivale a mal trivial?",
+    "options": [
+      "Que el sufrimiento causado carece de importancia.",
+      "Que seguir órdenes elimina toda responsabilidad.",
+      "Que cualquier funcionario es necesariamente criminal.",
+      "Se refiere al problema del juicio y la falta de reflexión en un agente, no a la pequeñez del daño."
+    ],
+    "answer": 3,
+    "explanation": "En Arendt, el análisis de Eichmann plantea responsabilidad y pensamiento. No absuelve al agente ni constituye un diagnóstico universal de todos los perpetradores.",
+    "difficulty": "Intermedio",
+    "level": 2,
+    "authors": [
+      "Arendt"
+    ],
+    "phase": 3,
+    "topics": [
+      "Autoridad"
+    ],
+    "module": "epilogo-fase3"
+  },
+  {
+    "id": "q029",
+    "question": "¿Qué lectura de la mano invisible evita convertirla en dogma?",
+    "options": [
+      "La coordinación por interés propio puede producir resultados no buscados bajo ciertas condiciones institucionales.",
+      "Cualquier mercado siempre produce justicia perfecta.",
+      "La competencia funciona igual con colusión y monopolios.",
+      "Toda acción pública destruye necesariamente la prosperidad."
+    ],
+    "answer": 0,
+    "explanation": "Smith también examina justicia, bienes públicos y riesgos de colusión. Una metáfora no demuestra eficiencia universal ni distribución justa.",
+    "difficulty": "Básico",
+    "level": 2,
+    "authors": [
+      "Smith"
+    ],
+    "phase": 4,
+    "topics": [
+      "Economía"
+    ],
+    "module": "smith"
+  },
+  {
+    "id": "q030",
+    "question": "Varias empresas coordinan precios y bloquean nuevas entradas. ¿Qué pregunta smithiana resulta útil?",
+    "options": [
+      "¿Cómo proteger indefinidamente el acuerdo de los productores?",
+      "¿Qué reglas y condiciones restablecerían competencia y limitarían privilegios?",
+      "¿Por qué todo intercambio voluntario produce competencia suficiente?",
+      "¿Cómo demostrar que los consumidores nunca importan?"
+    ],
+    "answer": 1,
+    "explanation": "La defensa del intercambio no equivale a defender intereses de los comerciantes en cualquier circunstancia. Hay que distinguir competencia y privilegio organizado.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Smith"
+    ],
+    "phase": 4,
+    "topics": [
+      "Economía"
+    ],
+    "module": "smith"
+  },
+  {
+    "id": "q031",
+    "question": "Todas las familias reducen consumo a la vez durante una recesión. ¿Qué mecanismo puede aparecer?",
+    "options": [
+      "El ahorro agregado aumenta exactamente en la suma prevista en todos los casos.",
+      "El empleo mejora necesariamente de inmediato.",
+      "La caída de demanda e ingresos puede dificultar el aumento del ahorro agregado.",
+      "La producción es independiente del gasto."
+    ],
+    "answer": 2,
+    "explanation": "La paradoja del ahorro distingue una decisión individual razonable de su efecto agregado. El resultado depende de inversión, política y contexto; no implica que ahorrar sea siempre perjudicial.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Keynes"
+    ],
+    "phase": 4,
+    "topics": [
+      "Economía"
+    ],
+    "module": "keynes"
+  },
+  {
+    "id": "q032",
+    "question": "¿Cuál es la justificación keynesiana de una intervención ante demanda insuficiente?",
+    "options": [
+      "Cualquier déficit mejora cualquier economía en todo momento.",
+      "Los precios nunca cambian.",
+      "La intervención no tiene costes ni restricciones.",
+      "La economía puede permanecer con desempleo involuntario sin ajustarse rápidamente al pleno empleo."
+    ],
+    "answer": 3,
+    "explanation": "La argumentación depende de capacidad ociosa, expectativas y demanda. No elimina inflación, financiación, ejecución o sostenibilidad como problemas.",
+    "difficulty": "Básico",
+    "level": 2,
+    "authors": [
+      "Keynes"
+    ],
+    "phase": 4,
+    "topics": [
+      "Estado"
+    ],
+    "module": "keynes"
+  },
+  {
+    "id": "q033",
+    "question": "¿Qué comparación entre Hayek y Keynes es más fértil?",
+    "options": [
+      "Cómo coordinar conocimiento disperso y cómo responder a fallos de demanda agregada.",
+      "Hayek ignora la información y Keynes ignora el empleo.",
+      "Uno quiere riqueza y el otro pobreza.",
+      "Ambos ofrecen la misma receta para cualquier crisis."
+    ],
+    "answer": 0,
+    "explanation": "Sus problemas y mecanismos de atención difieren. Contrastar diagnósticos permite especificar condiciones en vez de elegir un vencedor atemporal.",
+    "difficulty": "Intermedio",
+    "level": 3,
+    "authors": [
+      "Hayek",
+      "Keynes"
+    ],
+    "phase": 4,
+    "topics": [
+      "Economía"
+    ],
+    "module": "hayek-keynes"
+  },
+  {
+    "id": "q034",
+    "question": "Un plan central dispone de cifras agregadas pero desconoce necesidades locales cambiantes. ¿Qué objeción hayekiana debe considerar?",
+    "options": [
+      "Toda información pública es falsa por definición.",
+      "Parte del conocimiento relevante está disperso, es contextual y no llega íntegramente al planificador.",
+      "Los precios transmiten toda información social y moral sin pérdida.",
+      "La descentralización garantiza siempre ausencia de crisis."
+    ],
+    "answer": 1,
+    "explanation": "El argumento del conocimiento destaca límites de la centralización. No prueba que cada precio sea perfecto ni resuelve por sí solo externalidades o desigualdad.",
+    "difficulty": "Avanzado",
+    "level": 4,
+    "authors": [
+      "Hayek"
+    ],
+    "phase": 4,
+    "topics": [
+      "Estado"
+    ],
+    "module": "hayek-keynes"
+  },
+  {
+    "id": "q035",
+    "question": "Un sistema productivo depende de un único proveedor extranjero muy eficiente. ¿Qué tensión conviene analizar?",
+    "options": [
+      "Apertura comercial frente a ausencia total de tecnología.",
+      "Producción local siempre barata frente a exterior siempre caro.",
+      "Eficiencia de costes frente a resiliencia ante interrupciones y dependencia estratégica.",
+      "Independencia absoluta como resultado automático del comercio."
+    ],
+    "answer": 2,
+    "explanation": "La diversificación puede costar más y reducir vulnerabilidades. Deben compararse riesgos, sustitutos, plazos y costes; ni autarquía ni apertura irrestricta son conclusiones automáticas.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Análisis contemporáneo"
+    ],
+    "phase": 4,
+    "topics": [
+      "Economía"
+    ],
+    "module": "globalizacion"
+  },
+  {
+    "id": "q036",
+    "question": "¿Por qué el crecimiento del comercio no determina por sí solo quién gana?",
+    "options": [
+      "Porque los intercambios nunca generan beneficios agregados.",
+      "Porque todos los grupos reciben ganancias idénticas.",
+      "Porque las instituciones no influyen en la distribución.",
+      "Los efectos distributivos dependen de sectores, propiedad, movilidad y políticas de compensación."
+    ],
+    "answer": 3,
+    "explanation": "Distinguir resultado agregado y distribución permite analizar beneficiarios y perjudicados sin reducir el debate a comercio bueno o malo.",
+    "difficulty": "Avanzado",
+    "level": 3,
+    "authors": [
+      "Análisis contemporáneo"
+    ],
+    "phase": 4,
+    "topics": [
+      "Poder"
+    ],
+    "module": "globalizacion"
+  },
+  {
+    "id": "q037",
+    "question": "Un país controla un nodo crítico de pagos. ¿Qué convierte esa posición en poder potencial?",
+    "options": [
+      "La dependencia de otros y la dificultad de sustituir el acceso.",
+      "El tamaño de su bandera.",
+      "La ausencia de cualquier coste al restringirlo.",
+      "La garantía de obediencia permanente de todos los países."
+    ],
+    "answer": 0,
+    "explanation": "Una red puede generar influencia por cuellos de botella. Su uso puede incentivar alternativas y tener costes para quien controla el nodo: poder potencial no es control absoluto.",
+    "difficulty": "Intermedio",
+    "level": 4,
+    "authors": [
+      "Análisis contemporáneo"
+    ],
+    "phase": 4,
+    "topics": [
+      "Estrategia"
+    ],
+    "module": "nuevo-desorden"
+  },
+  {
+    "id": "q038",
+    "question": "¿Cómo distinguir un escenario geopolítico de un hecho?",
+    "options": [
+      "Toda predicción publicada se convierte en hecho.",
+      "El escenario formula posibilidades condicionadas; el hecho requiere evidencia de algo ocurrido.",
+      "Un escenario no puede basarse en evidencia.",
+      "La opinión de un experto elimina toda incertidumbre."
+    ],
+    "answer": 1,
+    "explanation": "Un análisis riguroso identifica supuestos, fecha, evidencia y alternativas. Confundir previsión y acontecimiento crea una falsa certeza.",
+    "difficulty": "Avanzado",
+    "level": 3,
+    "authors": [
+      "Análisis contemporáneo"
+    ],
+    "phase": 4,
+    "topics": [
+      "Estado"
+    ],
+    "module": "nuevo-desorden"
+  },
+  {
+    "id": "q039",
+    "question": "Una empresa crea una autoridad de arbitraje para disputas internas. ¿Qué límite tiene compararla con el Leviatán?",
+    "options": [
+      "Toda autoridad empresarial dispone de soberanía ilimitada.",
+      "La analogía prueba que los trabajadores han cedido todos sus derechos.",
+      "Opera dentro de un orden jurídico previo y no posee la soberanía de un Estado.",
+      "El arbitraje elimina toda posibilidad de conflicto."
+    ],
+    "answer": 2,
+    "explanation": "La transferencia identifica una función de garantía, pero debe explicitar diferencias de escala, derechos, coerción y salida. Una analogía útil no es una identidad.",
+    "difficulty": "Avanzado",
+    "level": 4,
+    "authors": [
+      "Hobbes"
+    ],
+    "phase": 2,
+    "topics": [
+      "Autoridad"
+    ],
+    "module": "hobbes"
+  },
+  {
+    "id": "q040",
+    "question": "¿Qué concepto identifica mejor un poder recibido para proteger derechos y sujeto a límites?",
+    "options": [
+      "Soberanía sin restricciones.",
+      "Dominación por carisma exclusivamente.",
+      "Voluntad particular infalible.",
+      "Gobierno fiduciario."
+    ],
+    "answer": 3,
+    "explanation": "La confianza política implica una finalidad y obligaciones. Reconocer el término es solo el primer nivel: el siguiente paso es explicar cuándo se incumple ese encargo.",
+    "difficulty": "Básico",
+    "level": 1,
+    "authors": [
+      "Locke"
+    ],
+    "phase": 2,
+    "topics": [
+      "Legitimidad"
+    ],
+    "module": "locke"
+  }
+]
