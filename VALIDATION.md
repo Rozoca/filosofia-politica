@@ -1,7 +1,7 @@
 # Validación · 2 octubre 2026
 
 ## Estado de entrega
-Implementación y validación local completadas. **No publicada.** GitHub devolvió `403 Resource not accessible by integration` al crear la rama de respaldo remota. La rama de respaldo existe localmente. La URL original responde HTTP 200, pero sirve la versión anterior: eso no valida el despliegue nuevo.
+**Publicada y verificada el 3 de octubre de 2026.** Integración mediante PR #1, commit `51494e3efb8019a5c61b40ebea7b1a94143793c8`. Los 57 archivos remotos coincidían por SHA con la versión local validada. Verificados en la URL pública: portada nueva, carga de 40 preguntas, test completo de cinco respuestas, explicaciones, resultados y persistencia del intento en Mi progreso. El bloqueo del conector se resolvió mediante publicación en el navegador autorizada por el propietario.
 
 ## Pruebas realizadas
 - Inventario y análisis estático de los 25 HTML originales; resultado final: 32 HTML.
@@ -25,7 +25,6 @@ Implementación y validación local completadas. **No publicada.** GitHub devolv
 Portal y perfil profesional: HTTP 200. UNESCO y texto French/Raven alojado en MIT: HTTP 200. NobelPrize, DOI de Raven e Influence at Work: las peticiones HEAD devolvieron 403; sus fuentes se localizaron mediante búsqueda, pero no se afirma validación HTTP completa. Un bloqueo de automatización no se contabiliza como 404.
 
 ## Límites conocidos
-- Falta publicar y repetir la comprobación sobre la URL pública. No se ha modificado `main` remoto.
 - Progreso local, sin sincronización automática. Exportación/importación manual. Máximo de 100 intentos en historial.
 - Tests antiguos funcionan separados del nuevo registro de progreso.
 - Casos abiertos se autoevalúan; no existe IA que califique texto libre.

@@ -13,4 +13,4 @@ Construir componentes: `python scripts/build.py`.
 Validar: `python scripts/validate.py`.
 Previsualizar: `python -m http.server 8000` y abrir http://localhost:8000.
 
-La evolución de octubre de 2026 está preparada localmente. Consulta VALIDATION.md para confirmar el estado efectivo de publicación.
+La evolución de octubre de 2026 está publicada. Consulta VALIDATION.md para conocer las comprobaciones y limitaciones.

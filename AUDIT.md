@@ -11,7 +11,7 @@ Hallazgos comprobados:
 - Referencias editoriales genéricas a 2025, y afirmaciones sobre autocensura sin fuente en Tocqueville. Se elimina la falsa apariencia de evidencia y se distinguen analogías de hechos.
 - Fase I incluye a Tomás de Aquino: se precisa Antigüedad y Edad Media.
 - Tests locales, pestañas, acordeones y audio preexistentes deben conservarse y comprobarse.
-- Publicación: lectura GitHub correcta; crear rama por conector devuelve 403 Resource not accessible by integration. No hay permiso efectivo de escritura confirmado.
+- Publicación: lectura GitHub correcta; crear rama por conector devuelve 403 Resource not accessible by integration. La publicación se completó el 3 de octubre mediante el navegador autorizado; véase VALIDATION.md.
 
 Alcance del rigor: revisión de estructura, referencias y errores evidentes; no constituye edición crítica exhaustiva de todos los textos históricos. Las nuevas preguntas y actividades exponen límites de las analogías y lecturas alternativas.
 
